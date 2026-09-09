@@ -1,0 +1,692 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>New Orleans Bathroom Remodeling Contractor | Big Easy Bathrooms</title>
+<meta name="description" content="Big Easy Bathrooms handles every detail from concept to completion. Walk-in tubs, walk-in showers, barrier-free showers and full bathroom remodels across New Orleans.">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   Big Easy Bathrooms - homepage mockup
+   Design language modelled on dfinedesignandbuild.com:
+     warm cream ground, taupe accents, dark band, serif display
+     heading over a geometric sans body, floating pill navigation.
+   Content is Big Easy Bathrooms' own, carried from the live site.
+   Dark tone uses the client's brand navy #04223D in place of
+   D'Fine's near-black so the existing logo stays coherent.
+   ============================================================ */
+:root{
+  --cream:#F8F6F2;      /* D'Fine ground */
+  --cream-2:#F3F1ED;
+  --line:#E8E6E1;
+  --taupe:#AE9E90;      /* D'Fine accent */
+  --sand:#C7B29A;
+  --ink:#242424;        /* D'Fine heading ink */
+  --body:#55514C;
+  --navy:#04223D;       /* Big Easy brand */
+  --navy-2:#0A3357;
+  --white:#fff;
+  --serif:"Fraunces",Georgia,"Times New Roman",serif;
+  --sans:"Outfit",-apple-system,"Segoe UI",Arial,sans-serif;
+  --r:22px;
+  --wrap:1220px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--body);
+  font-family:var(--sans);font-size:17px;line-height:1.75;
+  -webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3,h4{font-family:var(--serif);color:var(--ink);font-weight:400;
+  letter-spacing:-.01em;margin:0}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 26px}
+.eyeb{font-family:var(--sans);font-size:.72rem;font-weight:600;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--taupe);
+  margin:0 0 14px}
+section{padding:88px 0}
+
+/* ---- buttons: D'Fine's 13px uppercase pill ---- */
+.btn{display:inline-block;font-family:var(--sans);font-size:13px;
+  font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  text-decoration:none;padding:15px 30px;border-radius:999px;
+  border:1.5px solid transparent;transition:.25s ease;cursor:pointer}
+.btn-p{background:var(--navy);color:#fff;border-color:var(--navy)}
+.btn-p:hover{background:var(--navy-2);border-color:var(--navy-2);
+  transform:translateY(-2px)}
+.btn-s{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn-s:hover{background:var(--ink);color:#fff;transform:translateY(-2px)}
+.btn-l{background:#fff;color:var(--navy);border-color:#fff}
+.btn-l:hover{background:var(--sand);border-color:var(--sand);color:var(--ink);
+  transform:translateY(-2px)}
+.btn-o{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}
+.btn-o:hover{background:#fff;color:var(--navy);transform:translateY(-2px)}
+
+/* ---- floating pill header, straight from D'Fine ---- */
+.topwrap{position:absolute;top:0;left:0;right:0;z-index:60;padding:22px 26px}
+.topwrap.stuck{position:fixed;padding-top:12px;
+  animation:drop .35s ease both}
+@keyframes drop{from{transform:translateY(-14px);opacity:0}to{transform:none;opacity:1}}
+.top{max-width:var(--wrap);margin:0 auto;background:var(--cream);
+  border-radius:999px;box-shadow:0 8px 30px rgba(20,20,20,.10);
+  display:flex;align-items:center;gap:20px;padding:10px 12px 10px 22px}
+.top .logo img{height:40px;width:auto}
+.nav{display:flex;align-items:center;gap:4px;margin-left:auto}
+.nav>li{list-style:none;position:relative}
+.nav a{display:block;text-decoration:none;font-size:.9rem;font-weight:500;
+  color:var(--ink);padding:10px 13px;border-radius:999px;transition:.2s}
+.nav a:hover,.nav .on>a{background:var(--cream-2);color:var(--navy)}
+.nav ul{list-style:none;margin:0;padding:8px;position:absolute;top:100%;
+  left:0;min-width:262px;background:#fff;border:1px solid var(--line);
+  border-radius:18px;box-shadow:0 18px 46px rgba(20,20,20,.14);
+  opacity:0;visibility:hidden;transform:translateY(8px);transition:.22s;
+  max-height:70vh;overflow:auto}
+.nav li:hover>ul,.nav li:focus-within>ul{opacity:1;visibility:visible;
+  transform:none}
+.nav ul a{font-size:.86rem;padding:9px 14px;border-radius:11px;
+  white-space:nowrap;font-weight:400}
+.nav .caret{font-size:.62em;opacity:.55;margin-left:5px}
+.tel{display:inline-flex;align-items:center;gap:9px;background:var(--navy);
+  color:#fff;text-decoration:none;padding:11px 21px;border-radius:999px;
+  font-weight:600;font-size:.88rem;white-space:nowrap;transition:.25s}
+.tel:hover{background:var(--navy-2)}
+.burger{display:none;background:var(--cream-2);border:0;border-radius:999px;
+  width:44px;height:44px;font-size:1.2rem;cursor:pointer;color:var(--ink)}
+
+/* ---- hero: full-bleed photo, D'Fine proportions ---- */
+.hero{position:relative;min-height:640px;display:flex;align-items:flex-end;
+  padding:170px 0 66px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover}
+.hero-bg::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(4,34,61,.30) 0%,rgba(4,34,61,.20) 38%,rgba(4,34,61,.82) 100%)}
+.hero .wrap{position:relative;z-index:2}
+.hero-copy{max-width:830px}
+.stars{display:inline-flex;align-items:center;gap:10px;
+  background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);
+  backdrop-filter:blur(6px);border-radius:999px;padding:8px 18px;
+  color:#fff;font-size:.82rem;font-weight:500;margin-bottom:22px}
+.stars b{color:var(--sand);letter-spacing:.12em}
+.hero h1{color:#fff;font-size:clamp(2.1rem,4.6vw,3.7rem);line-height:1.1;
+  font-weight:300;margin:0 0 20px;text-wrap:balance}
+.hero p{color:rgba(255,255,255,.9);font-size:1.12rem;max-width:640px;
+  margin:0 0 30px}
+.hero-cta{display:flex;gap:13px;flex-wrap:wrap}
+
+/* ---- intro ---- */
+.lead{max-width:900px}
+.lead h2{font-size:clamp(1.7rem,3.2vw,2.6rem);line-height:1.18;margin:0 0 18px}
+.lead p{font-size:1.1rem;margin:0}
+
+/* ---- service cards ---- */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;
+  margin-top:46px}
+.svc{background:#fff;border:1px solid var(--line);border-radius:var(--r);
+  overflow:hidden;text-decoration:none;display:flex;flex-direction:column;
+  transition:.3s ease}
+.svc:hover{transform:translateY(-6px);box-shadow:0 20px 44px rgba(20,20,20,.13);
+  border-color:var(--taupe)}
+.svc-img{aspect-ratio:4/3;overflow:hidden;background:var(--cream-2)}
+.svc-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.svc:hover .svc-img img{transform:scale(1.06)}
+.svc-b{padding:24px 26px 28px;flex:1;display:flex;flex-direction:column}
+.svc-b h3{font-size:1.24rem;margin:0 0 9px}
+.svc-b p{font-size:.95rem;line-height:1.65;margin:0 0 18px;flex:1}
+.more{font-family:var(--sans);font-size:12px;font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--navy);
+  display:inline-flex;align-items:center;gap:8px}
+.more span{transition:transform .3s}
+.svc:hover .more span{transform:translateX(5px)}
+.svc-all{text-align:center;margin-top:44px}
+
+/* ---- split: image + copy ---- */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.split-img{border-radius:var(--r);overflow:hidden;aspect-ratio:5/4}
+.split-img img{width:100%;height:100%;object-fit:cover}
+.split h2{font-size:clamp(1.6rem,3vw,2.3rem);line-height:1.2;margin:0 0 18px}
+.split p{margin:0 0 16px}
+.split p:last-of-type{margin-bottom:26px}
+
+/* ---- process, D'Fine's 4 across ---- */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:48px}
+.step{background:var(--cream-2);border:1px solid var(--line);
+  border-radius:var(--r);padding:30px 26px 32px;transition:.3s}
+.step:hover{background:#fff;border-color:var(--taupe);transform:translateY(-5px)}
+.step-n{font-family:var(--serif);font-size:2.5rem;line-height:1;
+  color:var(--taupe);margin:0 0 16px;font-weight:300}
+.step h3{font-size:1.1rem;line-height:1.32;margin:0 0 10px}
+.step p{font-size:.93rem;line-height:1.65;margin:0}
+
+/* ---- dark band ---- */
+.band{background:var(--navy);color:#fff;position:relative;overflow:hidden}
+.band h2{color:#fff;font-size:clamp(1.7rem,3.3vw,2.6rem);line-height:1.18;
+  margin:0 0 16px;font-weight:300}
+.band p{color:rgba(255,255,255,.86);margin:0 0 28px}
+.band .eyeb{color:var(--sand)}
+.band-in{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;
+  align-items:center}
+.band-cta{display:flex;gap:13px;flex-wrap:wrap}
+.band-strip{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.band-strip img{border-radius:16px;aspect-ratio:1/1;object-fit:cover;
+  width:100%}
+.band-strip img:nth-child(1),.band-strip img:nth-child(4){aspect-ratio:4/5}
+
+/* ---- why us ---- */
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:44px}
+.why-c{background:#fff;border:1px solid var(--line);border-radius:var(--r);
+  padding:32px 30px}
+.why-c p{margin:0;font-size:.98rem}
+
+/* ---- testimonial feature ---- */
+.feat{background:var(--cream-2);border:1px solid var(--line);
+  border-radius:var(--r);padding:56px 60px;text-align:center}
+.feat blockquote{font-family:var(--serif);font-size:clamp(1.2rem,2.3vw,1.7rem);
+  line-height:1.5;color:var(--ink);margin:0 0 22px;font-weight:300}
+.feat .who{font-size:.84rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--taupe);font-weight:600}
+
+/* ---- reviews ---- */
+.revs{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:44px}
+.rev{background:#fff;border:1px solid var(--line);border-radius:var(--r);
+  padding:28px 28px 30px}
+.rev .s{color:var(--sand);letter-spacing:.14em;font-size:.9rem;margin-bottom:12px}
+.rev p{font-size:.95rem;line-height:1.7;margin:0}
+
+/* ---- areas ---- */
+.areas{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.areas a{background:#fff;border:1px solid var(--line);border-radius:999px;
+  padding:11px 24px;text-decoration:none;font-size:.93rem;font-weight:500;
+  color:var(--ink);transition:.25s}
+.areas a:hover{background:var(--navy);color:#fff;border-color:var(--navy);
+  transform:translateY(-2px)}
+
+/* ---- newsletter / form ---- */
+.form-card{background:#fff;border:1px solid var(--line);
+  border-radius:var(--r);padding:52px 54px;text-align:center}
+.form-card h2{font-size:clamp(1.5rem,2.8vw,2.2rem);margin:0 0 10px}
+.form-card p{margin:0 0 28px}
+.frow{display:grid;grid-template-columns:repeat(4,1fr) auto;gap:12px;
+  max-width:900px;margin:0 auto;text-align:left}
+.frow input{font-family:var(--sans);font-size:.95rem;padding:14px 17px;
+  border:1px solid var(--line);border-radius:12px;background:var(--cream);
+  color:var(--ink);width:100%}
+.frow input:focus{outline:2px solid var(--taupe);outline-offset:1px;
+  background:#fff}
+.note{font-size:.8rem;color:var(--taupe);margin:18px 0 0}
+
+/* ---- footer ---- */
+footer{background:var(--navy);color:rgba(255,255,255,.76);padding:72px 0 0}
+.f-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;
+  padding-bottom:48px}
+footer img.flogo{height:46px;width:auto;background:#fff;border-radius:12px;
+  padding:8px 12px;margin-bottom:20px}
+footer h4{color:#fff;font-family:var(--sans);font-size:.76rem;font-weight:600;
+  letter-spacing:.16em;text-transform:uppercase;margin:0 0 18px}
+footer ul{list-style:none;margin:0;padding:0}
+footer li{margin:0 0 10px}
+footer a{color:rgba(255,255,255,.76);text-decoration:none;font-size:.93rem;
+  transition:.2s}
+footer a:hover{color:#fff}
+footer p{font-size:.93rem;margin:0 0 12px}
+.f-bot{border-top:1px solid rgba(255,255,255,.16);padding:22px 0;
+  display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;
+  font-size:.85rem}
+.mock{background:var(--sand);color:var(--ink);text-align:center;
+  padding:9px 16px;font-size:.8rem;font-weight:600;letter-spacing:.04em}
+
+/* ---- reveal: content is visible by default and the animation only
+   enhances it, so a failed observer can never leave a blank screen.
+   This is deliberate: the audience for walk-in tubs and grab bars is
+   the last audience that should be shown an empty page. ---- */
+.rv{opacity:1;transform:none}
+.js .rv{opacity:0;transform:translateY(22px);
+  transition:opacity .7s ease,transform .7s ease}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js .rv{opacity:1!important;transform:none!important;transition:none}
+  .btn,.svc,.step,.areas a,.svc-img img{transition:none!important}
+  .topwrap.stuck{animation:none}
+}
+
+@media (max-width:1080px){
+  .svc-grid,.why,.revs{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .f-top{grid-template-columns:1fr 1fr}
+}
+@media (max-width:900px){
+  .nav,.tel{display:none}
+  .burger{display:block;margin-left:auto}
+  .top.open .nav{display:block;position:absolute;top:74px;left:0;right:0;
+    background:#fff;border:1px solid var(--line);border-radius:20px;
+    padding:12px;box-shadow:0 20px 50px rgba(20,20,20,.16);
+    max-height:74vh;overflow:auto}
+  .top.open .nav ul{position:static;opacity:1;visibility:visible;
+    transform:none;box-shadow:none;border:0;border-left:2px solid var(--line);
+    border-radius:0;margin:2px 0 8px 14px;max-height:none}
+  .split,.band-in{grid-template-columns:1fr;gap:34px}
+  .frow{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  section{padding:62px 0}
+  .wrap{padding:0 18px}
+  .svc-grid,.why,.revs,.steps,.frow{grid-template-columns:1fr}
+  .hero{min-height:560px;padding:150px 0 50px}
+  .feat{padding:36px 24px}
+  .form-card{padding:34px 22px}
+  .f-top{grid-template-columns:1fr;gap:30px}
+  .btn{width:100%;text-align:center}
+  .hero-cta{gap:10px}
+}
+</style>
+</head>
+<body>
+<div class="mock">MOCKUP FOR REVIEW &middot; Big Easy Bathrooms homepage redesign &middot; not a live page</div>
+
+<div class="topwrap" id="topwrap">
+  <div class="top" id="top">
+    <a class="logo" href="index.html" aria-label="Big Easy Bathrooms home">
+      <img src="assets/logo.png" alt="Big Easy Bathrooms">
+    </a>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">&#9776;</button>
+    <ul class="nav" id="nav">
+      <li class="on"><a href="index.html">Home</a></li>
+      <li><a href="https://www.bigeasybathrooms.com/about/" target="_blank" rel="noopener">About</a></li>
+      <li><a href="https://www.bigeasybathrooms.com/services/" target="_blank" rel="noopener">Services <span class="caret">&#9660;</span></a>
+        <ul>
+          <li><a href="https://www.bigeasybathrooms.com/walk-in-tubs/" target="_blank" rel="noopener">Walk-in Tubs</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/walk-in-showers/" target="_blank" rel="noopener">Walk-in Showers</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/barrier-free-showers/" target="_blank" rel="noopener">Barrier-Free Showers</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/bathroom-safety/" target="_blank" rel="noopener">Bathroom Safety</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/tub-to-shower-conversions/" target="_blank" rel="noopener">Tub-to-Shower Conversions</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/bathtubs-replacement/" target="_blank" rel="noopener">Bathtubs Replacement</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/replacement-showers/" target="_blank" rel="noopener">Replacement Showers</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/shower-enclosure/" target="_blank" rel="noopener">Shower Enclosure</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/shower-surrounds/" target="_blank" rel="noopener">Shower Surrounds</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/shower-liners/" target="_blank" rel="noopener">Shower Liners</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/tub-liners/" target="_blank" rel="noopener">Tub Liners</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/shower-base/" target="_blank" rel="noopener">Shower Base</a></li>
+        </ul>
+      </li>
+      <li><a href="https://www.bigeasybathrooms.com/service-areas/" target="_blank" rel="noopener">Service Areas <span class="caret">&#9660;</span></a>
+        <ul>
+          <li><a href="https://www.bigeasybathrooms.com/service-areas/abita-springs/" target="_blank" rel="noopener">Abita Springs</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/service-areas/covington/" target="_blank" rel="noopener">Covington</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/service-areas/hammond/" target="_blank" rel="noopener">Hammond</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/service-areas/madisonville/" target="_blank" rel="noopener">Madisonville</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/service-areas/mandeville/" target="_blank" rel="noopener">Mandeville</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/service-areas/metairie/" target="_blank" rel="noopener">Metairie</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/service-areas/slidell/" target="_blank" rel="noopener">Slidell</a></li>
+        </ul>
+      </li>
+      <li><a href="https://www.bigeasybathrooms.com/reviews/" target="_blank" rel="noopener">Reviews</a></li>
+      <li><a href="https://www.bigeasybathrooms.com/faqs/" target="_blank" rel="noopener">FAQs</a></li>
+      <li><a href="https://www.bigeasybathrooms.com/contact/" target="_blank" rel="noopener">Contact</a></li>
+    </ul>
+    <a class="tel" href="tel:+15046887786">&#9742; 504-688-7786</a>
+  </div>
+</div>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="top-anchor">
+  <div class="hero-bg">
+    <img src="assets/walk-in-showers.jpg" alt="Finished walk-in shower with marble tiling in a New Orleans bathroom" fetchpriority="high">
+  </div>
+  <div class="wrap">
+    <div class="hero-copy">
+      <div class="stars"><b>&#9733;&#9733;&#9733;&#9733;&#9733;</b> Rated by Hundreds of Satisfied Customers.</div>
+      <h1>Let Us Help You Reimagine Your Bathroom In New Orleans: Where Luxury Meets Comfort and Function</h1>
+      <p>From concept to completion, Big Easy Bathrooms handles every detail, your local NOLA renovation specialists.</p>
+      <div class="hero-cta">
+        <a class="btn btn-l" href="https://www.bigeasybathrooms.com/contact/" target="_blank" rel="noopener">Get a Free Quote</a>
+        <a class="btn btn-o" href="tel:+15046887786">Call 504-688-7786</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ SERVICES ============ -->
+<section id="services">
+  <div class="wrap">
+    <div class="lead rv">
+      <p class="eyeb">Services</p>
+      <h2>Transform Your Home with Expert Bathroom Renovation Services In New Orleans</h2>
+      <p>From walk-in tubs to full shower remodels, our New Orleans craftsmen deliver custom, code-compliant bathrooms built to last.</p>
+    </div>
+
+    <div class="svc-grid">
+      <a class="svc rv" href="https://www.bigeasybathrooms.com/walk-in-tubs/" target="_blank" rel="noopener">
+        <div class="svc-img"><img src="assets/walk-in-tubs.jpg" alt="Walk-in tub installed in a New Orleans bathroom" loading="lazy"></div>
+        <div class="svc-b"><h3>Walk-in Tubs</h3>
+          <p>The premier source for walk-in tubs in New Orleans, with a wide variety of tub styles and sizes to fit your needs.</p>
+          <span class="more">Learn more <span>&rarr;</span></span></div>
+      </a>
+      <a class="svc rv" href="https://www.bigeasybathrooms.com/walk-in-showers/" target="_blank" rel="noopener">
+        <div class="svc-img"><img src="assets/walk-in-showers.jpg" alt="Walk-in shower with glass enclosure and marble tile" loading="lazy"></div>
+        <div class="svc-b"><h3>Walk-in Showers</h3>
+          <p>A safe and convenient option for New Orleans homeowners looking for reliable bathing solutions.</p>
+          <span class="more">Learn more <span>&rarr;</span></span></div>
+      </a>
+      <a class="svc rv" href="https://www.bigeasybathrooms.com/barrier-free-showers/" target="_blank" rel="noopener">
+        <div class="svc-img"><img src="assets/barrier-free-shower.jpg" alt="Barrier-free shower with no threshold and grab rail" loading="lazy"></div>
+        <div class="svc-b"><h3>Barrier-Free Showers</h3>
+          <p>Ideal for anyone who needs extra space to move around. A walk-in design with no threshold makes it easier to get in and out.</p>
+          <span class="more">Learn more <span>&rarr;</span></span></div>
+      </a>
+      <a class="svc rv" href="https://www.bigeasybathrooms.com/bathroom-safety/" target="_blank" rel="noopener">
+        <div class="svc-img"><img src="assets/grab-bar.jpg" alt="Bathroom safety grab bars fitted beside a toilet" loading="lazy"></div>
+        <div class="svc-b"><h3>Bathroom Safety</h3>
+          <p>Safety modifications that enhance comfort and help prevent accidents in the bathroom.</p>
+          <span class="more">Learn more <span>&rarr;</span></span></div>
+      </a>
+      <a class="svc rv" href="https://www.bigeasybathrooms.com/tub-to-shower-conversions/" target="_blank" rel="noopener">
+        <div class="svc-img"><img src="assets/tub-to-shower.jpg" alt="Bathroom after a tub to shower conversion" loading="lazy"></div>
+        <div class="svc-b"><h3>Tub-to-Shower Conversions</h3>
+          <p>Your dream bath in just one day. We handle everything for you, from start to finish.</p>
+          <span class="more">Learn more <span>&rarr;</span></span></div>
+      </a>
+      <a class="svc rv" href="https://www.bigeasybathrooms.com/bathtubs-replacement/" target="_blank" rel="noopener">
+        <div class="svc-img"><img src="assets/acrylic-bathtub.jpg" alt="New acrylic bathtub fitted in a corner" loading="lazy"></div>
+        <div class="svc-b"><h3>Bathtubs Replacement</h3>
+          <p>Top-quality replacement options that fit your style and budget, installed by our team of experts.</p>
+          <span class="more">Learn more <span>&rarr;</span></span></div>
+      </a>
+      <a class="svc rv" href="https://www.bigeasybathrooms.com/replacement-showers/" target="_blank" rel="noopener">
+        <div class="svc-img"><img src="assets/shower-base.jpg" alt="Replacement shower with tiled base" loading="lazy"></div>
+        <div class="svc-b"><h3>Replacement Showers</h3>
+          <p>A professional, efficient shower replacement at your New Orleans home.</p>
+          <span class="more">Learn more <span>&rarr;</span></span></div>
+      </a>
+      <a class="svc rv" href="https://www.bigeasybathrooms.com/shower-enclosure/" target="_blank" rel="noopener">
+        <div class="svc-img"><img src="assets/shower-enclosure.jpg" alt="Corner shower enclosure with clear glass doors" loading="lazy"></div>
+        <div class="svc-b"><h3>Shower Enclosure</h3>
+          <p>Renovate your current shower, or move to a tub-to-shower conversion, with an enclosure built to fit.</p>
+          <span class="more">Learn more <span>&rarr;</span></span></div>
+      </a>
+      <a class="svc rv" href="https://www.bigeasybathrooms.com/shower-surrounds/" target="_blank" rel="noopener">
+        <div class="svc-img"><img src="assets/shower-surround.jpg" alt="Tiled shower surround beside a bathroom window" loading="lazy"></div>
+        <div class="svc-b"><h3>Shower Surrounds</h3>
+          <p>Customize a shower surround and we will be pleased to install it in your New Orleans home.</p>
+          <span class="more">Learn more <span>&rarr;</span></span></div>
+      </a>
+      <a class="svc rv" href="https://www.bigeasybathrooms.com/shower-liners/" target="_blank" rel="noopener">
+        <div class="svc-img"><img src="assets/bathroom-curtain.jpg" alt="Bathroom with shower curtain over the tub" loading="lazy"></div>
+        <div class="svc-b"><h3>Shower Liners</h3>
+          <p>Keep your floor dry and safe from mildew, with a number of great designs to choose from.</p>
+          <span class="more">Learn more <span>&rarr;</span></span></div>
+      </a>
+      <a class="svc rv" href="https://www.bigeasybathrooms.com/tub-liners/" target="_blank" rel="noopener">
+        <div class="svc-img"><img src="assets/bathtub-row.jpg" alt="Bathroom with a fitted bathtub and basin" loading="lazy"></div>
+        <div class="svc-b"><h3>Tub Liners</h3>
+          <p>Top-quality tub liner products and services at competitive prices.</p>
+          <span class="more">Learn more <span>&rarr;</span></span></div>
+      </a>
+      <a class="svc rv" href="https://www.bigeasybathrooms.com/shower-base/" target="_blank" rel="noopener">
+        <div class="svc-img"><img src="assets/modern-bathroom.jpg" alt="Modern bathroom interior with a tiled shower area" loading="lazy"></div>
+        <div class="svc-b"><h3>Shower Base</h3>
+          <p>Remodel your shower by replacing the shower base underneath it.</p>
+          <span class="more">Learn more <span>&rarr;</span></span></div>
+      </a>
+    </div>
+
+    <div class="svc-all rv">
+      <a class="btn btn-p" href="https://www.bigeasybathrooms.com/services/" target="_blank" rel="noopener">Explore all services</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DESIGNED AROUND YOU ============ -->
+<section style="background:var(--cream-2)">
+  <div class="wrap">
+    <div class="split">
+      <div class="split-img rv"><img src="assets/services-feature.jpg" alt="Remodelled bathroom with a tiled tub surround" loading="lazy"></div>
+      <div class="rv">
+        <p class="eyeb">Designed around you</p>
+        <h2>Your Local New Orleans Bathroom Renovation Specialists</h2>
+        <p>You don't need to look any further for a bathroom remodeling team in New Orleans who can work with you to recreate your bathroom. Our team will help you design the bathroom of your dreams. We look forward to talking with you about the style that you like for your bath remodel project so we can start to work on it.</p>
+        <p>There are a variety of options that we offer for bathroom styles that will have the features that you desire. Depending on your bathroom space, we can include bathroom features that will provide you with the bathroom experience you like.</p>
+        <a class="btn btn-s" href="https://www.bigeasybathrooms.com/about/" target="_blank" rel="noopener">About Big Easy Bathrooms</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section>
+  <div class="wrap">
+    <div class="lead rv">
+      <p class="eyeb">How we work</p>
+      <h2>Expert Bathroom Renovations, Simplified: Discover Our Process</h2>
+    </div>
+    <div class="steps">
+      <div class="step rv"><div class="step-n">01</div>
+        <h3>Discuss Your Bathroom Renovation Goals</h3>
+        <p>Meet with our NOLA team to discuss your vision, budget, style preferences, and project requirements. We will provide expert recommendations and answer all your questions.</p></div>
+      <div class="step rv"><div class="step-n">02</div>
+        <h3>Create a Custom Bathroom Design</h3>
+        <p>Our experienced designers develop a personalized bathroom layout, helping you choose the perfect fixtures, materials, colors, and finishes to match your style.</p></div>
+      <div class="step rv"><div class="step-n">03</div>
+        <h3>Professional Bathroom Renovation</h3>
+        <p>Our skilled renovation team handles everything from demolition and plumbing to tiling, cabinetry, lighting, and fixture installation with precision and care.</p></div>
+      <div class="step rv"><div class="step-n">04</div>
+        <h3>Quality Check &amp; Project Handover</h3>
+        <p>We complete a thorough inspection to ensure every detail meets our high standards before presenting you with your beautifully finished bathroom.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DARK BAND ============ -->
+<section class="band">
+  <div class="wrap">
+    <div class="band-in">
+      <div class="rv">
+        <p class="eyeb">Why choose us</p>
+        <h2>The Best New Orleans Bathroom Remodeling Contractors</h2>
+        <p>Contact us today for a free consultation on our Bathroom Remodeling Services in NOLA!</p>
+        <div class="band-cta">
+          <a class="btn btn-l" href="https://www.bigeasybathrooms.com/contact/" target="_blank" rel="noopener">Get a Free Consultation</a>
+          <a class="btn btn-o" href="tel:+15046887786">Call 504-688-7786</a>
+        </div>
+      </div>
+      <div class="band-strip rv">
+        <img src="assets/shower-enclosure.jpg" alt="Glass shower enclosure in a remodelled bathroom" loading="lazy">
+        <img src="assets/acrylic-bathtub.jpg" alt="New acrylic bathtub" loading="lazy">
+        <img src="assets/tub-to-shower.jpg" alt="Bathroom converted from tub to shower" loading="lazy">
+        <img src="assets/walk-in-tubs.jpg" alt="Walk-in tub with a side door" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY US COPY ============ -->
+<section>
+  <div class="wrap">
+    <div class="lead rv">
+      <p class="eyeb">Award-worthy work</p>
+      <h2>Get the bathroom and experience you want</h2>
+    </div>
+    <div class="why">
+      <div class="why-c rv"><p>If you want to recreate your bathroom for the ultimate experience, our bathroom remodeling team can do the job. We are your trusted bathroom remodeling contractors in New Orleans.</p></div>
+      <div class="why-c rv"><p>We are one of the top remodeling companies that can efficiently do a bath remodel at a competitive cost. We will talk with you about your desired design for a custom bathroom remodeling that will bring a smile to your face.</p></div>
+      <div class="why-c rv"><p>Get the bathroom and experience you want with Big Easy Bathrooms! Our team can take on any bathroom remodel project. We understand your need for the best bathroom experience. Talk to our expert bathroom designer for options that will suit your style and the overall architecture of your home.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURED TESTIMONIAL ============ -->
+<section style="background:var(--cream-2);padding-top:0;background:transparent">
+  <div class="wrap">
+    <div class="feat rv">
+      <p class="eyeb">Featured testimonial</p>
+      <blockquote>"They remodeled my master bathroom, including converting the tub into a shower. During our meeting, they gave me a quote and suggested some design ideas. All of the workers who came to our home were on time and clean. A five-star service experience!"</blockquote>
+      <div class="who">Verified client &middot; New Orleans</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REVIEWS ============ -->
+<section>
+  <div class="wrap">
+    <div class="lead rv">
+      <p class="eyeb">Client testimonials</p>
+      <h2>Glowing Reviews: How We've Revitalized Bathrooms for Our Clients</h2>
+    </div>
+    <div class="revs">
+      <div class="rev rv"><div class="s">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>Big Easy Bathrooms installed my new stand-up shower. They were on time, professional, and kept me informed throughout the whole process. They were also very clean and tidy after each day. Definitely recommend them for future bathroom projects!</p></div>
+      <div class="rev rv"><div class="s">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>They did an awesome job on our bathroom remodel! They were very responsive and easy to communicate with. We're so glad we chose them to do our project!</p></div>
+      <div class="rev rv"><div class="s">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>We were impressed with the quality of workmanship shown by our installer. He was professional, courteous and knowledgeable about what needed to be done. His ability to install our tub and shower was outstanding.</p></div>
+      <div class="rev rv"><div class="s">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>They were our installers during our master bathroom remodel project. They were prompt and extremely easy to work with. They did the tear down of the existing shower and cleaned up the work area after each day's work. The new shower area looked amazing and they solved our concerns and made sure that every part of the installation was done perfectly.</p></div>
+      <div class="rev rv"><div class="s">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>Big Easy Bathrooms turned my old outhouse of a bathroom into a luxurious shower that I can enjoy forever. We greatly appreciate how these guys improved the quality of life within our house through their attention to detail. Thank you!</p></div>
+      <div class="rev rv"><div class="s">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>My tub and shower were installed by a polite and professional crew from Big Easy Bathrooms. The bathtub looks great and I love the look!</p></div>
+    </div>
+    <div class="svc-all rv">
+      <a class="btn btn-s" href="https://www.bigeasybathrooms.com/reviews/" target="_blank" rel="noopener">Read all reviews</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICE AREAS ============ -->
+<section style="background:var(--cream-2)">
+  <div class="wrap">
+    <div class="lead rv">
+      <p class="eyeb">Service areas</p>
+      <h2>Serving New Orleans and the surrounding parishes</h2>
+    </div>
+    <div class="areas rv">
+      <a href="https://www.bigeasybathrooms.com/service-areas/abita-springs/" target="_blank" rel="noopener">Abita Springs</a>
+      <a href="https://www.bigeasybathrooms.com/service-areas/covington/" target="_blank" rel="noopener">Covington</a>
+      <a href="https://www.bigeasybathrooms.com/service-areas/hammond/" target="_blank" rel="noopener">Hammond</a>
+      <a href="https://www.bigeasybathrooms.com/service-areas/madisonville/" target="_blank" rel="noopener">Madisonville</a>
+      <a href="https://www.bigeasybathrooms.com/service-areas/mandeville/" target="_blank" rel="noopener">Mandeville</a>
+      <a href="https://www.bigeasybathrooms.com/service-areas/metairie/" target="_blank" rel="noopener">Metairie</a>
+      <a href="https://www.bigeasybathrooms.com/service-areas/slidell/" target="_blank" rel="noopener">Slidell</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NEWSLETTER ============ -->
+<section>
+  <div class="wrap">
+    <div class="form-card rv">
+      <p class="eyeb">Get exclusive offers</p>
+      <h2>Get Exclusive Offers</h2>
+      <p>Join our newsletter for design tips, offers and inspiration.</p>
+      <form class="frow" onsubmit="return false">
+        <input type="text" placeholder="First and last name" aria-label="Name">
+        <input type="tel" placeholder="Phone number" aria-label="Phone">
+        <input type="email" placeholder="Email address" aria-label="Email">
+        <input type="text" placeholder="ZIP code" aria-label="ZIP code">
+        <button class="btn btn-p" type="submit">Submit</button>
+      </form>
+      <p class="note">Mockup only. This form is not connected to anything.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="f-top">
+      <div>
+        <img class="flogo" src="assets/logo.png" alt="Big Easy Bathrooms">
+        <p>Bathroom remodeling across New Orleans and the surrounding parishes, from walk-in tubs and barrier-free showers to full renovations.</p>
+        <p><a href="tel:+15046887786"><strong>504-688-7786</strong></a></p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="https://www.bigeasybathrooms.com/walk-in-tubs/" target="_blank" rel="noopener">Walk-in Tubs</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/walk-in-showers/" target="_blank" rel="noopener">Walk-in Showers</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/barrier-free-showers/" target="_blank" rel="noopener">Barrier-Free Showers</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/bathroom-safety/" target="_blank" rel="noopener">Bathroom Safety</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/tub-to-shower-conversions/" target="_blank" rel="noopener">Tub-to-Shower Conversions</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/services/" target="_blank" rel="noopener">All services</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Service areas</h4>
+        <ul>
+          <li><a href="https://www.bigeasybathrooms.com/service-areas/covington/" target="_blank" rel="noopener">Covington</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/service-areas/mandeville/" target="_blank" rel="noopener">Mandeville</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/service-areas/metairie/" target="_blank" rel="noopener">Metairie</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/service-areas/slidell/" target="_blank" rel="noopener">Slidell</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/service-areas/hammond/" target="_blank" rel="noopener">Hammond</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/service-areas/" target="_blank" rel="noopener">All areas</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="https://www.bigeasybathrooms.com/about/" target="_blank" rel="noopener">About</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/reviews/" target="_blank" rel="noopener">Reviews</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/testimonials/" target="_blank" rel="noopener">Testimonials</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/faqs/" target="_blank" rel="noopener">FAQs</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/blog/" target="_blank" rel="noopener">Blog</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/contact/" target="_blank" rel="noopener">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="f-bot">
+      <div>&copy; Big Easy Bathrooms. Design mockup for review.</div>
+      <div>
+        <a href="https://www.bigeasybathrooms.com/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a>
+        &nbsp;&middot;&nbsp;
+        <a href="https://www.bigeasybathrooms.com/terms-conditions/" target="_blank" rel="noopener">Terms &amp; Conditions</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.documentElement.className += " js";
+
+/* sticky pill header */
+var tw = document.getElementById("topwrap");
+var hero = document.querySelector(".hero");
+function onScroll(){
+  var y = window.pageYOffset || document.documentElement.scrollTop;
+  if (y > 120) { tw.classList.add("stuck"); } else { tw.classList.remove("stuck"); }
+}
+window.addEventListener("scroll", onScroll, {passive:true});
+onScroll();
+
+/* mobile menu */
+var burger = document.getElementById("burger");
+var top = document.getElementById("top");
+burger.addEventListener("click", function(){
+  var open = top.classList.toggle("open");
+  burger.setAttribute("aria-expanded", open ? "true" : "false");
+});
+
+/* scroll reveal.
+   Elements are visible in CSS by default; the .js class is what hides
+   them, and it is only added above once script is confirmed running.
+   If IntersectionObserver is missing, everything is revealed at once
+   rather than left invisible. */
+var items = document.querySelectorAll(".rv");
+if (!("IntersectionObserver" in window)) {
+  for (var i = 0; i < items.length; i++) { items[i].classList.add("in"); }
+} else {
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+    });
+  }, {rootMargin: "0px 0px -8% 0px", threshold: 0.05});
+  for (var j = 0; j < items.length; j++) { io.observe(items[j]); }
+  /* belt and braces: anything still hidden after 3s is shown anyway */
+  setTimeout(function(){
+    var still = document.querySelectorAll(".rv:not(.in)");
+    for (var k = 0; k < still.length; k++) {
+      var r = still[k].getBoundingClientRect();
+      if (r.top < window.innerHeight) { still[k].classList.add("in"); }
+    }
+  }, 3000);
+}
+</script>
+</body>
+</html>
