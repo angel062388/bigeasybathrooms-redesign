@@ -287,9 +287,194 @@ footer p{font-size:.93rem;margin:0 0 12px}
   .btn{width:100%;text-align:center}
   .hero-cta{gap:10px}
 }
+
+/* ============================================================
+   INTRO SEQUENCE
+   Bathroom scene + rising bubbles, then the Big Easy logo flies
+   in from the lower left, settles centre and floats there.
+
+   Accessibility contract for this audience (older homeowners):
+     - The overlay is display:none by DEFAULT. Only the inline
+       arming script turns it on, so no-JS never sees a gate.
+     - Two independent dismissals. The JS timer is PRIMARY and fires
+       even in a background tab. The CSS animation is the backup for
+       a dead script. Note the backup only advances while the page is
+       VISIBLE: a hidden tab freezes the animation timeline, so it
+       clears on focus rather than on a wall clock.
+     - prefers-reduced-motion: never armed at all.
+     - Shown once per browser tab session, not on every reload.
+     - Skippable by button, click, key or scroll.
+     - The page underneath is fully rendered the whole time.
+   ============================================================ */
+.intro{display:none}
+.intro-armed .intro{
+  display:grid;place-items:center;position:fixed;inset:0;z-index:9999;
+  overflow:hidden;background:var(--navy);
+  animation:introOut .6s ease 3.05s forwards;
+}
+/* the scene: client's own bathroom photo, slow drift so it reads
+   as footage rather than a still. A video element can be swapped
+   in here later; see the note in the markup below. */
+.intro-scene{position:absolute;inset:0;overflow:hidden}
+.intro-scene img,.intro-scene video{
+  width:100%;height:100%;object-fit:cover;
+  animation:introDrift 6s ease-out forwards;
+}
+.intro-scene::after{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 55%,
+    rgba(4,34,61,.34) 0%,rgba(4,34,61,.66) 60%,rgba(4,34,61,.86) 100%);
+}
+/* bubbles. Positioned + randomised by the arming script. */
+.intro-bub{position:absolute;border-radius:50%;pointer-events:none;
+  left:var(--x);bottom:var(--y);width:var(--s);height:var(--s);
+  background:radial-gradient(circle at 32% 28%,
+    rgba(255,255,255,.92) 0%,rgba(255,255,255,.34) 38%,
+    rgba(255,255,255,.07) 62%,rgba(255,255,255,.16) 100%);
+  box-shadow:inset 0 0 6px rgba(255,255,255,.5),0 0 10px rgba(199,178,154,.22);
+  opacity:0;
+  animation:introRise var(--d) linear var(--delay) infinite;
+}
+@keyframes introRise{
+  0%{opacity:0;transform:translate3d(0,0,0) scale(.45)}
+  9%{opacity:var(--o)}
+  85%{opacity:var(--o)}
+  100%{opacity:0;transform:translate3d(var(--drift),calc(-100vh - 160px),0) scale(1)}
+}
+@keyframes introDrift{
+  0%{transform:scale(1.16) translate3d(0,1.5%,0)}
+  100%{transform:scale(1) translate3d(0,0,0)}
+}
+@keyframes introOut{to{opacity:0;visibility:hidden;pointer-events:none}}
+
+/* ---- the logo: flight, then float ---- */
+.intro-logo{position:relative;z-index:2;width:min(76vw,430px);
+  will-change:transform;
+  animation:logoFly 1.55s cubic-bezier(.22,.78,.3,1) .18s both}
+/* The brand logo is navy on transparent: correct on the cream header,
+   invisible on a dark ground, and a colour filter destroys the glyph
+   inside the icon. So it sits on a cream plate instead. Keeps the brand
+   colours exact and echoes the floating pill nav used on the page. */
+.intro-plate{background:var(--cream);border-radius:26px;
+  padding:34px 40px;box-shadow:0 26px 70px rgba(0,0,0,.45);
+  animation:logoFloat 3.4s ease-in-out 1.7s infinite}
+.intro-plate img{width:100%;height:auto;display:block}
+@keyframes logoFly{
+  0%{opacity:0;transform:translate3d(-44vw,40vh,0) scale(.3) rotate(-13deg)}
+  14%{opacity:1}
+  62%{transform:translate3d(0,0,0) scale(1.07) rotate(2.5deg)}
+  80%{transform:translate3d(0,0,0) scale(.975) rotate(-1deg)}
+  100%{opacity:1;transform:translate3d(0,0,0) scale(1) rotate(0)}
+}
+@keyframes logoFloat{
+  0%,100%{transform:translate3d(0,0,0)}
+  50%{transform:translate3d(0,-13px,0)}
+}
+/* ---- skip ---- */
+.intro-skip{position:absolute;z-index:3;right:20px;bottom:20px;
+  font-family:var(--sans);font-size:13px;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;
+  color:#fff;background:rgba(255,255,255,.14);
+  border:1.5px solid rgba(255,255,255,.5);border-radius:999px;
+  padding:13px 26px;cursor:pointer;transition:.2s ease}
+.intro-skip:hover,.intro-skip:focus-visible{
+  background:#fff;color:var(--navy);border-color:#fff}
+/* instant kill when skipped */
+.intro-gone .intro{
+  animation:none!important;opacity:0!important;visibility:hidden!important;
+  pointer-events:none!important}
+/* never gate anyone who asked for less motion */
+@media (prefers-reduced-motion:reduce){
+  .intro-armed .intro{display:none!important}
+}
 </style>
 </head>
 <body>
+<!-- ============ INTRO OVERLAY ============
+     Plays once per tab session, over the top of the page.
+     The hero underneath is untouched and already rendered.
+     Everything below is self-contained: the arming script does
+     not depend on the main script block at the foot of the page.
+     ======================================================== -->
+<div class="intro" id="intro">
+  <div class="intro-scene">
+    <!-- To use real footage instead, replace this <img> with:
+         <video src="assets/intro.mp4" autoplay muted loop playsinline></video>
+         No other change is needed. -->
+    <img src="assets/hero-1.jpg" alt="" aria-hidden="true">
+  </div>
+  <div class="intro-logo">
+    <div class="intro-plate"><img src="assets/logo.png" alt="" aria-hidden="true"></div>
+  </div>
+  <button class="intro-skip" id="introSkip" type="button" aria-label="Skip intro animation">Skip</button>
+</div>
+<script>
+/* Arming script. Runs immediately, before the rest of the body parses,
+   so the overlay never flashes in or out of place. */
+(function(){
+  var html = document.documentElement;
+  var intro = document.getElementById("intro");
+  if (!intro) return;
+
+  /* 1. Anyone who asked for reduced motion never sees a gate. */
+  var reduce = false;
+  try {
+    reduce = window.matchMedia &&
+             window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  } catch (e) {}
+
+  /* 2. Once per tab session. Reviewing the page should not re-gate you. */
+  var seen = false;
+  try { seen = sessionStorage.getItem("beb_intro") === "1"; } catch (e) {}
+
+  if (reduce || seen) { intro.parentNode.removeChild(intro); return; }
+  try { sessionStorage.setItem("beb_intro", "1"); } catch (e) {}
+
+  /* 3. Bubbles, from all over. Negative delays start them mid-flight
+        so the screen is already full at frame one. */
+  var frag = document.createDocumentFragment();
+  function r(a, b){ return a + Math.random() * (b - a); }
+  for (var i = 0; i < 34; i++) {
+    var b = document.createElement("span");
+    b.className = "intro-bub";
+    b.style.setProperty("--x",     r(-2, 100).toFixed(2) + "%");
+    b.style.setProperty("--y",     r(-14, 34).toFixed(2) + "%");
+    b.style.setProperty("--s",     r(6, 34).toFixed(1) + "px");
+    b.style.setProperty("--d",     r(3.2, 7).toFixed(2) + "s");
+    b.style.setProperty("--delay", r(-4.5, 0.5).toFixed(2) + "s");
+    b.style.setProperty("--drift", r(-85, 85).toFixed(0) + "px");
+    b.style.setProperty("--o",     r(0.32, 0.85).toFixed(2));
+    frag.appendChild(b);
+  }
+  intro.appendChild(frag);
+
+  html.className += " intro-armed";
+
+  /* 4. Skip. The CSS animation clears the overlay on its own, so this
+        is a convenience, not the mechanism. */
+  var done = false;
+  function dismiss(){
+    if (done) return;
+    done = true;
+    html.className += " intro-gone";
+    window.removeEventListener("scroll", dismiss);
+    window.removeEventListener("keydown", dismiss);
+    setTimeout(function(){
+      if (intro.parentNode) { intro.parentNode.removeChild(intro); }
+    }, 400);
+  }
+  var skip = document.getElementById("introSkip");
+  if (skip) { skip.addEventListener("click", dismiss); }
+  intro.addEventListener("click", dismiss);
+  window.addEventListener("scroll", dismiss, {passive:true});
+  window.addEventListener("keydown", dismiss);
+
+  /* 5. Tidy up after the CSS fade finishes, so the overlay leaves the
+        DOM and cannot intercept anything. */
+  setTimeout(dismiss, 3900);
+})();
+</script>
+
 <div class="mock">MOCKUP FOR REVIEW &middot; Big Easy Bathrooms homepage redesign &middot; not a live page</div>
 
 <div class="head">
