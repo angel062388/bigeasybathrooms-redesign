@@ -423,12 +423,24 @@ footer p{font-size:.93rem;margin:0 0 12px}
              window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   } catch (e) {}
 
-  /* 2. Once per tab session. Reviewing the page should not re-gate you. */
+  /* 2. Replay policy. One switch, deliberately easy to flip:
+          false - the intro plays on EVERY page load  (current setting)
+          true  - it plays once per tab, then stays out of the way
+        It is false so the mockup can be reloaded and reviewed repeatedly.
+        Worth revisiting before this goes on a live public site: a repeat
+        visitor sitting through the intro on every page load is a cost. */
+  var ONCE_PER_SESSION = false;
+
   var seen = false;
-  try { seen = sessionStorage.getItem("beb_intro") === "1"; } catch (e) {}
+  if (ONCE_PER_SESSION) {
+    try { seen = sessionStorage.getItem("beb_intro") === "1"; } catch (e) {}
+  }
 
   if (reduce || seen) { intro.parentNode.removeChild(intro); return; }
-  try { sessionStorage.setItem("beb_intro", "1"); } catch (e) {}
+
+  if (ONCE_PER_SESSION) {
+    try { sessionStorage.setItem("beb_intro", "1"); } catch (e) {}
+  }
 
   /* 3. Bubbles, from all over. Negative delays start them mid-flight
         so the screen is already full at frame one. */
