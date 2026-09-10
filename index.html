@@ -310,7 +310,7 @@ footer p{font-size:.93rem;margin:0 0 12px}
 .intro-armed .intro{
   display:grid;place-items:center;position:fixed;inset:0;z-index:9999;
   overflow:hidden;background:var(--navy);
-  animation:introOut .6s ease 3.05s forwards;
+  animation:introOut .6s ease 3.6s forwards;
 }
 /* the scene: client's own bathroom photo, slow drift so it reads
    as footage rather than a still. A video element can be swapped
@@ -320,10 +320,12 @@ footer p{font-size:.93rem;margin:0 0 12px}
   width:100%;height:100%;object-fit:cover;
   animation:introDrift 6s ease-out forwards;
 }
+/* No colour cast. The photo shows through clear; only a soft neutral
+   vignette at the very edge, enough to seat the skip button. */
 .intro-scene::after{
   content:"";position:absolute;inset:0;
-  background:radial-gradient(ellipse at 50% 55%,
-    rgba(4,34,61,.34) 0%,rgba(4,34,61,.66) 60%,rgba(4,34,61,.86) 100%);
+  background:radial-gradient(ellipse at 50% 50%,
+    rgba(0,0,0,0) 44%,rgba(0,0,0,.10) 76%,rgba(0,0,0,.26) 100%);
 }
 /* bubbles. Positioned + randomised by the arming script. */
 .intro-bub{position:absolute;border-radius:50%;pointer-events:none;
@@ -331,7 +333,9 @@ footer p{font-size:.93rem;margin:0 0 12px}
   background:radial-gradient(circle at 32% 28%,
     rgba(255,255,255,.92) 0%,rgba(255,255,255,.34) 38%,
     rgba(255,255,255,.07) 62%,rgba(255,255,255,.16) 100%);
-  box-shadow:inset 0 0 6px rgba(255,255,255,.5),0 0 10px rgba(199,178,154,.22);
+  box-shadow:inset 0 0 7px rgba(255,255,255,.75),
+             0 0 0 1px rgba(116,168,204,.28),
+             0 2px 9px rgba(0,0,0,.12);
   opacity:0;
   animation:introRise var(--d) linear var(--delay) infinite;
 }
@@ -348,17 +352,75 @@ footer p{font-size:.93rem;margin:0 0 12px}
 @keyframes introOut{to{opacity:0;visibility:hidden;pointer-events:none}}
 
 /* ---- the logo: flight, then float ---- */
-.intro-logo{position:relative;z-index:2;width:min(76vw,430px);
+/* The logo rides inside one big bubble, which pops and releases it.
+   The scene is now clear rather than navy, so the navy logo has good
+   contrast on its own; a white halo lifts it off the busier areas. */
+.intro-logo{position:relative;z-index:2;
+  width:min(80vw,400px);aspect-ratio:1;display:grid;place-items:center;
   will-change:transform;
-  animation:logoFly 1.55s cubic-bezier(.22,.78,.3,1) .18s both}
-/* The brand logo is navy on transparent: correct on the cream header,
-   invisible on a dark ground, and a colour filter destroys the glyph
-   inside the icon. So it sits on a cream plate instead. Keeps the brand
-   colours exact and echoes the floating pill nav used on the page. */
-.intro-plate{background:var(--cream);border-radius:26px;
-  padding:34px 40px;box-shadow:0 26px 70px rgba(0,0,0,.45);
-  animation:logoFloat 3.4s ease-in-out 1.7s infinite}
-.intro-plate img{width:100%;height:auto;display:block}
+  animation:logoFly 1.5s cubic-bezier(.22,.78,.3,1) .18s both}
+
+/* the shell: glassy, refracts the bathroom behind it */
+.intro-bubble{position:absolute;inset:0;border-radius:50%;
+  /* A bubble reads from its RIM, not its fill. The first gradient is a
+     bright band held right at the edge; without it the shape looks like
+     a smudge on a light photo. The second is the body and refraction. */
+  background:
+    radial-gradient(circle at 50% 50%,
+      rgba(255,255,255,0) 60%,rgba(255,255,255,.26) 82%,
+      rgba(255,255,255,.88) 94%,rgba(255,255,255,.60) 98.5%,
+      rgba(255,255,255,0) 100%),
+    radial-gradient(circle at 34% 28%,
+      rgba(255,255,255,.58) 0%,rgba(255,255,255,.20) 34%,
+      rgba(163,209,238,.16) 64%,rgba(255,255,255,.10) 100%);
+  border:1px solid rgba(255,255,255,.6);
+  box-shadow:inset 0 0 30px rgba(255,255,255,.55),
+             inset 16px 18px 42px rgba(255,255,255,.45),
+             inset -18px -22px 52px rgba(96,150,190,.32),
+             0 20px 48px rgba(0,0,0,.17);
+  -webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);
+  animation:bubblePop .34s cubic-bezier(.3,0,.6,1) 1.72s forwards}
+/* bounce light, lower right */
+.intro-bubble::after{content:"";position:absolute;
+  right:16%;bottom:15%;width:17%;height:11%;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.7),rgba(255,255,255,0) 72%)}
+.intro-shine{position:absolute;left:19%;top:13%;width:25%;height:17%;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.98),rgba(255,255,255,0) 70%);
+  animation:bubblePop .34s cubic-bezier(.3,0,.6,1) 1.72s forwards}
+
+/* the mark, released by the pop */
+.intro-mark{position:relative;z-index:2;width:57%;
+  animation:markRelease .55s cubic-bezier(.2,.9,.3,1) 1.72s both}
+.intro-mark img{width:100%;height:auto;display:block;
+  filter:drop-shadow(0 0 10px rgba(255,255,255,.92))
+         drop-shadow(0 2px 8px rgba(0,0,0,.24));
+  animation:logoFloat 3.4s ease-in-out 2.25s infinite}
+
+/* droplets thrown out at the moment of the pop */
+.intro-drop{position:absolute;left:50%;top:50%;width:11px;height:11px;
+  border-radius:50%;opacity:0;pointer-events:none;
+  background:radial-gradient(circle at 34% 30%,
+    rgba(255,255,255,.98),rgba(255,255,255,.42));
+  box-shadow:0 0 0 1px rgba(116,168,204,.3);
+  animation:dropBurst .5s ease-out 1.72s forwards}
+
+@keyframes bubblePop{
+  0%{opacity:1;transform:scale(1)}
+  55%{opacity:.65;transform:scale(1.15)}
+  100%{opacity:0;transform:scale(1.32)}
+}
+@keyframes markRelease{
+  0%{transform:scale(.88)}
+  45%{transform:scale(1.07)}
+  100%{transform:scale(1)}
+}
+@keyframes dropBurst{
+  0%{opacity:0;transform:translate(-50%,-50%) scale(.4)}
+  18%{opacity:.95}
+  100%{opacity:0;
+    transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) scale(.25)}
+}
 @keyframes logoFly{
   0%{opacity:0;transform:translate3d(-44vw,40vh,0) scale(.3) rotate(-13deg)}
   14%{opacity:1}
@@ -374,8 +436,8 @@ footer p{font-size:.93rem;margin:0 0 12px}
 .intro-skip{position:absolute;z-index:3;right:20px;bottom:20px;
   font-family:var(--sans);font-size:13px;font-weight:600;
   letter-spacing:.08em;text-transform:uppercase;
-  color:#fff;background:rgba(255,255,255,.14);
-  border:1.5px solid rgba(255,255,255,.5);border-radius:999px;
+  color:#fff;background:rgba(4,34,61,.74);
+  border:1.5px solid rgba(255,255,255,.7);border-radius:999px;
   padding:13px 26px;cursor:pointer;transition:.2s ease}
 .intro-skip:hover,.intro-skip:focus-visible{
   background:#fff;color:var(--navy);border-color:#fff}
@@ -404,7 +466,16 @@ footer p{font-size:.93rem;margin:0 0 12px}
     <img src="assets/hero-1.jpg" alt="" aria-hidden="true">
   </div>
   <div class="intro-logo">
-    <div class="intro-plate"><img src="assets/logo.png" alt="" aria-hidden="true"></div>
+    <div class="intro-bubble"><span class="intro-shine"></span></div>
+    <div class="intro-mark"><img src="assets/logo.png" alt="" aria-hidden="true"></div>
+    <span class="intro-drop" style="--dx:-168px;--dy:-124px"></span>
+    <span class="intro-drop" style="--dx:158px;--dy:-138px"></span>
+    <span class="intro-drop" style="--dx:196px;--dy:26px"></span>
+    <span class="intro-drop" style="--dx:-186px;--dy:44px"></span>
+    <span class="intro-drop" style="--dx:-96px;--dy:172px"></span>
+    <span class="intro-drop" style="--dx:112px;--dy:164px"></span>
+    <span class="intro-drop" style="--dx:14px;--dy:-198px"></span>
+    <span class="intro-drop" style="--dx:-34px;--dy:190px"></span>
   </div>
   <button class="intro-skip" id="introSkip" type="button" aria-label="Skip intro animation">Skip</button>
 </div>
@@ -488,7 +559,7 @@ footer p{font-size:.93rem;margin:0 0 12px}
 
   /* 5. Tidy up after the CSS fade finishes, so the overlay leaves the
         DOM and cannot intercept anything. */
-  setTimeout(dismiss, 3900);
+  setTimeout(dismiss, 4500);
 })();
 </script>
 
