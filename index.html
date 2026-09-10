@@ -27,6 +27,7 @@
   --taupe:#AE9E90;      /* D'Fine accent */
   --sand:#C7B29A;
   --sand-2:#DCCDB8;   /* light sand, for dark grounds only */
+  --hero-bg:#F1EADE;  /* light sand wash under the hero only */
   --ink:#242424;        /* D'Fine heading ink */
   --body:#55514C;
   --navy:#04223D;       /* Big Easy brand */
@@ -111,17 +112,21 @@ section{padding:88px 0}
    The copy is on the cream ground now, not over a photograph, so
    every colour in here is chosen against cream.
    ============================================================ */
-.hero{position:relative;background:var(--cream);
-  padding:146px 0 66px;overflow:hidden}
+.hero{position:relative;background:var(--hero-bg);
+  padding:138px 0 62px;overflow:hidden}
+/* a hairline so the wash ends deliberately rather than just stopping */
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;
+  background:linear-gradient(90deg,rgba(174,158,144,0),rgba(174,158,144,.45),
+    rgba(174,158,144,0))}
 .hero .wrap{position:relative;z-index:2}
 .hero-grid{display:grid;grid-template-columns:auto minmax(0,1fr);
-  gap:60px;align-items:center}
+  gap:88px;align-items:center}
 
 /* ---- the magazine ---- */
 .mag-wrap{position:relative}
 /* Height-driven so the controls below it stay above the fold.
    See the note in SESSION-NOTES.md for the measurement. */
-.mag{position:relative;height:clamp(360px,54vh,560px);aspect-ratio:4/5;
+.mag{position:relative;height:clamp(390px,66vh,620px);aspect-ratio:4/5;
   width:auto;perspective:1900px;perspective-origin:0% 50%;
   border-radius:3px 13px 13px 3px;
   box-shadow:0 26px 58px rgba(36,36,36,.22),0 4px 10px rgba(36,36,36,.10)}
@@ -142,7 +147,7 @@ section{padding:88px 0}
      image, which reads as a page printed backwards. Hiding the backface
      makes it simply turn away, which is what a page does. */
   -webkit-backface-visibility:hidden;backface-visibility:hidden;
-  overflow:hidden;background:var(--cream-2);
+  overflow:hidden;background:#E6DFD3;
   /* hairline only. A full drop shadow here multiplies by the number of
      pages, because they all sit at the same coordinates. */
   box-shadow:0 0 0 1px rgba(36,36,36,.07);
@@ -673,6 +678,9 @@ footer p{font-size:.93rem;margin:0 0 12px}
     if (done) return;
     done = true;
     html.className += " intro-gone";
+    /* tell the rest of the page the screen is clear, so animations that
+       would otherwise have played behind the overlay can start now */
+    try { document.dispatchEvent(new CustomEvent("beb:introdone")); } catch (e) {}
     window.removeEventListener("scroll", dismiss);
     window.removeEventListener("keydown", dismiss);
     setTimeout(function(){
@@ -687,7 +695,7 @@ footer p{font-size:.93rem;margin:0 0 12px}
 
   /* 5. Tidy up after the CSS fade finishes, so the overlay leaves the
         DOM and cannot intercept anything. */
-  setTimeout(dismiss, 4500);
+  setTimeout(dismiss, 4300);
 })();
 </script>
 
@@ -1121,10 +1129,12 @@ if (!("IntersectionObserver" in window)) {
    Same fail-safe shape as the reveal above - if IntersectionObserver is
    missing everything lights at once, and anything still unlit after 3s
    but already on screen is lit anyway. */
-var kws = document.querySelectorAll(".kw,.kwg");
-if (!("IntersectionObserver" in window)) {
-  for (var a = 0; a < kws.length; a++) { kws[a].classList.add("lit"); }
-} else {
+function startKeywords(){
+  var kws = document.querySelectorAll(".kw,.kwg");
+  if (!("IntersectionObserver" in window)) {
+    for (var a = 0; a < kws.length; a++) { kws[a].classList.add("lit"); }
+    return;
+  }
   var kio = new IntersectionObserver(function(entries){
     entries.forEach(function(e){
       if (e.isIntersecting) { e.target.classList.add("lit"); kio.unobserve(e.target); }
@@ -1139,6 +1149,23 @@ if (!("IntersectionObserver" in window)) {
       }
     }
   }, 3000);
+}
+
+/* The hero keyword is in view the instant the page loads, so the observer
+   would fire while the intro overlay is still covering the screen. The
+   sweep would finish unseen. Hold the keywords until the intro has gone,
+   then give the eye a short beat before the highlight draws. */
+if (document.getElementById("intro")) {
+  var kwStarted = false;
+  var kwGo = function(){
+    if (kwStarted) return;
+    kwStarted = true;
+    setTimeout(startKeywords, 300);
+  };
+  document.addEventListener("beb:introdone", kwGo);
+  setTimeout(kwGo, 6000);          /* if the event never arrives, go anyway */
+} else {
+  startKeywords();
 }
 /* ---- magazine hero ----
    Pages hinge on the spine at the left. Auto-advance exists because a
