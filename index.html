@@ -26,6 +26,7 @@
   --line:#E8E6E1;
   --taupe:#AE9E90;      /* D'Fine accent */
   --sand:#C7B29A;
+  --sand-2:#DCCDB8;   /* light sand, for dark grounds only */
   --ink:#242424;        /* D'Fine heading ink */
   --body:#55514C;
   --navy:#04223D;       /* Big Easy brand */
@@ -449,6 +450,57 @@ footer p{font-size:.93rem;margin:0 0 12px}
 @media (prefers-reduced-motion:reduce){
   .intro-armed .intro{display:none!important}
 }
+
+/* ============================================================
+   KEYWORD HIGHLIGHTS
+   Two treatments only, chosen against measured contrast:
+
+     .kw   sand block BEHIND navy text  -> 7.89:1, passes AAA.
+           For cream grounds.
+     .kwg  light sand text WITH a glow  -> only where the ground is
+           dark (hero photo, navy band). Sand as lettering on cream
+           measures 1.90:1 and fails, so .kwg must never be used there.
+
+   Both follow the file's existing philosophy: the highlight is drawn
+   by default, and .js is what hides it so it can animate in. If the
+   script never runs, the highlight is simply already there.
+   ============================================================ */
+/* Both use an animated background-image rather than a positioned bar.
+   display:inline-block would make the span atomic and open a line-break
+   beside it, which orphaned the colon after the hero keyword. Inline plus
+   a background also means the bar follows the text across a wrap. */
+.kw{display:inline;color:var(--ink);padding:0 .14em;
+  border-radius:5px;
+  -webkit-box-decoration-break:clone;box-decoration-break:clone;
+  background-image:linear-gradient(var(--sand),var(--sand));
+  background-repeat:no-repeat;background-position:left center;
+  background-size:100% 78%}
+.js .kw{background-size:0% 78%}
+.js .kw.lit{background-size:100% 78%;
+  transition:background-size .8s cubic-bezier(.22,1,.36,1) .15s}
+
+/* On a photograph the letters stay white and only the bar is sand.
+   See the note in SESSION-NOTES.md for the measured numbers. */
+.kwg.on-photo{color:#fff}
+.kwg{display:inline;color:var(--sand-2);padding-bottom:.06em;
+  -webkit-box-decoration-break:clone;box-decoration-break:clone;
+  background-image:linear-gradient(var(--sand-2),var(--sand-2));
+  background-repeat:no-repeat;background-position:left 92%;
+  background-size:100% 4px}
+.js .kwg{background-size:0% 4px}
+.js .kwg.lit{background-size:100% 4px;
+  transition:background-size .95s cubic-bezier(.22,1,.36,1) .15s}
+.js .kwg.lit{animation:kwGlow 3.6s ease-in-out 1.2s infinite alternate}
+@keyframes kwGlow{
+  0%{text-shadow:0 1px 3px rgba(0,0,0,.45)}
+  100%{text-shadow:0 1px 3px rgba(0,0,0,.45),0 0 20px rgba(220,205,184,.7),
+       0 0 44px rgba(199,178,154,.42)}
+}
+@media (prefers-reduced-motion:reduce){
+  .js .kw{background-size:100% 78%!important;transition:none!important}
+  .js .kwg{background-size:100% 4px!important;transition:none!important}
+  .js .kwg.lit{animation:none!important}
+}
 </style>
 </head>
 <body>
@@ -618,7 +670,7 @@ footer p{font-size:.93rem;margin:0 0 12px}
   <div class="wrap">
     <div class="hero-copy">
       <div class="stars"><b>&#9733;&#9733;&#9733;&#9733;&#9733;</b> Rated by Hundreds of Satisfied Customers.</div>
-      <h1>Let Us Help You Reimagine Your Bathroom In New Orleans: Where Luxury Meets Comfort and Function</h1>
+      <h1>Let Us Help You Reimagine Your <span class="kwg on-photo">Bathroom In New Orleans</span>: Where Luxury Meets Comfort and Function</h1>
       <p>From concept to completion, Big Easy Bathrooms handles every detail, your local NOLA renovation specialists.</p>
       <div class="hero-cta">
         <a class="btn btn-l" href="https://www.bigeasybathrooms.com/contact/" target="_blank" rel="noopener">Get a Free Quote</a>
@@ -634,7 +686,7 @@ footer p{font-size:.93rem;margin:0 0 12px}
   <div class="wrap">
     <div class="lead rv">
       <p class="eyeb">Services</p>
-      <h2>Transform Your Home with Expert Bathroom Renovation Services In New Orleans</h2>
+      <h2>Transform Your Home with Expert <span class="kw">Bathroom Renovation Services</span> In New Orleans</h2>
       <p>From walk-in tubs to full shower remodels, our New Orleans craftsmen deliver custom, code-compliant bathrooms built to last.</p>
     </div>
 
@@ -726,7 +778,7 @@ footer p{font-size:.93rem;margin:0 0 12px}
       <div class="split-img rv"><img src="assets/services-feature.jpg" alt="Remodelled bathroom with a tiled tub surround" loading="lazy"></div>
       <div class="rv">
         <p class="eyeb">Designed around you</p>
-        <h2>Your Local New Orleans Bathroom Renovation Specialists</h2>
+        <h2>Your Local New Orleans <span class="kw">Bathroom Renovation Specialists</span></h2>
         <p>You don't need to look any further for a bathroom remodeling team in New Orleans who can work with you to recreate your bathroom. Our team will help you design the bathroom of your dreams. We look forward to talking with you about the style that you like for your bath remodel project so we can start to work on it.</p>
         <p>There are a variety of options that we offer for bathroom styles that will have the features that you desire. Depending on your bathroom space, we can include bathroom features that will provide you with the bathroom experience you like.</p>
         <a class="btn btn-s" href="https://www.bigeasybathrooms.com/about/" target="_blank" rel="noopener">About Big Easy Bathrooms</a>
@@ -740,7 +792,7 @@ footer p{font-size:.93rem;margin:0 0 12px}
   <div class="wrap">
     <div class="lead rv">
       <p class="eyeb">How we work</p>
-      <h2>Expert Bathroom Renovations, Simplified: Discover Our Process</h2>
+      <h2>Expert Bathroom Renovations, Simplified: <span class="kw">Discover Our Process</span></h2>
     </div>
     <div class="steps">
       <div class="step rv"><div class="step-n">01</div>
@@ -765,7 +817,7 @@ footer p{font-size:.93rem;margin:0 0 12px}
     <div class="band-in">
       <div class="rv">
         <p class="eyeb">Why choose us</p>
-        <h2>The Best New Orleans Bathroom Remodeling Contractors</h2>
+        <h2>The Best New Orleans <span class="kwg">Bathroom Remodeling Contractors</span></h2>
         <p>Contact us today for a free consultation on our Bathroom Remodeling Services in NOLA!</p>
         <div class="band-cta">
           <a class="btn btn-l" href="https://www.bigeasybathrooms.com/contact/" target="_blank" rel="noopener">Get a Free Consultation</a>
@@ -787,7 +839,7 @@ footer p{font-size:.93rem;margin:0 0 12px}
   <div class="wrap">
     <div class="lead rv">
       <p class="eyeb">Why Big Easy Bathrooms</p>
-      <h2>Get the bathroom and experience you want</h2>
+      <h2>Get the bathroom and <span class="kw">experience you want</span></h2>
     </div>
     <div class="why">
       <div class="why-c rv"><p>If you want to recreate your bathroom for the ultimate experience, our bathroom remodeling team can do the job. We are your trusted bathroom remodeling contractors in New Orleans.</p></div>
@@ -813,7 +865,7 @@ footer p{font-size:.93rem;margin:0 0 12px}
   <div class="wrap">
     <div class="lead rv">
       <p class="eyeb">Client testimonials</p>
-      <h2>Glowing Reviews: How We've Revitalized Bathrooms for Our Clients</h2>
+      <h2>Glowing Reviews: How We've <span class="kw">Revitalized Bathrooms</span> for Our Clients</h2>
     </div>
     <div class="revs">
       <div class="rev rv"><div class="s">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>Big Easy Bathrooms installed my new stand-up shower. They were on time, professional, and kept me informed throughout the whole process. They were also very clean and tidy after each day. Definitely recommend them for future bathroom projects!</p></div>
@@ -834,7 +886,7 @@ footer p{font-size:.93rem;margin:0 0 12px}
   <div class="wrap">
     <div class="lead rv">
       <p class="eyeb">Service areas</p>
-      <h2>Serving New Orleans and the surrounding parishes</h2>
+      <h2>Serving New Orleans and the <span class="kw">surrounding parishes</span></h2>
     </div>
     <div class="areas rv">
       <a href="https://www.bigeasybathrooms.com/service-areas/abita-springs/" target="_blank" rel="noopener">Abita Springs</a>
@@ -853,7 +905,7 @@ footer p{font-size:.93rem;margin:0 0 12px}
   <div class="wrap">
     <div class="form-card rv">
       <p class="eyeb">Newsletter</p>
-      <h2>Get Exclusive Offers</h2>
+      <h2>Get <span class="kw">Exclusive Offers</span></h2>
       <p>Join our newsletter for design tips, offers and inspiration.</p>
       <form class="frow" onsubmit="return false">
         <input type="text" placeholder="First and last name" aria-label="Name">
@@ -962,6 +1014,29 @@ if (!("IntersectionObserver" in window)) {
     for (var k = 0; k < still.length; k++) {
       var r = still[k].getBoundingClientRect();
       if (r.top < window.innerHeight) { still[k].classList.add("in"); }
+    }
+  }, 3000);
+}
+/* keyword highlights: light them as their heading scrolls into view.
+   Same fail-safe shape as the reveal above - if IntersectionObserver is
+   missing everything lights at once, and anything still unlit after 3s
+   but already on screen is lit anyway. */
+var kws = document.querySelectorAll(".kw,.kwg");
+if (!("IntersectionObserver" in window)) {
+  for (var a = 0; a < kws.length; a++) { kws[a].classList.add("lit"); }
+} else {
+  var kio = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add("lit"); kio.unobserve(e.target); }
+    });
+  }, {rootMargin: "0px 0px -6% 0px", threshold: 0.25});
+  for (var b = 0; b < kws.length; b++) { kio.observe(kws[b]); }
+  setTimeout(function(){
+    var rest = document.querySelectorAll(".kw:not(.lit),.kwg:not(.lit)");
+    for (var c = 0; c < rest.length; c++) {
+      if (rest[c].getBoundingClientRect().top < window.innerHeight) {
+        rest[c].classList.add("lit");
+      }
     }
   }, 3000);
 }
