@@ -77,8 +77,9 @@ section{padding:88px 0}
 .topwrap.stuck{position:fixed;padding-top:12px;
   animation:drop .35s ease both}
 @keyframes drop{from{transform:translateY(-14px);opacity:0}to{transform:none;opacity:1}}
-.top{max-width:var(--wrap);margin:0 auto;background:var(--cream);
-  border-radius:999px;box-shadow:0 8px 30px rgba(20,20,20,.10);
+.top{max-width:var(--wrap);margin:0 auto;background:#fff;
+  border:1px solid var(--line);
+  border-radius:999px;box-shadow:0 10px 34px rgba(20,20,20,.12);
   display:flex;align-items:center;gap:20px;padding:10px 12px 10px 22px}
 .top .logo img{height:40px;width:auto}
 .nav{display:flex;align-items:center;gap:4px;margin-left:auto}
@@ -104,24 +105,99 @@ section{padding:88px 0}
   width:44px;height:44px;font-size:1.2rem;cursor:pointer;color:var(--ink)}
 
 /* ---- hero: full-bleed photo, D'Fine proportions ---- */
-.hero{position:relative;min-height:640px;display:flex;align-items:flex-end;
-  padding:170px 0 66px;overflow:hidden}
-.hero-bg{position:absolute;inset:0;z-index:0}
-.hero-bg img{width:100%;height:100%;object-fit:cover}
-.hero-bg::after{content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(4,34,61,.30) 0%,rgba(4,34,61,.20) 38%,rgba(4,34,61,.82) 100%)}
+/* ============================================================
+   HERO - magazine spread
+   Photographs turn like pages on the left, copy sits on the right.
+   The copy is on the cream ground now, not over a photograph, so
+   every colour in here is chosen against cream.
+   ============================================================ */
+.hero{position:relative;background:var(--cream);
+  padding:146px 0 66px;overflow:hidden}
 .hero .wrap{position:relative;z-index:2}
-.hero-copy{max-width:830px}
+.hero-grid{display:grid;grid-template-columns:auto minmax(0,1fr);
+  gap:60px;align-items:center}
+
+/* ---- the magazine ---- */
+.mag-wrap{position:relative}
+/* Height-driven so the controls below it stay above the fold.
+   See the note in SESSION-NOTES.md for the measurement. */
+.mag{position:relative;height:clamp(360px,54vh,560px);aspect-ratio:4/5;
+  width:auto;perspective:1900px;perspective-origin:0% 50%;
+  border-radius:3px 13px 13px 3px;
+  box-shadow:0 26px 58px rgba(36,36,36,.22),0 4px 10px rgba(36,36,36,.10)}
+/* the spine, on the left, which is what the pages hinge on */
+.mag::before{content:"";position:absolute;left:-10px;top:1.5%;bottom:1.5%;
+  width:15px;border-radius:9px 0 0 9px;z-index:0;
+  background:linear-gradient(90deg,#B4A490,#DCCDB8 55%,#C7B29A);
+  box-shadow:0 14px 32px rgba(36,36,36,.2)}
+/* the cut edge of the pages underneath, so it reads as a stack */
+.mag::after{content:"";position:absolute;right:-7px;top:1%;bottom:1%;width:9px;
+  border-radius:0 9px 9px 0;z-index:0;
+  background:repeating-linear-gradient(180deg,#fff 0 2px,#EAE6DF 2px 4px);
+  box-shadow:0 14px 28px rgba(36,36,36,.14)}
+.mag-stack{position:absolute;inset:0;transform-style:preserve-3d}
+.mag-pg{position:absolute;inset:0;margin:0;
+  transform-origin:left center;border-radius:3px 13px 13px 3px;
+  /* past 90deg the browser would paint a mirrored copy of the front
+     image, which reads as a page printed backwards. Hiding the backface
+     makes it simply turn away, which is what a page does. */
+  -webkit-backface-visibility:hidden;backface-visibility:hidden;
+  overflow:hidden;background:var(--cream-2);
+  /* hairline only. A full drop shadow here multiplies by the number of
+     pages, because they all sit at the same coordinates. */
+  box-shadow:0 0 0 1px rgba(36,36,36,.07);
+  transition:transform 1.15s cubic-bezier(.62,.03,.3,1)}
+.mag-pg img{width:100%;height:100%;object-fit:cover;display:block}
+/* gutter shading, deepest at the spine, so the page looks bound */
+.mag-pg::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(90deg,rgba(36,36,36,.34) 0%,
+    rgba(36,36,36,.10) 9%,rgba(36,36,36,0) 30%)}
+.mag-pg.turning{transform:rotateY(-172deg)}
+.mag-pg.noanim{transition:none}
+
+/* ---- controls. Visible, large, and the slideshow can be stopped. ---- */
+.mag-ctl{display:flex;align-items:center;gap:10px;margin-top:28px}
+.mag-btn{width:48px;height:48px;border-radius:50%;
+  border:1.5px solid var(--line);background:#fff;color:var(--navy);
+  cursor:pointer;font-size:17px;line-height:1;display:grid;place-items:center;
+  transition:.2s ease}
+.mag-btn:hover,.mag-btn:focus-visible{background:var(--navy);color:#fff;
+  border-color:var(--navy)}
+.mag-dots{display:flex;align-items:center;gap:7px;margin-left:8px}
+.mag-dot{width:10px;height:10px;padding:0;border:0;border-radius:50%;
+  background:#DAD5CC;cursor:pointer;transition:.25s ease}
+.mag-dot[aria-current="true"]{background:var(--sand);width:28px;
+  border-radius:999px}
+
+/* ---- the copy ---- */
+.hero-copy{max-width:620px}
 .stars{display:inline-flex;align-items:center;gap:10px;
-  background:rgba(4,34,61,.42);border:1px solid rgba(255,255,255,.34);
-  backdrop-filter:blur(6px);border-radius:999px;padding:8px 18px;
-  color:#fff;font-size:.82rem;font-weight:500;margin-bottom:22px}
-.stars b{color:#F5C77E;letter-spacing:.12em;font-size:.95rem}
-.hero h1{color:#fff;font-size:clamp(2.1rem,4.6vw,3.7rem);line-height:1.1;
+  background:var(--cream-2);border:1px solid var(--line);
+  border-radius:999px;padding:8px 18px;
+  color:var(--ink);font-size:.82rem;font-weight:500;margin-bottom:22px}
+.stars b{color:#8A5E10;letter-spacing:.12em;font-size:.95rem}
+.hero h1{color:var(--ink);font-size:clamp(2rem,3.5vw,3.15rem);line-height:1.11;
   font-weight:300;margin:0 0 20px;text-wrap:balance}
-.hero p{color:rgba(255,255,255,.9);font-size:1.12rem;max-width:640px;
-  margin:0 0 30px}
+.hero p{color:var(--body);font-size:1.12rem;margin:0 0 30px}
 .hero-cta{display:flex;gap:13px;flex-wrap:wrap}
+
+@media (max-width:900px){
+  .hero{padding:128px 0 58px}
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .hero-copy{max-width:none}
+  /* width-driven on small screens: a fixed height and a max-width
+     would contradict each other and distort the page */
+  .mag{height:auto;width:100%;max-width:430px;aspect-ratio:4/5}
+  .mag::before{left:-7px;width:11px}
+  .mag::after{right:-5px;width:7px}
+}
+
+/* A page that flips in 3D is exactly the motion to drop. Under reduced
+   motion the pages cross-fade instead, and nothing advances on its own. */
+@media (prefers-reduced-motion:reduce){
+  .mag-pg{transition:opacity .35s ease}
+  .mag-pg.turning{transform:none;opacity:0}
+}
 
 /* ---- intro ---- */
 .lead{max-width:900px}
@@ -664,18 +740,42 @@ footer p{font-size:.93rem;margin:0 0 12px}
 
 <!-- ============ HERO ============ -->
 <header class="hero" id="top-anchor">
-  <div class="hero-bg">
-    <img src="assets/walk-in-showers.jpg" alt="Finished walk-in shower with marble tiling in a New Orleans bathroom" fetchpriority="high">
-  </div>
   <div class="wrap">
-    <div class="hero-copy">
-      <div class="stars"><b>&#9733;&#9733;&#9733;&#9733;&#9733;</b> Rated by Hundreds of Satisfied Customers.</div>
-      <h1>Let Us Help You Reimagine Your <span class="kwg on-photo">Bathroom In New Orleans</span>: Where Luxury Meets Comfort and Function</h1>
-      <p>From concept to completion, Big Easy Bathrooms handles every detail, your local NOLA renovation specialists.</p>
-      <div class="hero-cta">
-        <a class="btn btn-l" href="https://www.bigeasybathrooms.com/contact/" target="_blank" rel="noopener">Get a Free Quote</a>
-        <a class="btn btn-o" href="tel:+15046887786">Call 504-688-7786</a>
+    <div class="hero-grid">
+
+      <!-- Magazine. NOTE: these six photographs are Unsplash stock, NOT
+           Big Easy Bathrooms' own projects. They are placeholders for the
+           layout. Swap them for real job photography before this goes
+           anywhere public, or the page implies work the client did not do. -->
+      <div class="mag-wrap">
+        <div class="mag">
+          <div class="mag-stack" id="magStack">
+        <figure class="mag-pg"><img src="assets/hero-mag-3.jpg" alt="Freestanding soaking tub beside a sunlit window" fetchpriority="high"></figure>
+        <figure class="mag-pg"><img src="assets/hero-mag-1.jpg" alt="Double vanity below a wide framed mirror" loading="lazy"></figure>
+        <figure class="mag-pg"><img src="assets/hero-mag-2.jpg" alt="Glass shower enclosure next to a built-in tub" loading="lazy"></figure>
+        <figure class="mag-pg"><img src="assets/hero-mag-5.jpg" alt="Twin undermount sinks under warm linear lighting" loading="lazy"></figure>
+        <figure class="mag-pg"><img src="assets/hero-mag-6.jpg" alt="Curbless walk-in shower beside a floating vanity" loading="lazy"></figure>
+        <figure class="mag-pg"><img src="assets/hero-mag-4.jpg" alt="Walk-in shower with a rain head and a stone feature wall" loading="lazy"></figure>
+          </div>
+        </div>
+        <div class="mag-ctl">
+          <button class="mag-btn" id="magPrev" type="button" aria-label="Previous photograph">&#8249;</button>
+          <button class="mag-btn" id="magNext" type="button" aria-label="Next photograph">&#8250;</button>
+          <button class="mag-btn" id="magPause" type="button" aria-pressed="false" aria-label="Pause the slideshow">&#10073;&#10073;</button>
+          <div class="mag-dots" id="magDots"></div>
+        </div>
       </div>
+
+      <div class="hero-copy">
+        <div class="stars"><b>&#9733;&#9733;&#9733;&#9733;&#9733;</b> Rated by Hundreds of Satisfied Customers.</div>
+        <h1>Let Us Help You Reimagine Your <span class="kw">Bathroom In New Orleans</span>: Where Luxury Meets Comfort and Function</h1>
+        <p>From concept to completion, Big Easy Bathrooms handles every detail, your local NOLA renovation specialists.</p>
+        <div class="hero-cta">
+          <a class="btn btn-p" href="https://www.bigeasybathrooms.com/contact/" target="_blank" rel="noopener">Get a Free Quote</a>
+          <a class="btn btn-s" href="tel:+15046887786">Call 504-688-7786</a>
+        </div>
+      </div>
+
     </div>
   </div>
 </header>
@@ -1040,6 +1140,107 @@ if (!("IntersectionObserver" in window)) {
     }
   }, 3000);
 }
+/* ---- magazine hero ----
+   Pages hinge on the spine at the left. Auto-advance exists because a
+   slideshow was asked for, but it is stoppable, it pauses whenever the
+   pointer or keyboard focus is inside, and it never runs at all under
+   prefers-reduced-motion. */
+(function(){
+  var stack = document.getElementById("magStack");
+  if (!stack) return;
+  var pages = [].slice.call(stack.querySelectorAll(".mag-pg"));
+  if (pages.length < 2) return;
+
+  var reduce = false;
+  try { reduce = window.matchMedia &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
+
+  var TURN = reduce ? 400 : 1150;
+  var GAP  = 5200;
+  var order = pages.map(function(_, i){ return i; });
+  var timer = null, paused = false, busy = false;
+
+  var dotsBox = document.getElementById("magDots");
+  var dots = pages.map(function(_, i){
+    var b = document.createElement("button");
+    b.type = "button";
+    b.className = "mag-dot";
+    b.setAttribute("aria-label", "Show photograph " + (i + 1));
+    b.addEventListener("click", function(){ jump(i); });
+    dotsBox.appendChild(b);
+    return b;
+  });
+
+  function paint(){
+    for (var k = 0; k < order.length; k++) {
+      pages[order[k]].style.zIndex = String(order.length - k);
+    }
+    for (var d = 0; d < dots.length; d++) {
+      dots[d].setAttribute("aria-current", d === order[0] ? "true" : "false");
+    }
+  }
+  function settle(){
+    for (var i = 0; i < pages.length; i++) {
+      pages[i].classList.add("noanim");
+      pages[i].classList.remove("turning");
+    }
+    paint();
+    void stack.offsetWidth;
+    for (var j = 0; j < pages.length; j++) { pages[j].classList.remove("noanim"); }
+  }
+  function advance(){
+    if (busy) return;
+    busy = true;
+    var top = pages[order[0]];
+    top.classList.add("turning");
+    setTimeout(function(){
+      order.push(order.shift());
+      settle();
+      busy = false;
+    }, TURN);
+  }
+  function back(){
+    if (busy) return;
+    order.unshift(order.pop());
+    settle();
+    restart();
+  }
+  function jump(i){
+    if (busy || i === order[0]) return;
+    var guard = 0;
+    while (order[0] !== i && guard++ < 40) { order.push(order.shift()); }
+    settle();
+    restart();
+  }
+  function stop(){ if (timer) { clearInterval(timer); timer = null; } }
+  function start(){ if (!reduce && !paused && !timer) { timer = setInterval(advance, GAP); } }
+  function restart(){ stop(); start(); }
+
+  document.getElementById("magNext").addEventListener("click", function(){ advance(); restart(); });
+  document.getElementById("magPrev").addEventListener("click", back);
+
+  var pb = document.getElementById("magPause");
+  if (reduce) {
+    pb.hidden = true;                 /* nothing is moving on its own */
+  } else {
+    pb.addEventListener("click", function(){
+      paused = !paused;
+      pb.setAttribute("aria-pressed", paused ? "true" : "false");
+      pb.setAttribute("aria-label", paused ? "Play the slideshow" : "Pause the slideshow");
+      pb.innerHTML = paused ? "&#9654;" : "&#10073;&#10073;";
+      if (paused) { stop(); } else { start(); }
+    });
+  }
+
+  var wrap = stack.parentNode.parentNode;   /* .mag-wrap */
+  wrap.addEventListener("mouseenter", stop);
+  wrap.addEventListener("mouseleave", start);
+  wrap.addEventListener("focusin", stop);
+  wrap.addEventListener("focusout", start);
+
+  paint();
+  start();
+})();
 </script>
 </body>
 </html>
