@@ -440,6 +440,11 @@ footer p{font-size:.93rem;margin:0 0 12px}
 
   if (ONCE_PER_SESSION) {
     try { sessionStorage.setItem("beb_intro", "1"); } catch (e) {}
+  } else {
+    /* Clear any flag left by an earlier once-per-session build, so a
+       browser holding old state cannot suppress the intro if the switch
+       is ever turned back on. */
+    try { sessionStorage.removeItem("beb_intro"); } catch (e) {}
   }
 
   /* 3. Bubbles, from all over. Negative delays start them mid-flight
