@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Heading highlight styles | Big Easy Bathrooms</title>
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#F8F6F2; --cream-2:#F3F1ED; --line:#E8E6E1;
+  --taupe:#AE9E90; --sand:#C7B29A; --sand-2:#DCCDB8;
+  --ink:#242424; --body:#55514C;
+  --navy:#04223D; --navy-2:#0A3357;
+  --serif:"Fraunces",Georgia,serif;
+  --sans:"Outfit",-apple-system,"Segoe UI",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--body);
+  font-family:var(--sans);font-size:17px;line-height:1.7;
+  -webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--serif);color:var(--ink);font-weight:400;margin:0}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.mock{background:var(--sand);color:var(--ink);text-align:center;
+  padding:9px 16px;font-size:.8rem;font-weight:600;letter-spacing:.04em}
+
+header.top{padding:56px 0 34px;border-bottom:1px solid var(--line)}
+header.top h1{font-size:clamp(2rem,4.4vw,3rem);line-height:1.12;margin-bottom:14px}
+.sub{max-width:62ch;font-size:1.05rem}
+.eyeb{font-size:.72rem;font-weight:600;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--taupe);margin:0 0 12px}
+
+.sw{display:flex;flex-wrap:wrap;gap:14px;margin:30px 0 4px;padding:0;list-style:none}
+.sw li{flex:0 0 auto;width:132px}
+.sw .chip{height:62px;border-radius:12px;border:1px solid rgba(0,0,0,.09)}
+.sw b{display:block;font-size:.82rem;margin-top:8px;color:var(--ink)}
+.sw span{display:block;font-size:.76rem;color:var(--body)}
+
+.opt{padding:44px 0;border-bottom:1px solid var(--line)}
+.opt-head{display:flex;flex-wrap:wrap;gap:12px;align-items:baseline;
+  justify-content:space-between;margin-bottom:6px}
+.opt h2{font-size:1.42rem}
+.num{font-family:var(--sans);font-size:.72rem;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--taupe)}
+.desc{max-width:66ch;margin:10px 0 0}
+.stage{background:var(--cream-2);border:1px solid var(--line);
+  border-radius:18px;padding:44px 38px;margin:22px 0 16px}
+.stage.dark{background:var(--navy);border-color:var(--navy)}
+.stage.dark .demo{color:#fff}
+.demo{font-family:var(--serif);font-size:clamp(1.6rem,3.6vw,2.5rem);
+  line-height:1.3;color:var(--ink);margin:0}
+.replay{font-family:var(--sans);font-size:12px;font-weight:600;
+  letter-spacing:.09em;text-transform:uppercase;cursor:pointer;
+  background:var(--navy);color:#fff;border:1.5px solid var(--navy);
+  border-radius:999px;padding:11px 24px}
+.replay:hover,.replay:focus-visible{background:var(--navy-2)}
+.verdict{display:inline-block;font-family:var(--sans);font-size:.78rem;
+  font-weight:600;border-radius:999px;padding:6px 14px;margin-left:10px}
+.pass{background:#E4EFE4;color:#1E5A2A;border:1px solid #BBD9BE}
+.fail{background:#FBE4E4;color:#8A2020;border:1px solid #EEBFBF}
+.row{display:flex;align-items:center;flex-wrap:wrap;gap:6px}
+
+/* ============ 1. UNDERLINE SWEEP ============ */
+.s1{position:relative;display:inline-block;color:inherit}
+.s1::after{content:"";position:absolute;left:0;right:0;bottom:.02em;
+  height:.11em;min-height:5px;border-radius:6px;background:var(--sand);
+  transform:scaleX(0);transform-origin:left center}
+.go .s1::after{transform:scaleX(1);
+  transition:transform .95s cubic-bezier(.22,1,.36,1) .15s}
+
+/* ============ 2. HIGHLIGHTER BLOCK ============ */
+.s2{position:relative;display:inline-block;color:var(--ink);
+  padding:0 .12em;z-index:0}
+.s2::before{content:"";position:absolute;z-index:-1;
+  left:0;right:0;top:.08em;bottom:.06em;border-radius:5px;
+  background:var(--sand);transform:scaleX(0);transform-origin:left center}
+.go .s2::before{transform:scaleX(1);
+  transition:transform .8s cubic-bezier(.22,1,.36,1) .15s}
+
+/* ============ 3. DRAWN UNDERLINE ============ */
+.s3{position:relative;display:inline-block}
+.s3 svg{position:absolute;left:-2%;bottom:-.22em;width:104%;height:.42em;
+  overflow:visible;pointer-events:none}
+.s3 path{fill:none;stroke:var(--sand);stroke-width:9;stroke-linecap:round;
+  stroke-dasharray:640;stroke-dashoffset:640}
+.go .s3 path{stroke-dashoffset:0;
+  transition:stroke-dashoffset 1.1s cubic-bezier(.5,.1,.3,1) .15s}
+
+/* ============ 4. WORD LIFT ============ */
+.s4 i{display:inline-block;font-style:normal;opacity:0;
+  transform:translateY(.5em)}
+.go .s4 i{opacity:1;transform:none;
+  transition:opacity .5s ease,transform .6s cubic-bezier(.22,1,.36,1)}
+.go .s4 i:nth-child(1){transition-delay:.10s}
+.go .s4 i:nth-child(2){transition-delay:.22s}
+.go .s4 i:nth-child(3){transition-delay:.34s}
+.s4 u{text-decoration:none;position:relative}
+.s4 u::after{content:"";position:absolute;left:0;right:0;bottom:-.06em;
+  height:.1em;min-height:4px;border-radius:6px;background:var(--sand);
+  transform:scaleX(0);transform-origin:left center}
+.go .s4 u::after{transform:scaleX(1);
+  transition:transform .8s cubic-bezier(.22,1,.36,1) .5s}
+
+/* ============ 5. GRADIENT TEXT FILL (contrast risk) ============ */
+.s5{background:linear-gradient(90deg,var(--sand) 0%,var(--taupe) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  background-size:0% 100%;background-repeat:no-repeat}
+.go .s5{background-size:100% 100%;
+  transition:background-size 1s cubic-bezier(.22,1,.36,1) .15s}
+
+/* ============ 6. GLOW, dark bands only ============ */
+.s7{position:relative;display:inline-block;color:var(--sand-2)}
+.s7::after{content:"";position:absolute;left:0;right:0;bottom:.02em;
+  height:.09em;min-height:4px;border-radius:6px;background:var(--sand-2);
+  box-shadow:0 0 14px rgba(220,205,184,.85),0 0 30px rgba(199,178,154,.55);
+  transform:scaleX(0);transform-origin:left center}
+.go .s7::after{transform:scaleX(1);
+  transition:transform .95s cubic-bezier(.22,1,.36,1) .15s}
+.go .s7{animation:glow 3.6s ease-in-out 1.2s infinite alternate}
+@keyframes glow{
+  0%{text-shadow:0 0 2px rgba(0,0,0,.3)}
+  100%{text-shadow:0 0 2px rgba(0,0,0,.3),0 0 20px rgba(220,205,184,.7),
+       0 0 42px rgba(199,178,154,.4)}
+}
+
+/* ============ 7. BRACKETS ============ */
+.s6{position:relative;display:inline-block;padding:.06em .34em}
+.s6::before,.s6::after{content:"";position:absolute;width:.42em;height:100%;
+  border:3px solid var(--sand);opacity:0;top:0}
+.s6::before{left:0;border-right:0;border-radius:5px 0 0 5px;
+  transform:translateX(.3em)}
+.s6::after{right:0;border-left:0;border-radius:0 5px 5px 0;
+  transform:translateX(-.3em)}
+.go .s6::before,.go .s6::after{opacity:1;transform:none;
+  transition:opacity .5s ease .15s,transform .7s cubic-bezier(.22,1,.36,1) .15s}
+
+footer{padding:46px 0 70px}
+.note{background:var(--cream-2);border-left:4px solid var(--sand);
+  border-radius:0 12px 12px 0;padding:20px 24px;margin:22px 0}
+.note b{color:var(--ink)}
+
+/* anyone who asked for less motion sees every style in its finished state */
+@media (prefers-reduced-motion:reduce){
+  .s1::after,.s2::before,.s4 u::after,.s7::after{transform:scaleX(1)!important;
+    transition:none!important}
+  .s3 path{stroke-dashoffset:0!important;transition:none!important}
+  .s4 i{opacity:1!important;transform:none!important;transition:none!important}
+  .s5{background-size:100% 100%!important;transition:none!important}
+  .s6::before,.s6::after{opacity:1!important;transform:none!important;
+    transition:none!important}
+  .go .s7{animation:none!important}
+}
+</style>
+</head>
+<body>
+<div class="mock">STYLE OPTIONS FOR REVIEW &middot; Big Easy Bathrooms &middot; not a live page</div>
+
+<header class="top">
+  <div class="wrap">
+    <p class="eyeb">Heading treatments</p>
+    <h1>Sand motif, and seven ways to highlight a keyword</h1>
+    <p class="sub">Each option below is live. Press Replay to watch the animation
+    again. The logo is untouched throughout, and every option switches itself off
+    for anyone whose device asks for reduced motion.</p>
+
+    <ul class="sw">
+      <li><div class="chip" style="background:#C7B29A"></div><b>Sand</b><span>#C7B29A</span></li>
+      <li><div class="chip" style="background:#DCCDB8"></div><b>Sand light</b><span>#DCCDB8</span></li>
+      <li><div class="chip" style="background:#AE9E90"></div><b>Taupe</b><span>#AE9E90</span></li>
+      <li><div class="chip" style="background:#04223D"></div><b>Brand navy</b><span>#04223D</span></li>
+      <li><div class="chip" style="background:#F8F6F2"></div><b>Cream ground</b><span>#F8F6F2</span></li>
+    </ul>
+
+    <div class="note">
+      <b>One hard limit before you choose.</b> Sand used as <em>text colour</em>
+      on the cream ground measures <b>1.90:1</b> contrast. The accessible
+      minimum is 4.5:1 for body text and 3:1 for large headings, so sand
+      lettering fails on both counts, and this audience is the least able to
+      absorb that. Sand used as a <em>background</em> behind navy text measures
+      <b>7.89:1</b> and passes at the strictest level. That is why six of the
+      seven options below put the sand behind or under the words rather than
+      in them.
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="opt">
+    <div class="opt-head"><h2>Underline sweep</h2><span class="num">Option 1</span></div>
+    <div class="stage" id="st1">
+      <p class="demo">Let us help you reimagine your
+        <span class="s1">bathroom in New Orleans</span></p>
+    </div>
+    <div class="row">
+      <button class="replay" data-t="st1">Replay</button>
+      <span class="verdict pass">Contrast safe &middot; text stays navy</span>
+    </div>
+    <p class="desc">A rounded sand bar grows out from the left under the
+    keyword. The words themselves stay full navy, so nothing about legibility
+    changes. This is the closest match to what TurnKey Pool Builders does,
+    rebuilt in Big Easy's colour.</p>
+  </section>
+
+  <section class="opt">
+    <div class="opt-head"><h2>Highlighter block</h2><span class="num">Option 2</span></div>
+    <div class="stage" id="st2">
+      <p class="demo">Walk-in tubs and
+        <span class="s2">barrier-free showers</span> built for safety</p>
+    </div>
+    <div class="row">
+      <button class="replay" data-t="st2">Replay</button>
+      <span class="verdict pass">7.89:1 &middot; passes AAA</span>
+    </div>
+    <p class="desc">A sand block wipes in behind the words like a highlighter
+    pen. The strongest option for this audience: it is the most visible from a
+    distance, and it is the one that actually uses the sand colour at full
+    strength. My pick.</p>
+  </section>
+
+  <section class="opt">
+    <div class="opt-head"><h2>Drawn underline</h2><span class="num">Option 3</span></div>
+    <div class="stage" id="st3">
+      <p class="demo">Your local
+        <span class="s3">NOLA renovation specialists<svg viewBox="0 0 600 24" preserveAspectRatio="none"><path d="M4 15 C 120 4, 300 22, 596 8"/></svg></span></p>
+    </div>
+    <div class="row">
+      <button class="replay" data-t="st3">Replay</button>
+      <span class="verdict pass">Contrast safe &middot; text stays navy</span>
+    </div>
+    <p class="desc">A slightly uneven line draws itself under the phrase, left
+    to right, as though done by hand. Warmer and less corporate than a straight
+    bar. Costs one small inline graphic per heading.</p>
+  </section>
+
+  <section class="opt">
+    <div class="opt-head"><h2>Word lift</h2><span class="num">Option 4</span></div>
+    <div class="stage" id="st4">
+      <p class="demo">Where <span class="s4"><i>luxury</i> <i>meets</i>
+        <i><u>comfort</u></i></span></p>
+    </div>
+    <div class="row">
+      <button class="replay" data-t="st4">Replay</button>
+      <span class="verdict pass">Contrast safe &middot; text stays navy</span>
+    </div>
+    <p class="desc">The keywords rise into place one after another, then a sand
+    underline lands on the last one. The most movement of any option here. Worth
+    weighing against the audience: it is the one most likely to feel busy.</p>
+  </section>
+
+  <section class="opt">
+    <div class="opt-head"><h2>Gradient lettering</h2><span class="num">Option 5</span></div>
+    <div class="stage" id="st5">
+      <p class="demo">Reimagine your
+        <span class="s5">bathroom</span> this year</p>
+    </div>
+    <div class="row">
+      <button class="replay" data-t="st5">Replay</button>
+      <span class="verdict fail">1.90:1 &middot; fails WCAG on cream</span>
+    </div>
+    <p class="desc">The keyword fills with a sand gradient, left to right. It is
+    included because it is the look people usually mean by "highlighted", and
+    because you should see it before ruling it out. On the cream ground the
+    letters are close to invisible for anyone with reduced vision. Only usable
+    on the dark navy band, which is Option 6.</p>
+  </section>
+
+  <section class="opt">
+    <div class="opt-head"><h2>Glow, on dark bands only</h2><span class="num">Option 6</span></div>
+    <div class="stage dark" id="st6">
+      <p class="demo">Ready to start your
+        <span class="s7">bathroom remodel</span>?</p>
+    </div>
+    <div class="row">
+      <button class="replay" data-t="st6">Replay</button>
+      <span class="verdict pass">Safe on navy only</span>
+    </div>
+    <p class="desc">Sand glows against the navy band, with a soft pulse that
+    keeps breathing. This is the one place light sand lettering earns its
+    contrast, because the ground behind it is dark. Do not carry it onto the
+    cream sections.</p>
+  </section>
+
+  <section class="opt" style="border-bottom:0">
+    <div class="opt-head"><h2>Brackets</h2><span class="num">Option 7</span></div>
+    <div class="stage" id="st7">
+      <p class="demo">Serving <span class="s6">Metairie and Slidell</span></p>
+    </div>
+    <div class="row">
+      <button class="replay" data-t="st7">Replay</button>
+      <span class="verdict pass">Contrast safe &middot; text stays navy</span>
+    </div>
+    <p class="desc">Sand brackets slide in and close around the phrase. Quiet,
+    and it reads well at small sizes where an underline can get lost.</p>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <div class="note">
+    <b>What I would actually ship.</b> Option 2 as the main device on cream
+    sections, Option 6 on the navy bands, and nothing else. Mixing more than two
+    treatments across one page makes the highlighting stop meaning anything.
+    Options 1 and 3 are good alternates if the block feels too heavy.
+  </div>
+  <p style="font-size:.9rem">Motion technique was studied on TurnKey Pool
+  Builders at your request. Only the mechanics were taken. No colours, fonts,
+  copy or assets crossed between the two clients.</p>
+</footer>
+
+<script>
+/* Replay: strip .go, force a reflow, put it back. */
+document.addEventListener("click", function(e){
+  var b = e.target.closest ? e.target.closest(".replay") : null;
+  if (!b) return;
+  var stage = document.getElementById(b.getAttribute("data-t"));
+  if (!stage) return;
+  stage.classList.remove("go");
+  void stage.offsetWidth;
+  stage.classList.add("go");
+});
+
+/* Play each stage as it scrolls into view. */
+var stages = document.querySelectorAll(".stage");
+if (!("IntersectionObserver" in window)) {
+  for (var i = 0; i < stages.length; i++) { stages[i].classList.add("go"); }
+} else {
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if (en.isIntersecting) { en.target.classList.add("go"); io.unobserve(en.target); }
+    });
+  }, {threshold:.35});
+  for (var j = 0; j < stages.length; j++) { io.observe(stages[j]); }
+  /* belt and braces: anything on screen after 2.5s plays anyway */
+  setTimeout(function(){
+    var left = document.querySelectorAll(".stage:not(.go)");
+    for (var k = 0; k < left.length; k++) {
+      if (left[k].getBoundingClientRect().top < window.innerHeight) {
+        left[k].classList.add("go");
+      }
+    }
+  }, 2500);
+}
+</script>
+</body>
+</html>
