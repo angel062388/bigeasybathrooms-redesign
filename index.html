@@ -915,89 +915,121 @@ footer p{font-size:.93rem;margin:0 0 12px}
 }
 
 /* ============================================================
-   REVIEWS
-   Filter pills, a full-width lead quote, six cards. Every name, tag
-   and quote is verbatim from the client's live site. The monogram
-   disc stands in for the avatar photographs (no faces).
+   REVIEWS, the spotlight
+   One review at a time in large type; the reviewer's initials ride
+   in a glass bubble that pops on every change. Tiles below jump to a
+   reviewer; pills filter by the tag the client's site gives each one.
    ============================================================ */
-.revs-tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;
-  margin-top:34px}
+.rv-head{display:flex;flex-wrap:wrap;gap:24px 40px;align-items:flex-end;
+  justify-content:space-between}
+.rv-head .lead{margin:0}
+.rv-rating{display:flex;flex-direction:column;align-items:flex-start;gap:8px;
+  padding:16px 20px;background:#fff;border:1px solid var(--line);
+  border-radius:var(--r)}
+.rv-rating .tr-stars{color:#8A5E10}
+.rv-rating .tr-r1{color:var(--ink)}
+.revs-tabs{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
 .rtab{font-family:var(--sans);font-size:.8rem;font-weight:600;
   letter-spacing:.09em;text-transform:uppercase;color:var(--ink);
   background:#fff;border:1.5px solid var(--line);border-radius:999px;
   padding:12px 20px;cursor:pointer;transition:.22s ease}
 .rtab b{font-weight:600;color:var(--body);margin-left:7px}
-.rtab:hover,.rtab:focus-visible{border-color:var(--sand);background:var(--hero-bg)}
+.rtab:hover,.rtab:focus-visible{border-color:var(--sand);background:var(--cream-2)}
 .rtab[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
 .rtab[aria-pressed="true"] b{color:var(--sand-2)}
 
-.revs{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:36px}
-.rev{position:relative;background:#fff;border:1px solid var(--line);
-  border-radius:var(--r);padding:30px 28px 26px;
-  display:flex;flex-direction:column;gap:16px;
-  transition:opacity .3s ease,transform .3s ease,border-color .3s,box-shadow .3s}
-.rev[hidden]{display:none}
-.rev.is-out{opacity:0!important;transform:scale(.96)!important}
-.rev:hover{border-color:var(--sand);box-shadow:0 18px 44px rgba(36,36,36,.08)}
-/* sand rule across the top, drawn left to right as the card reveals */
-.rev::before{content:"";position:absolute;left:28px;right:28px;top:-1px;
-  height:3px;border-radius:0 0 3px 3px;
-  background:linear-gradient(var(--sand),var(--sand)) left top/100% 100% no-repeat}
-.js .rev::before{background-size:0% 100%}
-.js .rev.in::before{background-size:100% 100%;
-  transition:background-size .9s cubic-bezier(.22,1,.36,1) .2s}
-/* stars fill one at a time */
-.rev .s{display:inline-flex;gap:5px;color:var(--sand);font-size:1.05rem;line-height:1}
-.rev .s i{font-style:normal}
-.js .rev .s i{opacity:.16;transform:scale(.7)}
-.js .rev.in .s i{opacity:1;transform:none;
-  transition:opacity .35s ease,transform .45s cubic-bezier(.22,1,.36,1)}
-.js .rev.in .s i:nth-child(1){transition-delay:.25s}
-.js .rev.in .s i:nth-child(2){transition-delay:.34s}
-.js .rev.in .s i:nth-child(3){transition-delay:.43s}
-.js .rev.in .s i:nth-child(4){transition-delay:.52s}
-.js .rev.in .s i:nth-child(5){transition-delay:.61s}
-.rev p{font-family:var(--serif);font-size:1.08rem;line-height:1.62;
-  color:var(--ink);margin:0;font-weight:400}
-.rev .who{margin-top:auto;display:flex;align-items:center;gap:12px;
-  padding-top:16px;border-top:1px solid var(--line)}
-.rev .mono{flex:0 0 auto;width:44px;height:44px;border-radius:50%;
+/* ---- the spotlight ---- */
+.spot{display:grid;grid-template-columns:300px minmax(0,1fr);gap:48px;
+  align-items:center;margin-top:36px;background:#fff;border:1px solid var(--line);
+  border-radius:var(--r);padding:44px 48px}
+.spot-left{text-align:center}
+.spot-stage{position:relative;width:220px;height:220px;margin:0 auto 18px}
+.spot-bub{position:absolute;inset:0;border-radius:50%;opacity:0;pointer-events:none;
+  background:
+    radial-gradient(circle at 50% 50%,
+      rgba(255,255,255,0) 58%,rgba(255,255,255,.3) 80%,
+      rgba(255,255,255,.96) 93%,rgba(255,255,255,.5) 98%,
+      rgba(255,255,255,0) 100%),
+    radial-gradient(circle at 34% 28%,
+      rgba(255,255,255,.72) 0%,rgba(255,255,255,.24) 30%,
+      rgba(4,34,61,.05) 60%,rgba(4,34,61,.16) 100%);
+  border:1px solid rgba(255,255,255,.85);
+  box-shadow:inset 0 0 18px rgba(255,255,255,.5),
+             inset -12px -14px 30px rgba(4,34,61,.14),
+             0 16px 34px rgba(36,36,36,.16)}
+.spot-bub i{position:absolute;left:19%;top:13%;width:25%;height:17%;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.98),rgba(255,255,255,0) 70%)}
+.spot-drops{position:absolute;left:50%;top:50%;z-index:3;pointer-events:none}
+.spot-drops i{position:absolute;left:0;top:0;width:10px;height:10px;border-radius:50%;
+  opacity:0;background:radial-gradient(circle at 34% 30%,
+    rgba(255,255,255,.98),rgba(255,255,255,.42));
+  box-shadow:0 0 0 1px rgba(4,34,61,.18)}
+.spot-ini{position:absolute;inset:0;display:grid;place-items:center;z-index:2;
+  font-family:var(--serif);font-weight:600;font-size:3.2rem;letter-spacing:.02em;
+  color:var(--navy)}
+.js .spot-stage:not(.play) .spot-ini{opacity:0}
+.spot-stage.play .spot-bub{
+  animation:ppBubIn .8s cubic-bezier(.2,.8,.25,1) both,
+            ppBubPop .38s cubic-bezier(.3,0,.6,1) 1s forwards}
+.spot-stage.play .spot-ini{animation:ppNumIn 1.55s cubic-bezier(.2,.8,.25,1) both}
+.spot-stage.play .spot-drops i{animation:dropBurst .5s ease-out 1s forwards}
+.spot-left .s{display:inline-flex;gap:6px;color:#8A5E10;font-size:1.2rem;line-height:1}
+.spot-left .s i{font-style:normal}
+.spot-right{position:relative;min-height:300px}
+.spot-pane{position:absolute;inset:0;opacity:0;transform:translateX(40px);
+  transition:opacity .5s,transform .6s cubic-bezier(.16,1,.3,1);pointer-events:none}
+.spot-pane.on{position:relative;opacity:1;transform:none;pointer-events:auto;
+  transition-delay:.12s}
+.spot-pane.out{transform:translateX(-32px)}
+.spot-pane .q{position:absolute;left:-14px;top:-42px;font-family:var(--serif);
+  font-weight:600;font-size:7rem;line-height:.6;color:var(--sand);opacity:.9;
+  pointer-events:none}
+.spot-pane p{position:relative;font-family:var(--serif);font-weight:300;
+  font-size:clamp(1.15rem,1.9vw,1.55rem);line-height:1.5;color:var(--ink);margin:0 0 22px}
+.spot-pane .who{display:flex;align-items:center;flex-wrap:wrap;gap:12px}
+.spot-pane .who b{font-family:var(--sans);font-size:1.02rem;font-weight:600;color:var(--ink)}
+.spot-pane .who small{font-family:var(--sans);font-size:.76rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--body)}
+.spot-pane .cat{font-family:var(--sans);font-size:.68rem;font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--navy);
+  background:var(--hero-bg);border:1px solid rgba(199,178,154,.6);
+  border-radius:999px;padding:6px 11px}
+.spot-ctl{display:flex;align-items:center;gap:10px;margin-top:18px}
+.spot-ctl .mag-btn{position:static;border-color:var(--line);background:#fff;color:var(--navy)}
+.spot-ctl .mag-btn:hover,.spot-ctl .mag-btn:focus-visible{background:var(--navy);color:#fff;
+  border-color:var(--navy)}
+.spot-hint{font-family:var(--sans);font-size:.7rem;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--body);margin:0 0 0 8px}
+
+/* ---- the tiles: one per reviewer, jump on click ---- */
+.rv-tiles{list-style:none;margin:22px 0 0;padding:0;display:grid;
+  grid-template-columns:repeat(7,1fr);gap:10px}
+.rv-tiles li[hidden]{display:none}
+.rv-tile{width:100%;display:flex;align-items:center;gap:10px;text-align:left;
+  background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:10px 12px;
+  cursor:pointer;font-family:var(--sans);transition:.22s ease}
+.rv-tile:hover,.rv-tile:focus-visible{border-color:var(--sand);background:var(--cream-2)}
+.rv-tile[aria-pressed="true"]{border-color:var(--navy);box-shadow:inset 0 0 0 1px var(--navy)}
+.rv-tile .mono{flex:0 0 auto;width:38px;height:38px;border-radius:50%;
   background:var(--hero-bg);border:1px solid var(--sand);color:var(--navy);
-  font-family:var(--sans);font-weight:600;font-size:.82rem;letter-spacing:.04em;
-  display:grid;place-items:center}
-.rev .who b{display:block;font-family:var(--sans);font-size:.98rem;
-  color:var(--ink);font-weight:600;line-height:1.2}
-.rev .who small{display:block;font-family:var(--sans);font-size:.76rem;
-  letter-spacing:.1em;text-transform:uppercase;color:var(--body);margin-top:3px}
-.rev .cat{margin-left:auto;flex:0 0 auto;font-family:var(--sans);
-  font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--navy);background:var(--hero-bg);
-  border:1px solid rgba(199,178,154,.6);border-radius:999px;padding:6px 11px}
-/* the lead review runs full width with an oversized quotation mark */
-.rev.lead{grid-column:1/-1;padding:44px 48px 38px;
-  display:grid;grid-template-columns:96px 1fr;gap:10px 34px;align-items:start}
-.rev.lead .q{font-family:var(--serif);font-weight:600;font-size:9rem;
-  line-height:.62;color:var(--sand);margin-top:.12em;
-  transform-origin:left top}
-.js .rev.lead .q{opacity:0;transform:scale(.5) rotate(-8deg)}
-.js .rev.lead.in .q{opacity:1;transform:none;
-  transition:opacity .5s ease .15s,transform .8s cubic-bezier(.22,1,.36,1) .15s}
-.rev.lead .body{display:flex;flex-direction:column;gap:16px}
-.rev.lead p{font-size:clamp(1.25rem,2.2vw,1.65rem);line-height:1.5;
-  font-weight:300;max-width:60ch}
-@media (max-width:1000px){.revs{grid-template-columns:1fr 1fr}}
+  font-weight:600;font-size:.74rem;letter-spacing:.04em;display:grid;place-items:center}
+.rv-tile b{display:block;font-size:.84rem;font-weight:600;color:var(--ink);line-height:1.2}
+.rv-tile small{display:block;font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--body);margin-top:2px}
+@media (max-width:1100px){.rv-tiles{grid-template-columns:repeat(4,1fr)}}
+@media (max-width:900px){
+  .spot{grid-template-columns:1fr;gap:26px;padding:30px 24px}
+  .spot-right{min-height:0}
+  .spot-pane .q{left:-6px;top:-30px;font-size:5rem}
+}
 @media (max-width:700px){
-  .revs{grid-template-columns:1fr}
-  .rev.lead{grid-template-columns:1fr;padding:32px 26px 28px}
-  .rev.lead .q{font-size:6rem;line-height:.5;margin:0}
-  .rev .cat{margin-left:0}
-  .rev .who{flex-wrap:wrap}
+  .rv-tiles{grid-template-columns:1fr 1fr}
+  .rv-head{align-items:flex-start}
 }
 @media (prefers-reduced-motion:reduce){
-  .js .rev::before{background-size:100% 100%!important;transition:none!important}
-  .js .rev .s i{opacity:1!important;transform:none!important;transition:none!important}
-  .js .rev.lead .q{opacity:1!important;transform:none!important;transition:none!important}
-  .rev{transition:none!important}
+  .js .spot-stage .spot-ini{opacity:1!important;animation:none!important;transform:none!important}
+  .spot-bub,.spot-drops{display:none!important}
+  .spot-pane{transition:none!important}
 }
 
 /* ============================================================
@@ -1613,12 +1645,19 @@ footer p{font-size:.93rem;margin:0 0 12px}
 
 <!-- ============ REVIEWS ============
      Names, service tags and quotes are verbatim from the client's live
-     site. The monogram disc replaces the avatar photographs. -->
+     site. Initials stand in for the avatar photographs (no faces). -->
 <section id="reviews" style="background:var(--hero-bg)">
   <div class="wrap">
-    <div class="lead rv">
-      <p class="eyeb">Client testimonials</p>
-      <h2>Glowing Reviews: How We've <span class="kw">Revitalized Bathrooms</span> for Our Clients</h2>
+    <div class="rv-head">
+      <div class="lead rv">
+        <p class="eyeb">Client testimonials</p>
+        <h2>Glowing Reviews: How We've <span class="kw">Revitalized Bathrooms</span> for Our Clients</h2>
+      </div>
+      <div class="rv-rating rv">
+        <b class="tr-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</b>
+        <span class="tr-r1">5-Star Reviews</span>
+        <span class="tr-badges"><span class="badge g" aria-label="Google"><i>G</i><i>o</i><i>o</i><i>g</i><i>l</i><i>e</i></span><span class="badge fb">facebook</span></span>
+      </div>
     </div>
     <div class="revs-tabs rv" role="group" aria-label="Filter reviews by service">
       <button class="rtab" type="button" data-cat="all" aria-pressed="true">All reviews <b>7</b></button>
@@ -1626,46 +1665,71 @@ footer p{font-size:.93rem;margin:0 0 12px}
       <button class="rtab" type="button" data-cat="bathtub" aria-pressed="false">Bathtub <b>2</b></button>
       <button class="rtab" type="button" data-cat="others" aria-pressed="false">Others <b>1</b></button>
     </div>
-    <div class="revs" id="revs">
-      <article class="rev lead rv" data-cat="featured">
-        <div class="q" aria-hidden="true">&#8220;</div>
-        <div class="body">
-          <div class="s" aria-label="5 out of 5 stars"><i>&#9733;</i><i>&#9733;</i><i>&#9733;</i><i>&#9733;</i><i>&#9733;</i></div>
-          <p>They remodeled my master bathroom, including converting the tub into a shower. During our meeting, they gave me a quote and suggested some design ideas. All of the workers who came to our home were on time and clean. A five-star service experience!</p>
-          <div class="who"><span class="mono" aria-hidden="true">HJ</span><div><b>Hayden Johnston</b><small>Verified client</small></div><span class="cat">Featured</span></div>
+
+    <div class="spot rv" id="spot">
+      <div class="spot-left">
+        <div class="spot-stage" id="spotStage">
+          <span class="spot-bub" aria-hidden="true"><i></i></span>
+          <span class="spot-drops" aria-hidden="true"><i style="--dx:-120px;--dy:-90px"></i><i style="--dx:112px;--dy:-100px"></i><i style="--dx:140px;--dy:20px"></i><i style="--dx:-132px;--dy:32px"></i><i style="--dx:-70px;--dy:124px"></i><i style="--dx:80px;--dy:118px"></i><i style="--dx:10px;--dy:-142px"></i><i style="--dx:-24px;--dy:136px"></i></span>
+          <span class="spot-ini" id="spotIni" aria-hidden="true">HJ</span>
         </div>
-      </article>
-      <article class="rev rv" data-cat="bathroom">
         <div class="s" aria-label="5 out of 5 stars"><i>&#9733;</i><i>&#9733;</i><i>&#9733;</i><i>&#9733;</i><i>&#9733;</i></div>
-        <p>Big Easy Bathrooms installed my new stand-up shower. They were on time, professional, and kept me informed throughout the whole process. They were also very clean and tidy after each day. Definitely recommend them for future bathroom projects!</p>
-        <div class="who"><span class="mono" aria-hidden="true">NA</span><div><b>Nathan Adams</b><small>Verified client</small></div><span class="cat">Bathroom</span></div>
-      </article>
-      <article class="rev rv" data-cat="others">
-        <div class="s" aria-label="5 out of 5 stars"><i>&#9733;</i><i>&#9733;</i><i>&#9733;</i><i>&#9733;</i><i>&#9733;</i></div>
-        <p>They did an awesome job on our bathroom remodel! They were very responsive and easy to communicate with. We're so glad we chose them to do our project!</p>
-        <div class="who"><span class="mono" aria-hidden="true">SM</span><div><b>Sydney Martin</b><small>Verified client</small></div><span class="cat">Others</span></div>
-      </article>
-      <article class="rev rv" data-cat="bathtub">
-        <div class="s" aria-label="5 out of 5 stars"><i>&#9733;</i><i>&#9733;</i><i>&#9733;</i><i>&#9733;</i><i>&#9733;</i></div>
-        <p>We were impressed with the quality of workmanship shown by our installer. He was professional, courteous and knowledgeable about what needed to be done. His ability to install our tub and shower was outstanding.</p>
-        <div class="who"><span class="mono" aria-hidden="true">CC</span><div><b>Callie Carter</b><small>Verified client</small></div><span class="cat">Bathtub</span></div>
-      </article>
-      <article class="rev rv" data-cat="bathroom">
-        <div class="s" aria-label="5 out of 5 stars"><i>&#9733;</i><i>&#9733;</i><i>&#9733;</i><i>&#9733;</i><i>&#9733;</i></div>
-        <p>They were our installers during our master bathroom remodel project. They were prompt and extremely easy to work with. They did the tear down of the existing shower and cleaned up the work area after each day's work. The new shower area looked amazing and they solved our concerns and made sure that every part of the installation was done perfectly. Remodeling a 40+ year old home takes a lot of skill and desire to do the job correctly. The team is talented and we look forward to working with them again on our next project.</p>
-        <div class="who"><span class="mono" aria-hidden="true">IB</span><div><b>Isabel Barrett</b><small>Verified client</small></div><span class="cat">Bathroom</span></div>
-      </article>
-      <article class="rev rv" data-cat="bathroom">
-        <div class="s" aria-label="5 out of 5 stars"><i>&#9733;</i><i>&#9733;</i><i>&#9733;</i><i>&#9733;</i><i>&#9733;</i></div>
-        <p>Big Easy Bathrooms turned my old outhouse of a bathroom into a luxurious shower that I can enjoy forever. We greatly appreciate how these guys improved the quality of life within our house through their attention to detail. Thank you!</p>
-        <div class="who"><span class="mono" aria-hidden="true">KG</span><div><b>Kaleb Garcia</b><small>Verified client</small></div><span class="cat">Bathroom</span></div>
-      </article>
-      <article class="rev rv" data-cat="bathtub">
-        <div class="s" aria-label="5 out of 5 stars"><i>&#9733;</i><i>&#9733;</i><i>&#9733;</i><i>&#9733;</i><i>&#9733;</i></div>
-        <p>My tub and shower were installed by a polite and professional crew from Big Easy Bathrooms. The bathtub looks great and I love the look!</p>
-        <div class="who"><span class="mono" aria-hidden="true">MR</span><div><b>Malia Roberts</b><small>Verified client</small></div><span class="cat">Bathtub</span></div>
-      </article>
+      </div>
+      <div class="spot-right" id="spotPanes" aria-live="polite">
+        <div class="spot-pane on" data-cat="featured" data-ini="HJ">
+          <span class="q" aria-hidden="true">&#8220;</span>
+          <p>They remodeled my master bathroom, including converting the tub into a shower. During our meeting, they gave me a quote and suggested some design ideas. All of the workers who came to our home were on time and clean. A five-star service experience!</p>
+          <div class="who"><b>Hayden Johnston</b><small>Verified client</small><span class="cat">Featured</span></div>
+        </div>
+        <div class="spot-pane" data-cat="bathroom" data-ini="NA">
+          <span class="q" aria-hidden="true">&#8220;</span>
+          <p>Big Easy Bathrooms installed my new stand-up shower. They were on time, professional, and kept me informed throughout the whole process. They were also very clean and tidy after each day. Definitely recommend them for future bathroom projects!</p>
+          <div class="who"><b>Nathan Adams</b><small>Verified client</small><span class="cat">Bathroom</span></div>
+        </div>
+        <div class="spot-pane" data-cat="others" data-ini="SM">
+          <span class="q" aria-hidden="true">&#8220;</span>
+          <p>They did an awesome job on our bathroom remodel! They were very responsive and easy to communicate with. We're so glad we chose them to do our project!</p>
+          <div class="who"><b>Sydney Martin</b><small>Verified client</small><span class="cat">Others</span></div>
+        </div>
+        <div class="spot-pane" data-cat="bathtub" data-ini="CC">
+          <span class="q" aria-hidden="true">&#8220;</span>
+          <p>We were impressed with the quality of workmanship shown by our installer. He was professional, courteous and knowledgeable about what needed to be done. His ability to install our tub and shower was outstanding.</p>
+          <div class="who"><b>Callie Carter</b><small>Verified client</small><span class="cat">Bathtub</span></div>
+        </div>
+        <div class="spot-pane" data-cat="bathroom" data-ini="IB">
+          <span class="q" aria-hidden="true">&#8220;</span>
+          <p>They were our installers during our master bathroom remodel project. They were prompt and extremely easy to work with. They did the tear down of the existing shower and cleaned up the work area after each day's work. The new shower area looked amazing and they solved our concerns and made sure that every part of the installation was done perfectly. Remodeling a 40+ year old home takes a lot of skill and desire to do the job correctly. The team is talented and we look forward to working with them again on our next project.</p>
+          <div class="who"><b>Isabel Barrett</b><small>Verified client</small><span class="cat">Bathroom</span></div>
+        </div>
+        <div class="spot-pane" data-cat="bathroom" data-ini="KG">
+          <span class="q" aria-hidden="true">&#8220;</span>
+          <p>Big Easy Bathrooms turned my old outhouse of a bathroom into a luxurious shower that I can enjoy forever. We greatly appreciate how these guys improved the quality of life within our house through their attention to detail. Thank you!</p>
+          <div class="who"><b>Kaleb Garcia</b><small>Verified client</small><span class="cat">Bathroom</span></div>
+        </div>
+        <div class="spot-pane" data-cat="bathtub" data-ini="MR">
+          <span class="q" aria-hidden="true">&#8220;</span>
+          <p>My tub and shower were installed by a polite and professional crew from Big Easy Bathrooms. The bathtub looks great and I love the look!</p>
+          <div class="who"><b>Malia Roberts</b><small>Verified client</small><span class="cat">Bathtub</span></div>
+        </div>
+      </div>
     </div>
+    <div class="spot-ctl rv">
+      <button class="mag-btn" id="spotPrev" type="button" aria-label="Previous review">&#8249;</button>
+      <button class="mag-btn" id="spotNext" type="button" aria-label="Next review">&#8250;</button>
+      <button class="mag-btn" id="spotPause" type="button" aria-pressed="false" aria-label="Pause the reviews">&#10073;&#10073;</button>
+      <p class="spot-hint" id="spotHint">Auto-playing &middot; Hover to pause</p>
+    </div>
+
+    <ul class="rv-tiles rv" id="rvTiles" aria-label="Choose a review">
+      <li data-cat="featured"><button class="rv-tile" type="button" data-i="0" aria-pressed="true"><span class="mono" aria-hidden="true">HJ</span><span><b>Hayden Johnston</b><small>Featured</small></span></button></li>
+      <li data-cat="bathroom"><button class="rv-tile" type="button" data-i="1" aria-pressed="false"><span class="mono" aria-hidden="true">NA</span><span><b>Nathan Adams</b><small>Bathroom</small></span></button></li>
+      <li data-cat="others"><button class="rv-tile" type="button" data-i="2" aria-pressed="false"><span class="mono" aria-hidden="true">SM</span><span><b>Sydney Martin</b><small>Others</small></span></button></li>
+      <li data-cat="bathtub"><button class="rv-tile" type="button" data-i="3" aria-pressed="false"><span class="mono" aria-hidden="true">CC</span><span><b>Callie Carter</b><small>Bathtub</small></span></button></li>
+      <li data-cat="bathroom"><button class="rv-tile" type="button" data-i="4" aria-pressed="false"><span class="mono" aria-hidden="true">IB</span><span><b>Isabel Barrett</b><small>Bathroom</small></span></button></li>
+      <li data-cat="bathroom"><button class="rv-tile" type="button" data-i="5" aria-pressed="false"><span class="mono" aria-hidden="true">KG</span><span><b>Kaleb Garcia</b><small>Bathroom</small></span></button></li>
+      <li data-cat="bathtub"><button class="rv-tile" type="button" data-i="6" aria-pressed="false"><span class="mono" aria-hidden="true">MR</span><span><b>Malia Roberts</b><small>Bathtub</small></span></button></li>
+    </ul>
+
     <div class="svc-all rv">
       <a class="btn btn-s" href="https://www.bigeasybathrooms.com/reviews/" target="_blank" rel="noopener">Read all reviews</a>
     </div>
@@ -2121,36 +2185,109 @@ if (document.getElementById("intro")) {
     io.observe(root);
   } else { inView = true; show(0, true); start(); }
 })();
-/* ---- reviews: filter by the tag the client's site puts on each one ---- */
+/* ---- reviews spotlight: one at a time, initials in a bubble that pops ---- */
 (function(){
-  var tabs = document.querySelectorAll(".rtab");
-  var cards = document.querySelectorAll(".rev");
-  if (!tabs.length || !cards.length) return;
-  function apply(cat){
+  var root = document.getElementById("spot");
+  if (!root) return;
+  var reduce = false;
+  try { reduce = window.matchMedia &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
+  var stage = document.getElementById("spotStage");
+  var ini   = document.getElementById("spotIni");
+  var panes = [].slice.call(document.getElementById("spotPanes").children);
+  var tiles = [].slice.call(document.querySelectorAll("#rvTiles li"));
+  var tabs  = [].slice.call(document.querySelectorAll(".rtab"));
+  var hint  = document.getElementById("spotHint");
+  var STEP_MS = 9000;
+  var cur = 0, timer = null, paused = false, inView = false, first = true, cat = "all";
+
+  function visible(){
+    var v = [];
+    for (var i = 0; i < panes.length; i++) {
+      if (cat === "all" || panes[i].getAttribute("data-cat") === cat) v.push(i);
+    }
+    return v;
+  }
+  function show(i, force){
+    if (i === cur && !force) return;
+    var prev = cur; cur = i;
+    for (var t = 0; t < tiles.length; t++) {
+      tiles[t].querySelector(".rv-tile").setAttribute("aria-pressed", t === i ? "true" : "false");
+    }
+    if (prev !== i) {
+      panes[prev].classList.remove("on");
+      panes[prev].classList.add("out");
+      (function(p){ setTimeout(function(){ p.classList.remove("out"); }, 700); })(panes[prev]);
+    }
+    panes[i].classList.add("on");
+    ini.textContent = panes[i].getAttribute("data-ini");
+    if (reduce) { stage.classList.add("play"); return; }
+    stage.classList.remove("play");
+    void stage.offsetWidth;
+    stage.classList.add("play");
+  }
+  function next(){
+    var v = visible(); if (!v.length) return;
+    var k = v.indexOf(cur); show(v[(k + 1) % v.length], false);
+  }
+  function back(){
+    var v = visible(); if (!v.length) return;
+    var k = v.indexOf(cur); show(v[(k - 1 + v.length) % v.length], false);
+  }
+  function stop(){ if (timer) { clearInterval(timer); timer = null; } }
+  function start(){ if (!reduce && !paused && inView && !timer) { timer = setInterval(next, STEP_MS); } }
+  function restart(){ stop(); start(); }
+
+  /* filters narrow the tiles and the rotation */
+  function apply(c){
+    cat = c;
     for (var t = 0; t < tabs.length; t++) {
-      tabs[t].setAttribute("aria-pressed",
-        tabs[t].getAttribute("data-cat") === cat ? "true" : "false");
+      tabs[t].setAttribute("aria-pressed", tabs[t].getAttribute("data-cat") === c ? "true" : "false");
     }
-    for (var c = 0; c < cards.length; c++) {
-      (function(card){
-        var match = cat === "all" || card.getAttribute("data-cat") === cat;
-        if (match) {
-          card.hidden = false;
-          card.classList.remove("is-out");
-          void card.offsetWidth;
-          card.classList.add("in");      /* already revealed once; keep it lit */
-        } else {
-          card.classList.add("is-out");
-          setTimeout(function(){
-            if (card.classList.contains("is-out")) { card.hidden = true; }
-          }, 280);
-        }
-      })(cards[c]);
+    for (var k = 0; k < tiles.length; k++) {
+      tiles[k].hidden = !(c === "all" || tiles[k].getAttribute("data-cat") === c);
     }
+    var v = visible();
+    if (v.length && v.indexOf(cur) < 0) { show(v[0], true); }
+    restart();
   }
-  for (var i = 0; i < tabs.length; i++) {
-    tabs[i].addEventListener("click", function(){ apply(this.getAttribute("data-cat")); });
+  for (var a = 0; a < tabs.length; a++) {
+    (function(b){ b.addEventListener("click", function(){ apply(b.getAttribute("data-cat")); }); })(tabs[a]);
   }
+  for (var d = 0; d < tiles.length; d++) {
+    (function(li, k){
+      li.querySelector(".rv-tile").addEventListener("click", function(){ show(k, true); restart(); });
+    })(tiles[d], d);
+  }
+  document.getElementById("spotNext").addEventListener("click", function(){ next(); restart(); });
+  document.getElementById("spotPrev").addEventListener("click", function(){ back(); restart(); });
+  var pb = document.getElementById("spotPause");
+  if (reduce) {
+    pb.hidden = true; if (hint) { hint.hidden = true; }
+  } else {
+    pb.addEventListener("click", function(){
+      paused = !paused;
+      pb.setAttribute("aria-pressed", paused ? "true" : "false");
+      pb.setAttribute("aria-label", paused ? "Play the reviews" : "Pause the reviews");
+      pb.innerHTML = paused ? "&#9654;" : "&#10073;&#10073;";
+      if (paused) { stop(); } else { start(); }
+    });
+  }
+  root.addEventListener("mouseenter", function(){ stop(); });
+  root.addEventListener("mouseleave", function(){ start(); });
+  root.addEventListener("focusin",    function(){ stop(); });
+  root.addEventListener("focusout",   function(){ start(); });
+
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function(en){
+      en.forEach(function(e){
+        inView = e.isIntersecting;
+        if (inView) { if (first) { first = false; show(0, true); } start(); }
+        else { stop(); }
+      });
+    }, {threshold: .3});
+    io.observe(root);
+  } else { inView = true; show(0, true); start(); }
 })();
 /* ---- before / after sliders ----
    A native range input covers each frame: drag, touch and keyboard all
