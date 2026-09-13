@@ -273,7 +273,8 @@ section{padding:88px 0}
 .split{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
 .split-img{border-radius:var(--r);overflow:hidden;aspect-ratio:5/4}
 .split-img img,.split-img video{width:100%;height:100%;object-fit:cover;display:block}
-.split-img.vid{aspect-ratio:16/9}
+.split-img.vid{aspect-ratio:auto;align-self:stretch;min-height:340px}
+@media (max-width:900px){.split-img.vid{aspect-ratio:16/9;min-height:0;align-self:auto}}
 .split h2{font-size:clamp(1.6rem,3vw,2.3rem);line-height:1.2;margin:0 0 18px}
 .split p{margin:0 0 16px}
 .split p:last-of-type{margin-bottom:26px}
@@ -1059,7 +1060,8 @@ footer p{font-size:.93rem;margin:0 0 12px}
    BEFORE AND AFTER GALLERY
    Sample photographs for layout review; see the markup note.
    ============================================================ */
-.gal{background:var(--cream)}
+.gal{background:#E9DDCB}   /* a shade of brown under the gallery, a step darker than the hero wash */
+.gal .eyeb{color:var(--navy)}
 .gal-note{font-size:.92rem;color:var(--body);margin:14px 0 0;
   padding:10px 14px;border-left:3px solid var(--sand);background:var(--cream-2);
   border-radius:0 10px 10px 0;display:inline-block}
@@ -1183,16 +1185,18 @@ footer p{font-size:.93rem;margin:0 0 12px}
 .mini p{font-size:.86rem;line-height:1.45;color:var(--body);margin:0}
 .mini-go{flex:0 0 auto;color:var(--navy);font-size:1.1rem;transition:transform .22s ease}
 .mini:hover .mini-go{transform:translateX(4px)}
-.safe{display:flex;align-items:center;gap:24px;margin-top:24px;background:#fff;
-  border:1px solid var(--line);border-radius:var(--r);padding:16px 26px 16px 16px;
-  text-decoration:none;color:var(--ink);transition:transform .22s ease,box-shadow .22s ease}
+.safe{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;
+  margin-top:24px;background:#E9DDCB;border:1px solid rgba(199,178,154,.5);border-radius:var(--r);
+  padding:30px 26px 28px;text-decoration:none;color:var(--ink);
+  transition:transform .22s ease,box-shadow .22s ease}
+.safe .eyeb{color:var(--navy)}
 .safe:hover,.safe:focus-visible{transform:translateY(-3px);box-shadow:0 16px 36px rgba(20,20,20,.11)}
 .safe img{width:190px;height:120px;object-fit:cover;border-radius:12px;flex:0 0 auto}
-.safe-t{flex:1;min-width:0}
+.safe-t{flex:none;max-width:62ch}
 .safe-t .eyeb{display:block;margin-bottom:6px}
 .safe h3{font-size:1.4rem;margin:0 0 6px}
-.safe p{margin:0;font-size:.95rem;line-height:1.55;color:var(--body)}
-.safe .more{flex:0 0 auto}
+.safe p{margin:0;font-size:.98rem;line-height:1.55;color:var(--ink)}
+.safe .more{flex:none;margin-top:4px}
 @media (max-width:900px){
   .cat{grid-template-columns:1fr;gap:16px}
   .cat.flip .cat-hero{order:0}
@@ -1200,12 +1204,132 @@ footer p{font-size:.93rem;margin:0 0 12px}
   .cat-cap{padding:80px 22px 22px}
   .cat-cap h3{font-size:2rem}
   .cat-list{grid-template-columns:1fr}
-  .safe{flex-wrap:wrap;gap:16px}
-  .safe img{width:100%;height:170px}
-  .safe .more{margin-left:auto}
+  .safe{padding:24px 18px 22px}
 }
 @media (prefers-reduced-motion:reduce){
   .mini,.safe,.mini-go{transition:none!important}
+}
+
+/* ============================================================
+   SERVICE AREAS, where we work
+   Pattern from the TurnKey mockup; Big Easy's tokens and footage.
+   Footage sharpens and the list slides in once on scroll-in; a city
+   picks its photograph, label and page link.
+   ============================================================ */
+.wwl-sec{position:relative;overflow:hidden;background:var(--cream-2)}
+.wwl-sec .wrap{position:relative;z-index:2}
+.wwl-bg{position:absolute;inset:0;z-index:0}
+.wwl-bg video{width:100%;height:100%;object-fit:cover;transform:scale(1.3);filter:blur(6px);
+  transition:transform 1.7s cubic-bezier(.22,1,.36,1),filter 1.4s ease}
+.wwl-sec.surf .wwl-bg video{transform:scale(1);filter:blur(0)}
+.wwl-bg::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(248,246,242,.96) 0%,rgba(248,246,242,.8) 45%,rgba(248,246,242,.96) 100%)}
+.wwl{display:grid;grid-template-columns:.92fr 1.08fr;gap:44px;margin-top:40px;align-items:center}
+.wwl-list{list-style:none;margin:0;padding:0;columns:2;column-gap:12px}
+.wwl-list li{break-inside:avoid;margin-bottom:12px}
+.js .wwl-list li{opacity:0;transform:translateX(-22px);
+  transition:opacity .5s ease,transform .6s cubic-bezier(.16,1,.3,1)}
+.js .wwl-sec.surf .wwl-list li{opacity:1;transform:none}
+.js .wwl-sec.surf .wwl-list li:nth-child(2){transition-delay:.06s}
+.js .wwl-sec.surf .wwl-list li:nth-child(3){transition-delay:.12s}
+.js .wwl-sec.surf .wwl-list li:nth-child(4){transition-delay:.18s}
+.js .wwl-sec.surf .wwl-list li:nth-child(5){transition-delay:.24s}
+.js .wwl-sec.surf .wwl-list li:nth-child(6){transition-delay:.3s}
+.js .wwl-sec.surf .wwl-list li:nth-child(7){transition-delay:.36s}
+.wwl-item{display:flex;align-items:center;gap:12px;width:100%;background:rgba(255,255,255,.82);
+  border:1px solid var(--line);border-radius:14px;padding:14px 18px;cursor:pointer;
+  font-family:var(--sans);font-weight:600;font-size:.95rem;color:var(--ink);text-align:left;
+  transition:background .22s ease,border-color .22s ease,color .22s ease,box-shadow .22s ease}
+.wwl-item i{width:9px;height:9px;border-radius:50%;background:var(--sand-2);flex:none;transition:.25s ease}
+.wwl-item:hover,.wwl-item:focus-visible{border-color:var(--sand);background:#fff;color:var(--navy)}
+.wwl-item.on{background:var(--navy);border-color:var(--navy);color:#fff;box-shadow:0 10px 24px rgba(4,34,61,.22)}
+.wwl-item.on i{background:var(--sand);box-shadow:0 0 10px rgba(199,178,154,.9)}
+.wwl-media{position:relative;aspect-ratio:4/3;border-radius:var(--r);overflow:hidden;
+  background:var(--cream-2);box-shadow:0 24px 60px rgba(36,36,36,.18)}
+.js .wwl-media{opacity:0;transform:translateY(26px) scale(.97);
+  transition:opacity .7s ease .25s,transform .85s cubic-bezier(.16,1,.3,1) .25s}
+.js .wwl-sec.surf .wwl-media{opacity:1;transform:none}
+.wwl-imgs img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s ease}
+.wwl-imgs img.on{opacity:1}
+.wwl-media::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(180deg,rgba(4,34,61,0) 48%,rgba(4,34,61,.86) 100%)}
+.wwl-label{position:absolute;left:22px;bottom:18px;z-index:2;display:flex;align-items:baseline;gap:12px;color:#fff}
+.wwl-label .idx{font-family:var(--sans);font-weight:600;font-size:.8rem;letter-spacing:.16em;color:var(--sand-2)}
+.wwl-label .city{font-family:var(--serif);font-weight:400;font-size:2rem;line-height:1}
+.wwl-go{position:absolute;right:18px;bottom:18px;z-index:2;font-family:var(--sans);font-size:.76rem;
+  font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);background:#fff;
+  border-radius:999px;padding:10px 16px;text-decoration:none;transition:.2s ease}
+.wwl-go:hover,.wwl-go:focus-visible{background:var(--sand)}
+.wwl-cta{display:flex;gap:13px;flex-wrap:wrap;justify-content:center;margin-top:40px}
+@media (max-width:900px){
+  .wwl{grid-template-columns:1fr;gap:26px}
+  .wwl-list{columns:2;column-gap:10px}
+  .wwl-item{padding:12px 12px;font-size:.88rem}
+  .wwl-label .city{font-size:1.5rem}
+}
+@media (prefers-reduced-motion:reduce){
+  .wwl-bg video{transform:none!important;filter:none!important;transition:none!important}
+  .js .wwl-list li,.js .wwl-media{opacity:1!important;transform:none!important;transition:none!important}
+  .wwl-imgs img{transition:none!important}
+}
+
+/* ============================================================
+   FAQ
+   Pattern from the TurnKey mockup: a side column with the heading,
+   a photograph and the two buttons; numbered questions that open one
+   at a time. Client copy.
+   ============================================================ */
+.faq{background:var(--cream)}
+.faq-grid{display:grid;grid-template-columns:.92fr 1.35fr;gap:46px;align-items:start}
+.faq-side{position:sticky;top:110px}
+.faq-sub{margin:14px 0 0;color:var(--body)}
+.faq-sub a{color:var(--navy);font-weight:600}
+.faq-media{position:relative;border-radius:var(--r);overflow:hidden;margin-top:24px;
+  box-shadow:0 18px 44px rgba(36,36,36,.16)}
+.faq-media img{width:100%;aspect-ratio:16/11;object-fit:cover;display:block}
+.faq-plaque{position:absolute;left:16px;bottom:16px;background:rgba(255,255,255,.94);color:var(--navy);
+  font-family:var(--sans);font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  padding:9px 14px;border-radius:999px}
+.faq-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.faq-list{display:flex;flex-direction:column;gap:12px}
+.faq-item{background:#fff;border:1px solid var(--line);border-left:3px solid var(--sand);
+  border-radius:16px;overflow:hidden}
+.js .faq-item{opacity:0;transform:translateY(16px);
+  transition:opacity .5s ease,transform .6s cubic-bezier(.16,1,.3,1)}
+.js .faq.in .faq-item{opacity:1;transform:none}
+.js .faq.in .faq-item:nth-child(2){transition-delay:.07s}
+.js .faq.in .faq-item:nth-child(3){transition-delay:.14s}
+.js .faq.in .faq-item:nth-child(4){transition-delay:.21s}
+.js .faq.in .faq-item:nth-child(5){transition-delay:.28s}
+.js .faq.in .faq-item:nth-child(6){transition-delay:.35s}
+.js .faq.in .faq-item:nth-child(7){transition-delay:.42s}
+.js .faq.in .faq-item:nth-child(8){transition-delay:.49s}
+.js .faq.in .faq-item:nth-child(9){transition-delay:.56s}
+.js .faq.in .faq-item:nth-child(10){transition-delay:.63s}
+.faq-q{display:flex;align-items:center;gap:16px;width:100%;background:none;border:0;cursor:pointer;
+  text-align:left;padding:18px 20px;font-family:var(--serif);font-weight:400;font-size:1.12rem;
+  line-height:1.3;color:var(--ink)}
+.faq-q:hover,.faq-q:focus-visible{color:var(--navy)}
+.faq-n{flex:none;font-family:var(--sans);font-weight:600;font-size:.78rem;letter-spacing:.14em;color:var(--body)}
+.faq-item.open .faq-n{color:var(--navy)}
+.faq-t{flex:1}
+.fx{flex:none;width:28px;height:28px;border-radius:50%;border:1px solid var(--sand);color:var(--navy);
+  display:flex;align-items:center;justify-content:center;font-family:var(--sans);font-size:1.15rem;
+  line-height:1;transition:transform .25s ease,background .25s ease,color .25s ease}
+.faq-item.open .fx{transform:rotate(45deg);background:var(--navy);border-color:var(--navy);color:#fff}
+.faq-a{height:0;overflow:hidden;transition:height .45s cubic-bezier(.16,1,.3,1)}
+.faq-a-in{padding:0 22px 20px 62px;color:var(--body);font-size:.97rem;line-height:1.65}
+.faq-a-in a{color:var(--navy);font-weight:600}
+html:not(.js) .faq-a{height:auto}
+@media (max-width:900px){
+  .faq-grid{grid-template-columns:1fr;gap:30px}
+  .faq-side{position:static}
+  .faq-a-in{padding-left:20px}
+  .faq-q{font-size:1.02rem;padding:16px 16px}
+}
+@media (prefers-reduced-motion:reduce){
+  .js .faq-item{opacity:1!important;transform:none!important;transition:none!important}
+  .faq-a,.fx{transition:none!important}
 }
 </style>
 </head>
@@ -1656,7 +1780,6 @@ footer p{font-size:.93rem;margin:0 0 12px}
 
     <!-- Bathroom Safety sits outside both categories; kept as its own strip. -->
     <a class="safe rv" href="https://www.bigeasybathrooms.com/bathroom-safety/" target="_blank" rel="noopener">
-      <img src="assets/grab-bar.jpg" alt="Bathroom safety grab bars fitted beside a toilet" loading="lazy">
       <span class="safe-t">
         <span class="eyeb">For any shower or tub</span>
         <h3>Bathroom Safety</h3>
@@ -1857,25 +1980,6 @@ footer p{font-size:.93rem;margin:0 0 12px}
   </div>
 </section>
 
-<!-- ============ SERVICE AREAS ============ -->
-<section style="background:var(--cream-2)">
-  <div class="wrap">
-    <div class="lead rv">
-      <p class="eyeb">Service areas</p>
-      <h2>Serving New Orleans and the <span class="kw">surrounding parishes</span></h2>
-    </div>
-    <div class="areas rv">
-      <a href="https://www.bigeasybathrooms.com/service-areas/abita-springs/" target="_blank" rel="noopener">Abita Springs</a>
-      <a href="https://www.bigeasybathrooms.com/service-areas/covington/" target="_blank" rel="noopener">Covington</a>
-      <a href="https://www.bigeasybathrooms.com/service-areas/hammond/" target="_blank" rel="noopener">Hammond</a>
-      <a href="https://www.bigeasybathrooms.com/service-areas/madisonville/" target="_blank" rel="noopener">Madisonville</a>
-      <a href="https://www.bigeasybathrooms.com/service-areas/mandeville/" target="_blank" rel="noopener">Mandeville</a>
-      <a href="https://www.bigeasybathrooms.com/service-areas/metairie/" target="_blank" rel="noopener">Metairie</a>
-      <a href="https://www.bigeasybathrooms.com/service-areas/slidell/" target="_blank" rel="noopener">Slidell</a>
-    </div>
-  </div>
-</section>
-
 <!-- ============ NEWSLETTER ============ -->
 <section>
   <div class="wrap">
@@ -1891,6 +1995,115 @@ footer p{font-size:.93rem;margin:0 0 12px}
         <button class="btn btn-p" type="submit">Submit</button>
       </form>
       <p class="note">Mockup only. This form is not connected to anything.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICE AREAS ============ -->
+<!-- Pattern from the TurnKey mockup's "where we work": pick a city and the
+     photograph and label follow. Footage is the strip clip; photographs are
+     the client's own; the seven areas are the ones the client listed. -->
+<section class="wwl-sec" id="areas">
+  <div class="wwl-bg" aria-hidden="true">
+    <video class="sf-vid" muted loop playsinline preload="none" poster="assets/trust-bg.jpg"><source src="assets/trust-bg.mp4" type="video/mp4"></video>
+  </div>
+  <div class="wrap">
+    <div class="lead rv">
+      <p class="eyeb">Service areas</p>
+      <h2>Serving New Orleans and the <span class="kw">surrounding parishes</span></h2>
+    </div>
+    <div class="wwl" id="wwl">
+      <ul class="wwl-list" aria-label="Choose a service area">
+        <li><button class="wwl-item on" type="button" aria-pressed="true" data-href="https://www.bigeasybathrooms.com/service-areas/abita-springs/"><i></i>Abita Springs</button></li>
+        <li><button class="wwl-item" type="button" aria-pressed="false" data-href="https://www.bigeasybathrooms.com/service-areas/covington/"><i></i>Covington</button></li>
+        <li><button class="wwl-item" type="button" aria-pressed="false" data-href="https://www.bigeasybathrooms.com/service-areas/hammond/"><i></i>Hammond</button></li>
+        <li><button class="wwl-item" type="button" aria-pressed="false" data-href="https://www.bigeasybathrooms.com/service-areas/madisonville/"><i></i>Madisonville</button></li>
+        <li><button class="wwl-item" type="button" aria-pressed="false" data-href="https://www.bigeasybathrooms.com/service-areas/mandeville/"><i></i>Mandeville</button></li>
+        <li><button class="wwl-item" type="button" aria-pressed="false" data-href="https://www.bigeasybathrooms.com/service-areas/metairie/"><i></i>Metairie</button></li>
+        <li><button class="wwl-item" type="button" aria-pressed="false" data-href="https://www.bigeasybathrooms.com/service-areas/slidell/"><i></i>Slidell</button></li>
+      </ul>
+      <div class="wwl-media">
+        <div class="wwl-imgs">
+          <img class="on" src="assets/walk-in-showers.jpg" alt="" loading="lazy">
+          <img src="assets/barrier-free-shower.jpg" alt="" loading="lazy">
+          <img src="assets/shower-enclosure.jpg" alt="" loading="lazy">
+          <img src="assets/acrylic-bathtub.jpg" alt="" loading="lazy">
+          <img src="assets/modern-bathroom.jpg" alt="" loading="lazy">
+          <img src="assets/hero-1.jpg" alt="" loading="lazy">
+          <img src="assets/services-feature.jpg" alt="" loading="lazy">
+        </div>
+        <div class="wwl-label"><span class="idx">01</span><span class="city">Abita Springs</span></div>
+        <a class="wwl-go" href="https://www.bigeasybathrooms.com/service-areas/abita-springs/" target="_blank" rel="noopener">View page &rarr;</a>
+      </div>
+    </div>
+    <div class="wwl-cta">
+      <a class="btn btn-p" href="https://www.bigeasybathrooms.com/contact/" target="_blank" rel="noopener">Get a Free Quote</a>
+      <a class="btn btn-s" href="tel:+15046887786">Call 504-688-7786</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQS ============ -->
+<!-- Pattern from the TurnKey mockup's FAQ. Questions and answers are the
+     client's own, carried from the live homepage FAQ block. -->
+<section class="faq" id="faqs">
+  <div class="wrap">
+    <div class="faq-grid">
+      <div class="faq-side rv">
+        <p class="eyeb">FAQs</p>
+        <h2>Frequently Asked <span class="kw">Questions</span></h2>
+        <p class="faq-sub">Have another question? <a href="https://www.bigeasybathrooms.com/contact/" target="_blank" rel="noopener">Contact us</a> or call <a href="tel:+15046887786">504-688-7786</a>.</p>
+        <div class="faq-media">
+          <img src="assets/shower-enclosure.jpg" alt="Corner shower enclosure with clear glass doors" loading="lazy">
+          <span class="faq-plaque">Serving New Orleans &amp; the Northshore</span>
+        </div>
+        <div class="faq-cta">
+          <a class="btn btn-p" href="https://www.bigeasybathrooms.com/contact/" target="_blank" rel="noopener">Get a Free Quote</a>
+          <a class="btn btn-s" href="tel:+15046887786">Call 504-688-7786</a>
+        </div>
+      </div>
+      <div class="faq-list" id="faqList">
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faqA1"><span class="faq-n">01</span><span class="faq-t">What types of bathroom renovation services do you offer?</span><span class="fx" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faqA1"><div class="faq-a-in">We offer a wide range of bathroom renovation services, including complete remodels, shower and bathtub installations, custom design solutions, and more.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faqA2"><span class="faq-n">02</span><span class="faq-t">How long does a typical bathroom renovation take?</span><span class="fx" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faqA2"><div class="faq-a-in">The duration of a bathroom renovation varies based on the scope of the project. On average, a full renovation can take between 2 to 4 weeks. We provide a detailed timeline during the initial consultation.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faqA3"><span class="faq-n">03</span><span class="faq-t">Do you provide free estimates for bathroom renovations?</span><span class="fx" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faqA3"><div class="faq-a-in">Yes, we offer free estimates for all bathroom renovation projects. Our team will visit your home, assess your needs, and provide a detailed quote at no cost to you.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faqA4"><span class="faq-n">04</span><span class="faq-t">What is the cost of a bathroom renovation?</span><span class="fx" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faqA4"><div class="faq-a-in">The cost of a bathroom renovation depends on various factors, including the size of the bathroom, the materials chosen, and the complexity of the project. We work within your budget to deliver the best results.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faqA5"><span class="faq-n">05</span><span class="faq-t">Can I customize the design of my new bathroom?</span><span class="fx" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faqA5"><div class="faq-a-in">Absolutely! We specialize in custom bathroom designs tailored to your preferences and needs. Our design team will work closely with you to create the bathroom of your dreams.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faqA6"><span class="faq-n">06</span><span class="faq-t">Can you work within my budget for a bathroom renovation?</span><span class="fx" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faqA6"><div class="faq-a-in">Yes, we work with clients to create beautiful bathroom renovations that fit within their budget. We provide detailed estimates and offer flexible options to meet your financial needs.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faqA7"><span class="faq-n">07</span><span class="faq-t">What steps are involved in your renovation process?</span><span class="fx" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faqA7"><div class="faq-a-in">Our renovation process includes an initial consultation, design phase, material selection, demolition, installation, and a final walkthrough. We keep you informed at every step.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faqA8"><span class="faq-n">08</span><span class="faq-t">Can you convert a bathtub to a walk-in shower?</span><span class="fx" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faqA8"><div class="faq-a-in">Yes, we specialize in converting bathtubs to walk-in showers. This is a popular renovation choice for many homeowners looking to enhance accessibility and modernize their bathroom.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faqA9"><span class="faq-n">09</span><span class="faq-t">Do you offer financing options for bathroom renovations?</span><span class="fx" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faqA9"><div class="faq-a-in">Yes, we offer flexible financing options to make your bathroom renovation project more affordable. Contact us to learn more about our financing plans.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faqA10"><span class="faq-n">10</span><span class="faq-t">How do I schedule a consultation with your team?</span><span class="fx" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faqA10"><div class="faq-a-in">Scheduling a consultation is easy. You can contact us through our website, or call us directly at <a href="tel:+15046887786">504-688-7786</a>.</div></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -2246,6 +2459,86 @@ if (document.getElementById("intro")) {
     });
   }, {threshold: .1});
   io.observe(v);
+})();
+
+/* ---- service areas: a city picks its photograph, label and link; the
+   section surfaces (footage sharpens, list slides in) once on scroll-in ---- */
+(function(){
+  var sec = document.getElementById("areas");
+  if (!sec) return;
+  var items = [].slice.call(sec.querySelectorAll(".wwl-item"));
+  var imgs  = [].slice.call(sec.querySelectorAll(".wwl-imgs img"));
+  var idx = sec.querySelector(".wwl-label .idx"), city = sec.querySelector(".wwl-label .city");
+  var go  = sec.querySelector(".wwl-go");
+  function pick(k){
+    for (var i = 0; i < items.length; i++) {
+      items[i].classList.toggle("on", i === k);
+      items[i].setAttribute("aria-pressed", i === k ? "true" : "false");
+      if (imgs[i]) { imgs[i].classList.toggle("on", i === k); }
+    }
+    idx.textContent = (k < 9 ? "0" : "") + (k + 1);
+    city.textContent = items[k].textContent;
+    go.href = items[k].getAttribute("data-href");
+  }
+  items.forEach(function(b, i){
+    b.addEventListener("click", function(){ pick(i); });
+    b.addEventListener("mouseenter", function(){ pick(i); });
+  });
+  var done = false;
+  function surface(){ if (done) return; done = true; sec.classList.add("surf"); }
+  if (!("IntersectionObserver" in window)) { surface(); return; }
+  var io = new IntersectionObserver(function(en){
+    en.forEach(function(e){ if (e.isIntersecting) { surface(); io.disconnect(); } });
+  }, {threshold: .2});
+  io.observe(sec);
+  setTimeout(function(){ if (sec.getBoundingClientRect().top < window.innerHeight) { surface(); } }, 3000);
+})();
+
+/* ---- FAQ: one open at a time, answers animate their height, items
+   stagger in once on scroll-in; the first is open so nothing looks empty ---- */
+(function(){
+  var sec = document.getElementById("faqs");
+  if (!sec) return;
+  var items = [].slice.call(sec.querySelectorAll(".faq-item"));
+  function expand(item){
+    var a = item.querySelector(".faq-a");
+    a.style.height = a.scrollHeight + "px";
+    a.addEventListener("transitionend", function te(){
+      a.removeEventListener("transitionend", te);
+      if (item.classList.contains("open")) { a.style.height = "auto"; }
+    });
+  }
+  function collapse(item){
+    var a = item.querySelector(".faq-a");
+    a.style.height = a.scrollHeight + "px";
+    void a.offsetHeight;
+    a.style.height = "0px";
+  }
+  function set(item, open){
+    item.classList.toggle("open", open);
+    item.querySelector(".faq-q").setAttribute("aria-expanded", open ? "true" : "false");
+    if (open) { expand(item); } else { collapse(item); }
+  }
+  items.forEach(function(item){
+    item.querySelector(".faq-q").addEventListener("click", function(){
+      var open = !item.classList.contains("open");
+      items.forEach(function(o){ if (o !== item && o.classList.contains("open")) { set(o, false); } });
+      set(item, open);
+    });
+  });
+  if (items[0]) {
+    items[0].classList.add("open");
+    items[0].querySelector(".faq-q").setAttribute("aria-expanded", "true");
+    items[0].querySelector(".faq-a").style.height = "auto";
+  }
+  var done = false;
+  function reveal(){ if (done) return; done = true; sec.classList.add("in"); }
+  if (!("IntersectionObserver" in window)) { reveal(); return; }
+  var io = new IntersectionObserver(function(en){
+    en.forEach(function(e){ if (e.isIntersecting) { reveal(); io.disconnect(); } });
+  }, {threshold: .1});
+  io.observe(sec);
+  setTimeout(function(){ if (sec.getBoundingClientRect().top < window.innerHeight) { reveal(); } }, 3000);
 })();
 
 /* ---- step clips: start when the row is on screen, pause off it ---- */
