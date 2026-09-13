@@ -566,6 +566,7 @@ footer p{font-size:.93rem;margin:0 0 12px}
 }
 @media (prefers-reduced-motion:reduce){
   .js .kw{background-size:100% 78%!important;transition:none!important}
+  .js .kw.on-sand{background-size:100% 5px!important}
   .js .kwg{background-size:100% 4px!important;transition:none!important}
   .js .kwg.lit{animation:none!important}
 }
@@ -583,23 +584,40 @@ footer p{font-size:.93rem;margin:0 0 12px}
    ============================================================ */
 .trust{background:var(--sand);position:relative;z-index:5;
   padding:22px 0}   /* the generic section padding (88px) made a 372px band */
-.trust .wrap{max-width:1400px}   /* six items; runs as wide as the hero */
+.trust .wrap{max-width:1400px;position:relative;z-index:1}
+/* ambient bubbles: their own clipped layer, under the label bubbles */
+.trust-fx{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.tr-fx{position:absolute;left:var(--x);bottom:var(--y);width:var(--s);height:var(--s);
+  border-radius:50%;opacity:0;
+  background:radial-gradient(circle at 34% 30%,
+    rgba(255,255,255,.95) 0%,rgba(255,255,255,.34) 38%,
+    rgba(4,34,61,.04) 62%,rgba(4,34,61,.12) 100%);
+  box-shadow:inset 0 0 4px rgba(255,255,255,.7),
+             0 0 0 1px rgba(255,255,255,.55),
+             0 2px 6px rgba(36,36,36,.12);
+  animation:trFloat var(--fd) linear var(--fdelay) infinite}
+@keyframes trFloat{
+  0%{opacity:0;transform:translate3d(0,0,0) scale(.5)}
+  12%{opacity:var(--o)}
+  86%{opacity:var(--o)}
+  100%{opacity:0;transform:translate3d(var(--drift),-300px,0) scale(1)}
+}
 .trust-row{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;
   justify-content:center}
-.tr-item{position:relative;flex:1 1 150px;min-height:196px;
+.tr-item{position:relative;flex:1 1 150px;min-height:236px;
   display:flex;align-items:center;justify-content:center;
   padding:20px 6px;text-align:center}
 .tr-txt{position:relative;z-index:2;font-family:var(--sans);
-  font-size:.74rem;font-weight:600;letter-spacing:.06em;line-height:1.3;
-  text-transform:uppercase;color:var(--ink);max-width:116px;
-  display:inline-flex;flex-direction:column;align-items:center;gap:5px;
+  font-size:.8rem;font-weight:600;letter-spacing:.07em;line-height:1.3;
+  text-transform:uppercase;color:var(--ink);max-width:180px;
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
   transform-origin:center}
-.tr-txt::before{content:"\2713";display:block;color:var(--navy);
-  font-size:1.05rem;line-height:1}
+.tr-txt::before{content:"\2713";color:var(--navy);font-size:.95em}
 /* the review lockup: stars, the client's claim, platform badges */
 .tr-rating{flex:0 0 auto;min-width:200px}
-.tr-rating .tr-bub{width:172px;height:172px;margin:-86px 0 0 -86px}
-.tr-txt-rating{gap:5px;letter-spacing:0;text-transform:none;max-width:146px}
+.tr-rating .tr-bub{width:160px;height:160px;margin:-80px 0 0 -80px}
+.tr-txt-rating{flex-direction:column;gap:5px;letter-spacing:0;
+  text-transform:none;max-width:150px}
 .tr-txt-rating::before{content:none}
 .tr-stars{color:#8A5E10;font-size:1rem;letter-spacing:.14em;line-height:1;
   margin-right:-.14em}
@@ -619,8 +637,8 @@ footer p{font-size:.93rem;margin:0 0 12px}
 /* the bubble, same glass as the intro */
 /* Glass on a flat sand ground needs a tinted core and a hard rim,
    otherwise it reads as a beige ball. */
-.tr-bub{position:absolute;left:50%;top:50%;width:152px;height:152px;
-  margin:-76px 0 0 -76px;border-radius:50%;pointer-events:none;z-index:1;
+.tr-bub{position:absolute;left:50%;top:50%;width:164px;height:164px;
+  margin:-82px 0 0 -82px;border-radius:50%;pointer-events:none;z-index:1;
   background:
     radial-gradient(circle at 50% 50%,
       rgba(255,255,255,0) 58%,rgba(255,255,255,.3) 80%,
@@ -650,40 +668,39 @@ footer p{font-size:.93rem;margin:0 0 12px}
 .js .trust:not(.go) .tr-txt,.js .trust:not(.go) .tr-bub{opacity:0}
 .tr-item{--fx:-30vw;--fy:-40vh}   /* defaults; the script randomises them */
 .trust.go .tr-bub{
-  animation:trFly 1.2s cubic-bezier(.2,.8,.25,1) var(--d) both,
-            trBurst .5s cubic-bezier(.2,.8,.25,1) calc(1.7s + var(--d)) both}
-/* the pop is a burst, not a disappearance: swell, flash, settle */
-@keyframes trBurst{
-  0%{transform:scale(1);filter:brightness(1)}
-  38%{transform:scale(1.17);filter:brightness(1.35)}
-  100%{transform:scale(1);filter:brightness(1)}
+  animation:trFly 1.15s cubic-bezier(.2,.8,.25,1) var(--d) both,
+            trPop .4s cubic-bezier(.3,0,.6,1) calc(2.15s + var(--d)) forwards}
+/* the original pop, minus the fade: it swells and STAYS at 1.24x */
+@keyframes trPop{
+  0%{opacity:1;transform:scale(1)}
+  55%{opacity:.72;transform:scale(1.16)}
+  100%{opacity:1;transform:scale(1.24)}
 }
-.trust.go .tr-drops i{animation:dropBurst .5s ease-out calc(1.7s + var(--d)) forwards}
-.trust.go .tr-txt{animation:trText 2.4s cubic-bezier(.2,.8,.25,1) var(--d) both}
-/* in from a random point on the page, a small overshoot, settle */
+.trust.go .tr-drops i{animation:dropBurst .5s ease-out calc(2.15s + var(--d)) forwards}
+.trust.go .tr-txt{animation:trText 2.9s cubic-bezier(.2,.8,.25,1) var(--d) both}
+/* in from a random point on the page, as originally built */
 @keyframes trFly{
   0%{opacity:0;transform:translate3d(var(--fx),var(--fy),0) scale(.35)}
-  16%{opacity:1}
-  70%{transform:translate3d(calc(var(--fx) * -.04),calc(var(--fy) * -.04),0) scale(1.04)}
+  18%{opacity:1}
   100%{opacity:1;transform:translate3d(0,0,0) scale(1)}
 }
 /* the label: invisible while the bubble flies, small inside it, then
    zooms IN on the pop and settles back OUT to its real size */
-/* hidden until the bubble has landed (1.2s of 2.4s), small inside it,
-   then zooms in on the burst and settles to full size */
+/* as originally built: hidden while the bubble flies, small inside it,
+   zooms IN on the pop, settles OUT to full size */
 @keyframes trText{
-  0%,50%{opacity:0;transform:scale(.5)}
-  57%{opacity:1;transform:scale(.62)}
-  70%{opacity:1;transform:scale(.62)}
-  79%{opacity:1;transform:scale(1.5)}
+  0%,42%{opacity:0;transform:scale(.5)}
+  55%{opacity:1;transform:scale(.62)}
+  74%{opacity:1;transform:scale(.62)}
+  82%{opacity:1;transform:scale(1.55)}
   100%{opacity:1;transform:scale(1)}
 }
 @media (max-width:700px){
-  .tr-item{flex:1 1 46%;min-height:158px;padding:12px 4px}
-  .tr-rating{flex:1 1 100%;min-height:176px}
-  .tr-txt{font-size:.7rem;letter-spacing:.05em;max-width:104px}
-  .tr-bub{width:132px;height:132px;margin:-66px 0 0 -66px}
-  .tr-rating .tr-bub{width:154px;height:154px;margin:-77px 0 0 -77px}
+  .tr-item{flex:1 1 46%;min-height:184px;padding:12px 4px}
+  .tr-rating{flex:1 1 100%;min-height:196px}
+  .tr-txt{font-size:.72rem;letter-spacing:.05em;max-width:136px;gap:6px}
+  .tr-bub{width:128px;height:128px;margin:-64px 0 0 -64px}
+  .tr-rating .tr-bub{width:140px;height:140px;margin:-70px 0 0 -70px}
 }
 
 /* ============================================================
@@ -696,10 +713,15 @@ footer p{font-size:.93rem;margin:0 0 12px}
 .proc{background:var(--sand);color:var(--ink);padding-bottom:96px}
 .proc .eyeb{color:var(--navy)}
 .proc h2{color:var(--ink)}
-/* neither highlight treatment survives a sand ground: a sand block
-   vanishes and light-sand lettering fails. Navy block, white letters. */
-.kw.on-sand{color:#fff;
-  background-image:linear-gradient(var(--navy),var(--navy))}
+/* on a sand ground a sand block vanishes and light-sand lettering
+   fails, so here the keyword takes a WHITE UNDERLINE that sweeps in.
+   Letters stay ink (7.59:1 on sand). */
+.kw.on-sand{color:var(--ink);padding:0 .04em;
+  background-image:linear-gradient(#fff,#fff);
+  background-position:left 94%;background-size:100% 5px}
+.js .kw.on-sand{background-size:0% 5px}
+.js .kw.on-sand.lit{background-size:100% 5px;
+  transition:background-size .9s cubic-bezier(.22,1,.36,1) .15s}
 .pp{display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;
   align-items:center;margin-top:52px}
 .pp-left{text-align:center}
@@ -807,8 +829,8 @@ footer p{font-size:.93rem;margin:0 0 12px}
   .js .trust .tr-txt{opacity:1!important;animation:none!important;
     transform:none!important}
   .trust .tr-bub{opacity:1!important;animation:none!important;
-    transform:none!important;filter:none!important}
-  .trust .tr-drops{display:none!important}
+    transform:scale(1.24)!important;filter:none!important}
+  .trust .tr-drops,.trust-fx{display:none!important}
   .js .pp-stage .pp-num{opacity:1!important;animation:none!important;
     transform:none!important}
   .pp-bub,.pp-drops,.pp-dots button.on::before,.pp-dots button.on::after{
@@ -1238,7 +1260,7 @@ footer p{font-size:.93rem;margin:0 0 12px}
   <div class="wrap">
     <div class="lead rv">
       <p class="eyeb">How we work</p>
-      <h2>Expert Bathroom Renovations, Simplified: <span class="kw on-sand">Discover Our Process</span></h2>
+      <h2><span class="kw on-sand">Expert Bathroom Renovations</span>, Simplified: Discover Our Process</h2>
     </div>
     <div class="pp" id="pp">
       <div class="pp-left">
@@ -1668,8 +1690,27 @@ if (document.getElementById("intro")) {
   try { reduce = window.matchMedia &&
         window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
   if (!reduce) {
-    /* each bubble starts somewhere else on the page: alternate sides,
-       random height, some from above the hero, some from below */
+    /* ambient bubbles drifting up through the band, behind the labels */
+    var fx = document.createElement("div");
+    fx.className = "trust-fx";
+    fx.setAttribute("aria-hidden", "true");
+    function rnd(a, b){ return a + Math.random() * (b - a); }
+    for (var k = 0; k < 22; k++) {
+      var b = document.createElement("span");
+      b.className = "tr-fx";
+      b.style.setProperty("--x",      rnd(1, 99).toFixed(1) + "%");
+      b.style.setProperty("--y",      rnd(-6, 70).toFixed(1) + "%");
+      b.style.setProperty("--s",      rnd(5, 22).toFixed(1) + "px");
+      b.style.setProperty("--fd",     rnd(4.5, 9.5).toFixed(2) + "s");
+      b.style.setProperty("--fdelay", rnd(-9, 0).toFixed(2) + "s");
+      b.style.setProperty("--drift",  rnd(-40, 40).toFixed(0) + "px");
+      b.style.setProperty("--o",      rnd(.35, .8).toFixed(2));
+      fx.appendChild(b);
+    }
+    strip.insertBefore(fx, strip.firstChild);
+
+    /* each label bubble starts somewhere else on the page: alternate
+       sides, random height, some from above the hero and some from below */
     var items = strip.querySelectorAll(".tr-item");
     for (var i = 0; i < items.length; i++) {
       var st = items[i].style;
