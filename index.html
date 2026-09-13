@@ -1967,11 +1967,21 @@ if (document.getElementById("intro")) {
 (function(){
   var row = document.getElementById("stepsFill");
   if (!row) return;
-  if (!("IntersectionObserver" in window)) { row.classList.add("go"); return; }
-  var io = new IntersectionObserver(function(en){
-    en.forEach(function(e){ if (e.isIntersecting) { row.classList.add("go"); io.disconnect(); } });
-  }, {threshold: .2});
-  io.observe(row);
+  function watch(){
+    if (!("IntersectionObserver" in window)) { row.classList.add("go"); return; }
+    var io = new IntersectionObserver(function(en){
+      en.forEach(function(e){ if (e.isIntersecting) { row.classList.add("go"); io.disconnect(); } });
+    }, {threshold: .2});
+    io.observe(row);
+  }
+  /* now directly under the strip: on a tall screen it can be in view at
+     load, so never let it fill behind the intro overlay */
+  if (document.getElementById("intro")) {
+    var kicked = false;
+    var kick = function(){ if (kicked) return; kicked = true; setTimeout(watch, 350); };
+    document.addEventListener("beb:introdone", kick);
+    setTimeout(kick, 6000);
+  } else { watch(); }
 })();
 
 /* ---- how we work (previous player): kept, inert; its markup is gone ---- */
