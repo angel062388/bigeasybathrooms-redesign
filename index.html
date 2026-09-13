@@ -271,6 +271,11 @@ section{padding:88px 0}
 
 /* ---- split: image + copy ---- */
 .split{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+/* Designed Around You on a darker brown than the gallery, so the two bands
+   read apart; the gap above it is trimmed on both sides */
+.dz{background:#E3D5C1;padding-top:64px}
+.dz .eyeb{color:var(--navy)}
+#services{padding-bottom:52px}
 .split-img{border-radius:var(--r);overflow:hidden;aspect-ratio:5/4}
 .split-img img,.split-img video{width:100%;height:100%;object-fit:cover;display:block}
 .split-img.vid{aspect-ratio:auto;align-self:stretch;min-height:340px}
@@ -1194,8 +1199,8 @@ footer p{font-size:.93rem;margin:0 0 12px}
 .safe img{width:190px;height:120px;object-fit:cover;border-radius:12px;flex:0 0 auto}
 .safe-t{flex:none;max-width:62ch}
 .safe-t .eyeb{display:block;margin-bottom:6px}
-.safe h3{font-size:1.4rem;margin:0 0 6px}
-.safe p{margin:0;font-size:.98rem;line-height:1.55;color:var(--ink)}
+.safe h3{font-family:var(--serif);font-weight:400;font-size:2.3rem;line-height:1.05;margin:0 0 10px}
+.safe p{margin:0;font-size:1.05rem;line-height:1.55;color:var(--ink)}
 .safe .more{flex:none;margin-top:4px}
 @media (max-width:900px){
   .cat{grid-template-columns:1fr;gap:16px}
@@ -1216,8 +1221,10 @@ footer p{font-size:.93rem;margin:0 0 12px}
    Footage sharpens and the list slides in once on scroll-in; a city
    picks its photograph, label and page link.
    ============================================================ */
-.wwl-sec{position:relative;overflow:hidden;background:var(--cream-2)}
+.wwl-sec{position:relative;overflow:hidden;background:var(--cream-2);padding-top:56px}
 .wwl-sec .wrap{position:relative;z-index:2}
+.wwl-sec .eyeb{color:var(--navy)}
+#newsletter{padding-bottom:48px}   /* the gap into the footage band was the two paddings added up */
 .wwl-bg{position:absolute;inset:0;z-index:0}
 .wwl-bg video{width:100%;height:100%;object-fit:cover;transform:scale(1.3);filter:blur(6px);
   transition:transform 1.7s cubic-bezier(.22,1,.36,1),filter 1.4s ease}
@@ -1543,7 +1550,6 @@ footer p{font-size:.93rem;margin:0 0 12px}
 })();
 </script>
 
-<div class="mock">MOCKUP FOR REVIEW &middot; Big Easy Bathrooms homepage redesign &middot; not a live page</div>
 
 <div class="head">
 <div class="topwrap" id="topwrap">
@@ -1826,7 +1832,7 @@ footer p{font-size:.93rem;margin:0 0 12px}
 </section>
 
 <!-- ============ DESIGNED AROUND YOU ============ -->
-<section style="background:var(--cream-2)">
+<section class="dz" id="designed">
   <div class="wrap">
     <div class="split">
       <div class="split-img vid rv"><video class="sf-vid" muted loop playsinline preload="none" poster="assets/services-feature.jpg" aria-label="Finished bathroom reveal, supplied by the client"><source src="assets/designed-reveal.mp4" type="video/mp4"></video></div>
@@ -2003,7 +2009,6 @@ footer p{font-size:.93rem;margin:0 0 12px}
       <li data-cat="bathroom"><button class="rv-tile" type="button" data-i="5" aria-pressed="false"><span class="mono" aria-hidden="true"><img src="assets/rev-kg.jpg" alt="" width="320" height="320" loading="lazy" decoding="async">KG</span><span><b>Kaleb Garcia</b><small>Bathroom</small></span></button></li>
       <li data-cat="bathtub"><button class="rv-tile" type="button" data-i="6" aria-pressed="false"><span class="mono" aria-hidden="true"><img src="assets/rev-mr.jpg" alt="" width="320" height="320" loading="lazy" decoding="async">MR</span><span><b>Malia Roberts</b><small>Bathtub</small></span></button></li>
     </ul>
-    <p class="gal-note rv">Sample portraits for layout review. The reviewers' own photographs, with their permission, replace these before launch.</p>
 
     <div class="svc-all rv">
       <a class="btn btn-s" href="https://www.bigeasybathrooms.com/reviews/" target="_blank" rel="noopener">Read all reviews</a>
@@ -2012,7 +2017,7 @@ footer p{font-size:.93rem;margin:0 0 12px}
 </section>
 
 <!-- ============ NEWSLETTER ============ -->
-<section>
+<section id="newsletter">
   <div class="wrap">
     <div class="form-card rv">
       <p class="eyeb">Newsletter</p>
