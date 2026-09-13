@@ -155,6 +155,11 @@ section{padding:88px 0}
   box-shadow:0 0 0 1px rgba(36,36,36,.07);
   transition:transform 1.15s cubic-bezier(.62,.03,.3,1)}
 .mag-pg img{width:100%;height:100%;object-fit:cover;display:block}
+/* the service each page shows, named on the page */
+.mag-cap{position:absolute;left:16px;top:16px;z-index:3;margin:0;pointer-events:none;
+  font-family:var(--sans);font-size:.72rem;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink);background:rgba(248,246,242,.92);
+  border-radius:999px;padding:8px 14px}
 /* gutter shading, deepest at the spine, so the page looks bound */
 .mag-pg::after{content:"";position:absolute;inset:0;pointer-events:none;
   background:linear-gradient(90deg,rgba(36,36,36,.34) 0%,
@@ -1322,12 +1327,12 @@ footer p{font-size:.93rem;margin:0 0 12px}
       <div class="mag-wrap">
         <div class="mag">
           <div class="mag-stack" id="magStack">
-        <figure class="mag-pg"><img src="assets/hero-mag-3.jpg" alt="Freestanding soaking tub beside a sunlit window" fetchpriority="high"></figure>
-        <figure class="mag-pg"><img src="assets/hero-mag-1.jpg" alt="Double vanity below a wide framed mirror" loading="lazy"></figure>
-        <figure class="mag-pg"><img src="assets/hero-mag-2.jpg" alt="Glass shower enclosure next to a built-in tub" loading="lazy"></figure>
-        <figure class="mag-pg"><img src="assets/hero-mag-5.jpg" alt="Twin undermount sinks under warm linear lighting" loading="lazy"></figure>
-        <figure class="mag-pg"><img src="assets/hero-mag-6.jpg" alt="Curbless walk-in shower beside a floating vanity" loading="lazy"></figure>
-        <figure class="mag-pg"><img src="assets/hero-mag-4.jpg" alt="Walk-in shower with a rain head and a stone feature wall" loading="lazy"></figure>
+        <figure class="mag-pg"><img src="assets/walk-in-tubs.jpg" alt="Walk-in tub with grab bars beside a roll-in shower" style="object-position:30% 50%" fetchpriority="high"><figcaption class="mag-cap">Walk-in tubs</figcaption></figure>
+        <figure class="mag-pg"><img src="assets/walk-in-showers.jpg" alt="Walk-in shower with glass enclosure and marble tile" loading="lazy"><figcaption class="mag-cap">Walk-in showers</figcaption></figure>
+        <figure class="mag-pg"><img src="assets/barrier-free-shower.jpg" alt="Barrier-free shower with no threshold" loading="lazy"><figcaption class="mag-cap">Barrier-free showers</figcaption></figure>
+        <figure class="mag-pg"><img src="assets/tub-to-shower.jpg" alt="Glass shower after a tub-to-shower conversion" loading="lazy"><figcaption class="mag-cap">Tub-to-shower conversions</figcaption></figure>
+        <figure class="mag-pg"><img src="assets/shower-enclosure.jpg" alt="Corner shower enclosure with clear glass doors" loading="lazy"><figcaption class="mag-cap">Shower enclosures</figcaption></figure>
+        <figure class="mag-pg"><img src="assets/acrylic-bathtub.jpg" alt="Newly installed acrylic bathtub" loading="lazy"><figcaption class="mag-cap">Bathtub replacement</figcaption></figure>
           </div>
           <div class="mag-shine" aria-hidden="true"></div>
         </div>
