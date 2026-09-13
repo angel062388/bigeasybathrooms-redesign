@@ -556,6 +556,16 @@ footer p{font-size:.93rem;margin:0 0 12px}
   padding:13px 26px;cursor:pointer;transition:.2s ease}
 .intro-skip:hover,.intro-skip:focus-visible{
   background:#fff;color:var(--navy);border-color:#fff}
+/* ---- sound toggle, bottom left, opposite Skip ---- */
+.intro-sound{position:absolute;z-index:3;left:20px;bottom:20px;
+  font-family:var(--sans);font-size:13px;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;
+  color:#fff;background:rgba(4,34,61,.74);
+  border:1.5px solid rgba(255,255,255,.7);border-radius:999px;
+  padding:13px 22px;cursor:pointer;transition:.2s ease}
+.intro-sound:hover,.intro-sound:focus-visible{background:#fff;color:var(--navy);
+  border-color:#fff}
+.intro-sound[aria-pressed="true"]{background:#fff;color:var(--navy);border-color:#fff}
 /* instant kill when skipped */
 .intro-gone .intro{
   animation:none!important;opacity:0!important;visibility:hidden!important;
@@ -1101,6 +1111,12 @@ footer p{font-size:.93rem;margin:0 0 12px}
     <span class="intro-drop" style="--dx:-34px;--dy:190px"></span>
   </div>
   <button class="intro-skip" id="introSkip" type="button" aria-label="Skip intro animation">Skip</button>
+  <!-- Mixkit Sound Effects Free License: "Deep water bubbles" and
+       "Soap bubble sound". Browsers block sound until the visitor has
+       interacted with the page, hence the button. -->
+  <audio id="introSfx" preload="auto" src="assets/intro-bubbles.mp3"></audio>
+  <audio id="introPop" preload="auto" src="assets/intro-pop.mp3"></audio>
+  <button class="intro-sound" id="introSound" type="button" aria-pressed="false" aria-label="Turn sound on">Sound on</button>
 </div>
 <script>
 /* Arming script. Runs immediately, before the rest of the body parses,
@@ -1161,12 +1177,70 @@ footer p{font-size:.93rem;margin:0 0 12px}
 
   html.className += " intro-armed";
 
-  /* 4. Skip. The CSS animation clears the overlay on its own, so this
+  /* 4. Sound. Browsers reject play() until the visitor has interacted
+        with the page, so the first visit falls back to the button. */
+  var sfx = document.getElementById("introSfx");
+  var pop = document.getElementById("introPop");
+  var sb  = document.getElementById("introSound");
+  var armedAt = Date.now(), soundOn = false, popTimer = null;
+  if (sfx) { sfx.volume = .35; }
+  if (pop) { pop.volume = .5; }
+  function schedulePop(){
+    if (!pop) return;
+    var left = 1720 - (Date.now() - armedAt);   /* the logo bubble pops at 1.72s */
+    if (left < -400) return;                     /* moment has passed */
+    popTimer = setTimeout(function(){ try { pop.currentTime = 0; pop.play(); } catch (e) {} },
+                          Math.max(0, left));
+  }
+  function setSoundUI(on){
+    if (!sb) return;
+    sb.textContent = on ? "Mute" : "Sound on";
+    sb.setAttribute("aria-pressed", on ? "true" : "false");
+    sb.setAttribute("aria-label", on ? "Turn sound off" : "Turn sound on");
+  }
+  function startSound(){
+    if (soundOn || !sfx) return;
+    var p;
+    try { sfx.currentTime = 0; p = sfx.play(); } catch (e) { return; }
+    if (p && p.then) {
+      p.then(function(){
+        soundOn = true; setSoundUI(true); schedulePop();
+        try { localStorage.setItem("beb_sound", "1"); } catch (e) {}
+      }).catch(function(){ setSoundUI(false); });   /* blocked: offer the button */
+    }
+  }
+  function stopSound(){
+    soundOn = false; setSoundUI(false);
+    if (popTimer) { clearTimeout(popTimer); popTimer = null; }
+    try { sfx.pause(); pop.pause(); } catch (e) {}
+    try { localStorage.removeItem("beb_sound"); } catch (e) {}
+  }
+  function fadeSound(){
+    if (!soundOn || !sfx) return;
+    var v = sfx.volume;
+    var iv = setInterval(function(){
+      v -= .07;
+      if (v <= 0) { clearInterval(iv); try { sfx.pause(); } catch (e) {} }
+      else { sfx.volume = v; }
+    }, 40);
+    if (popTimer) { clearTimeout(popTimer); popTimer = null; }
+  }
+  if (sb) {
+    sb.addEventListener("click", function(e){
+      e.stopPropagation();                        /* a click elsewhere skips the intro */
+      if (soundOn) { stopSound(); } else { startSound(); }
+    });
+    sb.addEventListener("keydown", function(e){ e.stopPropagation(); });
+  }
+  startSound();                                   /* allowed only after prior interaction */
+
+  /* 5. Skip. The CSS animation clears the overlay on its own, so this
         is a convenience, not the mechanism. */
   var done = false;
   function dismiss(){
     if (done) return;
     done = true;
+    fadeSound();
     html.className += " intro-gone";
     /* tell the rest of the page the screen is clear, so animations that
        would otherwise have played behind the overlay can start now */
@@ -1183,7 +1257,7 @@ footer p{font-size:.93rem;margin:0 0 12px}
   window.addEventListener("scroll", dismiss, {passive:true});
   window.addEventListener("keydown", dismiss);
 
-  /* 5. Tidy up after the CSS fade finishes, so the overlay leaves the
+  /* 6. Tidy up after the CSS fade finishes, so the overlay leaves the
         DOM and cannot intercept anything. */
   setTimeout(dismiss, 4300);
 })();
