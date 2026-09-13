@@ -616,15 +616,19 @@ footer p{font-size:.93rem;margin:0 0 12px}
    evidenced for Big Easy, so neither is here.
    ============================================================ */
 .trust{background:var(--navy);position:relative;z-index:5;
-  padding:22px 0}   /* the generic section padding (88px) made a 372px band */
-.trust .wrap{max-width:1400px;position:relative;z-index:1}
+  padding:22px 0}   /* navy is only the fallback under the footage */
+/* the footage, in its natural colour: no scrim, no tint */
+.trust-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
+.trust-bg video,.trust-bg img{width:100%;height:100%;object-fit:cover;
+  object-position:center 45%;display:block}
+.trust .wrap{max-width:1400px;position:relative;z-index:2}
 /* ============================================================
    AMBIENT BUBBLES, shared by both sand sections
    Same glass as the intro's bubbles. A clipped layer under each
    section's content; the script mounts one on .trust and one on
    .proc and sets --travel to the section's height.
    ============================================================ */
-.amb{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0;
+.amb{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1;
   --travel:400px}
 .amb i{position:absolute;left:var(--x);bottom:var(--y);width:var(--s);height:var(--s);
   border-radius:50%;opacity:0;
@@ -687,7 +691,9 @@ footer p{font-size:.93rem;margin:0 0 12px}
       rgba(255,255,255,0) 100%),
     radial-gradient(circle at 34% 28%,
       rgba(255,255,255,.58) 0%,rgba(255,255,255,.2) 34%,
-      rgba(163,209,238,.16) 64%,rgba(255,255,255,.1) 100%);
+      rgba(163,209,238,.16) 64%,rgba(255,255,255,.1) 100%),
+    radial-gradient(circle at 50% 55%,
+      rgba(4,34,61,.42) 0%,rgba(4,34,61,.26) 38%,rgba(4,34,61,0) 64%);
   border:1px solid rgba(255,255,255,.6);
   box-shadow:inset 0 0 30px rgba(255,255,255,.5),
              inset 16px 18px 42px rgba(255,255,255,.4),
@@ -975,18 +981,20 @@ footer p{font-size:.93rem;margin:0 0 12px}
   padding:10px 14px;border-left:3px solid var(--sand);background:var(--cream-2);
   border-radius:0 10px 10px 0;display:inline-block}
 .ba-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
-.ba{margin:0;--pos:50%}
+.ba{margin:0;--pos:50%;--slant:9%}   /* divider is 18% of the width off-vertical */
 .ba-frame{position:relative;aspect-ratio:4/3;border-radius:var(--r);overflow:hidden;
   background:var(--cream-2);border:1px solid var(--line);
   box-shadow:0 18px 44px rgba(36,36,36,.10);cursor:ew-resize;
   -webkit-user-select:none;user-select:none}
 .ba-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
   display:block;pointer-events:none}
-.ba-before{clip-path:inset(0 calc(100% - var(--pos)) 0 0)}
+.ba-before{clip-path:polygon(0 0,calc(var(--pos) + var(--slant)) 0,
+  calc(var(--pos) - var(--slant)) 100%,0 100%)}
 .ba-handle{position:absolute;top:0;bottom:0;left:var(--pos);width:0;
   pointer-events:none;z-index:2}
-.ba-handle::before{content:"";position:absolute;top:0;bottom:0;left:-1.5px;width:3px;
-  background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.18)}
+.ba-handle::before{content:"";position:absolute;top:-6%;bottom:-6%;left:-1.5px;width:3px;
+  background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.18);
+  transform:skewX(-13.5deg)}   /* matches the clip on a 4:3 frame */
 .ba-handle span{position:absolute;left:50%;top:50%;width:46px;height:46px;
   margin:-23px 0 0 -23px;border-radius:50%;background:var(--navy);
   border:2px solid #fff;box-shadow:0 8px 22px rgba(0,0,0,.3);
@@ -1008,6 +1016,48 @@ footer p{font-size:.93rem;margin:0 0 12px}
 @media (max-width:700px){
   .ba-grid{grid-template-columns:1fr}
   .tr-rating{order:10}   /* phones: rating bubble last, no orphan label */
+}
+
+/* ============================================================
+   HOW WE WORK, the filling row
+   Card photographs slide in from the right one after another and the
+   descriptions follow beneath. Off-canvas starts are safe because
+   body has overflow-x:clip.
+   ============================================================ */
+.steps-fill{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:34px}
+.sf{background:rgba(255,255,255,.58);border:1px solid rgba(255,255,255,.75);
+  border-radius:var(--r);overflow:hidden;
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.sf-img{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--cream-2)}
+.sf-img img{width:100%;height:100%;object-fit:cover;display:block}
+.sf-n{position:absolute;left:14px;bottom:10px;font-family:var(--serif);
+  font-weight:600;font-size:2.3rem;line-height:1;color:#fff;
+  text-shadow:0 2px 12px rgba(0,0,0,.5),0 0 2px rgba(0,0,0,.6)}
+.sf-body{padding:20px 22px 24px}
+.sf-body .pp-step{margin-bottom:8px}
+.sf h3{font-family:var(--serif);font-weight:400;font-size:1.2rem;line-height:1.25;
+  color:var(--ink);margin:0 0 10px}
+.sf p{color:var(--ink);font-size:.95rem;line-height:1.6;margin:0}
+/* fill from the right, in order */
+.js .sf{opacity:0;transform:translateX(110vw)}
+.js .steps-fill.go .sf{opacity:1;transform:none;
+  transition:transform 1s cubic-bezier(.2,.8,.25,1),opacity .45s ease}
+.js .steps-fill.go .sf:nth-child(2){transition-delay:1s}
+.js .steps-fill.go .sf:nth-child(3){transition-delay:2s}
+.js .steps-fill.go .sf:nth-child(4){transition-delay:3s}
+/* the description comes up at the bottom once its photograph has landed */
+.js .sf .sf-body{opacity:0;transform:translateY(14px)}
+.js .steps-fill.go .sf .sf-body{opacity:1;transform:none;
+  transition:opacity .5s ease,transform .5s ease}
+.js .steps-fill.go .sf:nth-child(1) .sf-body{transition-delay:.8s}
+.js .steps-fill.go .sf:nth-child(2) .sf-body{transition-delay:1.8s}
+.js .steps-fill.go .sf:nth-child(3) .sf-body{transition-delay:2.8s}
+.js .steps-fill.go .sf:nth-child(4) .sf-body{transition-delay:3.8s}
+@media (max-width:1000px){.steps-fill{grid-template-columns:1fr 1fr}}
+@media (max-width:700px){.steps-fill{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){
+  .js .sf,.js .sf .sf-body{opacity:1!important;transform:none!important;
+    transition:none!important}
 }
 </style>
 </head>
@@ -1222,6 +1272,13 @@ footer p{font-size:.93rem;margin:0 0 12px}
      service area. The reference bar's "satisfaction guaranteed" and
      "5 star rating" were deliberately NOT carried over. -->
 <section class="trust" id="trust" aria-label="What Big Easy Bathrooms offers">
+  <!-- Stock footage (Mixkit licence, free for commercial use). The poster
+       still is the reduced-motion fallback. -->
+  <div class="trust-bg" aria-hidden="true">
+    <video id="trustVid" autoplay muted loop playsinline preload="metadata" poster="assets/trust-bg.jpg">
+      <source src="assets/trust-bg.mp4" type="video/mp4">
+    </video>
+  </div>
   <div class="wrap">
     <ul class="trust-row">
       <li class="tr-item" style="--d:0s"><span class="tr-bub" aria-hidden="true"><i></i></span><span class="tr-drops" aria-hidden="true"><i style="--dx:-74px;--dy:-58px"></i><i style="--dx:70px;--dy:-66px"></i><i style="--dx:88px;--dy:10px"></i><i style="--dx:-84px;--dy:22px"></i><i style="--dx:-40px;--dy:76px"></i><i style="--dx:52px;--dy:70px"></i></span><span class="tr-txt">Free Quotes</span></li>
@@ -1333,44 +1390,40 @@ footer p{font-size:.93rem;margin:0 0 12px}
       <p class="eyeb">How we work</p>
       <h2><span class="kw on-sand">Expert Bathroom Renovations</span>, Simplified: Discover Our Process</h2>
     </div>
-    <div class="pp" id="pp">
-      <div class="pp-left">
-        <div class="pp-stage" id="ppStage">
-          <span class="pp-bub" aria-hidden="true"><i></i></span>
-          <span class="pp-num" id="ppNum" aria-live="polite">01</span>
-          <span class="pp-drops" aria-hidden="true"><i style="--dx:-168px;--dy:-124px"></i><i style="--dx:158px;--dy:-138px"></i><i style="--dx:196px;--dy:26px"></i><i style="--dx:-186px;--dy:44px"></i><i style="--dx:-96px;--dy:172px"></i><i style="--dx:112px;--dy:164px"></i><i style="--dx:14px;--dy:-198px"></i><i style="--dx:-34px;--dy:190px"></i></span>
-        </div>
-        <p class="pp-tag">Our four-step process</p>
-        <div class="pp-dots" id="ppDots">
-          <button type="button" class="on" aria-label="Step 1" aria-current="true">01</button>
-          <button type="button" aria-label="Step 2" aria-current="false">02</button>
-          <button type="button" aria-label="Step 3" aria-current="false">03</button>
-          <button type="button" aria-label="Step 4" aria-current="false">04</button>
-        </div>
-        <p class="pp-hint" id="ppHint">Auto-playing &middot; Hover to pause</p>
-      </div>
-      <div class="pp-right" id="ppPanes">
-        <div class="pp-pane on">
+    <!-- Step photographs are Unsplash stock, subject chosen per step. -->
+    <div class="steps-fill" id="stepsFill">
+      <article class="sf">
+        <div class="sf-img"><img src="assets/step-1.jpg" alt="Tile and finish samples laid out for a bathroom design" loading="lazy"><span class="sf-n" aria-hidden="true">01</span></div>
+        <div class="sf-body">
           <p class="pp-step">Step &middot; 01</p>
           <h3>Discuss Your Bathroom Renovation Goals</h3>
           <p>Meet with our NOLA team to discuss your vision, budget, style preferences, and project requirements. We will provide expert recommendations and answer all your questions.</p>
         </div>
-        <div class="pp-pane">
+      </article>
+      <article class="sf">
+        <div class="sf-img"><img src="assets/step-2.jpg" alt="Architectural plans spread out on a table" loading="lazy"><span class="sf-n" aria-hidden="true">02</span></div>
+        <div class="sf-body">
           <p class="pp-step">Step &middot; 02</p>
           <h3>Create a Custom Bathroom Design</h3>
           <p>Our experienced designers develop a personalized bathroom layout, helping you choose the perfect fixtures, materials, colors, and finishes to match your style.</p>
         </div>
-        <div class="pp-pane">
+      </article>
+      <article class="sf">
+        <div class="sf-img"><img src="assets/step-3.jpg" alt="Renovation tools ready for the installation" loading="lazy"><span class="sf-n" aria-hidden="true">03</span></div>
+        <div class="sf-body">
           <p class="pp-step">Step &middot; 03</p>
           <h3>Professional Bathroom Renovation</h3>
           <p>Our skilled renovation team handles everything from demolition and plumbing to tiling, cabinetry, lighting, and fixture installation with precision and care.</p>
         </div>
-        <div class="pp-pane">
+      </article>
+      <article class="sf">
+        <div class="sf-img"><img src="assets/step-4.jpg" alt="Finished bathroom, ready for handover" loading="lazy"><span class="sf-n" aria-hidden="true">04</span></div>
+        <div class="sf-body">
           <p class="pp-step">Step &middot; 04</p>
           <h3>Quality Check &amp; Project Handover</h3>
           <p>We complete a thorough inspection to ensure every detail meets our high standards before presenting you with your beautifully finished bathroom.</p>
         </div>
-      </div>
+      </article>
     </div>
   </div>
 </section>
@@ -1407,36 +1460,36 @@ footer p{font-size:.93rem;margin:0 0 12px}
     <div class="ba-grid">
       <figure class="ba rv">
         <div class="ba-frame">
-          <img class="ba-after" src="assets/services-feature.jpg" alt="After: remodelled bathroom with a tiled tub surround" loading="lazy">
+          <img class="ba-after" src="assets/ba-after-1.jpg" alt="After: bathroom with a marble walk-in shower and double vanity" loading="lazy">
           <img class="ba-before" src="assets/ba-before-1.jpg" alt="Before: dated blue-tiled bathroom" loading="lazy">
           <div class="ba-handle" aria-hidden="true"><span>&#8596;</span></div>
           <span class="ba-tag ba-tag-b" aria-hidden="true">Before</span>
           <span class="ba-tag ba-tag-a" aria-hidden="true">After</span>
-          <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Compare before and after: Bathtub replacement">
+          <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Compare before and after: Bathroom renovation">
         </div>
-        <figcaption>Bathtub replacement</figcaption>
+        <figcaption>Bathroom renovation</figcaption>
       </figure>
       <figure class="ba rv">
         <div class="ba-frame">
-          <img class="ba-after" src="assets/walk-in-showers.jpg" alt="After: walk-in shower with glass enclosure and marble tile" loading="lazy">
-          <img class="ba-before" src="assets/ba-before-2.jpg" alt="Before: worn bathroom with an old tub and sink" loading="lazy">
+          <img class="ba-after" src="assets/ba-after-2.jpg" alt="After: glass shower enclosure with a soaking tub and vanity" loading="lazy">
+          <img class="ba-before" src="assets/ba-before-2.jpg" alt="Before: dated blue-painted bathroom with a corner shower" loading="lazy">
           <div class="ba-handle" aria-hidden="true"><span>&#8596;</span></div>
           <span class="ba-tag ba-tag-b" aria-hidden="true">Before</span>
           <span class="ba-tag ba-tag-a" aria-hidden="true">After</span>
-          <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Compare before and after: Tub-to-shower conversion">
+          <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Compare before and after: Shower enclosure">
         </div>
-        <figcaption>Tub-to-shower conversion</figcaption>
+        <figcaption>Shower enclosure</figcaption>
       </figure>
       <figure class="ba rv">
         <div class="ba-frame">
-          <img class="ba-after" src="assets/barrier-free-shower.jpg" alt="After: barrier-free shower with no threshold" loading="lazy">
-          <img class="ba-before" src="assets/ba-before-3.jpg" alt="Before: bathroom with dated tile and wallpaper" loading="lazy">
+          <img class="ba-after" src="assets/ba-after-3.jpg" alt="After: freestanding tub beside a walk-in shower" loading="lazy">
+          <img class="ba-before" src="assets/ba-before-3.jpg" alt="Before: cluttered bathroom with an old tub and radiator" loading="lazy">
           <div class="ba-handle" aria-hidden="true"><span>&#8596;</span></div>
           <span class="ba-tag ba-tag-b" aria-hidden="true">Before</span>
           <span class="ba-tag ba-tag-a" aria-hidden="true">After</span>
-          <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Compare before and after: Barrier-free shower">
+          <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Compare before and after: Walk-in shower">
         </div>
-        <figcaption>Barrier-free shower</figcaption>
+        <figcaption>Walk-in shower</figcaption>
       </figure>
     </div>
   </div>
@@ -1878,7 +1931,36 @@ if (document.getElementById("intro")) {
   mount(document.getElementById("process"));
 })();
 
-/* ---- how we work: numeral rises in a bubble, pops out, panes slide ---- */
+/* ---- strip footage: still under reduced motion, paused off screen ---- */
+(function(){
+  var v = document.getElementById("trustVid");
+  if (!v) return;
+  var reduce = false;
+  try { reduce = window.matchMedia &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
+  if (reduce) { v.removeAttribute("autoplay"); try { v.pause(); } catch (e) {} return; }
+  if (!("IntersectionObserver" in window)) return;
+  var io = new IntersectionObserver(function(en){
+    en.forEach(function(e){
+      if (e.isIntersecting) { try { v.play(); } catch (x) {} }
+      else { try { v.pause(); } catch (x) {} }
+    });
+  }, {threshold: .1});
+  io.observe(v);
+})();
+
+/* ---- how we work: the row fills from the right, once, on scroll-in ---- */
+(function(){
+  var row = document.getElementById("stepsFill");
+  if (!row) return;
+  if (!("IntersectionObserver" in window)) { row.classList.add("go"); return; }
+  var io = new IntersectionObserver(function(en){
+    en.forEach(function(e){ if (e.isIntersecting) { row.classList.add("go"); io.disconnect(); } });
+  }, {threshold: .2});
+  io.observe(row);
+})();
+
+/* ---- how we work (previous player): kept, inert; its markup is gone ---- */
 (function(){
   var root = document.getElementById("pp");
   if (!root) return;
