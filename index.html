@@ -263,31 +263,34 @@ section{padding:88px 0}
 .band-strip img:nth-child(1),.band-strip img:nth-child(4){aspect-ratio:4/5}
 
 /* ---- why us: photograph under a navy scrim, glass cards, two CTAs ---- */
-.why-sec{position:relative;overflow:hidden;color:#fff;padding:104px 0}
+.why-sec{position:relative;overflow:hidden;color:var(--ink);padding:96px 0}
 .why-bg{position:absolute;inset:0;z-index:0}
-.why-bg img{width:100%;height:100%;object-fit:cover;object-position:center 60%}
-.why-bg::after{content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg,
-    rgba(4,34,61,.80) 0%,rgba(4,34,61,.64) 45%,rgba(4,34,61,.86) 100%)}
+/* the photograph shows in its natural colour: no scrim, no tint */
+.why-bg img{width:100%;height:100%;object-fit:cover;object-position:center}
 .why-sec .wrap{position:relative;z-index:1}
-.why-sec .eyeb{color:var(--sand-2)}
-.why-sec h2{color:#fff}
+/* the heading sits on a light frosted panel so it reads on any photo */
+.why-sec .lead{background:rgba(248,246,242,.86);
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,.75);border-radius:var(--r);
+  padding:32px 38px 28px}
+.why-sec .eyeb{color:var(--navy)}
+.why-sec h2{color:var(--ink);margin-bottom:0}
 .why{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:44px}
 .why-c{position:relative;overflow:hidden;
-  background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.28);
+  background:rgba(248,246,242,.86);border:1px solid rgba(255,255,255,.75);
   border-radius:var(--r);padding:36px 30px 32px;
-  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
 .js .why-c.rv{transition:opacity .7s ease,transform .7s ease,
   background .3s ease,border-color .3s ease}
-.why-c:hover{background:rgba(255,255,255,.17);border-color:rgba(220,205,184,.7)}
+.why-c:hover{background:rgba(248,246,242,.95);border-color:var(--sand)}
 /* sand rule across the top, drawn as the card arrives */
 .why-c::before{content:"";position:absolute;left:30px;right:30px;top:0;height:3px;
   border-radius:0 0 3px 3px;
-  background:linear-gradient(var(--sand-2),var(--sand-2)) left top/100% 100% no-repeat}
+  background:linear-gradient(var(--sand),var(--sand)) left top/100% 100% no-repeat}
 .js .why-c::before{background-size:0% 100%}
 .js .why-c.in::before{background-size:100% 100%;
   transition:background-size .9s cubic-bezier(.22,1,.36,1) .35s}
-.why-c p{margin:0;font-size:1.02rem;line-height:1.7;color:#fff}
+.why-c p{margin:0;font-size:1.02rem;line-height:1.7;color:var(--ink)}
 /* the three cards arrive one after another; hover stays instant */
 .js .why .why-c.in:nth-child(2){transition-delay:.14s,.14s,0s,0s}
 .js .why .why-c.in:nth-child(3){transition-delay:.28s,.28s,0s,0s}
@@ -1443,12 +1446,12 @@ footer p{font-size:.93rem;margin:0 0 12px}
      Background photograph is one of the client-site images. -->
 <section class="why-sec" id="why">
   <div class="why-bg" aria-hidden="true">
-    <img src="assets/hero-1.jpg" alt="" loading="lazy">
+    <img src="assets/why-bg.jpg" alt="" loading="lazy">
   </div>
   <div class="wrap">
     <div class="lead rv">
       <p class="eyeb">Why Big Easy Bathrooms</p>
-      <h2>Get the bathroom and <span class="kwg on-photo">experience you want</span></h2>
+      <h2>Get the bathroom and <span class="kw">experience you want</span></h2>
     </div>
     <div class="why">
       <div class="why-c rv"><p>If you want to recreate your bathroom for the ultimate experience, our bathroom remodeling team can do the job. We are your trusted bathroom remodeling contractors in New Orleans.</p></div>
@@ -1456,8 +1459,8 @@ footer p{font-size:.93rem;margin:0 0 12px}
       <div class="why-c rv"><p>Get the bathroom and experience you want with Big Easy Bathrooms! Our team can take on any bathroom remodel project. We understand your need for the best bathroom experience. Talk to our expert bathroom designer for options that will suit your style and the overall architecture of your home.</p></div>
     </div>
     <div class="why-cta rv">
-      <a class="btn btn-l" href="https://www.bigeasybathrooms.com/contact/" target="_blank" rel="noopener">Get a Free Quote</a>
-      <a class="btn btn-o" href="tel:+15046887786">Call 504-688-7786</a>
+      <a class="btn btn-p" href="https://www.bigeasybathrooms.com/contact/" target="_blank" rel="noopener">Get a Free Quote</a>
+      <a class="btn btn-l" href="tel:+15046887786">Call 504-688-7786</a>
     </div>
   </div>
 </section>
