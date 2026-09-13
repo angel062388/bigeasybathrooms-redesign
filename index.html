@@ -162,6 +162,19 @@ section{padding:88px 0}
 .mag-pg.turning{transform:rotateY(-172deg)}
 .mag-pg.noanim{transition:none}
 
+/* ---- a glint that sweeps across the page, like light on a glossy cover.
+   Above the pages, below the controls; clipped to the page's corners. ---- */
+.mag-shine{position:absolute;inset:0;z-index:12;pointer-events:none;overflow:hidden;
+  border-radius:3px 13px 13px 3px}
+.mag-shine::before{content:"";position:absolute;top:-45%;bottom:-45%;left:-70%;width:34%;
+  background:linear-gradient(90deg,
+    rgba(255,255,255,0) 0%,rgba(255,255,255,.10) 28%,
+    rgba(255,255,255,.48) 50%,rgba(255,255,255,.10) 72%,rgba(255,255,255,0) 100%);
+  transform:rotate(18deg);
+  animation:magShine 5.4s cubic-bezier(.45,.1,.3,1) 1.6s infinite}
+@keyframes magShine{0%{left:-70%}48%,100%{left:140%}}
+@media (prefers-reduced-motion:reduce){.mag-shine{display:none}}
+
 /* ---- controls. Visible, large, and the slideshow can be stopped. ---- */
 /* Controls sit on the photograph, bottom left, on a soft navy scrim.
    Overlaying them frees about 76px of height, which is what lets the
@@ -1242,6 +1255,7 @@ footer p{font-size:.93rem;margin:0 0 12px}
         <figure class="mag-pg"><img src="assets/hero-mag-6.jpg" alt="Curbless walk-in shower beside a floating vanity" loading="lazy"></figure>
         <figure class="mag-pg"><img src="assets/hero-mag-4.jpg" alt="Walk-in shower with a rain head and a stone feature wall" loading="lazy"></figure>
           </div>
+          <div class="mag-shine" aria-hidden="true"></div>
         </div>
         <div class="mag-ctl">
           <button class="mag-btn" id="magPrev" type="button" aria-label="Previous photograph">&#8249;</button>
