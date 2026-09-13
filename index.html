@@ -585,23 +585,31 @@ footer p{font-size:.93rem;margin:0 0 12px}
 .trust{background:var(--sand);position:relative;z-index:5;
   padding:22px 0}   /* the generic section padding (88px) made a 372px band */
 .trust .wrap{max-width:1400px;position:relative;z-index:1}
-/* ambient bubbles: their own clipped layer, under the label bubbles */
-.trust-fx{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
-.tr-fx{position:absolute;left:var(--x);bottom:var(--y);width:var(--s);height:var(--s);
+/* ============================================================
+   AMBIENT BUBBLES, shared by both sand sections
+   Same glass as the intro's bubbles. A clipped layer under each
+   section's content; the script mounts one on .trust and one on
+   .proc and sets --travel to the section's height.
+   ============================================================ */
+.amb{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0;
+  --travel:400px}
+.amb i{position:absolute;left:var(--x);bottom:var(--y);width:var(--s);height:var(--s);
   border-radius:50%;opacity:0;
-  background:radial-gradient(circle at 34% 30%,
-    rgba(255,255,255,.95) 0%,rgba(255,255,255,.34) 38%,
-    rgba(4,34,61,.04) 62%,rgba(4,34,61,.12) 100%);
-  box-shadow:inset 0 0 4px rgba(255,255,255,.7),
-             0 0 0 1px rgba(255,255,255,.55),
-             0 2px 6px rgba(36,36,36,.12);
-  animation:trFloat var(--fd) linear var(--fdelay) infinite}
-@keyframes trFloat{
-  0%{opacity:0;transform:translate3d(0,0,0) scale(.5)}
-  12%{opacity:var(--o)}
-  86%{opacity:var(--o)}
-  100%{opacity:0;transform:translate3d(var(--drift),-300px,0) scale(1)}
+  background:radial-gradient(circle at 32% 28%,
+    rgba(255,255,255,.92) 0%,rgba(255,255,255,.34) 38%,
+    rgba(255,255,255,.07) 62%,rgba(255,255,255,.16) 100%);
+  box-shadow:inset 0 0 7px rgba(255,255,255,.75),
+             0 0 0 1px rgba(116,168,204,.28),
+             0 2px 9px rgba(0,0,0,.12);
+  animation:ambRise var(--fd) linear var(--fdelay) infinite}
+@keyframes ambRise{
+  0%{opacity:0;transform:translate3d(0,0,0) scale(.45)}
+  9%{opacity:var(--o)}
+  85%{opacity:var(--o)}
+  100%{opacity:0;transform:translate3d(var(--drift),calc(-1 * var(--travel)),0) scale(1)}
 }
+.proc{position:relative}
+.proc .wrap{position:relative;z-index:1}
 .trust-row{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;
   justify-content:center}
 .tr-item{position:relative;flex:1 1 150px;min-height:236px;
@@ -830,7 +838,7 @@ footer p{font-size:.93rem;margin:0 0 12px}
     transform:none!important}
   .trust .tr-bub{opacity:1!important;animation:none!important;
     transform:scale(1.24)!important;filter:none!important}
-  .trust .tr-drops,.trust-fx{display:none!important}
+  .trust .tr-drops,.amb{display:none!important}
   .js .pp-stage .pp-num{opacity:1!important;animation:none!important;
     transform:none!important}
   .pp-bub,.pp-drops,.pp-dots button.on::before,.pp-dots button.on::after{
@@ -1690,25 +1698,6 @@ if (document.getElementById("intro")) {
   try { reduce = window.matchMedia &&
         window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
   if (!reduce) {
-    /* ambient bubbles drifting up through the band, behind the labels */
-    var fx = document.createElement("div");
-    fx.className = "trust-fx";
-    fx.setAttribute("aria-hidden", "true");
-    function rnd(a, b){ return a + Math.random() * (b - a); }
-    for (var k = 0; k < 22; k++) {
-      var b = document.createElement("span");
-      b.className = "tr-fx";
-      b.style.setProperty("--x",      rnd(1, 99).toFixed(1) + "%");
-      b.style.setProperty("--y",      rnd(-6, 70).toFixed(1) + "%");
-      b.style.setProperty("--s",      rnd(5, 22).toFixed(1) + "px");
-      b.style.setProperty("--fd",     rnd(4.5, 9.5).toFixed(2) + "s");
-      b.style.setProperty("--fdelay", rnd(-9, 0).toFixed(2) + "s");
-      b.style.setProperty("--drift",  rnd(-40, 40).toFixed(0) + "px");
-      b.style.setProperty("--o",      rnd(.35, .8).toFixed(2));
-      fx.appendChild(b);
-    }
-    strip.insertBefore(fx, strip.firstChild);
-
     /* each label bubble starts somewhere else on the page: alternate
        sides, random height, some from above the hero and some from below */
     var items = strip.querySelectorAll(".tr-item");
@@ -1737,6 +1726,41 @@ if (document.getElementById("intro")) {
     document.addEventListener("beb:introdone", kick);
     setTimeout(kick, 6000);
   } else { watch(); }
+})();
+
+/* ---- ambient bubbles on both sand sections, like the intro's ----
+   Count follows the section's area; travel follows its height. */
+(function(){
+  var reduce = false;
+  try { reduce = window.matchMedia &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
+  if (reduce) return;
+  function rnd(a, b){ return a + Math.random() * (b - a); }
+  function mount(host){
+    if (!host) return;
+    var layer = document.createElement("div");
+    layer.className = "amb";
+    layer.setAttribute("aria-hidden", "true");
+    var area = host.offsetWidth * host.offsetHeight;
+    var count = Math.max(16, Math.min(40, Math.round(area / 22000)));
+    for (var k = 0; k < count; k++) {
+      var b = document.createElement("i");
+      b.style.setProperty("--x",      rnd(1, 99).toFixed(1) + "%");
+      b.style.setProperty("--y",      rnd(-8, 60).toFixed(1) + "%");
+      b.style.setProperty("--s",      rnd(6, 30).toFixed(1) + "px");
+      b.style.setProperty("--fd",     rnd(4.5, 10).toFixed(2) + "s");
+      b.style.setProperty("--fdelay", rnd(-10, 0).toFixed(2) + "s");
+      b.style.setProperty("--drift",  rnd(-70, 70).toFixed(0) + "px");
+      b.style.setProperty("--o",      rnd(.32, .85).toFixed(2));
+      layer.appendChild(b);
+    }
+    function size(){ layer.style.setProperty("--travel", (host.offsetHeight + 80) + "px"); }
+    size();
+    window.addEventListener("resize", size);
+    host.insertBefore(layer, host.firstChild);
+  }
+  mount(document.getElementById("trust"));
+  mount(document.getElementById("process"));
 })();
 
 /* ---- how we work: numeral rises in a bubble, pops out, panes slide ---- */
