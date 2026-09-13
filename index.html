@@ -68,6 +68,10 @@ section{padding:88px 0}
 .btn-l:hover{background:var(--sand);border-color:var(--sand);color:var(--ink);
   transform:translateY(-2px)}
 .btn-o{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}
+/* a link inside body copy */
+.tlink{color:var(--navy);font-weight:600;text-decoration:underline;
+  text-decoration-color:var(--sand);text-decoration-thickness:1.5px;text-underline-offset:3px}
+.tlink:hover,.tlink:focus-visible{text-decoration-color:var(--navy)}
 .btn-o:hover{background:#fff;color:var(--navy);transform:translateY(-2px)}
 
 /* ---- floating pill header, straight from D'Fine ----
@@ -99,6 +103,15 @@ section{padding:88px 0}
 .nav ul a{font-size:.86rem;padding:9px 14px;border-radius:11px;
   white-space:nowrap;font-weight:400}
 .nav .caret{font-size:.62em;opacity:.55;margin-left:5px}
+/* Services: two groups, each opening a flyout beside the menu */
+.nav ul.has-sub{overflow:visible;max-height:none;min-width:200px}
+.nav ul li{position:relative}
+.nav .grp{display:flex;align-items:center;justify-content:space-between;
+  font-size:.86rem;font-weight:500;color:var(--ink);padding:9px 14px;
+  border-radius:11px;cursor:default;white-space:nowrap;outline-offset:2px}
+.nav .sub:hover>.grp,.nav .sub:focus-within>.grp{background:var(--cream-2);color:var(--navy)}
+.nav .grp .caret{margin-left:14px}
+.nav ul ul{top:-8px;left:100%;margin-left:6px}
 .tel{display:inline-flex;align-items:center;gap:9px;background:var(--navy);
   color:#fff;text-decoration:none;padding:11px 21px;border-radius:999px;
   font-weight:600;font-size:.88rem;white-space:nowrap;transition:.25s}
@@ -259,7 +272,8 @@ section{padding:88px 0}
 /* ---- split: image + copy ---- */
 .split{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
 .split-img{border-radius:var(--r);overflow:hidden;aspect-ratio:5/4}
-.split-img img{width:100%;height:100%;object-fit:cover}
+.split-img img,.split-img video{width:100%;height:100%;object-fit:cover;display:block}
+.split-img.vid{aspect-ratio:16/9}
 .split h2{font-size:clamp(1.6rem,3vw,2.3rem);line-height:1.2;margin:0 0 18px}
 .split p{margin:0 0 16px}
 .split p:last-of-type{margin-bottom:26px}
@@ -967,6 +981,13 @@ footer p{font-size:.93rem;margin:0 0 12px}
 .spot-ini{position:absolute;inset:0;display:grid;place-items:center;z-index:2;
   font-family:var(--serif);font-weight:600;font-size:3.2rem;letter-spacing:.02em;
   color:var(--navy)}
+/* the reviewer's photograph sits in the bubble; the initials wait beneath it
+   and show only if the photograph fails to load */
+.spot-ini b,.spot-face{grid-area:1/1}
+.spot-face{position:relative;z-index:1;width:144px;height:144px;border-radius:50%;
+  object-fit:cover;display:block;background:var(--hero-bg);
+  border:3px solid #fff;box-shadow:0 8px 24px rgba(36,36,36,.22)}
+.spot-face.bad,.rv-tile .mono img.bad{display:none}
 .js .spot-stage:not(.play) .spot-ini{opacity:0}
 .spot-stage.play .spot-bub{
   animation:ppBubIn .8s cubic-bezier(.2,.8,.25,1) both,
@@ -1010,9 +1031,11 @@ footer p{font-size:.93rem;margin:0 0 12px}
   cursor:pointer;font-family:var(--sans);transition:.22s ease}
 .rv-tile:hover,.rv-tile:focus-visible{border-color:var(--sand);background:var(--cream-2)}
 .rv-tile[aria-pressed="true"]{border-color:var(--navy);box-shadow:inset 0 0 0 1px var(--navy)}
-.rv-tile .mono{flex:0 0 auto;width:38px;height:38px;border-radius:50%;
+.rv-tile .mono{flex:0 0 auto;width:40px;height:40px;border-radius:50%;
   background:var(--hero-bg);border:1px solid var(--sand);color:var(--navy);
-  font-weight:600;font-size:.74rem;letter-spacing:.04em;display:grid;place-items:center}
+  font-weight:600;font-size:.74rem;letter-spacing:.04em;display:grid;place-items:center;
+  position:relative;overflow:hidden}
+.rv-tile .mono img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 .rv-tile b{display:block;font-size:.84rem;font-weight:600;color:var(--ink);line-height:1.2}
 .rv-tile small{display:block;font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;
   color:var(--body);margin-top:2px}
@@ -1118,6 +1141,71 @@ footer p{font-size:.93rem;margin:0 0 12px}
 @media (prefers-reduced-motion:reduce){
   .js .sf,.js .sf .sf-body{opacity:1!important;transform:none!important;
     transition:none!important}
+}
+/* two buttons under the row, up once the last description has landed */
+.sf-cta{display:flex;gap:13px;flex-wrap:wrap;justify-content:center;margin-top:36px}
+.js .sf-cta{opacity:0;transform:translateY(12px)}
+.js .steps-fill.go+.sf-cta{opacity:1;transform:none;
+  transition:opacity .5s ease 4.3s,transform .5s ease 4.3s}
+@media (prefers-reduced-motion:reduce){
+  .js .sf-cta{opacity:1!important;transform:none!important;transition:none!important}
+}
+
+/* ============================================================
+   SERVICES IN TWO CATEGORIES
+   A photograph band per category with compact cards beside it; the
+   second band mirrors the first. Bathroom Safety has a slim strip.
+   ============================================================ */
+.cat{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:24px;
+  align-items:stretch;margin-top:34px}
+.cat.flip .cat-hero{order:2}
+.cat-hero{position:relative;border-radius:var(--r);overflow:hidden;min-height:380px;
+  background:var(--cream-2)}
+.cat-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cat-cap{position:absolute;left:0;right:0;bottom:0;padding:120px 28px 28px;color:#fff;
+  background:linear-gradient(to top,rgba(4,34,61,.9) 0%,rgba(4,34,61,.72) 45%,rgba(4,34,61,0) 100%)}
+.cat-cap .eyeb{color:var(--sand-2);margin-bottom:8px}
+.cat-cap h3{font-family:var(--serif);font-weight:400;font-size:2.4rem;line-height:1;
+  margin:0 0 10px;color:#fff}
+.cat-cap p{margin:0;font-size:1rem;line-height:1.5;color:#fff;max-width:36ch}
+.cat-list{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-content:stretch}
+.cat.flip .cat-list{grid-template-columns:1fr}
+.mini{display:flex;gap:14px;align-items:center;background:#fff;border:1px solid var(--line);
+  border-radius:16px;padding:12px 16px 12px 12px;text-decoration:none;color:var(--ink);
+  transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
+.mini:hover,.mini:focus-visible{border-color:var(--sand);transform:translateY(-3px);
+  box-shadow:0 14px 30px rgba(20,20,20,.1)}
+.mini img{width:82px;height:66px;object-fit:cover;border-radius:10px;flex:0 0 auto;
+  background:var(--cream-2)}
+.mini-t{flex:1;min-width:0}
+.mini h4{font-family:var(--serif);font-weight:400;font-size:1.1rem;line-height:1.2;
+  margin:0 0 4px;color:var(--ink)}
+.mini p{font-size:.86rem;line-height:1.45;color:var(--body);margin:0}
+.mini-go{flex:0 0 auto;color:var(--navy);font-size:1.1rem;transition:transform .22s ease}
+.mini:hover .mini-go{transform:translateX(4px)}
+.safe{display:flex;align-items:center;gap:24px;margin-top:24px;background:#fff;
+  border:1px solid var(--line);border-radius:var(--r);padding:16px 26px 16px 16px;
+  text-decoration:none;color:var(--ink);transition:transform .22s ease,box-shadow .22s ease}
+.safe:hover,.safe:focus-visible{transform:translateY(-3px);box-shadow:0 16px 36px rgba(20,20,20,.11)}
+.safe img{width:190px;height:120px;object-fit:cover;border-radius:12px;flex:0 0 auto}
+.safe-t{flex:1;min-width:0}
+.safe-t .eyeb{display:block;margin-bottom:6px}
+.safe h3{font-size:1.4rem;margin:0 0 6px}
+.safe p{margin:0;font-size:.95rem;line-height:1.55;color:var(--body)}
+.safe .more{flex:0 0 auto}
+@media (max-width:900px){
+  .cat{grid-template-columns:1fr;gap:16px}
+  .cat.flip .cat-hero{order:0}
+  .cat-hero{min-height:250px}
+  .cat-cap{padding:80px 22px 22px}
+  .cat-cap h3{font-size:2rem}
+  .cat-list{grid-template-columns:1fr}
+  .safe{flex-wrap:wrap;gap:16px}
+  .safe img{width:100%;height:170px}
+  .safe .more{margin-left:auto}
+}
+@media (prefers-reduced-motion:reduce){
+  .mini,.safe,.mini-go{transition:none!important}
 }
 </style>
 </head>
@@ -1313,19 +1401,26 @@ footer p{font-size:.93rem;margin:0 0 12px}
       <li class="on"><a href="index.html">Home</a></li>
       <li><a href="https://www.bigeasybathrooms.com/about/" target="_blank" rel="noopener">About</a></li>
       <li><a href="https://www.bigeasybathrooms.com/services/" target="_blank" rel="noopener">Services <span class="caret">&#9660;</span></a>
-        <ul>
-          <li><a href="https://www.bigeasybathrooms.com/walk-in-tubs/" target="_blank" rel="noopener">Walk-in Tubs</a></li>
-          <li><a href="https://www.bigeasybathrooms.com/walk-in-showers/" target="_blank" rel="noopener">Walk-in Showers</a></li>
-          <li><a href="https://www.bigeasybathrooms.com/barrier-free-showers/" target="_blank" rel="noopener">Barrier-Free Showers</a></li>
-          <li><a href="https://www.bigeasybathrooms.com/bathroom-safety/" target="_blank" rel="noopener">Bathroom Safety</a></li>
-          <li><a href="https://www.bigeasybathrooms.com/tub-to-shower-conversions/" target="_blank" rel="noopener">Tub-to-Shower Conversions</a></li>
-          <li><a href="https://www.bigeasybathrooms.com/bathtubs-replacement/" target="_blank" rel="noopener">Bathtubs Replacement</a></li>
-          <li><a href="https://www.bigeasybathrooms.com/replacement-showers/" target="_blank" rel="noopener">Replacement Showers</a></li>
-          <li><a href="https://www.bigeasybathrooms.com/shower-enclosure/" target="_blank" rel="noopener">Shower Enclosure</a></li>
-          <li><a href="https://www.bigeasybathrooms.com/shower-surrounds/" target="_blank" rel="noopener">Shower Surrounds</a></li>
-          <li><a href="https://www.bigeasybathrooms.com/shower-liners/" target="_blank" rel="noopener">Shower Liners</a></li>
-          <li><a href="https://www.bigeasybathrooms.com/tub-liners/" target="_blank" rel="noopener">Tub Liners</a></li>
-          <li><a href="https://www.bigeasybathrooms.com/shower-base/" target="_blank" rel="noopener">Shower Base</a></li>
+        <ul class="has-sub">
+          <li class="sub"><span class="grp" tabindex="0">Showers <span class="caret">&#9656;</span></span>
+            <ul>
+              <li><a href="https://www.bigeasybathrooms.com/barrier-free-showers/" target="_blank" rel="noopener">Barrier-Free Showers</a></li>
+              <li><a href="https://www.bigeasybathrooms.com/replacement-showers/" target="_blank" rel="noopener">Replacement Showers</a></li>
+              <li><a href="https://www.bigeasybathrooms.com/shower-base/" target="_blank" rel="noopener">Shower Base</a></li>
+              <li><a href="https://www.bigeasybathrooms.com/shower-enclosure/" target="_blank" rel="noopener">Shower Enclosure</a></li>
+              <li><a href="https://www.bigeasybathrooms.com/shower-liners/" target="_blank" rel="noopener">Shower Liners</a></li>
+              <li><a href="https://www.bigeasybathrooms.com/shower-surrounds/" target="_blank" rel="noopener">Shower Surrounds</a></li>
+              <li><a href="https://www.bigeasybathrooms.com/tub-to-shower-conversions/" target="_blank" rel="noopener">Tub to Shower Conversions</a></li>
+              <li><a href="https://www.bigeasybathrooms.com/walk-in-showers/" target="_blank" rel="noopener">Walk-in Showers</a></li>
+            </ul>
+          </li>
+          <li class="sub"><span class="grp" tabindex="0">Bathtubs <span class="caret">&#9656;</span></span>
+            <ul>
+              <li><a href="https://www.bigeasybathrooms.com/bathtubs-replacement/" target="_blank" rel="noopener">Bathtubs Replacement</a></li>
+              <li><a href="https://www.bigeasybathrooms.com/tub-liners/" target="_blank" rel="noopener">Tub Liners</a></li>
+              <li><a href="https://www.bigeasybathrooms.com/walk-in-tubs/" target="_blank" rel="noopener">Walk-in Tubs</a></li>
+            </ul>
+          </li>
         </ul>
       </li>
       <li><a href="https://www.bigeasybathrooms.com/service-areas/" target="_blank" rel="noopener">Service Areas <span class="caret">&#9660;</span></a>
@@ -1460,6 +1555,10 @@ footer p{font-size:.93rem;margin:0 0 12px}
         </div>
       </article>
     </div>
+    <div class="sf-cta">
+      <a class="btn btn-p" href="https://www.bigeasybathrooms.com/contact/" target="_blank" rel="noopener">Get a Free Quote</a>
+      <a class="btn btn-l" href="tel:+15046887786">Call 504-688-7786</a>
+    </div>
   </div>
 </section>
 
@@ -1472,80 +1571,99 @@ footer p{font-size:.93rem;margin:0 0 12px}
       <p>From walk-in tubs to full shower remodels, our New Orleans craftsmen deliver custom, code-compliant bathrooms built to last.</p>
     </div>
 
-    <div class="svc-grid">
-      <a class="svc rv" href="https://www.bigeasybathrooms.com/walk-in-tubs/" target="_blank" rel="noopener">
-        <div class="svc-img"><img src="assets/walk-in-tubs.jpg" alt="Walk-in tub installed in a New Orleans bathroom" loading="lazy"></div>
-        <div class="svc-b"><h3>Walk-in Tubs</h3>
-          <p>The premier source for walk-in tubs in New Orleans, with a wide variety of tub styles and sizes to fit your needs.</p>
-          <span class="more">Learn more <span>&rarr;</span></span></div>
-      </a>
-      <a class="svc rv" href="https://www.bigeasybathrooms.com/walk-in-showers/" target="_blank" rel="noopener">
-        <div class="svc-img"><img src="assets/walk-in-showers.jpg" alt="Walk-in shower with glass enclosure and marble tile" loading="lazy"></div>
-        <div class="svc-b"><h3>Walk-in Showers</h3>
-          <p>A safe and convenient option for New Orleans homeowners looking for reliable bathing solutions.</p>
-          <span class="more">Learn more <span>&rarr;</span></span></div>
-      </a>
-      <a class="svc rv" href="https://www.bigeasybathrooms.com/barrier-free-showers/" target="_blank" rel="noopener">
-        <div class="svc-img"><img src="assets/barrier-free-shower.jpg" alt="Barrier-free shower with no threshold and grab rail" loading="lazy"></div>
-        <div class="svc-b"><h3>Barrier-Free Showers</h3>
-          <p>Ideal for anyone who needs extra space to move around. A walk-in design with no threshold makes it easier to get in and out.</p>
-          <span class="more">Learn more <span>&rarr;</span></span></div>
-      </a>
-      <a class="svc rv" href="https://www.bigeasybathrooms.com/bathroom-safety/" target="_blank" rel="noopener">
-        <div class="svc-img"><img src="assets/grab-bar.jpg" alt="Bathroom safety grab bars fitted beside a toilet" loading="lazy"></div>
-        <div class="svc-b"><h3>Bathroom Safety</h3>
-          <p>Safety modifications that enhance comfort and help prevent accidents in the bathroom.</p>
-          <span class="more">Learn more <span>&rarr;</span></span></div>
-      </a>
-      <a class="svc rv" href="https://www.bigeasybathrooms.com/tub-to-shower-conversions/" target="_blank" rel="noopener">
-        <div class="svc-img"><img src="assets/tub-to-shower.jpg" alt="Bathroom after a tub to shower conversion" loading="lazy"></div>
-        <div class="svc-b"><h3>Tub-to-Shower Conversions</h3>
-          <p>Your dream bath in just one day. We handle everything for you, from start to finish.</p>
-          <span class="more">Learn more <span>&rarr;</span></span></div>
-      </a>
-      <a class="svc rv" href="https://www.bigeasybathrooms.com/bathtubs-replacement/" target="_blank" rel="noopener">
-        <div class="svc-img"><img src="assets/acrylic-bathtub.jpg" alt="New acrylic bathtub fitted in a corner" loading="lazy"></div>
-        <div class="svc-b"><h3>Bathtubs Replacement</h3>
-          <p>Top-quality replacement options that fit your style and budget, installed by our team of experts.</p>
-          <span class="more">Learn more <span>&rarr;</span></span></div>
-      </a>
-      <a class="svc rv" href="https://www.bigeasybathrooms.com/replacement-showers/" target="_blank" rel="noopener">
-        <div class="svc-img"><img src="assets/shower-base.jpg" alt="Replacement shower with tiled base" loading="lazy"></div>
-        <div class="svc-b"><h3>Replacement Showers</h3>
-          <p>A professional, efficient shower replacement at your New Orleans home.</p>
-          <span class="more">Learn more <span>&rarr;</span></span></div>
-      </a>
-      <a class="svc rv" href="https://www.bigeasybathrooms.com/shower-enclosure/" target="_blank" rel="noopener">
-        <div class="svc-img"><img src="assets/shower-enclosure.jpg" alt="Corner shower enclosure with clear glass doors" loading="lazy"></div>
-        <div class="svc-b"><h3>Shower Enclosure</h3>
-          <p>Renovate your current shower, or move to a tub-to-shower conversion, with an enclosure built to fit.</p>
-          <span class="more">Learn more <span>&rarr;</span></span></div>
-      </a>
-      <a class="svc rv" href="https://www.bigeasybathrooms.com/shower-surrounds/" target="_blank" rel="noopener">
-        <div class="svc-img"><img src="assets/shower-surround.jpg" alt="Tiled shower surround beside a bathroom window" loading="lazy"></div>
-        <div class="svc-b"><h3>Shower Surrounds</h3>
-          <p>Customize a shower surround and we will be pleased to install it in your New Orleans home.</p>
-          <span class="more">Learn more <span>&rarr;</span></span></div>
-      </a>
-      <a class="svc rv" href="https://www.bigeasybathrooms.com/shower-liners/" target="_blank" rel="noopener">
-        <div class="svc-img"><img src="assets/bathroom-curtain.jpg" alt="Bathroom with shower curtain over the tub" loading="lazy"></div>
-        <div class="svc-b"><h3>Shower Liners</h3>
-          <p>Keep your floor dry and safe from mildew, with a number of great designs to choose from.</p>
-          <span class="more">Learn more <span>&rarr;</span></span></div>
-      </a>
-      <a class="svc rv" href="https://www.bigeasybathrooms.com/tub-liners/" target="_blank" rel="noopener">
-        <div class="svc-img"><img src="assets/bathtub-row.jpg" alt="Bathroom with a fitted bathtub and basin" loading="lazy"></div>
-        <div class="svc-b"><h3>Tub Liners</h3>
-          <p>Top-quality tub liner products and services at competitive prices.</p>
-          <span class="more">Learn more <span>&rarr;</span></span></div>
-      </a>
-      <a class="svc rv" href="https://www.bigeasybathrooms.com/shower-base/" target="_blank" rel="noopener">
-        <div class="svc-img"><img src="assets/modern-bathroom.jpg" alt="Modern bathroom interior with a tiled shower area" loading="lazy"></div>
-        <div class="svc-b"><h3>Shower Base</h3>
-          <p>Remodel your shower by replacing the shower base underneath it.</p>
-          <span class="more">Learn more <span>&rarr;</span></span></div>
-      </a>
+    <!-- Two categories. Category photographs are the client's own; card
+         copy is carried from the previous service cards. -->
+    <div class="cat rv" id="catShowers">
+      <div class="cat-hero">
+        <img src="assets/walk-in-showers.jpg" alt="Walk-in shower with glass enclosure and marble tile" loading="lazy">
+        <div class="cat-cap">
+          <p class="eyeb">Category &middot; 8 services</p>
+          <h3>Showers</h3>
+          <p>Barrier-free and walk-in designs, conversions and replacements, with the bases, liners, surrounds and enclosures that finish the job.</p>
+        </div>
+      </div>
+      <div class="cat-list">
+        <a class="mini rv" href="https://www.bigeasybathrooms.com/barrier-free-showers/" target="_blank" rel="noopener">
+          <img src="assets/barrier-free-shower.jpg" alt="Barrier-free shower with no threshold and grab rail" loading="lazy">
+          <span class="mini-t"><h4>Barrier-Free Showers</h4><p>Ideal for anyone who needs extra space to move around. A walk-in design with no threshold makes it easier to get in and out.</p></span>
+          <span class="mini-go" aria-hidden="true">&rarr;</span>
+        </a>
+        <a class="mini rv" href="https://www.bigeasybathrooms.com/replacement-showers/" target="_blank" rel="noopener">
+          <img src="assets/shower-base.jpg" alt="Replacement shower with tiled base" loading="lazy">
+          <span class="mini-t"><h4>Replacement Showers</h4><p>A professional, efficient shower replacement at your New Orleans home.</p></span>
+          <span class="mini-go" aria-hidden="true">&rarr;</span>
+        </a>
+        <a class="mini rv" href="https://www.bigeasybathrooms.com/shower-base/" target="_blank" rel="noopener">
+          <img src="assets/modern-bathroom.jpg" alt="Modern bathroom interior with a tiled shower area" loading="lazy">
+          <span class="mini-t"><h4>Shower Base</h4><p>Remodel your shower by replacing the shower base underneath it.</p></span>
+          <span class="mini-go" aria-hidden="true">&rarr;</span>
+        </a>
+        <a class="mini rv" href="https://www.bigeasybathrooms.com/shower-enclosure/" target="_blank" rel="noopener">
+          <img src="assets/shower-enclosure.jpg" alt="Corner shower enclosure with clear glass doors" loading="lazy">
+          <span class="mini-t"><h4>Shower Enclosure</h4><p>Renovate your current shower, or move to a tub-to-shower conversion, with an enclosure built to fit.</p></span>
+          <span class="mini-go" aria-hidden="true">&rarr;</span>
+        </a>
+        <a class="mini rv" href="https://www.bigeasybathrooms.com/shower-liners/" target="_blank" rel="noopener">
+          <img src="assets/bathroom-curtain.jpg" alt="Bathroom with shower curtain over the tub" loading="lazy">
+          <span class="mini-t"><h4>Shower Liners</h4><p>Keep your floor dry and safe from mildew, with a number of great designs to choose from.</p></span>
+          <span class="mini-go" aria-hidden="true">&rarr;</span>
+        </a>
+        <a class="mini rv" href="https://www.bigeasybathrooms.com/shower-surrounds/" target="_blank" rel="noopener">
+          <img src="assets/shower-surround.jpg" alt="Tiled shower surround beside a bathroom window" loading="lazy">
+          <span class="mini-t"><h4>Shower Surrounds</h4><p>Customize a shower surround and we will be pleased to install it in your New Orleans home.</p></span>
+          <span class="mini-go" aria-hidden="true">&rarr;</span>
+        </a>
+        <a class="mini rv" href="https://www.bigeasybathrooms.com/tub-to-shower-conversions/" target="_blank" rel="noopener">
+          <img src="assets/tub-to-shower.jpg" alt="Bathroom after a tub to shower conversion" loading="lazy">
+          <span class="mini-t"><h4>Tub to Shower Conversions</h4><p>Your dream bath in just one day. We handle everything for you, from start to finish.</p></span>
+          <span class="mini-go" aria-hidden="true">&rarr;</span>
+        </a>
+        <a class="mini rv" href="https://www.bigeasybathrooms.com/walk-in-showers/" target="_blank" rel="noopener">
+          <img src="assets/walk-in-showers.jpg" alt="Walk-in shower with glass enclosure and marble tile" loading="lazy">
+          <span class="mini-t"><h4>Walk-in Showers</h4><p>A safe and convenient option for New Orleans homeowners looking for reliable bathing solutions.</p></span>
+          <span class="mini-go" aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
     </div>
+
+    <div class="cat flip rv" id="catBathtubs">
+      <div class="cat-hero">
+        <img src="assets/acrylic-bathtub.jpg" alt="New acrylic bathtub fitted in a corner" loading="lazy">
+        <div class="cat-cap">
+          <p class="eyeb">Category &middot; 3 services</p>
+          <h3>Bathtubs</h3>
+          <p>Walk-in tubs, tub liners and full bathtub replacement.</p>
+        </div>
+      </div>
+      <div class="cat-list">
+        <a class="mini rv" href="https://www.bigeasybathrooms.com/bathtubs-replacement/" target="_blank" rel="noopener">
+          <img src="assets/acrylic-bathtub.jpg" alt="New acrylic bathtub fitted in a corner" loading="lazy">
+          <span class="mini-t"><h4>Bathtubs Replacement</h4><p>Top-quality replacement options that fit your style and budget, installed by our team of experts.</p></span>
+          <span class="mini-go" aria-hidden="true">&rarr;</span>
+        </a>
+        <a class="mini rv" href="https://www.bigeasybathrooms.com/tub-liners/" target="_blank" rel="noopener">
+          <img src="assets/bathtub-row.jpg" alt="Bathroom with a fitted bathtub and basin" loading="lazy">
+          <span class="mini-t"><h4>Tub Liners</h4><p>Top-quality tub liner products and services at competitive prices.</p></span>
+          <span class="mini-go" aria-hidden="true">&rarr;</span>
+        </a>
+        <a class="mini rv" href="https://www.bigeasybathrooms.com/walk-in-tubs/" target="_blank" rel="noopener">
+          <img src="assets/walk-in-tubs.jpg" alt="Walk-in tub installed in a New Orleans bathroom" loading="lazy">
+          <span class="mini-t"><h4>Walk-in Tubs</h4><p>The premier source for walk-in tubs in New Orleans, with a wide variety of tub styles and sizes to fit your needs.</p></span>
+          <span class="mini-go" aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Bathroom Safety sits outside both categories; kept as its own strip. -->
+    <a class="safe rv" href="https://www.bigeasybathrooms.com/bathroom-safety/" target="_blank" rel="noopener">
+      <img src="assets/grab-bar.jpg" alt="Bathroom safety grab bars fitted beside a toilet" loading="lazy">
+      <span class="safe-t">
+        <span class="eyeb">For any shower or tub</span>
+        <h3>Bathroom Safety</h3>
+        <p>Safety modifications that enhance comfort and help prevent accidents in the bathroom.</p>
+      </span>
+      <span class="more">Learn more <span>&rarr;</span></span>
+    </a>
 
     <div class="svc-all rv">
       <a class="btn btn-p" href="https://www.bigeasybathrooms.com/services/" target="_blank" rel="noopener">Explore all services</a>
@@ -1557,7 +1675,7 @@ footer p{font-size:.93rem;margin:0 0 12px}
 <section style="background:var(--cream-2)">
   <div class="wrap">
     <div class="split">
-      <div class="split-img rv"><img src="assets/services-feature.jpg" alt="Remodelled bathroom with a tiled tub surround" loading="lazy"></div>
+      <div class="split-img vid rv"><video class="sf-vid" muted loop playsinline preload="none" poster="assets/services-feature.jpg" aria-label="Finished bathroom reveal, supplied by the client"><source src="assets/designed-reveal.mp4" type="video/mp4"></video></div>
       <div class="rv">
         <p class="eyeb">Designed around you</p>
         <h2>Your Local New Orleans <span class="kw">Bathroom Renovation Specialists</span></h2>
@@ -1634,7 +1752,7 @@ footer p{font-size:.93rem;margin:0 0 12px}
     <div class="why">
       <div class="why-c rv"><p>If you want to recreate your bathroom for the ultimate experience, our bathroom remodeling team can do the job. We are your trusted bathroom remodeling contractors in New Orleans.</p></div>
       <div class="why-c rv"><p>We are one of the top remodeling companies that can efficiently do a bath remodel at a competitive cost. We will talk with you about your desired design for a custom bathroom remodeling that will bring a smile to your face.</p></div>
-      <div class="why-c rv"><p>Get the bathroom and experience you want with Big Easy Bathrooms! Our team can take on any bathroom remodel project. We understand your need for the best bathroom experience. Talk to our expert bathroom designer for options that will suit your style and the overall architecture of your home.</p></div>
+      <div class="why-c rv"><p>Get the bathroom and experience you want with Big Easy Bathrooms! Our team can take on any bathroom remodel project. We understand your need for the best bathroom experience. <a class="tlink" href="https://www.bigeasybathrooms.com/contact/" target="_blank" rel="noopener">Talk to our expert bathroom designer</a> for options that will suit your style and the overall architecture of your home.</p></div>
     </div>
     <div class="why-cta rv">
       <a class="btn btn-p" href="https://www.bigeasybathrooms.com/contact/" target="_blank" rel="noopener">Get a Free Quote</a>
@@ -1671,42 +1789,44 @@ footer p{font-size:.93rem;margin:0 0 12px}
         <div class="spot-stage" id="spotStage">
           <span class="spot-bub" aria-hidden="true"><i></i></span>
           <span class="spot-drops" aria-hidden="true"><i style="--dx:-120px;--dy:-90px"></i><i style="--dx:112px;--dy:-100px"></i><i style="--dx:140px;--dy:20px"></i><i style="--dx:-132px;--dy:32px"></i><i style="--dx:-70px;--dy:124px"></i><i style="--dx:80px;--dy:118px"></i><i style="--dx:10px;--dy:-142px"></i><i style="--dx:-24px;--dy:136px"></i></span>
-          <span class="spot-ini" id="spotIni" aria-hidden="true">HJ</span>
+          <!-- Reviewer portraits are Unsplash stock, placeholders for layout
+               review (note under the tiles). Initials show if one fails to load. -->
+          <span class="spot-ini" id="spotIni" aria-hidden="true"><img class="spot-face" id="spotFace" src="assets/rev-hj.jpg" alt="" width="320" height="320" decoding="async"><b>HJ</b></span>
         </div>
         <div class="s" aria-label="5 out of 5 stars"><i>&#9733;</i><i>&#9733;</i><i>&#9733;</i><i>&#9733;</i><i>&#9733;</i></div>
       </div>
       <div class="spot-right" id="spotPanes" aria-live="polite">
-        <div class="spot-pane on" data-cat="featured" data-ini="HJ">
+        <div class="spot-pane on" data-cat="featured" data-ini="HJ" data-img="assets/rev-hj.jpg">
           <span class="q" aria-hidden="true">&#8220;</span>
           <p>They remodeled my master bathroom, including converting the tub into a shower. During our meeting, they gave me a quote and suggested some design ideas. All of the workers who came to our home were on time and clean. A five-star service experience!</p>
           <div class="who"><b>Hayden Johnston</b><small>Verified client</small><span class="cat">Featured</span></div>
         </div>
-        <div class="spot-pane" data-cat="bathroom" data-ini="NA">
+        <div class="spot-pane" data-cat="bathroom" data-ini="NA" data-img="assets/rev-na.jpg">
           <span class="q" aria-hidden="true">&#8220;</span>
           <p>Big Easy Bathrooms installed my new stand-up shower. They were on time, professional, and kept me informed throughout the whole process. They were also very clean and tidy after each day. Definitely recommend them for future bathroom projects!</p>
           <div class="who"><b>Nathan Adams</b><small>Verified client</small><span class="cat">Bathroom</span></div>
         </div>
-        <div class="spot-pane" data-cat="others" data-ini="SM">
+        <div class="spot-pane" data-cat="others" data-ini="SM" data-img="assets/rev-sm.jpg">
           <span class="q" aria-hidden="true">&#8220;</span>
           <p>They did an awesome job on our bathroom remodel! They were very responsive and easy to communicate with. We're so glad we chose them to do our project!</p>
           <div class="who"><b>Sydney Martin</b><small>Verified client</small><span class="cat">Others</span></div>
         </div>
-        <div class="spot-pane" data-cat="bathtub" data-ini="CC">
+        <div class="spot-pane" data-cat="bathtub" data-ini="CC" data-img="assets/rev-cc.jpg">
           <span class="q" aria-hidden="true">&#8220;</span>
           <p>We were impressed with the quality of workmanship shown by our installer. He was professional, courteous and knowledgeable about what needed to be done. His ability to install our tub and shower was outstanding.</p>
           <div class="who"><b>Callie Carter</b><small>Verified client</small><span class="cat">Bathtub</span></div>
         </div>
-        <div class="spot-pane" data-cat="bathroom" data-ini="IB">
+        <div class="spot-pane" data-cat="bathroom" data-ini="IB" data-img="assets/rev-ib.jpg">
           <span class="q" aria-hidden="true">&#8220;</span>
           <p>They were our installers during our master bathroom remodel project. They were prompt and extremely easy to work with. They did the tear down of the existing shower and cleaned up the work area after each day's work. The new shower area looked amazing and they solved our concerns and made sure that every part of the installation was done perfectly. Remodeling a 40+ year old home takes a lot of skill and desire to do the job correctly. The team is talented and we look forward to working with them again on our next project.</p>
           <div class="who"><b>Isabel Barrett</b><small>Verified client</small><span class="cat">Bathroom</span></div>
         </div>
-        <div class="spot-pane" data-cat="bathroom" data-ini="KG">
+        <div class="spot-pane" data-cat="bathroom" data-ini="KG" data-img="assets/rev-kg.jpg">
           <span class="q" aria-hidden="true">&#8220;</span>
           <p>Big Easy Bathrooms turned my old outhouse of a bathroom into a luxurious shower that I can enjoy forever. We greatly appreciate how these guys improved the quality of life within our house through their attention to detail. Thank you!</p>
           <div class="who"><b>Kaleb Garcia</b><small>Verified client</small><span class="cat">Bathroom</span></div>
         </div>
-        <div class="spot-pane" data-cat="bathtub" data-ini="MR">
+        <div class="spot-pane" data-cat="bathtub" data-ini="MR" data-img="assets/rev-mr.jpg">
           <span class="q" aria-hidden="true">&#8220;</span>
           <p>My tub and shower were installed by a polite and professional crew from Big Easy Bathrooms. The bathtub looks great and I love the look!</p>
           <div class="who"><b>Malia Roberts</b><small>Verified client</small><span class="cat">Bathtub</span></div>
@@ -1721,14 +1841,15 @@ footer p{font-size:.93rem;margin:0 0 12px}
     </div>
 
     <ul class="rv-tiles rv" id="rvTiles" aria-label="Choose a review">
-      <li data-cat="featured"><button class="rv-tile" type="button" data-i="0" aria-pressed="true"><span class="mono" aria-hidden="true">HJ</span><span><b>Hayden Johnston</b><small>Featured</small></span></button></li>
-      <li data-cat="bathroom"><button class="rv-tile" type="button" data-i="1" aria-pressed="false"><span class="mono" aria-hidden="true">NA</span><span><b>Nathan Adams</b><small>Bathroom</small></span></button></li>
-      <li data-cat="others"><button class="rv-tile" type="button" data-i="2" aria-pressed="false"><span class="mono" aria-hidden="true">SM</span><span><b>Sydney Martin</b><small>Others</small></span></button></li>
-      <li data-cat="bathtub"><button class="rv-tile" type="button" data-i="3" aria-pressed="false"><span class="mono" aria-hidden="true">CC</span><span><b>Callie Carter</b><small>Bathtub</small></span></button></li>
-      <li data-cat="bathroom"><button class="rv-tile" type="button" data-i="4" aria-pressed="false"><span class="mono" aria-hidden="true">IB</span><span><b>Isabel Barrett</b><small>Bathroom</small></span></button></li>
-      <li data-cat="bathroom"><button class="rv-tile" type="button" data-i="5" aria-pressed="false"><span class="mono" aria-hidden="true">KG</span><span><b>Kaleb Garcia</b><small>Bathroom</small></span></button></li>
-      <li data-cat="bathtub"><button class="rv-tile" type="button" data-i="6" aria-pressed="false"><span class="mono" aria-hidden="true">MR</span><span><b>Malia Roberts</b><small>Bathtub</small></span></button></li>
+      <li data-cat="featured"><button class="rv-tile" type="button" data-i="0" aria-pressed="true"><span class="mono" aria-hidden="true"><img src="assets/rev-hj.jpg" alt="" width="320" height="320" loading="lazy" decoding="async">HJ</span><span><b>Hayden Johnston</b><small>Featured</small></span></button></li>
+      <li data-cat="bathroom"><button class="rv-tile" type="button" data-i="1" aria-pressed="false"><span class="mono" aria-hidden="true"><img src="assets/rev-na.jpg" alt="" width="320" height="320" loading="lazy" decoding="async">NA</span><span><b>Nathan Adams</b><small>Bathroom</small></span></button></li>
+      <li data-cat="others"><button class="rv-tile" type="button" data-i="2" aria-pressed="false"><span class="mono" aria-hidden="true"><img src="assets/rev-sm.jpg" alt="" width="320" height="320" loading="lazy" decoding="async">SM</span><span><b>Sydney Martin</b><small>Others</small></span></button></li>
+      <li data-cat="bathtub"><button class="rv-tile" type="button" data-i="3" aria-pressed="false"><span class="mono" aria-hidden="true"><img src="assets/rev-cc.jpg" alt="" width="320" height="320" loading="lazy" decoding="async">CC</span><span><b>Callie Carter</b><small>Bathtub</small></span></button></li>
+      <li data-cat="bathroom"><button class="rv-tile" type="button" data-i="4" aria-pressed="false"><span class="mono" aria-hidden="true"><img src="assets/rev-ib.jpg" alt="" width="320" height="320" loading="lazy" decoding="async">IB</span><span><b>Isabel Barrett</b><small>Bathroom</small></span></button></li>
+      <li data-cat="bathroom"><button class="rv-tile" type="button" data-i="5" aria-pressed="false"><span class="mono" aria-hidden="true"><img src="assets/rev-kg.jpg" alt="" width="320" height="320" loading="lazy" decoding="async">KG</span><span><b>Kaleb Garcia</b><small>Bathroom</small></span></button></li>
+      <li data-cat="bathtub"><button class="rv-tile" type="button" data-i="6" aria-pressed="false"><span class="mono" aria-hidden="true"><img src="assets/rev-mr.jpg" alt="" width="320" height="320" loading="lazy" decoding="async">MR</span><span><b>Malia Roberts</b><small>Bathtub</small></span></button></li>
     </ul>
+    <p class="gal-note rv">Sample portraits for layout review. The reviewers' own photographs, with their permission, replace these before launch.</p>
 
     <div class="svc-all rv">
       <a class="btn btn-s" href="https://www.bigeasybathrooms.com/reviews/" target="_blank" rel="noopener">Read all reviews</a>
@@ -1842,9 +1963,9 @@ onScroll();
 
 /* mobile menu */
 var burger = document.getElementById("burger");
-var top = document.getElementById("top");
+var topbar = document.getElementById("top");
 burger.addEventListener("click", function(){
-  var open = top.classList.toggle("open");
+  var open = topbar.classList.toggle("open");
   burger.setAttribute("aria-expanded", open ? "true" : "false");
 });
 
@@ -2035,8 +2156,29 @@ if (document.getElementById("intro")) {
       st.setProperty("--d",  (i * .15 + Math.random() * .08).toFixed(2) + "s");
     }
   }
+  /* one pop per bubble, timed to its burst (2.15s + its delay), only when
+     the visitor turned sound on in the intro; browsers block it otherwise */
+  function pops(){
+    if (reduce || !items) return;
+    var on = false;
+    try { on = localStorage.getItem("beb_sound") === "1"; } catch (e) {}
+    if (!on) return;
+    for (var k = 0; k < items.length; k++) {
+      (function(n){
+        var d = parseFloat(items[n].style.getPropertyValue("--d")) || 0;
+        setTimeout(function(){
+          try {
+            var a = new Audio("assets/intro-pop.mp3");
+            a.volume = .45;
+            a.preservesPitch = false; a.playbackRate = .88 + n * .06;   /* rising pitch along the row */
+            var p = a.play(); if (p && p.catch) { p.catch(function(){}); }
+          } catch (e) {}
+        }, 2150 + d * 1000);
+      })(k);
+    }
+  }
   var armed = false;
-  function go(){ if (armed) return; armed = true; strip.classList.add("go"); }
+  function go(){ if (armed) return; armed = true; strip.classList.add("go"); pops(); }
   function watch(){
     if (!("IntersectionObserver" in window)) { go(); return; }
     var io = new IntersectionObserver(function(en){
@@ -2204,7 +2346,7 @@ if (document.getElementById("intro")) {
     io.observe(root);
   } else { inView = true; show(0, true); start(); }
 })();
-/* ---- reviews spotlight: one at a time, initials in a bubble that pops ---- */
+/* ---- reviews spotlight: one at a time, the reviewer's photograph in a bubble that pops ---- */
 (function(){
   var root = document.getElementById("spot");
   if (!root) return;
@@ -2219,6 +2361,20 @@ if (document.getElementById("intro")) {
   var hint  = document.getElementById("spotHint");
   var STEP_MS = 9000;
   var cur = 0, timer = null, paused = false, inView = false, first = true, cat = "all";
+  var face  = document.getElementById("spotFace");
+  /* a photograph that fails to load hides itself and the initials show through */
+  function guard(img){
+    if (!img) return;
+    img.addEventListener("error", function(){ img.classList.add("bad"); });
+    img.addEventListener("load",  function(){ img.classList.remove("bad"); });
+    if (img.complete && img.naturalWidth === 0 && img.getAttribute("src")) { img.classList.add("bad"); }
+  }
+  guard(face);
+  [].slice.call(document.querySelectorAll("#rvTiles .mono img")).forEach(guard);
+  /* seven small files: fetch them once so a change of reviewer is instant */
+  for (var pi = 0; pi < panes.length; pi++) {
+    if (panes[pi].getAttribute("data-img")) { (new Image()).src = panes[pi].getAttribute("data-img"); }
+  }
 
   function visible(){
     var v = [];
@@ -2239,7 +2395,9 @@ if (document.getElementById("intro")) {
       (function(p){ setTimeout(function(){ p.classList.remove("out"); }, 700); })(panes[prev]);
     }
     panes[i].classList.add("on");
-    ini.textContent = panes[i].getAttribute("data-ini");
+    var b = ini.querySelector("b");
+    if (b) { b.textContent = panes[i].getAttribute("data-ini"); }
+    if (face) { face.src = panes[i].getAttribute("data-img") || ""; }
     if (reduce) { stage.classList.add("play"); return; }
     stage.classList.remove("play");
     void stage.offsetWidth;
