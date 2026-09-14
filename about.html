@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>New Orleans Bathroom Remodeling Contractor | Big Easy Bathrooms</title>
-<meta name="description" content="Big Easy Bathrooms handles every detail from concept to completion. Walk-in tubs, walk-in showers, barrier-free showers and full bathroom remodels across New Orleans.">
+<title>About Big Easy Bathrooms | New Orleans Bathroom Remodeling</title>
+<meta name="description" content="Discover Big Easy Bathrooms' commitment to quality and customer satisfaction. Learn about our expert team and services. Contact us today to start your project!">
 <link rel="icon" href="assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1399,187 +1399,46 @@ footer a:hover,footer a:focus-visible{color:#fff;text-decoration:underline;
   .js .fq-item,.js .fq-side{opacity:1!important;transform:none!important;transition:none!important}
   .fq-panel.swap .fq-topic,.fq-panel.swap h3,.fq-panel.swap .fq-ans,.fq-panel.swap .fq-big{animation:none!important}
 }
+
+/* ============================================================
+   ABOUT PAGE
+   Hero: centred on the darker brown with the ambient bubbles behind.
+   Purpose and Mission: the mission copy beside a white card carrying
+   the three Big Easy Promise points as bubble numerals.
+   ============================================================ */
+.ah{position:relative;overflow:hidden;background:#E3D5C1;padding:150px 0 76px;text-align:center}
+.ah .wrap{position:relative;z-index:2}
+.ah .eyeb{color:var(--navy)}
+.ah h1{font-family:var(--serif);font-weight:300;font-size:clamp(2.4rem,5.4vw,4.4rem);
+  line-height:1.05;letter-spacing:-.01em;color:var(--ink);margin:0 auto 20px;max-width:16ch}
+.ah-sub{max-width:64ch;margin:0 auto 28px;font-size:1.1rem;line-height:1.65;color:var(--ink)}
+.ah-cta{display:flex;gap:13px;justify-content:center;flex-wrap:wrap}
+.pm{background:var(--cream)}
+.pm-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:start}
+.pm-lead{font-family:var(--serif);font-weight:400;font-size:clamp(1.25rem,2vw,1.6rem);
+  line-height:1.35;color:var(--ink);margin:0 0 18px}
+.pm-copy p{color:var(--ink)}
+.pm-promise{background:#fff;border:1px solid var(--line);border-radius:var(--r);
+  padding:32px 30px 30px;box-shadow:0 18px 44px rgba(36,36,36,.08)}
+.pm-promise h3{font-family:var(--serif);font-weight:400;font-size:1.5rem;line-height:1.2;margin:0 0 22px}
+.pm-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:16px}
+.pm-list li{display:flex;align-items:center;gap:16px;font-size:1.04rem;line-height:1.4;color:var(--ink)}
+.pm-b{position:relative;flex:none;width:58px;height:58px;border-radius:50%;display:grid;
+  place-items:center;font-family:var(--sans);font-weight:600;font-size:.82rem;letter-spacing:.08em;
+  color:var(--navy);border:1px solid rgba(255,255,255,.95);
+  background:radial-gradient(circle at 34% 28%,rgba(255,255,255,.95),rgba(255,255,255,.4) 40%,
+    rgba(199,178,154,.3) 72%,rgba(4,34,61,.12) 100%);
+  box-shadow:inset 0 0 12px rgba(255,255,255,.6),inset -8px -10px 18px rgba(4,34,61,.12),
+    0 10px 22px rgba(36,36,36,.12)}
+.pm-b i{position:absolute;left:19%;top:13%;width:26%;height:18%;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.98),rgba(255,255,255,0) 70%)}
+@media (max-width:900px){
+  .ah{padding:132px 0 56px}
+  .pm-grid{grid-template-columns:1fr;gap:26px}
+}
 </style>
 </head>
 <body>
-<!-- ============ INTRO OVERLAY ============
-     Plays once per tab session, over the top of the page.
-     The hero underneath is untouched and already rendered.
-     Everything below is self-contained: the arming script does
-     not depend on the main script block at the foot of the page.
-     ======================================================== -->
-<div class="intro" id="intro">
-  <div class="intro-scene">
-    <!-- The client's reveal clip (also used in Designed Around You). The
-         old still stays as the poster so the first frame is never blank. -->
-    <video src="assets/designed-reveal.mp4" poster="assets/hero-1.jpg" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
-  </div>
-  <div class="intro-logo">
-    <div class="intro-bubble"><span class="intro-shine"></span></div>
-    <div class="intro-mark"><img src="assets/logo.png" alt="" aria-hidden="true"></div>
-    <span class="intro-drop" style="--dx:-168px;--dy:-124px"></span>
-    <span class="intro-drop" style="--dx:158px;--dy:-138px"></span>
-    <span class="intro-drop" style="--dx:196px;--dy:26px"></span>
-    <span class="intro-drop" style="--dx:-186px;--dy:44px"></span>
-    <span class="intro-drop" style="--dx:-96px;--dy:172px"></span>
-    <span class="intro-drop" style="--dx:112px;--dy:164px"></span>
-    <span class="intro-drop" style="--dx:14px;--dy:-198px"></span>
-    <span class="intro-drop" style="--dx:-34px;--dy:190px"></span>
-  </div>
-  <button class="intro-skip" id="introSkip" type="button" aria-label="Skip intro animation">Skip</button>
-  <!-- Mixkit Sound Effects Free License: "Deep water bubbles" and
-       "Soap bubble sound". Browsers block sound until the visitor has
-       interacted with the page, hence the button. -->
-  <audio id="introSfx" preload="auto" src="assets/intro-bubbles.mp3"></audio>
-  <audio id="introPop" preload="auto" src="assets/intro-pop.mp3"></audio>
-  <button class="intro-sound" id="introSound" type="button" aria-pressed="false" aria-label="Turn sound on">Sound on</button>
-</div>
-<script>
-/* Arming script. Runs immediately, before the rest of the body parses,
-   so the overlay never flashes in or out of place. */
-(function(){
-  var html = document.documentElement;
-  var intro = document.getElementById("intro");
-  if (!intro) return;
-
-  /* 1. Anyone who asked for reduced motion never sees a gate. */
-  var reduce = false;
-  try {
-    reduce = window.matchMedia &&
-             window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  } catch (e) {}
-
-  /* 2. Replay policy. One switch, deliberately easy to flip:
-          false - the intro plays on EVERY page load  (current setting)
-          true  - it plays once per tab, then stays out of the way
-        It is false so the mockup can be reloaded and reviewed repeatedly.
-        Worth revisiting before this goes on a live public site: a repeat
-        visitor sitting through the intro on every page load is a cost. */
-  var ONCE_PER_SESSION = false;
-
-  var seen = false;
-  if (ONCE_PER_SESSION) {
-    try { seen = sessionStorage.getItem("beb_intro") === "1"; } catch (e) {}
-  }
-
-  if (reduce || seen) { intro.parentNode.removeChild(intro); return; }
-
-  if (ONCE_PER_SESSION) {
-    try { sessionStorage.setItem("beb_intro", "1"); } catch (e) {}
-  } else {
-    /* Clear any flag left by an earlier once-per-session build, so a
-       browser holding old state cannot suppress the intro if the switch
-       is ever turned back on. */
-    try { sessionStorage.removeItem("beb_intro"); } catch (e) {}
-  }
-
-  /* 3. Bubbles, from all over. Negative delays start them mid-flight
-        so the screen is already full at frame one. */
-  var frag = document.createDocumentFragment();
-  function r(a, b){ return a + Math.random() * (b - a); }
-  for (var i = 0; i < 34; i++) {
-    var b = document.createElement("span");
-    b.className = "intro-bub";
-    b.style.setProperty("--x",     r(-2, 100).toFixed(2) + "%");
-    b.style.setProperty("--y",     r(-14, 34).toFixed(2) + "%");
-    b.style.setProperty("--s",     r(6, 34).toFixed(1) + "px");
-    b.style.setProperty("--d",     r(3.2, 7).toFixed(2) + "s");
-    b.style.setProperty("--delay", r(-4.5, 0.5).toFixed(2) + "s");
-    b.style.setProperty("--drift", r(-85, 85).toFixed(0) + "px");
-    b.style.setProperty("--o",     r(0.32, 0.85).toFixed(2));
-    frag.appendChild(b);
-  }
-  intro.appendChild(frag);
-
-  html.className += " intro-armed";
-
-  /* 4. Sound. Browsers reject play() until the visitor has interacted
-        with the page, so the first visit falls back to the button. */
-  var sfx = document.getElementById("introSfx");
-  var pop = document.getElementById("introPop");
-  var sb  = document.getElementById("introSound");
-  var armedAt = Date.now(), soundOn = false, popTimer = null;
-  if (sfx) { sfx.volume = .35; }
-  if (pop) { pop.volume = .5; }
-  function schedulePop(){
-    if (!pop) return;
-    var left = 1720 - (Date.now() - armedAt);   /* the logo bubble pops at 1.72s */
-    if (left < -400) return;                     /* moment has passed */
-    popTimer = setTimeout(function(){ try { pop.currentTime = 0; pop.play(); } catch (e) {} },
-                          Math.max(0, left));
-  }
-  function setSoundUI(on){
-    if (!sb) return;
-    sb.textContent = on ? "Mute" : "Sound on";
-    sb.setAttribute("aria-pressed", on ? "true" : "false");
-    sb.setAttribute("aria-label", on ? "Turn sound off" : "Turn sound on");
-  }
-  function startSound(){
-    if (soundOn || !sfx) return;
-    var p;
-    try { sfx.currentTime = 0; p = sfx.play(); } catch (e) { return; }
-    if (p && p.then) {
-      p.then(function(){
-        soundOn = true; setSoundUI(true); schedulePop();
-        try { localStorage.setItem("beb_sound", "1"); } catch (e) {}
-      }).catch(function(){ setSoundUI(false); });   /* blocked: offer the button */
-    }
-  }
-  function stopSound(){
-    soundOn = false; setSoundUI(false);
-    if (popTimer) { clearTimeout(popTimer); popTimer = null; }
-    try { sfx.pause(); pop.pause(); } catch (e) {}
-    try { localStorage.removeItem("beb_sound"); } catch (e) {}
-  }
-  function fadeSound(){
-    if (!soundOn || !sfx) return;
-    var v = sfx.volume;
-    var iv = setInterval(function(){
-      v -= .07;
-      if (v <= 0) { clearInterval(iv); try { sfx.pause(); } catch (e) {} }
-      else { sfx.volume = v; }
-    }, 40);
-    if (popTimer) { clearTimeout(popTimer); popTimer = null; }
-  }
-  if (sb) {
-    sb.addEventListener("click", function(e){
-      e.stopPropagation();                        /* a click elsewhere skips the intro */
-      if (soundOn) { stopSound(); } else { startSound(); }
-    });
-    sb.addEventListener("keydown", function(e){ e.stopPropagation(); });
-  }
-  startSound();                                   /* allowed only after prior interaction */
-
-  /* 5. Skip. The CSS animation clears the overlay on its own, so this
-        is a convenience, not the mechanism. */
-  var done = false;
-  function dismiss(){
-    if (done) return;
-    done = true;
-    fadeSound();
-    html.className += " intro-gone";
-    /* tell the rest of the page the screen is clear, so animations that
-       would otherwise have played behind the overlay can start now */
-    try { document.dispatchEvent(new CustomEvent("beb:introdone")); } catch (e) {}
-    window.removeEventListener("scroll", dismiss);
-    window.removeEventListener("keydown", dismiss);
-    setTimeout(function(){
-      if (intro.parentNode) { intro.parentNode.removeChild(intro); }
-    }, 400);
-  }
-  var skip = document.getElementById("introSkip");
-  if (skip) { skip.addEventListener("click", dismiss); }
-  intro.addEventListener("click", dismiss);
-  window.addEventListener("scroll", dismiss, {passive:true});
-  window.addEventListener("keydown", dismiss);
-
-  /* 6. Tidy up after the CSS fade finishes, so the overlay leaves the
-        DOM and cannot intercept anything. */
-  setTimeout(dismiss, 4300);
-})();
-</script>
-
-
 <div class="head">
 <div class="topwrap" id="topwrap">
   <div class="top" id="top">
@@ -1588,8 +1447,8 @@ footer a:hover,footer a:focus-visible{color:#fff;text-decoration:underline;
     </a>
     <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">&#9776;</button>
     <ul class="nav" id="nav">
-      <li class="on"><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li class="on"><a href="about.html">About</a></li>
       <li><a href="https://www.bigeasybathrooms.com/services/" target="_blank" rel="noopener">Services <span class="caret">&#9660;</span></a>
         <ul class="has-sub">
           <li class="sub"><span class="grp" tabindex="0">Showers <span class="caret">&#9656;</span></span>
@@ -1632,48 +1491,23 @@ footer a:hover,footer a:focus-visible{color:#fff;text-decoration:underline;
   </div>
 </div>
 
-<!-- ============ HERO ============ -->
-<header class="hero" id="top-anchor">
+<!-- ============ ABOUT HERO ============ -->
+<!-- Copy is the client's About page intro, carried; brand name spelled
+     as Big Easy Bathrooms throughout. -->
+<section class="ah" id="ahero">
   <div class="wrap">
-    <div class="hero-grid">
-
-      <!-- Magazine. NOTE: these six photographs are Unsplash stock, NOT
-           Big Easy Bathrooms' own projects. They are placeholders for the
-           layout. Swap them for real job photography before this goes
-           anywhere public, or the page implies work the client did not do. -->
-      <div class="mag-wrap">
-        <div class="mag">
-          <div class="mag-stack" id="magStack">
-        <figure class="mag-pg"><img src="assets/walk-in-tubs.jpg" alt="Walk-in tub with grab bars beside a roll-in shower" style="object-position:30% 50%" fetchpriority="high"><figcaption class="mag-cap">Walk-in tubs</figcaption></figure>
-        <figure class="mag-pg"><img src="assets/walk-in-showers.jpg" alt="Walk-in shower with glass enclosure and marble tile" loading="lazy"><figcaption class="mag-cap">Walk-in showers</figcaption></figure>
-        <figure class="mag-pg"><img src="assets/barrier-free-shower.jpg" alt="Barrier-free shower with no threshold" loading="lazy"><figcaption class="mag-cap">Barrier-free showers</figcaption></figure>
-        <figure class="mag-pg"><img src="assets/tub-to-shower.jpg" alt="Glass shower after a tub-to-shower conversion" loading="lazy"><figcaption class="mag-cap">Tub-to-shower conversions</figcaption></figure>
-        <figure class="mag-pg"><img src="assets/shower-enclosure.jpg" alt="Corner shower enclosure with clear glass doors" loading="lazy"><figcaption class="mag-cap">Shower enclosures</figcaption></figure>
-        <figure class="mag-pg"><img src="assets/acrylic-bathtub.jpg" alt="Newly installed acrylic bathtub" loading="lazy"><figcaption class="mag-cap">Bathtub replacement</figcaption></figure>
-          </div>
-          <div class="mag-shine" aria-hidden="true"></div>
-        </div>
-        <div class="mag-ctl">
-          <button class="mag-btn" id="magPrev" type="button" aria-label="Previous photograph">&#8249;</button>
-          <button class="mag-btn" id="magNext" type="button" aria-label="Next photograph">&#8250;</button>
-          <button class="mag-btn" id="magPause" type="button" aria-pressed="false" aria-label="Pause the slideshow">&#10073;&#10073;</button>
-          <div class="mag-dots" id="magDots"></div>
-        </div>
+    <div class="rv">
+      <p class="eyeb">Get to know us</p>
+      <h1>About <span class="kw">Big Easy Bathrooms</span></h1>
+      <p class="ah-sub">Big Easy Bathrooms is the go-to bathroom renovation and construction company in the area. With our award-winning customer service, exceptional craftsmanship, and industry-leading prices, Big Easy Bathrooms offers an unbeatable combination of quality and value.</p>
+      <div class="ah-cta">
+        <a class="btn btn-p" href="https://www.bigeasybathrooms.com/contact/" target="_blank" rel="noopener">Get a Free Quote</a>
+        <a class="btn btn-s" href="tel:+15046887786">Call 504-688-7786</a>
       </div>
-
-      <div class="hero-copy">
-        <div class="stars"><b>&#9733;&#9733;&#9733;&#9733;&#9733;</b> Rated by Hundreds of Satisfied Customers.</div>
-        <h1>Let Us Help You Reimagine Your <span class="kw">Bathroom In New Orleans</span>: Where Luxury Meets Comfort and Function</h1>
-        <p>From concept to completion, Big Easy Bathrooms handles every detail, your local NOLA renovation specialists.</p>
-        <div class="hero-cta">
-          <a class="btn btn-p" href="https://www.bigeasybathrooms.com/contact/" target="_blank" rel="noopener">Get a Free Quote</a>
-          <a class="btn btn-s" href="tel:+15046887786">Call 504-688-7786</a>
-        </div>
-      </div>
-
     </div>
   </div>
-</header>
+</section>
+
 </div><!-- /.head -->
 
 <!-- ============ TRUST STRIP ============
@@ -1702,164 +1536,6 @@ footer a:hover,footer a:focus-visible{color:#fff;text-decoration:underline;
   </div>
 </section>
 
-<!-- ============ PROCESS ============
-     The four steps are the client's own, unchanged. -->
-<section class="proc" id="process">
-  <div class="wrap">
-    <div class="lead rv">
-      <p class="eyeb">How we work</p>
-      <h2>Expert <span class="kw on-sand">Bathroom Renovations</span>, Simplified: Discover Our Process</h2>
-    </div>
-    <!-- Step photographs are Unsplash stock, subject chosen per step. -->
-    <div class="steps-fill" id="stepsFill">
-      <article class="sf">
-        <div class="sf-img"><video class="sf-vid" muted loop playsinline preload="none" poster="assets/step-1.jpg" aria-label="Tile and stone finish samples"><source src="assets/step-1.mp4" type="video/mp4"></video><span class="sf-n" aria-hidden="true">01</span></div>
-        <div class="sf-body">
-          <p class="pp-step">Step &middot; 01</p>
-          <h3>Discuss Your Bathroom Renovation Goals</h3>
-          <p>Meet with our NOLA team to discuss your vision, budget, style preferences, and project requirements. We will provide expert recommendations and answer all your questions.</p>
-        </div>
-      </article>
-      <article class="sf">
-        <div class="sf-img"><video class="sf-vid" muted loop playsinline preload="none" poster="assets/step-2.jpg" aria-label="Dimensioned design drawings on a table"><source src="assets/step-2.mp4" type="video/mp4"></video><span class="sf-n" aria-hidden="true">02</span></div>
-        <div class="sf-body">
-          <p class="pp-step">Step &middot; 02</p>
-          <h3>Create a Custom Bathroom Design</h3>
-          <p>Our experienced designers develop a personalized bathroom layout, helping you choose the perfect fixtures, materials, colors, and finishes to match your style.</p>
-        </div>
-      </article>
-      <article class="sf">
-        <div class="sf-img"><video class="sf-vid" muted loop playsinline preload="none" poster="assets/step-3.jpg" aria-label="Sketches and hand tools on a workbench"><source src="assets/step-3.mp4" type="video/mp4"></video><span class="sf-n" aria-hidden="true">03</span></div>
-        <div class="sf-body">
-          <p class="pp-step">Step &middot; 03</p>
-          <h3>Professional Bathroom Renovation</h3>
-          <p>Our skilled renovation team handles everything from demolition and plumbing to tiling, cabinetry, lighting, and fixture installation with precision and care.</p>
-        </div>
-      </article>
-      <article class="sf">
-        <div class="sf-img"><video class="sf-vid" muted loop playsinline preload="none" poster="assets/step-4.jpg" aria-label="Finished bathroom with a freestanding tub"><source src="assets/step-4.mp4" type="video/mp4"></video><span class="sf-n" aria-hidden="true">04</span></div>
-        <div class="sf-body">
-          <p class="pp-step">Step &middot; 04</p>
-          <h3>Quality Check &amp; Project Handover</h3>
-          <p>We complete a thorough inspection to ensure every detail meets our high standards before presenting you with your beautifully finished bathroom.</p>
-        </div>
-      </article>
-    </div>
-    <div class="sf-cta">
-      <a class="btn btn-p" href="https://www.bigeasybathrooms.com/contact/" target="_blank" rel="noopener">Get a Free Quote</a>
-      <a class="btn btn-l" href="tel:+15046887786">Call 504-688-7786</a>
-    </div>
-  </div>
-</section>
-
-<!-- ============ SERVICES ============ -->
-<section id="services">
-  <div class="wrap">
-    <div class="lead rv">
-      <p class="eyeb">Services</p>
-      <h2>Transform Your Home with Expert <span class="kw">Bathroom Renovation Services In New Orleans</span></h2>
-      <p>From walk-in tubs to full shower remodels, our New Orleans craftsmen deliver custom, code-compliant bathrooms built to last.</p>
-    </div>
-
-    <!-- Two categories. Category photographs are the client's own; card
-         copy is carried from the previous service cards. -->
-    <div class="cat rv" id="catShowers">
-      <div class="cat-hero">
-        <img src="assets/walk-in-showers.jpg" alt="Walk-in shower with glass enclosure and marble tile" loading="lazy">
-        <div class="cat-cap">
-          <p class="eyeb">Category &middot; 8 services</p>
-          <h3>Showers</h3>
-          <p>Barrier-free and walk-in designs, conversions and replacements, with the bases, liners, surrounds and enclosures that finish the job.</p>
-        </div>
-      </div>
-      <div class="cat-list">
-        <a class="mini rv" href="https://www.bigeasybathrooms.com/barrier-free-showers/" target="_blank" rel="noopener">
-          <img src="assets/barrier-free-shower.jpg" alt="Barrier-free shower with no threshold and grab rail" loading="lazy">
-          <span class="mini-t"><h4>Barrier-Free Showers</h4><p>Ideal for anyone who needs extra space to move around. A walk-in design with no threshold makes it easier to get in and out.</p></span>
-          <span class="mini-go" aria-hidden="true">&rarr;</span>
-        </a>
-        <a class="mini rv" href="https://www.bigeasybathrooms.com/replacement-showers/" target="_blank" rel="noopener">
-          <img src="assets/shower-base.jpg" alt="Replacement shower with tiled base" loading="lazy">
-          <span class="mini-t"><h4>Replacement Showers</h4><p>A professional, efficient shower replacement at your New Orleans home.</p></span>
-          <span class="mini-go" aria-hidden="true">&rarr;</span>
-        </a>
-        <a class="mini rv" href="https://www.bigeasybathrooms.com/shower-base/" target="_blank" rel="noopener">
-          <img src="assets/modern-bathroom.jpg" alt="Modern bathroom interior with a tiled shower area" loading="lazy">
-          <span class="mini-t"><h4>Shower Base</h4><p>Remodel your shower by replacing the shower base underneath it.</p></span>
-          <span class="mini-go" aria-hidden="true">&rarr;</span>
-        </a>
-        <a class="mini rv" href="https://www.bigeasybathrooms.com/shower-enclosure/" target="_blank" rel="noopener">
-          <img src="assets/shower-enclosure.jpg" alt="Corner shower enclosure with clear glass doors" loading="lazy">
-          <span class="mini-t"><h4>Shower Enclosure</h4><p>Renovate your current shower, or move to a tub-to-shower conversion, with an enclosure built to fit.</p></span>
-          <span class="mini-go" aria-hidden="true">&rarr;</span>
-        </a>
-        <a class="mini rv" href="https://www.bigeasybathrooms.com/shower-liners/" target="_blank" rel="noopener">
-          <img src="assets/bathroom-curtain.jpg" alt="Bathroom with shower curtain over the tub" loading="lazy">
-          <span class="mini-t"><h4>Shower Liners</h4><p>Keep your floor dry and safe from mildew, with a number of great designs to choose from.</p></span>
-          <span class="mini-go" aria-hidden="true">&rarr;</span>
-        </a>
-        <a class="mini rv" href="https://www.bigeasybathrooms.com/shower-surrounds/" target="_blank" rel="noopener">
-          <img src="assets/shower-surround.jpg" alt="Tiled shower surround beside a bathroom window" loading="lazy">
-          <span class="mini-t"><h4>Shower Surrounds</h4><p>Customize a shower surround and we will be pleased to install it in your New Orleans home.</p></span>
-          <span class="mini-go" aria-hidden="true">&rarr;</span>
-        </a>
-        <a class="mini rv" href="https://www.bigeasybathrooms.com/tub-to-shower-conversions/" target="_blank" rel="noopener">
-          <img src="assets/tub-to-shower.jpg" alt="Bathroom after a tub to shower conversion" loading="lazy">
-          <span class="mini-t"><h4>Tub to Shower Conversions</h4><p>Your dream bath in just one day. We handle everything for you, from start to finish.</p></span>
-          <span class="mini-go" aria-hidden="true">&rarr;</span>
-        </a>
-        <a class="mini rv" href="https://www.bigeasybathrooms.com/walk-in-showers/" target="_blank" rel="noopener">
-          <img src="assets/walk-in-showers.jpg" alt="Walk-in shower with glass enclosure and marble tile" loading="lazy">
-          <span class="mini-t"><h4>Walk-in Showers</h4><p>A safe and convenient option for New Orleans homeowners looking for reliable bathing solutions.</p></span>
-          <span class="mini-go" aria-hidden="true">&rarr;</span>
-        </a>
-      </div>
-    </div>
-
-    <div class="cat flip rv" id="catBathtubs">
-      <div class="cat-hero">
-        <img src="assets/acrylic-bathtub.jpg" alt="New acrylic bathtub fitted in a corner" loading="lazy">
-        <div class="cat-cap">
-          <p class="eyeb">Category &middot; 3 services</p>
-          <h3>Bathtubs</h3>
-          <p>Walk-in tubs, tub liners and full bathtub replacement.</p>
-        </div>
-      </div>
-      <div class="cat-list">
-        <a class="mini rv" href="https://www.bigeasybathrooms.com/bathtubs-replacement/" target="_blank" rel="noopener">
-          <img src="assets/acrylic-bathtub.jpg" alt="New acrylic bathtub fitted in a corner" loading="lazy">
-          <span class="mini-t"><h4>Bathtubs Replacement</h4><p>Top-quality replacement options that fit your style and budget, installed by our team of experts.</p></span>
-          <span class="mini-go" aria-hidden="true">&rarr;</span>
-        </a>
-        <a class="mini rv" href="https://www.bigeasybathrooms.com/tub-liners/" target="_blank" rel="noopener">
-          <img src="assets/bathtub-row.jpg" alt="Bathroom with a fitted bathtub and basin" loading="lazy">
-          <span class="mini-t"><h4>Tub Liners</h4><p>Top-quality tub liner products and services at competitive prices.</p></span>
-          <span class="mini-go" aria-hidden="true">&rarr;</span>
-        </a>
-        <a class="mini rv" href="https://www.bigeasybathrooms.com/walk-in-tubs/" target="_blank" rel="noopener">
-          <img src="assets/walk-in-tubs.jpg" alt="Walk-in tub installed in a New Orleans bathroom" loading="lazy">
-          <span class="mini-t"><h4>Walk-in Tubs</h4><p>The premier source for walk-in tubs in New Orleans, with a wide variety of tub styles and sizes to fit your needs.</p></span>
-          <span class="mini-go" aria-hidden="true">&rarr;</span>
-        </a>
-      </div>
-    </div>
-
-    <!-- Bathroom Safety sits outside both categories; kept as its own strip. -->
-    <a class="safe rv" href="https://www.bigeasybathrooms.com/bathroom-safety/" target="_blank" rel="noopener">
-      <span class="safe-t">
-        <span class="eyeb">For any shower or tub</span>
-        <h3>Bathroom Safety</h3>
-        <p>Safety modifications that enhance comfort and help prevent accidents in the bathroom.</p>
-      </span>
-      <span class="more">Learn more <span>&rarr;</span></span>
-    </a>
-
-    <div class="svc-all rv">
-      <a class="btn btn-p" href="https://www.bigeasybathrooms.com/services/" target="_blank" rel="noopener">Explore all services</a>
-    </div>
-  </div>
-</section>
-
 <!-- ============ DESIGNED AROUND YOU ============ -->
 <section class="dz" id="designed">
   <div class="wrap">
@@ -1870,176 +1546,35 @@ footer a:hover,footer a:focus-visible{color:#fff;text-decoration:underline;
         <h2>Your Local New Orleans <span class="kw">Bathroom Renovation Specialists</span></h2>
         <p>You don't need to look any further for a bathroom remodeling team in New Orleans who can work with you to recreate your bathroom. Our team will help you design the bathroom of your dreams. We look forward to talking with you about the style that you like for your bath remodel project so we can start to work on it.</p>
         <p>There are a variety of options that we offer for bathroom styles that will have the features that you desire. Depending on your bathroom space, we can include bathroom features that will provide you with the bathroom experience you like.</p>
-        <a class="btn btn-s" href="about.html">About Big Easy Bathrooms</a>
+        <a class="btn btn-s" href="https://www.bigeasybathrooms.com/contact/" target="_blank" rel="noopener">Get a Free Quote</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ GALLERY ============
-     SAMPLE PHOTOGRAPHS. The "before" images are Unsplash stock and the
-     "after" images are the client-site photos: two different rooms in
-     every pair, not real projects. The caption below says so on the
-     page. Replace with the client's own before/after photography
-     before this goes public. -->
-<section class="gal" id="gallery">
+<!-- ============ PURPOSE AND MISSION ============ -->
+<!-- Client copy from the live About page: "Our Purpose / Our Mission" and
+     the three "Big Easy Promise" points. Dashes in the original became
+     commas; nothing else changed. -->
+<section class="pm" id="mission">
   <div class="wrap">
-    <div class="lead rv">
-      <p class="eyeb">Before and after</p>
-      <h2>See the difference a <span class="kw">bathroom remodel</span> makes</h2>
-    </div>
-    <div class="ba-grid">
-      <figure class="ba rv">
-        <div class="ba-frame">
-          <img class="ba-after" src="assets/ba-after-1.jpg" alt="After: bathroom with a marble walk-in shower and double vanity" loading="lazy">
-          <img class="ba-before" src="assets/ba-before-1.jpg" alt="Before: dated blue-tiled bathroom" loading="lazy">
-          <div class="ba-handle" aria-hidden="true"><span>&#8596;</span></div>
-          <span class="ba-tag ba-tag-b" aria-hidden="true">Before</span>
-          <span class="ba-tag ba-tag-a" aria-hidden="true">After</span>
-          <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Compare before and after: Bathroom renovation">
-        </div>
-        <figcaption>Bathroom renovation</figcaption>
-      </figure>
-      <figure class="ba rv">
-        <div class="ba-frame">
-          <img class="ba-after" src="assets/ba-after-2.jpg" alt="After: glass shower enclosure with a soaking tub and vanity" loading="lazy">
-          <img class="ba-before" src="assets/ba-before-2.jpg" alt="Before: dated blue-painted bathroom with a corner shower" loading="lazy">
-          <div class="ba-handle" aria-hidden="true"><span>&#8596;</span></div>
-          <span class="ba-tag ba-tag-b" aria-hidden="true">Before</span>
-          <span class="ba-tag ba-tag-a" aria-hidden="true">After</span>
-          <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Compare before and after: Shower enclosure">
-        </div>
-        <figcaption>Shower enclosure</figcaption>
-      </figure>
-      <figure class="ba rv">
-        <div class="ba-frame">
-          <img class="ba-after" src="assets/ba-after-3.jpg" alt="After: freestanding tub beside a walk-in shower" loading="lazy">
-          <img class="ba-before" src="assets/ba-before-3.jpg" alt="Before: cluttered bathroom with an old tub and radiator" loading="lazy">
-          <div class="ba-handle" aria-hidden="true"><span>&#8596;</span></div>
-          <span class="ba-tag ba-tag-b" aria-hidden="true">Before</span>
-          <span class="ba-tag ba-tag-a" aria-hidden="true">After</span>
-          <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Compare before and after: Walk-in shower">
-        </div>
-        <figcaption>Walk-in shower</figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<!-- ============ WHY US COPY ============
-     Background photograph is one of the client-site images. -->
-<section class="why-sec" id="why">
-  <div class="why-bg" aria-hidden="true">
-    <img src="assets/why-bg.jpg" alt="" loading="lazy">
-  </div>
-  <div class="wrap">
-    <div class="lead rv">
-      <p class="eyeb">Why Big Easy Bathrooms</p>
-      <h2>Get the <span class="kw">bathroom remodel</span> and experience you want</h2>
-    </div>
-    <div class="why">
-      <div class="why-c rv"><p>If you want to recreate your bathroom for the ultimate experience, our bathroom remodeling team can do the job. We are your trusted bathroom remodeling contractors in New Orleans.</p></div>
-      <div class="why-c rv"><p>We are one of the top remodeling companies that can efficiently do a bath remodel at a competitive cost. We will talk with you about your desired design for a custom bathroom remodeling that will bring a smile to your face.</p></div>
-      <div class="why-c rv"><p>Get the bathroom and experience you want with Big Easy Bathrooms! Our team can take on any bathroom remodel project. We understand your need for the best bathroom experience. <a class="tlink" href="https://www.bigeasybathrooms.com/contact/" target="_blank" rel="noopener">Talk to our expert bathroom designer</a> for options that will suit your style and the overall architecture of your home.</p></div>
-    </div>
-    <div class="why-cta rv">
-      <a class="btn btn-p" href="https://www.bigeasybathrooms.com/contact/" target="_blank" rel="noopener">Get a Free Quote</a>
-      <a class="btn btn-l" href="tel:+15046887786">Call 504-688-7786</a>
-    </div>
-  </div>
-</section>
-
-<!-- ============ REVIEWS ============
-     Names, service tags and quotes are verbatim from the client's live
-     site. Initials stand in for the avatar photographs (no faces). -->
-<section id="reviews" style="background:var(--hero-bg)">
-  <div class="wrap">
-    <div class="rv-head">
-      <div class="lead rv">
-        <p class="eyeb">Client testimonials</p>
-        <h2><span class="kw">Glowing Reviews</span>: How We've Revitalized Bathrooms for Our Clients</h2>
+    <div class="pm-grid">
+      <div class="pm-copy rv">
+        <p class="eyeb">Our Purpose</p>
+        <h2>Our Mission</h2>
+        <p class="pm-lead">At Big Easy Bathrooms, our mission is simple: to transform every <span class="kw">New Orleans bathroom</span> into a space our clients are proud to live in.</p>
+        <p>We believe a remodel should be stress-free, transparent, and built to last, so we pair award-winning craftsmanship with honest, up-front pricing and a crew that treats your home like our own.</p>
+        <p>From the first consultation to the final walkthrough, we are committed to quality work, clear communication, and results that exceed expectations, on every project, no matter the size.</p>
       </div>
-      <div class="rv-rating rv">
-        <b class="tr-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</b>
-        <span class="tr-r1">5-Star Reviews</span>
-        <span class="tr-badges"><span class="badge g" aria-label="Google"><i>G</i><i>o</i><i>o</i><i>g</i><i>l</i><i>e</i></span><span class="badge fb">facebook</span></span>
+      <div class="pm-promise rv">
+        <p class="eyeb">The Big Easy Promise</p>
+        <h3>What Sets Big Easy Bathrooms Apart</h3>
+        <ol class="pm-list">
+          <li><span class="pm-b" aria-hidden="true"><i></i>01</span><span>FREE Estimate for all our bathroom services.</span></li>
+          <li><span class="pm-b" aria-hidden="true"><i></i>02</span><span>Unmatched Bathroom Customization</span></li>
+          <li><span class="pm-b" aria-hidden="true"><i></i>03</span><span>Excellent Customer Service</span></li>
+        </ol>
       </div>
-    </div>
-    <div class="revs-tabs rv" role="group" aria-label="Filter reviews by service">
-      <button class="rtab" type="button" data-cat="all" aria-pressed="true">All reviews <b>7</b></button>
-      <button class="rtab" type="button" data-cat="bathroom" aria-pressed="false">Bathroom <b>3</b></button>
-      <button class="rtab" type="button" data-cat="bathtub" aria-pressed="false">Bathtub <b>2</b></button>
-      <button class="rtab" type="button" data-cat="others" aria-pressed="false">Others <b>1</b></button>
-    </div>
-
-    <div class="spot rv" id="spot">
-      <div class="spot-left">
-        <div class="spot-stage" id="spotStage">
-          <span class="spot-bub" aria-hidden="true"><i></i></span>
-          <span class="spot-drops" aria-hidden="true"><i style="--dx:-120px;--dy:-90px"></i><i style="--dx:112px;--dy:-100px"></i><i style="--dx:140px;--dy:20px"></i><i style="--dx:-132px;--dy:32px"></i><i style="--dx:-70px;--dy:124px"></i><i style="--dx:80px;--dy:118px"></i><i style="--dx:10px;--dy:-142px"></i><i style="--dx:-24px;--dy:136px"></i></span>
-          <!-- Reviewer portraits are Unsplash stock, placeholders for layout
-               review (note under the tiles). Initials show if one fails to load. -->
-          <span class="spot-ini" id="spotIni" aria-hidden="true"><img class="spot-face" id="spotFace" src="assets/rev-hj.jpg" alt="" width="320" height="320" decoding="async"><b>HJ</b></span>
-        </div>
-        <div class="s" aria-label="5 out of 5 stars"><i>&#9733;</i><i>&#9733;</i><i>&#9733;</i><i>&#9733;</i><i>&#9733;</i></div>
-      </div>
-      <div class="spot-right" id="spotPanes" aria-live="polite">
-        <div class="spot-pane on" data-cat="featured" data-ini="HJ" data-img="assets/rev-hj.jpg">
-          <span class="q" aria-hidden="true">&#8220;</span>
-          <p>They remodeled my master bathroom, including converting the tub into a shower. During our meeting, they gave me a quote and suggested some design ideas. All of the workers who came to our home were on time and clean. A five-star service experience!</p>
-          <div class="who"><b>Hayden Johnston</b><small>Verified client</small><span class="cat">Featured</span></div>
-        </div>
-        <div class="spot-pane" data-cat="bathroom" data-ini="NA" data-img="assets/rev-na.jpg">
-          <span class="q" aria-hidden="true">&#8220;</span>
-          <p>Big Easy Bathrooms installed my new stand-up shower. They were on time, professional, and kept me informed throughout the whole process. They were also very clean and tidy after each day. Definitely recommend them for future bathroom projects!</p>
-          <div class="who"><b>Nathan Adams</b><small>Verified client</small><span class="cat">Bathroom</span></div>
-        </div>
-        <div class="spot-pane" data-cat="others" data-ini="SM" data-img="assets/rev-sm.jpg">
-          <span class="q" aria-hidden="true">&#8220;</span>
-          <p>They did an awesome job on our bathroom remodel! They were very responsive and easy to communicate with. We're so glad we chose them to do our project!</p>
-          <div class="who"><b>Sydney Martin</b><small>Verified client</small><span class="cat">Others</span></div>
-        </div>
-        <div class="spot-pane" data-cat="bathtub" data-ini="CC" data-img="assets/rev-cc.jpg">
-          <span class="q" aria-hidden="true">&#8220;</span>
-          <p>We were impressed with the quality of workmanship shown by our installer. He was professional, courteous and knowledgeable about what needed to be done. His ability to install our tub and shower was outstanding.</p>
-          <div class="who"><b>Callie Carter</b><small>Verified client</small><span class="cat">Bathtub</span></div>
-        </div>
-        <div class="spot-pane" data-cat="bathroom" data-ini="IB" data-img="assets/rev-ib.jpg">
-          <span class="q" aria-hidden="true">&#8220;</span>
-          <p>They were our installers during our master bathroom remodel project. They were prompt and extremely easy to work with. They did the tear down of the existing shower and cleaned up the work area after each day's work. The new shower area looked amazing and they solved our concerns and made sure that every part of the installation was done perfectly. Remodeling a 40+ year old home takes a lot of skill and desire to do the job correctly. The team is talented and we look forward to working with them again on our next project.</p>
-          <div class="who"><b>Isabel Barrett</b><small>Verified client</small><span class="cat">Bathroom</span></div>
-        </div>
-        <div class="spot-pane" data-cat="bathroom" data-ini="KG" data-img="assets/rev-kg.jpg">
-          <span class="q" aria-hidden="true">&#8220;</span>
-          <p>Big Easy Bathrooms turned my old outhouse of a bathroom into a luxurious shower that I can enjoy forever. We greatly appreciate how these guys improved the quality of life within our house through their attention to detail. Thank you!</p>
-          <div class="who"><b>Kaleb Garcia</b><small>Verified client</small><span class="cat">Bathroom</span></div>
-        </div>
-        <div class="spot-pane" data-cat="bathtub" data-ini="MR" data-img="assets/rev-mr.jpg">
-          <span class="q" aria-hidden="true">&#8220;</span>
-          <p>My tub and shower were installed by a polite and professional crew from Big Easy Bathrooms. The bathtub looks great and I love the look!</p>
-          <div class="who"><b>Malia Roberts</b><small>Verified client</small><span class="cat">Bathtub</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="spot-ctl rv">
-      <button class="mag-btn" id="spotPrev" type="button" aria-label="Previous review">&#8249;</button>
-      <button class="mag-btn" id="spotNext" type="button" aria-label="Next review">&#8250;</button>
-      <button class="mag-btn" id="spotPause" type="button" aria-pressed="false" aria-label="Pause the reviews">&#10073;&#10073;</button>
-      <p class="spot-hint" id="spotHint">Auto-playing &middot; Hover to pause</p>
-    </div>
-
-    <ul class="rv-tiles rv" id="rvTiles" aria-label="Choose a review">
-      <li data-cat="featured"><button class="rv-tile" type="button" data-i="0" aria-pressed="true"><span class="mono" aria-hidden="true"><img src="assets/rev-hj.jpg" alt="" width="320" height="320" loading="lazy" decoding="async">HJ</span><span><b>Hayden Johnston</b><small>Featured</small></span></button></li>
-      <li data-cat="bathroom"><button class="rv-tile" type="button" data-i="1" aria-pressed="false"><span class="mono" aria-hidden="true"><img src="assets/rev-na.jpg" alt="" width="320" height="320" loading="lazy" decoding="async">NA</span><span><b>Nathan Adams</b><small>Bathroom</small></span></button></li>
-      <li data-cat="others"><button class="rv-tile" type="button" data-i="2" aria-pressed="false"><span class="mono" aria-hidden="true"><img src="assets/rev-sm.jpg" alt="" width="320" height="320" loading="lazy" decoding="async">SM</span><span><b>Sydney Martin</b><small>Others</small></span></button></li>
-      <li data-cat="bathtub"><button class="rv-tile" type="button" data-i="3" aria-pressed="false"><span class="mono" aria-hidden="true"><img src="assets/rev-cc.jpg" alt="" width="320" height="320" loading="lazy" decoding="async">CC</span><span><b>Callie Carter</b><small>Bathtub</small></span></button></li>
-      <li data-cat="bathroom"><button class="rv-tile" type="button" data-i="4" aria-pressed="false"><span class="mono" aria-hidden="true"><img src="assets/rev-ib.jpg" alt="" width="320" height="320" loading="lazy" decoding="async">IB</span><span><b>Isabel Barrett</b><small>Bathroom</small></span></button></li>
-      <li data-cat="bathroom"><button class="rv-tile" type="button" data-i="5" aria-pressed="false"><span class="mono" aria-hidden="true"><img src="assets/rev-kg.jpg" alt="" width="320" height="320" loading="lazy" decoding="async">KG</span><span><b>Kaleb Garcia</b><small>Bathroom</small></span></button></li>
-      <li data-cat="bathtub"><button class="rv-tile" type="button" data-i="6" aria-pressed="false"><span class="mono" aria-hidden="true"><img src="assets/rev-mr.jpg" alt="" width="320" height="320" loading="lazy" decoding="async">MR</span><span><b>Malia Roberts</b><small>Bathtub</small></span></button></li>
-    </ul>
-
-    <div class="svc-all rv">
-      <a class="btn btn-s" href="https://www.bigeasybathrooms.com/reviews/" target="_blank" rel="noopener">Read all reviews</a>
     </div>
   </div>
 </section>
@@ -2059,129 +1594,6 @@ footer a:hover,footer a:focus-visible{color:#fff;text-decoration:underline;
         <button class="btn btn-p" type="submit">Submit</button>
       </form>
       <p class="note">Mockup only. This form is not connected to anything.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ SERVICE AREAS ============ -->
-<!-- Pattern from the TurnKey mockup's "where we work": pick a city and the
-     photograph and label follow. Footage is the strip clip; photographs are
-     the client's own; the seven areas are the ones the client listed. -->
-<section class="wwl-sec" id="areas">
-  <div class="wwl-bg" aria-hidden="true">
-    <video class="sf-vid" muted loop playsinline preload="none" poster="assets/trust-bg.jpg"><source src="assets/trust-bg.mp4" type="video/mp4"></video>
-  </div>
-  <div class="wrap">
-    <div class="lead rv">
-      <p class="eyeb">Service areas</p>
-      <h2>Serving <span class="kw">New Orleans</span> and the surrounding parishes</h2>
-    </div>
-    <div class="wwl" id="wwl">
-      <ul class="wwl-list" aria-label="Choose a service area">
-        <li><button class="wwl-item on" type="button" aria-pressed="true" data-href="https://www.bigeasybathrooms.com/service-areas/abita-springs/"><i></i>Abita Springs</button></li>
-        <li><button class="wwl-item" type="button" aria-pressed="false" data-href="https://www.bigeasybathrooms.com/service-areas/covington/"><i></i>Covington</button></li>
-        <li><button class="wwl-item" type="button" aria-pressed="false" data-href="https://www.bigeasybathrooms.com/service-areas/hammond/"><i></i>Hammond</button></li>
-        <li><button class="wwl-item" type="button" aria-pressed="false" data-href="https://www.bigeasybathrooms.com/service-areas/madisonville/"><i></i>Madisonville</button></li>
-        <li><button class="wwl-item" type="button" aria-pressed="false" data-href="https://www.bigeasybathrooms.com/service-areas/mandeville/"><i></i>Mandeville</button></li>
-        <li><button class="wwl-item" type="button" aria-pressed="false" data-href="https://www.bigeasybathrooms.com/service-areas/metairie/"><i></i>Metairie</button></li>
-        <li><button class="wwl-item" type="button" aria-pressed="false" data-href="https://www.bigeasybathrooms.com/service-areas/slidell/"><i></i>Slidell</button></li>
-      </ul>
-      <div class="wwl-media">
-        <div class="wwl-imgs">
-          <img class="on" src="assets/walk-in-showers.jpg" alt="" loading="lazy">
-          <img src="assets/barrier-free-shower.jpg" alt="" loading="lazy">
-          <img src="assets/shower-enclosure.jpg" alt="" loading="lazy">
-          <img src="assets/acrylic-bathtub.jpg" alt="" loading="lazy">
-          <img src="assets/modern-bathroom.jpg" alt="" loading="lazy">
-          <img src="assets/hero-1.jpg" alt="" loading="lazy">
-          <img src="assets/services-feature.jpg" alt="" loading="lazy">
-        </div>
-        <div class="wwl-label"><span class="idx">01</span><span class="city">Abita Springs</span></div>
-        <a class="wwl-go" href="https://www.bigeasybathrooms.com/service-areas/abita-springs/" target="_blank" rel="noopener">View page &rarr;</a>
-      </div>
-    </div>
-    <div class="wwl-cta">
-      <a class="btn btn-p" href="https://www.bigeasybathrooms.com/contact/" target="_blank" rel="noopener">Get a Free Quote</a>
-      <a class="btn btn-s" href="tel:+15046887786">Call 504-688-7786</a>
-    </div>
-  </div>
-</section>
-
-<!-- ============ FAQS ============ -->
-<!-- Every question stays visible in the rail; the chosen answer reads large
-     in the panel (on phones it opens under its question). Questions and
-     answers are the client's own, carried from the live homepage FAQ block. -->
-<section class="fq" id="faqs">
-  <div class="wrap">
-    <div class="lead rv">
-      <p class="eyeb">FAQs</p>
-      <h2><span class="kw">Bathroom Remodeling</span> Questions, Answered</h2>
-    </div>
-    <div class="fq-grid">
-      <div class="fq-rail" id="fqRail">
-        <p class="fq-h">About the work</p>
-        <div class="fq-item on" data-topic="About the work">
-          <button class="fq-q" type="button" aria-expanded="true" aria-controls="fqA1"><span class="fq-n">01</span><span class="fq-t">What types of bathroom renovation services do you offer?</span><span class="fq-x" aria-hidden="true">&rarr;</span></button>
-          <div class="fq-a" id="fqA1"><p>We offer a wide range of bathroom renovation services, including complete remodels, shower and bathtub installations, custom design solutions, and more.</p></div>
-        </div>
-        <div class="fq-item" data-topic="About the work">
-          <button class="fq-q" type="button" aria-expanded="false" aria-controls="fqA2"><span class="fq-n">02</span><span class="fq-t">Can you convert a bathtub to a walk-in shower?</span><span class="fq-x" aria-hidden="true">&rarr;</span></button>
-          <div class="fq-a" id="fqA2"><p>Yes, we specialize in converting bathtubs to walk-in showers. This is a popular renovation choice for many homeowners looking to enhance accessibility and modernize their bathroom.</p></div>
-        </div>
-        <p class="fq-h">Cost and timing</p>
-        <div class="fq-item" data-topic="Cost and timing">
-          <button class="fq-q" type="button" aria-expanded="false" aria-controls="fqA3"><span class="fq-n">03</span><span class="fq-t">How long does a typical bathroom renovation take?</span><span class="fq-x" aria-hidden="true">&rarr;</span></button>
-          <div class="fq-a" id="fqA3"><p>The duration of a bathroom renovation varies based on the scope of the project. On average, a full renovation can take between 2 to 4 weeks. We provide a detailed timeline during the initial consultation.</p></div>
-        </div>
-        <div class="fq-item" data-topic="Cost and timing">
-          <button class="fq-q" type="button" aria-expanded="false" aria-controls="fqA4"><span class="fq-n">04</span><span class="fq-t">Do you provide free estimates for bathroom renovations?</span><span class="fq-x" aria-hidden="true">&rarr;</span></button>
-          <div class="fq-a" id="fqA4"><p>Yes, we offer free estimates for all bathroom renovation projects. Our team will visit your home, assess your needs, and provide a detailed quote at no cost to you.</p></div>
-        </div>
-        <div class="fq-item" data-topic="Cost and timing">
-          <button class="fq-q" type="button" aria-expanded="false" aria-controls="fqA5"><span class="fq-n">05</span><span class="fq-t">What is the cost of a bathroom renovation?</span><span class="fq-x" aria-hidden="true">&rarr;</span></button>
-          <div class="fq-a" id="fqA5"><p>The cost of a bathroom renovation depends on various factors, including the size of the bathroom, the materials chosen, and the complexity of the project. We work within your budget to deliver the best results.</p></div>
-        </div>
-        <div class="fq-item" data-topic="Cost and timing">
-          <button class="fq-q" type="button" aria-expanded="false" aria-controls="fqA6"><span class="fq-n">06</span><span class="fq-t">Can you work within my budget for a bathroom renovation?</span><span class="fq-x" aria-hidden="true">&rarr;</span></button>
-          <div class="fq-a" id="fqA6"><p>Yes, we work with clients to create beautiful bathroom renovations that fit within their budget. We provide detailed estimates and offer flexible options to meet your financial needs.</p></div>
-        </div>
-        <div class="fq-item" data-topic="Cost and timing">
-          <button class="fq-q" type="button" aria-expanded="false" aria-controls="fqA7"><span class="fq-n">07</span><span class="fq-t">Do you offer financing options for bathroom renovations?</span><span class="fq-x" aria-hidden="true">&rarr;</span></button>
-          <div class="fq-a" id="fqA7"><p>Yes, we offer flexible financing options to make your bathroom renovation project more affordable. Contact us to learn more about our financing plans.</p></div>
-        </div>
-        <p class="fq-h">Design and process</p>
-        <div class="fq-item" data-topic="Design and process">
-          <button class="fq-q" type="button" aria-expanded="false" aria-controls="fqA8"><span class="fq-n">08</span><span class="fq-t">Can I customize the design of my new bathroom?</span><span class="fq-x" aria-hidden="true">&rarr;</span></button>
-          <div class="fq-a" id="fqA8"><p>Absolutely! We specialize in custom bathroom designs tailored to your preferences and needs. Our design team will work closely with you to create the bathroom of your dreams.</p></div>
-        </div>
-        <div class="fq-item" data-topic="Design and process">
-          <button class="fq-q" type="button" aria-expanded="false" aria-controls="fqA9"><span class="fq-n">09</span><span class="fq-t">What steps are involved in your renovation process?</span><span class="fq-x" aria-hidden="true">&rarr;</span></button>
-          <div class="fq-a" id="fqA9"><p>Our renovation process includes an initial consultation, design phase, material selection, demolition, installation, and a final walkthrough. We keep you informed at every step.</p></div>
-        </div>
-        <p class="fq-h">Getting started</p>
-        <div class="fq-item" data-topic="Getting started">
-          <button class="fq-q" type="button" aria-expanded="false" aria-controls="fqA10"><span class="fq-n">10</span><span class="fq-t">How do I schedule a consultation with your team?</span><span class="fq-x" aria-hidden="true">&rarr;</span></button>
-          <div class="fq-a" id="fqA10"><p>Scheduling a consultation is easy. You can contact us through our website, or call us directly at <a href="tel:+15046887786">504-688-7786</a>.</p></div>
-        </div>
-      </div>
-      <div class="fq-side">
-        <div class="fq-panel" id="fqPanel" aria-live="polite">
-          <span class="fq-big" id="fqBig" aria-hidden="true">01</span>
-          <p class="fq-topic" id="fqTopic">About the work</p>
-          <h3 id="fqQ">What types of bathroom renovation services do you offer?</h3>
-          <div class="fq-ans" id="fqAns"><p>We offer a wide range of bathroom renovation services, including complete remodels, shower and bathtub installations, custom design solutions, and more.</p></div>
-        </div>
-        <div class="fq-cta">
-          <div>
-            <p class="eyeb">Still have a question?</p>
-            <p>Call us, or send a message from the contact page.</p>
-          </div>
-          <div class="fq-btns">
-            <a class="btn btn-l" href="tel:+15046887786">Call 504-688-7786</a>
-            <a class="btn btn-o" href="https://www.bigeasybathrooms.com/contact/" target="_blank" rel="noopener">Contact us</a>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -2548,6 +1960,7 @@ if (document.getElementById("intro")) {
   mount(document.getElementById("trust"));
   mount(document.getElementById("process"));
   mount(document.getElementById("foot"));
+  mount(document.getElementById("ahero"));
 })();
 
 /* ---- strip footage: still under reduced motion, paused off screen ---- */
