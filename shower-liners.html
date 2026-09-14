@@ -1349,6 +1349,24 @@ footer a:hover,footer a:focus-visible{color:#fff;text-decoration:underline;
   .am-prompt strong{font-size:1rem}
   .am-city{font-size:1.06rem}
 }
+/* area pages: the page's own town, marked like a hovered one */
+.am-row.cur,.am-pin.cur{background:var(--navy);border-color:var(--navy);color:#fff}
+.am-row.cur b,.am-pin.cur b{background:#fff;color:var(--navy)}
+.am-pin.cur::after{background:var(--navy);border-color:var(--navy)}
+.am-row.cur small{color:var(--sand-2)}
+.am-row.cur i{color:#fff}
+.am-dot.cur .am-core{transform:scale(1.4)}
+/* around town (area pages): the live page's local notes as four boxes on
+   the gallery brown, the neighbouring areas linked under them */
+.lk{background:#E9DDCB;padding:64px 0}
+.lk-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:26px}
+.lk-box{background:#fff;border:1px solid rgba(199,178,154,.5);border-radius:18px;padding:22px 20px 20px}
+.lk-box h3{font-size:1.22rem;line-height:1.2;margin:12px 0 6px}
+.lk-box p{margin:0;font-size:.95rem;line-height:1.6}
+.lk-near{margin:24px 0 0;font-size:1.02rem}
+.lk-near a{color:var(--navy);font-weight:600;text-decoration-thickness:2px;text-underline-offset:3px}
+@media (max-width:900px){.lk-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.lk-grid{grid-template-columns:1fr}.lk{padding:52px 0}}
 @media (prefers-reduced-motion:reduce){
   .am-waves path,.am-flow{animation:none!important}
   .am-drop{display:none}
