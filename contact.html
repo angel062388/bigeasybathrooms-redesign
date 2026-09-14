@@ -1259,10 +1259,13 @@ footer a:hover,footer a:focus-visible{color:#fff;text-decoration:underline;
 .am-sec{background:var(--cream-2);padding-top:56px;padding-bottom:56px}
 .am-sec .eyeb{color:var(--navy)}
 #newsletter{padding:56px 0 48px}   /* the gap into the areas band was the two paddings added up */
-.am-grid{display:grid;grid-template-columns:minmax(0,1.14fr) minmax(0,.86fr);grid-template-areas:"map head" "map side";
-  gap:26px 48px;align-items:center}
-.am-head{grid-area:head;align-self:end;margin:0}
-.am-card{grid-area:map}
+/* the heading runs the full width; under it the map card (left) stretches
+   to the height of the list (right), and the script extends the map's
+   viewBox to fill the taller box */
+.am-grid{display:grid;grid-template-columns:minmax(0,1.14fr) minmax(0,.86fr);grid-template-areas:"head head" "map side";
+  gap:22px 48px;align-items:stretch}
+.am-head{grid-area:head;margin:0 0 6px;max-width:none}   /* the heading runs the full width of the band */
+.am-card{grid-area:map;display:flex;flex-direction:column}
 .am-side{grid-area:side;align-self:start}
 .am-lede{margin:14px 0 0;max-width:46ch;font-size:1.02rem}
 /* the card: a pale tile, the map inset */
@@ -1271,9 +1274,9 @@ footer a:hover,footer a:focus-visible{color:#fff;text-decoration:underline;
 .am-prompt{display:flex;align-items:baseline;justify-content:space-between;gap:8px 18px;flex-wrap:wrap;margin:0 2px 12px}
 .am-prompt .eyeb{margin:0}
 .am-prompt strong{font-family:var(--serif);font-weight:500;font-size:1.05rem;color:var(--ink);letter-spacing:-.01em}
-.am-stage{position:relative}
-.am-map{display:block;width:100%;height:auto;aspect-ratio:1000/640;border-radius:14px;overflow:hidden}
-.am-zoom .am-map{aspect-ratio:770/470}   /* the script's phone viewBox */
+.am-stage{position:relative;flex:1 0 auto;aspect-ratio:1000/640}   /* the aspect is a minimum; the card's height can stretch it */
+.am-zoom .am-stage{aspect-ratio:770/470}   /* the script's phone viewBox */
+.am-map{position:absolute;inset:0;display:block;width:100%;height:100%;border-radius:14px;overflow:hidden}
 .am-water{fill:#CFE0EA}
 .am-waves path{fill:none;stroke:rgba(4,34,61,.16);stroke-width:2;stroke-linecap:round;animation:amWave 5s linear infinite}
 .am-waves path:nth-child(2){animation-duration:6.5s;animation-direction:reverse;stroke:rgba(4,34,61,.12)}
@@ -1328,7 +1331,7 @@ footer a:hover,footer a:focus-visible{color:#fff;text-decoration:underline;
 .am-cta{display:flex;gap:13px;flex-wrap:wrap;margin-top:22px}
 @media (max-width:900px){
   .am-grid{grid-template-columns:1fr;grid-template-areas:"head" "map" "side";gap:24px}
-  .am-head{align-self:auto}
+  .am-head{margin:0}
 }
 @media (max-width:700px){
   /* phones: the labels become numbered dots on the markers; the list
@@ -2186,25 +2189,36 @@ if (document.getElementById("intro")) {
     e.addEventListener("blur", function(){ set(k, false); });
   });
   var svg = document.getElementById("amMap"), card = document.getElementById("amCard");
+  var stage = svg ? svg.parentNode : null;
   var pins = [].slice.call(sec.querySelectorAll(".am-pin"));
-  var FULL = [0, 0, 1000, 640], ZOOM = [140, 55, 770, 470];
   function phone(){
     try { return window.matchMedia && window.matchMedia("(max-width:700px)").matches; } catch (e) { return false; }
   }
+  /* the map's natural window is 0 0 1000 640 (phones: 140 55 770 470);
+     when the card is taller than that shape, the window grows evenly
+     above and below so the map fills the box without stretching */
   function place(){
-    if (!svg) return;
-    var vb = phone() ? ZOOM : FULL;
-    svg.setAttribute("viewBox", vb.join(" "));
-    card.classList.toggle("am-zoom", vb === ZOOM);
+    if (!svg || !stage) return;
+    var r = stage.getBoundingClientRect();
+    if (!r.width) return;
+    var ph = phone();
+    var W = ph ? 770 : 1000, x0 = ph ? 140 : 0, y0 = ph ? 55 : 0, natH = ph ? 470 : 640;
+    var H = Math.max(natH, Math.round(W * r.height / r.width));
+    var top = y0 - Math.round((H - natH) / 2);
+    svg.setAttribute("viewBox", x0 + " " + top + " " + W + " " + H);
+    card.classList.toggle("am-zoom", ph);
     for (var i = 0; i < pins.length; i++) {
       var x = parseFloat(pins[i].getAttribute("data-x")), y = parseFloat(pins[i].getAttribute("data-y"));
-      pins[i].style.setProperty("--px", ((x - vb[0]) / vb[2] * 100).toFixed(2) + "%");
-      pins[i].style.setProperty("--py", ((y - vb[1]) / vb[3] * 100).toFixed(2) + "%");
+      pins[i].style.setProperty("--px", ((x - x0) / W * 100).toFixed(2) + "%");
+      pins[i].style.setProperty("--py", ((y - top) / H * 100).toFixed(2) + "%");
     }
   }
   place();
   var t;
-  window.addEventListener("resize", function(){ clearTimeout(t); t = setTimeout(place, 120); });
+  function later(){ clearTimeout(t); t = setTimeout(place, 60); }
+  if (window.ResizeObserver && stage) { new ResizeObserver(later).observe(stage); }
+  window.addEventListener("resize", later);
+  if (document.fonts && document.fonts.ready) { document.fonts.ready.then(later); }
   var reduce = false;
   try { reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion:reduce)").matches; } catch (e) {}
   if (svg && reduce && svg.pauseAnimations) { try { svg.pauseAnimations(); } catch (e) {} }
