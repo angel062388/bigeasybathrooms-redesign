@@ -1437,6 +1437,54 @@ footer a:hover,footer a:focus-visible{color:#fff;text-decoration:underline;
   .ah{padding:132px 0 56px}
   .pm-grid{grid-template-columns:1fr;gap:26px}
 }
+/* contact.html: estimate form beside a navy details card; "what happens
+   next" as four steps on bubble numerals */
+.ct{background:var(--cream)}
+.ct-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:30px;align-items:start}
+.ct-form{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:34px 34px 30px;
+  box-shadow:0 18px 44px rgba(36,36,36,.08)}
+.ct-form h2{font-size:clamp(1.5rem,2.6vw,2.1rem);margin:0 0 6px}
+.ct-form>p{margin:0 0 22px;color:var(--ink)}
+.ct-f{display:grid;grid-template-columns:1fr 1fr;gap:14px 12px}
+.ct-f .full{grid-column:1 / -1}
+.ct-f label{display:block;font-family:var(--sans);font-size:.78rem;font-weight:600;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--navy);margin:0 0 6px}
+.ct-f input,.ct-f select,.ct-f textarea{font-family:var(--sans);font-size:.98rem;padding:14px 16px;
+  border:1px solid var(--line);border-radius:12px;background:var(--cream);color:var(--ink);width:100%}
+.ct-f textarea{min-height:140px;resize:vertical}
+.ct-f input:focus,.ct-f select:focus,.ct-f textarea:focus{outline:2px solid var(--navy);outline-offset:1px;background:#fff}
+.ct-side{position:sticky;top:110px}
+.ct-card{background:var(--navy);color:#fff;border-radius:var(--r);padding:30px 30px 24px}
+.ct-card h3{font-family:var(--serif);font-weight:400;font-size:1.6rem;color:#fff;margin:0 0 14px}
+.ct-row{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-top:1px solid rgba(255,255,255,.14)}
+.ct-row:first-of-type{border-top:0}
+.ct-k{flex:none;width:112px;font-family:var(--sans);font-size:.7rem;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--sand-2);padding-top:4px}
+.ct-v{color:#fff;font-size:1rem;line-height:1.5}
+.ct-v a{color:#fff;font-weight:600;text-decoration:underline;text-decoration-color:var(--sand);text-underline-offset:3px}
+.ct-v a.big{font-family:var(--serif);font-weight:400;font-size:1.55rem;line-height:1.1;display:inline-block;
+  text-decoration:none}
+.ct-card .ft-social{margin-top:2px}
+.ct-card .ft-social a{color:#fff;text-decoration:none}
+.ct-promise{margin-top:16px;background:#E9DDCB;color:var(--ink);border-radius:16px;padding:16px 18px;
+  font-size:.95rem;line-height:1.5}
+.ct-promise b{color:var(--navy)}
+.nx{background:#E9DDCB}
+.nx .eyeb{color:var(--navy)}
+.nx-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:30px}
+.nx-step{background:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.9);border-radius:16px;padding:22px 20px}
+.nx-step h3{font-family:var(--serif);font-weight:400;font-size:1.15rem;line-height:1.25;margin:14px 0 8px}
+.nx-step p{margin:0;font-size:.92rem;line-height:1.55;color:var(--ink)}
+@media (max-width:1000px){.nx-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:900px){
+  .ct-grid{grid-template-columns:1fr}
+  .ct-side{position:static}
+  .ct-form{padding:26px 20px}
+}
+@media (max-width:640px){
+  .ct-f{grid-template-columns:1fr}
+  .nx-grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
@@ -1486,7 +1534,7 @@ footer a:hover,footer a:focus-visible{color:#fff;text-decoration:underline;
       </li>
       <li><a href="reviews.html">Reviews</a></li>
       <li><a href="faqs.html">FAQs</a></li>
-      <li><a href="https://www.bigeasybathrooms.com/contact/" target="_blank" rel="noopener">Contact</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
     <a class="tel" href="tel:+15046887786">&#9742; 504-688-7786</a>
   </div>
@@ -1656,7 +1704,7 @@ footer a:hover,footer a:focus-visible{color:#fff;text-decoration:underline;
           <li><a href="about.html">About</a></li>
           <li><a href="reviews.html">Reviews</a></li>
           <li><a href="faqs.html">FAQs</a></li>
-          <li><a href="https://www.bigeasybathrooms.com/contact/" target="_blank" rel="noopener">Contact</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
         <h4>Follow</h4>
         <!-- The five profiles the client links from their own homepage. -->
