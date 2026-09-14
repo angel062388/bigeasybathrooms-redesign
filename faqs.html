@@ -1278,7 +1278,7 @@ footer a:hover,footer a:focus-visible{color:#fff;text-decoration:underline;
 .js .wwl-sec.surf .wwl-list li:nth-child(6){transition-delay:.3s}
 .js .wwl-sec.surf .wwl-list li:nth-child(7){transition-delay:.36s}
 .wwl-item{width:100%;height:100%;border-radius:50%;display:grid;place-items:center;text-align:center;
-  padding:10px 12px;cursor:pointer;font-family:var(--serif);font-weight:500;font-size:1.06rem;
+  padding:8px 10px;cursor:pointer;font-family:var(--serif);font-weight:500;font-size:1rem;
   line-height:1.15;color:var(--ink);
   /* light brown glass: a white highlight into the gallery brown and a shade deeper at the rim */
   background:radial-gradient(circle at 34% 28%,rgba(255,255,255,.85),rgba(233,221,203,.96) 42%,rgba(213,196,170,.98) 100%);
@@ -1317,6 +1317,14 @@ footer a:hover,footer a:focus-visible{color:#fff;text-decoration:underline;
   .wwl{grid-template-columns:1fr;gap:26px}
   .wwl-list{min-height:330px;height:330px}
   .wwl-item{padding:8px;font-size:.88rem}
+  /* phones: three staggered rows, so no bubble drops under 95px */
+  .wwl-list li:nth-child(1){--x:2% !important;--y:2% !important;--s:30% !important}
+  .wwl-list li:nth-child(2){--x:37% !important;--y:7% !important;--s:28% !important}
+  .wwl-list li:nth-child(3){--x:70% !important;--y:2% !important;--s:30% !important}
+  .wwl-list li:nth-child(4){--x:18% !important;--y:34% !important;--s:28% !important}
+  .wwl-list li:nth-child(5){--x:52% !important;--y:35% !important;--s:30% !important}
+  .wwl-list li:nth-child(6){--x:4% !important;--y:64% !important;--s:30% !important}
+  .wwl-list li:nth-child(7){--x:68% !important;--y:64% !important;--s:29% !important}
   .wwl-label .city{font-size:1.5rem}
 }
 @media (prefers-reduced-motion:reduce){
