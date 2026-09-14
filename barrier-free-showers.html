@@ -1251,7 +1251,7 @@ footer a:hover,footer a:focus-visible{color:#fff;text-decoration:underline;
    Footage sharpens and the list slides in once on scroll-in; a city
    picks its photograph, label and page link.
    ============================================================ */
-.wwl-sec{position:relative;overflow:hidden;background:var(--cream-2);padding-top:56px}
+.wwl-sec{position:relative;overflow:hidden;background:var(--cream-2);padding-top:56px;padding-bottom:56px}
 .wwl-sec .wrap{position:relative;z-index:2}
 .wwl-sec .eyeb{color:var(--navy)}
 #newsletter{padding:56px 0 48px}   /* the gap into the footage band was the two paddings added up */
@@ -1262,7 +1262,7 @@ footer a:hover,footer a:focus-visible{color:#fff;text-decoration:underline;
 .wwl-bg::after{content:"";position:absolute;inset:0;
   background:linear-gradient(180deg,rgba(248,246,242,.96) 0%,rgba(248,246,242,.8) 45%,rgba(248,246,242,.96) 100%)}
 .wwl{display:grid;grid-template-columns:.92fr 1.08fr;gap:44px;margin-top:40px;align-items:center}
-.wwl-list{list-style:none;margin:0;padding:0;columns:2;column-gap:12px}
+.wwl-list{list-style:none;margin:0;padding:0;columns:1}   /* one column: the list then stands as tall as the photograph */
 .wwl-list li{break-inside:avoid;margin-bottom:12px}
 .js .wwl-list li{opacity:0;transform:translateX(-22px);
   transition:opacity .5s ease,transform .6s cubic-bezier(.16,1,.3,1)}
@@ -1297,7 +1297,7 @@ footer a:hover,footer a:focus-visible{color:#fff;text-decoration:underline;
   font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);background:#fff;
   border-radius:999px;padding:10px 16px;text-decoration:none;transition:.2s ease}
 .wwl-go:hover,.wwl-go:focus-visible{background:var(--sand)}
-.wwl-cta{display:flex;gap:13px;flex-wrap:wrap;justify-content:center;margin-top:40px}
+.wwl-cta{display:flex;gap:13px;flex-wrap:wrap;justify-content:center;margin-top:28px}
 @media (max-width:900px){
   .wwl{grid-template-columns:1fr;gap:26px}
   .wwl-list{columns:2;column-gap:10px}
@@ -1485,6 +1485,25 @@ footer a:hover,footer a:focus-visible{color:#fff;text-decoration:underline;
   .ct-f{grid-template-columns:1fr}
   .nx-grid{grid-template-columns:1fr}
 }
+/* service pages: the benefits section, boxes over real bathroom footage
+   (natural colour, no tint), two buttons under them */
+.bn{position:relative;overflow:hidden;background:var(--navy)}
+.bn-bg{position:absolute;inset:0;z-index:0}
+.bn-bg video{width:100%;height:100%;object-fit:cover;display:block}
+.bn .wrap{position:relative;z-index:2}
+.bn .lead{background:rgba(248,246,242,.9);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  border-radius:var(--r);padding:28px 32px;max-width:760px}
+.bn .lead .eyeb{color:var(--navy)}
+.bn .lead p:not(.eyeb){color:var(--ink);margin:0}
+.bn-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
+.bn-box{background:rgba(255,255,255,.92);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.8);border-radius:16px;padding:22px 20px;
+  box-shadow:0 14px 34px rgba(4,34,61,.18)}
+.bn-box h3{font-family:var(--serif);font-weight:400;font-size:1.2rem;line-height:1.25;margin:14px 0 8px;color:var(--ink)}
+.bn-box p{margin:0;font-size:.95rem;line-height:1.55;color:var(--ink)}
+.bn-cta{display:flex;gap:13px;flex-wrap:wrap;margin-top:28px}
+@media (max-width:1000px){.bn-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.bn-grid{grid-template-columns:1fr}.bn .lead{padding:22px 18px}}
 </style>
 </head>
 <body>
@@ -1584,7 +1603,7 @@ footer a:hover,footer a:focus-visible{color:#fff;text-decoration:underline;
 </header>
 </div><!-- /.head -->
 
-<!-- ============ BENEFITS STRIP (the homepage bubble strip, labels are this service's benefits) ============
+<!-- ============ TRUST STRIP ============
      Labels only state things the client's own site already says:
      its CTA offers a free quote, the rest are its listed services and
      service area. The reference bar's "satisfaction guaranteed" and
@@ -1599,14 +1618,42 @@ footer a:hover,footer a:focus-visible{color:#fff;text-decoration:underline;
   </div>
   <div class="wrap">
     <ul class="trust-row">
-      <li class="tr-item" style="--d:0s"><span class="tr-bub" aria-hidden="true"><i></i></span><span class="tr-drops" aria-hidden="true"><i style="--dx:-74px;--dy:-58px"></i><i style="--dx:70px;--dy:-66px"></i><i style="--dx:88px;--dy:10px"></i><i style="--dx:-84px;--dy:22px"></i><i style="--dx:-40px;--dy:76px"></i><i style="--dx:52px;--dy:70px"></i></span><span class="tr-txt">No-Threshold Entry</span></li>
-      <li class="tr-item" style="--d:.16s"><span class="tr-bub" aria-hidden="true"><i></i></span><span class="tr-drops" aria-hidden="true"><i style="--dx:-74px;--dy:-58px"></i><i style="--dx:70px;--dy:-66px"></i><i style="--dx:88px;--dy:10px"></i><i style="--dx:-84px;--dy:22px"></i><i style="--dx:-40px;--dy:76px"></i><i style="--dx:52px;--dy:70px"></i></span><span class="tr-txt">Level Shower Floor</span></li>
-      <li class="tr-item" style="--d:.32s"><span class="tr-bub" aria-hidden="true"><i></i></span><span class="tr-drops" aria-hidden="true"><i style="--dx:-74px;--dy:-58px"></i><i style="--dx:70px;--dy:-66px"></i><i style="--dx:88px;--dy:10px"></i><i style="--dx:-84px;--dy:22px"></i><i style="--dx:-40px;--dy:76px"></i><i style="--dx:52px;--dy:70px"></i></span><span class="tr-txt">Efficient Drain</span></li>
-      <li class="tr-item" style="--d:.48s"><span class="tr-bub" aria-hidden="true"><i></i></span><span class="tr-drops" aria-hidden="true"><i style="--dx:-74px;--dy:-58px"></i><i style="--dx:70px;--dy:-66px"></i><i style="--dx:88px;--dy:10px"></i><i style="--dx:-84px;--dy:22px"></i><i style="--dx:-40px;--dy:76px"></i><i style="--dx:52px;--dy:70px"></i></span><span class="tr-txt">ADA-Standard Grab Bars</span></li>
-      <li class="tr-item" style="--d:.64s"><span class="tr-bub" aria-hidden="true"><i></i></span><span class="tr-drops" aria-hidden="true"><i style="--dx:-74px;--dy:-58px"></i><i style="--dx:70px;--dy:-66px"></i><i style="--dx:88px;--dy:10px"></i><i style="--dx:-84px;--dy:22px"></i><i style="--dx:-40px;--dy:76px"></i><i style="--dx:52px;--dy:70px"></i></span><span class="tr-txt">Accessible Controls</span></li>
-      <li class="tr-item" style="--d:.8s"><span class="tr-bub" aria-hidden="true"><i></i></span><span class="tr-drops" aria-hidden="true"><i style="--dx:-74px;--dy:-58px"></i><i style="--dx:70px;--dy:-66px"></i><i style="--dx:88px;--dy:10px"></i><i style="--dx:-84px;--dy:22px"></i><i style="--dx:-40px;--dy:76px"></i><i style="--dx:52px;--dy:70px"></i></span><span class="tr-txt">Built-In Shelving</span></li>
-      <li class="tr-item" style="--d:.96s"><span class="tr-bub" aria-hidden="true"><i></i></span><span class="tr-drops" aria-hidden="true"><i style="--dx:-74px;--dy:-58px"></i><i style="--dx:70px;--dy:-66px"></i><i style="--dx:88px;--dy:10px"></i><i style="--dx:-84px;--dy:22px"></i><i style="--dx:-40px;--dy:76px"></i><i style="--dx:52px;--dy:70px"></i></span><span class="tr-txt">Shower Seat</span></li>
+      <li class="tr-item" style="--d:0s"><span class="tr-bub" aria-hidden="true"><i></i></span><span class="tr-drops" aria-hidden="true"><i style="--dx:-74px;--dy:-58px"></i><i style="--dx:70px;--dy:-66px"></i><i style="--dx:88px;--dy:10px"></i><i style="--dx:-84px;--dy:22px"></i><i style="--dx:-40px;--dy:76px"></i><i style="--dx:52px;--dy:70px"></i></span><span class="tr-txt">Free Quotes</span></li>
+      <li class="tr-item" style="--d:.16s"><span class="tr-bub" aria-hidden="true"><i></i></span><span class="tr-drops" aria-hidden="true"><i style="--dx:-74px;--dy:-58px"></i><i style="--dx:70px;--dy:-66px"></i><i style="--dx:88px;--dy:10px"></i><i style="--dx:-84px;--dy:22px"></i><i style="--dx:-40px;--dy:76px"></i><i style="--dx:52px;--dy:70px"></i></span><span class="tr-txt">Walk-In Tubs</span></li>
+      <li class="tr-item" style="--d:.32s"><span class="tr-bub" aria-hidden="true"><i></i></span><span class="tr-drops" aria-hidden="true"><i style="--dx:-74px;--dy:-58px"></i><i style="--dx:70px;--dy:-66px"></i><i style="--dx:88px;--dy:10px"></i><i style="--dx:-84px;--dy:22px"></i><i style="--dx:-40px;--dy:76px"></i><i style="--dx:52px;--dy:70px"></i></span><span class="tr-txt">Barrier-Free Showers</span></li>
+      <li class="tr-item tr-rating" style="--d:.48s"><span class="tr-bub" aria-hidden="true"><i></i></span><span class="tr-drops" aria-hidden="true"><i style="--dx:-74px;--dy:-58px"></i><i style="--dx:70px;--dy:-66px"></i><i style="--dx:88px;--dy:10px"></i><i style="--dx:-84px;--dy:22px"></i><i style="--dx:-40px;--dy:76px"></i><i style="--dx:52px;--dy:70px"></i></span><span class="tr-txt tr-txt-rating"><b class="tr-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</b><span class="tr-r1">5-Star Reviews</span><span class="tr-badges"><span class="badge g" aria-label="Google"><i>G</i><i>o</i><i>o</i><i>g</i><i>l</i><i>e</i></span><span class="badge fb">facebook</span></span></span></li>
+      <li class="tr-item" style="--d:.64s"><span class="tr-bub" aria-hidden="true"><i></i></span><span class="tr-drops" aria-hidden="true"><i style="--dx:-74px;--dy:-58px"></i><i style="--dx:70px;--dy:-66px"></i><i style="--dx:88px;--dy:10px"></i><i style="--dx:-84px;--dy:22px"></i><i style="--dx:-40px;--dy:76px"></i><i style="--dx:52px;--dy:70px"></i></span><span class="tr-txt">Bathroom Safety</span></li>
+      <li class="tr-item" style="--d:.8s"><span class="tr-bub" aria-hidden="true"><i></i></span><span class="tr-drops" aria-hidden="true"><i style="--dx:-74px;--dy:-58px"></i><i style="--dx:70px;--dy:-66px"></i><i style="--dx:88px;--dy:10px"></i><i style="--dx:-84px;--dy:22px"></i><i style="--dx:-40px;--dy:76px"></i><i style="--dx:52px;--dy:70px"></i></span><span class="tr-txt">Tub-to-Shower Conversions</span></li>
+      <li class="tr-item" style="--d:.96s"><span class="tr-bub" aria-hidden="true"><i></i></span><span class="tr-drops" aria-hidden="true"><i style="--dx:-74px;--dy:-58px"></i><i style="--dx:70px;--dy:-66px"></i><i style="--dx:88px;--dy:10px"></i><i style="--dx:-84px;--dy:22px"></i><i style="--dx:-40px;--dy:76px"></i><i style="--dx:52px;--dy:70px"></i></span><span class="tr-txt">New Orleans &amp; Northshore</span></li>
     </ul>
+  </div>
+</section>
+
+<!-- ============ BENEFITS ============ -->
+<!-- Boxes over real bathroom footage (Pexels, natural colour, no tint);
+     the benefits are the features the client's live page lists. -->
+<section class="bn" id="benefits">
+  <div class="bn-bg" aria-hidden="true">
+    <video class="sf-vid" muted loop playsinline preload="none"><source src="assets/designed-reveal.mp4" type="video/mp4"></video>
+  </div>
+  <div class="wrap">
+    <div class="lead rv">
+      <p class="eyeb">Benefits</p>
+      <h2>Benefits of Getting a <span class="kw">Barrier-Free Shower</span> in New Orleans</h2>
+      <p>Barrier-free showers have many varieties of features to add safety and accessibility for everyone in the family, such as:</p>
+    </div>
+    <div class="bn-grid">
+      <div class="bn-box rv"><span class="pm-b" aria-hidden="true"><i></i>01</span><h3>Level Shower Floor</h3><p>Designed to reduce the risk of falls for those using wheelchairs or walkers. Water flows away from the user, so you can move around without fear of slipping or tripping.</p></div>
+      <div class="bn-box rv"><span class="pm-b" aria-hidden="true"><i></i>02</span><h3>Efficient Drain</h3><p>Water is quickly and effectively drained from the shower, reducing standing water for a safe and comfortable experience for everyone in the family.</p></div>
+      <div class="bn-box rv"><span class="pm-b" aria-hidden="true"><i></i>03</span><h3>Grab Bars</h3><p>Accessible grab bars provide additional support, so users can move around the shower space without fear of slipping or falling. Custom installation meets ADA standards.</p></div>
+      <div class="bn-box rv"><span class="pm-b" aria-hidden="true"><i></i>04</span><h3>Accessible Control Area</h3><p>Adjust the temperature, flow rate and other settings from a safe distance, with no need to reach over hot or wet surfaces.</p></div>
+      <div class="bn-box rv"><span class="pm-b" aria-hidden="true"><i></i>05</span><h3>Shelving</h3><p>Customized shelving keeps soap, shampoo and towels within easy reach, without bending or stretching, while keeping a stylish design.</p></div>
+      <div class="bn-box rv"><span class="pm-b" aria-hidden="true"><i></i>06</span><h3>Shower Seat</h3><p>Additional support while showering, so those with mobility challenges can reach the controls or the shelving without fear of slipping or falling.</p></div>
+    </div>
+    <div class="bn-cta rv">
+      <a class="btn btn-p" href="https://www.bigeasybathrooms.com/contact/" target="_blank" rel="noopener">Get a Free Quote</a>
+      <a class="btn btn-l" href="tel:+15046887786">Call 504-688-7786</a>
+    </div>
   </div>
 </section>
 
