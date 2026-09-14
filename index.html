@@ -1220,18 +1220,19 @@ footer a:hover,footer a:focus-visible{color:#fff;text-decoration:underline;
 .mini p{font-size:.86rem;line-height:1.45;color:var(--body);margin:0}
 .mini-go{flex:0 0 auto;color:var(--navy);font-size:1.1rem;transition:transform .22s ease}
 .mini:hover .mini-go{transform:translateX(4px)}
-.safe{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;
-  margin-top:24px;background:#E9DDCB;border:1px solid rgba(199,178,154,.5);border-radius:var(--r);
-  padding:30px 26px 28px;text-decoration:none;color:var(--ink);
-  transition:transform .22s ease,box-shadow .22s ease}
+/* a real photograph (Unsplash, no people) behind a frosted panel; the
+   buttons live inside the box */
+.safe{display:flex;align-items:center;justify-content:center;text-align:center;margin-top:24px;
+  position:relative;overflow:hidden;border-radius:var(--r);min-height:330px;padding:34px 26px;
+  background:url(assets/safety-bg.jpg) center/cover no-repeat;color:var(--ink)}
 .safe .eyeb{color:var(--navy)}
-.safe:hover,.safe:focus-visible{transform:translateY(-3px);box-shadow:0 16px 36px rgba(20,20,20,.11)}
+.safe-cta{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:18px}
 .safe img{width:190px;height:120px;object-fit:cover;border-radius:12px;flex:0 0 auto}
-.safe-t{flex:none;max-width:62ch}
+.safe-t{flex:0 1 auto;width:100%;max-width:64ch;background:rgba(248,246,242,.92);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-radius:var(--r);padding:26px 30px 28px}
 .safe-t .eyeb{display:block;margin-bottom:6px}
 .safe h3{font-family:var(--serif);font-weight:400;font-size:2.3rem;line-height:1.05;margin:0 0 10px}
 .safe p{margin:0;font-size:1.05rem;line-height:1.55;color:var(--ink)}
-.safe .more{flex:none;margin-top:4px}
 @media (max-width:900px){
   .cat{grid-template-columns:1fr;gap:16px}
   .cat.flip .cat-hero{order:0}
@@ -1239,7 +1240,8 @@ footer a:hover,footer a:focus-visible{color:#fff;text-decoration:underline;
   .cat-cap{padding:80px 22px 22px}
   .cat-cap h3{font-size:2rem}
   .cat-list{grid-template-columns:1fr}
-  .safe{padding:24px 18px 22px}
+  .safe{padding:22px 14px;min-height:0}
+  .safe-t{padding:20px 16px 22px}
 }
 @media (prefers-reduced-motion:reduce){
   .mini,.safe,.mini-go{transition:none!important}
@@ -1262,8 +1264,10 @@ footer a:hover,footer a:focus-visible{color:#fff;text-decoration:underline;
 .wwl-bg::after{content:"";position:absolute;inset:0;
   background:linear-gradient(180deg,rgba(248,246,242,.96) 0%,rgba(248,246,242,.8) 45%,rgba(248,246,242,.96) 100%)}
 .wwl{display:grid;grid-template-columns:.92fr 1.08fr;gap:44px;margin-top:40px;align-items:center}
-.wwl-list{list-style:none;margin:0;padding:0;columns:1}   /* one column: the list then stands as tall as the photograph */
-.wwl-list li{break-inside:avoid;margin-bottom:12px}
+/* seven floating bubbles fill the column beside the photograph: three
+   staggered rows, each bubble a share of the column width */
+.wwl-list{list-style:none;margin:0;padding:0;position:relative;align-self:stretch;min-height:360px}
+.wwl-list li{position:absolute;left:var(--x);top:var(--y);width:var(--s);aspect-ratio:1;margin:0}
 .js .wwl-list li{opacity:0;transform:translateX(-22px);
   transition:opacity .5s ease,transform .6s cubic-bezier(.16,1,.3,1)}
 .js .wwl-sec.surf .wwl-list li{opacity:1;transform:none}
@@ -1273,14 +1277,24 @@ footer a:hover,footer a:focus-visible{color:#fff;text-decoration:underline;
 .js .wwl-sec.surf .wwl-list li:nth-child(5){transition-delay:.24s}
 .js .wwl-sec.surf .wwl-list li:nth-child(6){transition-delay:.3s}
 .js .wwl-sec.surf .wwl-list li:nth-child(7){transition-delay:.36s}
-.wwl-item{display:flex;align-items:center;gap:12px;width:100%;background:rgba(255,255,255,.82);
-  border:1px solid var(--line);border-radius:14px;padding:14px 18px;cursor:pointer;
-  font-family:var(--sans);font-weight:600;font-size:.95rem;color:var(--ink);text-align:left;
-  transition:background .22s ease,border-color .22s ease,color .22s ease,box-shadow .22s ease}
-.wwl-item i{width:9px;height:9px;border-radius:50%;background:var(--sand-2);flex:none;transition:.25s ease}
-.wwl-item:hover,.wwl-item:focus-visible{border-color:var(--sand);background:#fff;color:var(--navy)}
-.wwl-item.on{background:var(--navy);border-color:var(--navy);color:#fff;box-shadow:0 10px 24px rgba(4,34,61,.22)}
-.wwl-item.on i{background:var(--sand);box-shadow:0 0 10px rgba(199,178,154,.9)}
+.wwl-item{width:100%;height:100%;border-radius:50%;display:grid;place-items:center;text-align:center;
+  padding:10px 12px;cursor:pointer;font-family:var(--serif);font-weight:500;font-size:1.06rem;
+  line-height:1.15;color:var(--ink);
+  background:radial-gradient(circle at 34% 28%,rgba(255,255,255,.98),rgba(255,255,255,.74) 45%,rgba(220,205,184,.6) 100%);
+  border:1px solid rgba(255,255,255,.95);
+  box-shadow:inset 0 0 18px rgba(255,255,255,.7),inset -10px -12px 24px rgba(4,34,61,.12),0 14px 30px rgba(4,34,61,.16);
+  animation:wwlBob var(--fd,6s) ease-in-out var(--fdelay,0s) infinite;
+  transition:background .25s ease,color .25s ease,box-shadow .25s ease}
+.wwl-item i{position:absolute;left:19%;top:13%;width:26%;height:18%;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,rgba(255,255,255,.98),rgba(255,255,255,0) 70%)}
+.wwl-item{position:relative}
+.wwl-item:hover,.wwl-item:focus-visible{color:var(--navy);box-shadow:inset 0 0 18px rgba(255,255,255,.8),
+  inset -10px -12px 24px rgba(4,34,61,.12),0 18px 36px rgba(4,34,61,.24)}
+.wwl-item.on{color:#fff;
+  background:radial-gradient(circle at 34% 28%,rgba(255,255,255,.55),rgba(4,34,61,.92) 52%,rgba(4,34,61,1) 100%);
+  border-color:rgba(255,255,255,.85);
+  box-shadow:inset 0 0 14px rgba(255,255,255,.35),0 18px 36px rgba(4,34,61,.3)}
+@keyframes wwlBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
 .wwl-media{position:relative;aspect-ratio:4/3;border-radius:var(--r);overflow:hidden;
   background:var(--cream-2);box-shadow:0 24px 60px rgba(36,36,36,.18)}
 .js .wwl-media{opacity:0;transform:translateY(26px) scale(.97);
@@ -1300,14 +1314,15 @@ footer a:hover,footer a:focus-visible{color:#fff;text-decoration:underline;
 .wwl-cta{display:flex;gap:13px;flex-wrap:wrap;justify-content:center;margin-top:28px}
 @media (max-width:900px){
   .wwl{grid-template-columns:1fr;gap:26px}
-  .wwl-list{columns:2;column-gap:10px}
-  .wwl-item{padding:12px 12px;font-size:.88rem}
+  .wwl-list{min-height:330px;height:330px}
+  .wwl-item{padding:8px;font-size:.88rem}
   .wwl-label .city{font-size:1.5rem}
 }
 @media (prefers-reduced-motion:reduce){
   .wwl-bg video{transform:none!important;filter:none!important;transition:none!important}
   .js .wwl-list li,.js .wwl-media{opacity:1!important;transform:none!important;transition:none!important}
   .wwl-imgs img{transition:none!important}
+  .wwl-item{animation:none!important}
 }
 
 /* ============================================================
@@ -1492,7 +1507,7 @@ footer a:hover,footer a:focus-visible{color:#fff;text-decoration:underline;
 .bn-bg video{width:100%;height:100%;object-fit:cover;display:block}
 .bn .wrap{position:relative;z-index:2}
 .bn .lead{background:rgba(248,246,242,.9);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
-  border-radius:var(--r);padding:28px 32px;max-width:760px}
+  border-radius:var(--r);padding:28px 32px;max-width:none}   /* spans the grid, edge to edge */
 .bn .lead .eyeb{color:var(--navy)}
 .bn .lead p:not(.eyeb){color:var(--ink);margin:0}
 .bn-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
@@ -1501,7 +1516,9 @@ footer a:hover,footer a:focus-visible{color:#fff;text-decoration:underline;
   box-shadow:0 14px 34px rgba(4,34,61,.18)}
 .bn-box h3{font-family:var(--serif);font-weight:400;font-size:1.2rem;line-height:1.25;margin:14px 0 8px;color:var(--ink)}
 .bn-box p{margin:0;font-size:.95rem;line-height:1.55;color:var(--ink)}
-.bn-cta{display:flex;gap:13px;flex-wrap:wrap;margin-top:28px}
+.bn-cta{display:flex;gap:13px;flex-wrap:wrap;justify-content:center;margin-top:16px;
+  background:rgba(248,246,242,.9);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  border-radius:var(--r);padding:18px 20px}   /* buttons centred on their own frosted bar */
 @media (max-width:1000px){.bn-grid{grid-template-columns:1fr 1fr}}
 @media (max-width:640px){.bn-grid{grid-template-columns:1fr}.bn .lead{padding:22px 18px}}
 </style>
@@ -1950,18 +1967,18 @@ footer a:hover,footer a:focus-visible{color:#fff;text-decoration:underline;
     </div>
 
     <!-- Bathroom Safety sits outside both categories; kept as its own strip. -->
-    <a class="safe rv" href="https://www.bigeasybathrooms.com/bathroom-safety/" target="_blank" rel="noopener">
-      <span class="safe-t">
+    <div class="safe rv">
+      <div class="safe-t">
         <span class="eyeb">For any shower or tub</span>
         <h3>Bathroom Safety</h3>
         <p>Safety modifications that enhance comfort and help prevent accidents in the bathroom.</p>
-      </span>
-      <span class="more">Learn more <span>&rarr;</span></span>
-    </a>
-
-    <div class="svc-all rv">
-      <a class="btn btn-p" href="services.html">Explore all services</a>
+        <div class="safe-cta">
+          <a class="btn btn-p" href="https://www.bigeasybathrooms.com/bathroom-safety/" target="_blank" rel="noopener">Learn more</a>
+          <a class="btn btn-s" href="services.html">Explore all services</a>
+        </div>
+      </div>
     </div>
+
   </div>
 </section>
 
@@ -2183,13 +2200,13 @@ footer a:hover,footer a:focus-visible{color:#fff;text-decoration:underline;
     </div>
     <div class="wwl" id="wwl">
       <ul class="wwl-list" aria-label="Choose a service area">
-        <li><button class="wwl-item on" type="button" aria-pressed="true" data-href="https://www.bigeasybathrooms.com/service-areas/abita-springs/"><i></i>Abita Springs</button></li>
-        <li><button class="wwl-item" type="button" aria-pressed="false" data-href="https://www.bigeasybathrooms.com/service-areas/covington/"><i></i>Covington</button></li>
-        <li><button class="wwl-item" type="button" aria-pressed="false" data-href="https://www.bigeasybathrooms.com/service-areas/hammond/"><i></i>Hammond</button></li>
-        <li><button class="wwl-item" type="button" aria-pressed="false" data-href="https://www.bigeasybathrooms.com/service-areas/madisonville/"><i></i>Madisonville</button></li>
-        <li><button class="wwl-item" type="button" aria-pressed="false" data-href="https://www.bigeasybathrooms.com/service-areas/mandeville/"><i></i>Mandeville</button></li>
-        <li><button class="wwl-item" type="button" aria-pressed="false" data-href="https://www.bigeasybathrooms.com/service-areas/metairie/"><i></i>Metairie</button></li>
-        <li><button class="wwl-item" type="button" aria-pressed="false" data-href="https://www.bigeasybathrooms.com/service-areas/slidell/"><i></i>Slidell</button></li>
+        <li style="--x:2%;--y:2%;--s:30%;--fd:6.2s;--fdelay:-1.1s"><button class="wwl-item on" type="button" aria-pressed="true" data-href="https://www.bigeasybathrooms.com/service-areas/abita-springs/"><i></i>Abita Springs</button></li>
+        <li style="--x:37%;--y:7%;--s:28%;--fd:7.1s;--fdelay:-3.4s"><button class="wwl-item" type="button" aria-pressed="false" data-href="https://www.bigeasybathrooms.com/service-areas/covington/"><i></i>Covington</button></li>
+        <li style="--x:70%;--y:2%;--s:30%;--fd:6.6s;--fdelay:-2.2s"><button class="wwl-item" type="button" aria-pressed="false" data-href="https://www.bigeasybathrooms.com/service-areas/hammond/"><i></i>Hammond</button></li>
+        <li style="--x:18%;--y:34%;--s:28%;--fd:7.4s;--fdelay:-0.6s"><button class="wwl-item" type="button" aria-pressed="false" data-href="https://www.bigeasybathrooms.com/service-areas/madisonville/"><i></i>Madisonville</button></li>
+        <li style="--x:52%;--y:35%;--s:30%;--fd:6.9s;--fdelay:-4.1s"><button class="wwl-item" type="button" aria-pressed="false" data-href="https://www.bigeasybathrooms.com/service-areas/mandeville/"><i></i>Mandeville</button></li>
+        <li style="--x:4%;--y:64%;--s:30%;--fd:7.8s;--fdelay:-2.9s"><button class="wwl-item" type="button" aria-pressed="false" data-href="https://www.bigeasybathrooms.com/service-areas/metairie/"><i></i>Metairie</button></li>
+        <li style="--x:68%;--y:64%;--s:29%;--fd:6.4s;--fdelay:-1.7s"><button class="wwl-item" type="button" aria-pressed="false" data-href="https://www.bigeasybathrooms.com/service-areas/slidell/"><i></i>Slidell</button></li>
       </ul>
       <div class="wwl-media">
         <div class="wwl-imgs">
