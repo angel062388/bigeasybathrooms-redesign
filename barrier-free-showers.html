@@ -1,0 +1,2570 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Barrier-Free Showers in New Orleans | Big Easy Bathrooms</title>
+<meta name="description" content="The barrier-free showers at Big Easy Bathrooms are ideal for those who require extra space to move around. Our shower stalls feature a walk-in design with no threshold, which makes it easier to get in and out of the shower. Call us now!">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   Big Easy Bathrooms - homepage mockup
+   Design language modelled on dfinedesignandbuild.com:
+     warm cream ground, taupe accents, dark band, serif display
+     heading over a geometric sans body, floating pill navigation.
+   Content is Big Easy Bathrooms' own, carried from the live site.
+   Dark tone uses the client's brand navy #04223D in place of
+   D'Fine's near-black so the existing logo stays coherent.
+   ============================================================ */
+:root{
+  --cream:#F8F6F2;      /* D'Fine ground */
+  --cream-2:#F3F1ED;
+  --line:#E8E6E1;
+  --taupe:#AE9E90;      /* D'Fine accent */
+  --sand:#C7B29A;
+  --sand-2:#DCCDB8;   /* light sand, for dark grounds only */
+  --hero-bg:#F1EADE;  /* light sand wash under the hero only */
+  --ink:#242424;        /* D'Fine heading ink */
+  --body:#55514C;
+  --navy:#04223D;       /* Big Easy brand */
+  --navy-2:#0A3357;
+  --white:#fff;
+  --serif:"Fraunces",Georgia,"Times New Roman",serif;
+  --sans:"Outfit",-apple-system,"Segoe UI",Arial,sans-serif;
+  --r:22px;
+  --wrap:1220px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--body);
+  overflow-x:clip;  /* flourishes may fly in from off-canvas; never a scrollbar */
+  font-family:var(--sans);font-size:17px;line-height:1.75;
+  -webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3,h4{font-family:var(--serif);color:var(--ink);font-weight:400;
+  letter-spacing:-.01em;margin:0}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 26px}
+.eyeb{font-family:var(--sans);font-size:.72rem;font-weight:600;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--taupe);
+  margin:0 0 14px}
+section{padding:88px 0}
+
+/* ---- buttons: D'Fine's 13px uppercase pill ---- */
+.btn{display:inline-block;font-family:var(--sans);font-size:13px;
+  font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  text-decoration:none;padding:15px 30px;border-radius:999px;
+  border:1.5px solid transparent;transition:.25s ease;cursor:pointer}
+.btn-p{background:var(--navy);color:#fff;border-color:var(--navy)}
+.btn-p:hover{background:var(--navy-2);border-color:var(--navy-2);
+  transform:translateY(-2px)}
+.btn-s{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn-s:hover{background:var(--ink);color:#fff;transform:translateY(-2px)}
+.btn-l{background:#fff;color:var(--navy);border-color:#fff}
+.btn-l:hover{background:var(--sand);border-color:var(--sand);color:var(--ink);
+  transform:translateY(-2px)}
+.btn-o{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}
+/* a link inside body copy */
+.tlink{color:var(--navy);font-weight:600;text-decoration:underline;
+  text-decoration-color:var(--sand);text-decoration-thickness:1.5px;text-underline-offset:3px}
+.tlink:hover,.tlink:focus-visible{text-decoration-color:var(--navy)}
+.btn-o:hover{background:#fff;color:var(--navy);transform:translateY(-2px)}
+
+/* ---- floating pill header, straight from D'Fine ----
+   .head is the positioning context so the pill sits at the top of the
+   HERO, not the top of the document. Without it the pill lands on top
+   of the review banner above and covers it. */
+.head{position:relative}
+.topwrap{position:absolute;top:0;left:0;right:0;z-index:60;padding:22px 26px}
+.topwrap.stuck{position:fixed;padding-top:12px;
+  animation:drop .35s ease both}
+@keyframes drop{from{transform:translateY(-14px);opacity:0}to{transform:none;opacity:1}}
+.top{max-width:var(--wrap);margin:0 auto;background:#fff;
+  border:1px solid var(--line);
+  border-radius:999px;box-shadow:0 10px 34px rgba(20,20,20,.12);
+  display:flex;align-items:center;gap:20px;padding:10px 12px 10px 22px}
+.top .logo img{height:40px;width:auto}
+.nav{display:flex;align-items:center;gap:4px;margin-left:auto}
+.nav>li{list-style:none;position:relative}
+.nav a{display:block;text-decoration:none;font-size:.9rem;font-weight:500;
+  color:var(--ink);padding:10px 13px;border-radius:999px;transition:.2s}
+.nav a:hover,.nav .on>a{background:var(--cream-2);color:var(--navy)}
+.nav ul{list-style:none;margin:0;padding:8px;position:absolute;top:100%;
+  left:0;min-width:262px;background:#fff;border:1px solid var(--line);
+  border-radius:18px;box-shadow:0 18px 46px rgba(20,20,20,.14);
+  opacity:0;visibility:hidden;transform:translateY(8px);transition:.22s;
+  max-height:70vh;overflow:auto}
+.nav li:hover>ul,.nav li:focus-within>ul{opacity:1;visibility:visible;
+  transform:none}
+.nav ul a{font-size:.86rem;padding:9px 14px;border-radius:11px;
+  white-space:nowrap;font-weight:400}
+.nav .caret{font-size:.62em;opacity:.55;margin-left:5px}
+/* Services: two groups, each opening a flyout beside the menu */
+.nav ul.has-sub{overflow:visible;max-height:none;min-width:200px}
+.nav ul li{position:relative}
+.nav .grp{display:flex;align-items:center;justify-content:space-between;
+  font-size:.86rem;font-weight:500;color:var(--ink);padding:9px 14px;
+  border-radius:11px;cursor:default;white-space:nowrap;outline-offset:2px}
+.nav .sub:hover>.grp,.nav .sub:focus-within>.grp{background:var(--cream-2);color:var(--navy)}
+.nav .grp .caret{margin-left:14px}
+.nav ul ul{top:-8px;left:100%;margin-left:6px}
+.tel{display:inline-flex;align-items:center;gap:9px;background:var(--navy);
+  color:#fff;text-decoration:none;padding:11px 21px;border-radius:999px;
+  font-weight:600;font-size:.88rem;white-space:nowrap;transition:.25s}
+.tel:hover{background:var(--navy-2)}
+.burger{display:none;background:var(--cream-2);border:0;border-radius:999px;
+  width:44px;height:44px;font-size:1.2rem;cursor:pointer;color:var(--ink)}
+
+/* ---- hero: full-bleed photo, D'Fine proportions ---- */
+/* ============================================================
+   HERO - magazine spread
+   Photographs turn like pages on the left, copy sits on the right.
+   The copy is on the cream ground now, not over a photograph, so
+   every colour in here is chosen against cream.
+   ============================================================ */
+.hero{position:relative;background:var(--hero-bg);
+  padding:138px 0 62px;overflow:hidden}
+.hero .wrap{max-width:1400px}   /* the hero alone runs wider than the page grid */
+/* a hairline so the wash ends deliberately rather than just stopping */
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;
+  background:linear-gradient(90deg,rgba(174,158,144,0),rgba(174,158,144,.45),
+    rgba(174,158,144,0))}
+.hero .wrap{position:relative;z-index:2}
+.hero-grid{display:grid;grid-template-columns:auto minmax(0,1fr);
+  gap:108px;align-items:center}
+
+/* ---- the magazine ---- */
+.mag-wrap{position:relative}
+/* Height-driven so the controls below it stay above the fold.
+   See the note in SESSION-NOTES.md for the measurement. */
+.mag{position:relative;height:clamp(430px,76vh,720px);aspect-ratio:4/5;
+  width:auto;perspective:1900px;perspective-origin:0% 50%;
+  border-radius:3px 13px 13px 3px;
+  box-shadow:0 26px 58px rgba(36,36,36,.22),0 4px 10px rgba(36,36,36,.10)}
+/* the spine, on the left, which is what the pages hinge on */
+.mag::before{content:"";position:absolute;left:-10px;top:1.5%;bottom:1.5%;
+  width:15px;border-radius:9px 0 0 9px;z-index:0;
+  background:linear-gradient(90deg,#B4A490,#DCCDB8 55%,#C7B29A);
+  box-shadow:0 14px 32px rgba(36,36,36,.2)}
+/* the cut edge of the pages underneath, so it reads as a stack */
+.mag::after{content:"";position:absolute;right:-7px;top:1%;bottom:1%;width:9px;
+  border-radius:0 9px 9px 0;z-index:0;
+  background:repeating-linear-gradient(180deg,#fff 0 2px,#EAE6DF 2px 4px);
+  box-shadow:0 14px 28px rgba(36,36,36,.14)}
+.mag-stack{position:absolute;inset:0;transform-style:preserve-3d}
+.mag-pg{position:absolute;inset:0;margin:0;
+  transform-origin:left center;border-radius:3px 13px 13px 3px;
+  /* past 90deg the browser would paint a mirrored copy of the front
+     image, which reads as a page printed backwards. Hiding the backface
+     makes it simply turn away, which is what a page does. */
+  -webkit-backface-visibility:hidden;backface-visibility:hidden;
+  overflow:hidden;background:#E6DFD3;
+  /* hairline only. A full drop shadow here multiplies by the number of
+     pages, because they all sit at the same coordinates. */
+  box-shadow:0 0 0 1px rgba(36,36,36,.07);
+  transition:transform 1.15s cubic-bezier(.62,.03,.3,1)}
+.mag-pg img{width:100%;height:100%;object-fit:cover;display:block}
+/* the service each page shows, named on the page */
+.mag-cap{position:absolute;left:16px;top:16px;z-index:3;margin:0;pointer-events:none;
+  font-family:var(--sans);font-size:.72rem;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink);background:rgba(248,246,242,.92);
+  border-radius:999px;padding:8px 14px}
+/* gutter shading, deepest at the spine, so the page looks bound */
+.mag-pg::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(90deg,rgba(36,36,36,.34) 0%,
+    rgba(36,36,36,.10) 9%,rgba(36,36,36,0) 30%)}
+.mag-pg.turning{transform:rotateY(-172deg)}
+.mag-pg.noanim{transition:none}
+
+/* ---- a glint that sweeps across the page, like light on a glossy cover.
+   Above the pages, below the controls; clipped to the page's corners. ---- */
+.mag-shine{position:absolute;inset:0;z-index:12;pointer-events:none;overflow:hidden;
+  border-radius:3px 13px 13px 3px}
+.mag-shine::before{content:"";position:absolute;top:-45%;bottom:-45%;left:-70%;width:34%;
+  background:linear-gradient(90deg,
+    rgba(255,255,255,0) 0%,rgba(255,255,255,.10) 28%,
+    rgba(255,255,255,.48) 50%,rgba(255,255,255,.10) 72%,rgba(255,255,255,0) 100%);
+  transform:rotate(18deg);
+  animation:magShine 5.4s cubic-bezier(.45,.1,.3,1) 1.6s infinite}
+@keyframes magShine{0%{left:-70%}48%,100%{left:140%}}
+@media (prefers-reduced-motion:reduce){.mag-shine{display:none}}
+
+/* ---- controls. Visible, large, and the slideshow can be stopped. ---- */
+/* Controls sit on the photograph, bottom left, on a soft navy scrim.
+   Overlaying them frees about 76px of height, which is what lets the
+   page grow and still keep the controls above the fold. */
+.mag-ctl{position:absolute;left:14px;bottom:14px;z-index:20;
+  display:flex;align-items:center;gap:8px;
+  background:rgba(4,34,61,.46);-webkit-backdrop-filter:blur(8px);
+  backdrop-filter:blur(8px);border-radius:999px;padding:7px 14px 7px 7px}
+.mag-btn{width:44px;height:44px;border-radius:50%;
+  border:1.5px solid rgba(255,255,255,.55);background:rgba(255,255,255,.14);
+  color:#fff;cursor:pointer;font-size:17px;line-height:1;
+  display:grid;place-items:center;transition:.2s ease}
+.mag-btn:hover,.mag-btn:focus-visible{background:#fff;color:var(--navy);
+  border-color:#fff}
+.mag-dots{display:flex;align-items:center;gap:7px;margin-left:6px}
+.mag-dot{width:10px;height:10px;padding:0;border:0;border-radius:50%;
+  background:rgba(255,255,255,.55);cursor:pointer;transition:.25s ease}
+.mag-dot[aria-current="true"]{background:var(--sand);width:28px;
+  border-radius:999px}
+
+/* ---- the copy ---- */
+.hero-copy{max-width:660px}
+.stars{display:inline-flex;align-items:center;gap:10px;
+  background:var(--cream-2);border:1px solid var(--line);
+  border-radius:999px;padding:8px 18px;
+  color:var(--ink);font-size:.82rem;font-weight:500;margin-bottom:22px}
+.stars b{color:#8A5E10;letter-spacing:.12em;font-size:.95rem}
+.hero h1{color:var(--ink);font-size:clamp(2.3rem,4vw,3.7rem);line-height:1.08;
+  font-weight:300;margin:0 0 20px;text-wrap:balance}
+.hero p{color:var(--body);font-size:1.24rem;margin:0 0 32px}
+.hero-cta{display:flex;gap:13px;flex-wrap:wrap}
+
+@media (max-width:900px){
+  .hero{padding:128px 0 58px}
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .hero-copy{max-width:none}
+  /* width-driven on small screens: a fixed height and a max-width
+     would contradict each other and distort the page */
+  .mag{height:auto;width:100%;max-width:500px;aspect-ratio:4/5}
+  .mag::before{left:-7px;width:11px}
+  .mag::after{right:-5px;width:7px}
+}
+
+/* A page that flips in 3D is exactly the motion to drop. Under reduced
+   motion the pages cross-fade instead, and nothing advances on its own. */
+@media (prefers-reduced-motion:reduce){
+  .mag-pg{transition:opacity .35s ease}
+  .mag-pg.turning{transform:none;opacity:0}
+}
+
+/* ---- intro ---- */
+.lead{max-width:900px}
+.lead h2{font-size:clamp(1.7rem,3.2vw,2.6rem);line-height:1.18;margin:0 0 18px}
+.lead p{font-size:1.1rem;margin:0}
+
+/* ---- service cards ---- */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;
+  margin-top:46px}
+.svc{background:#fff;border:1px solid var(--line);border-radius:var(--r);
+  overflow:hidden;text-decoration:none;display:flex;flex-direction:column;
+  transition:.3s ease}
+.svc:hover{transform:translateY(-6px);box-shadow:0 20px 44px rgba(20,20,20,.13);
+  border-color:var(--taupe)}
+.svc-img{aspect-ratio:4/3;overflow:hidden;background:var(--cream-2)}
+.svc-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.svc:hover .svc-img img{transform:scale(1.06)}
+.svc-b{padding:24px 26px 28px;flex:1;display:flex;flex-direction:column}
+.svc-b h3{font-size:1.24rem;margin:0 0 9px}
+.svc-b p{font-size:.95rem;line-height:1.65;margin:0 0 18px;flex:1}
+.more{font-family:var(--sans);font-size:12px;font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--navy);
+  display:inline-flex;align-items:center;gap:8px}
+.more span{transition:transform .3s}
+.svc:hover .more span{transform:translateX(5px)}
+.svc-all{text-align:center;margin-top:44px}
+
+/* ---- split: image + copy ---- */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+/* Designed Around You on a darker brown than the gallery, so the two bands
+   read apart; the gap above it is trimmed on both sides */
+.dz{background:#E3D5C1;padding-top:64px}
+.dz .eyeb{color:var(--navy)}
+#services{padding-bottom:52px}
+.split-img{border-radius:var(--r);overflow:hidden;aspect-ratio:5/4}
+.split-img img,.split-img video{width:100%;height:100%;object-fit:cover;display:block}
+.split-img.vid{aspect-ratio:auto;align-self:stretch;min-height:340px}
+@media (max-width:900px){.split-img.vid{aspect-ratio:16/9;min-height:0;align-self:auto}}
+.split h2{font-size:clamp(1.6rem,3vw,2.3rem);line-height:1.2;margin:0 0 18px}
+.split p{margin:0 0 16px}
+.split p:last-of-type{margin-bottom:26px}
+
+/* ---- process, D'Fine's 4 across ---- */
+
+/* ---- dark band ---- */
+.band{background:var(--navy);color:#fff;position:relative;overflow:hidden}
+.band h2{color:#fff;font-size:clamp(1.7rem,3.3vw,2.6rem);line-height:1.18;
+  margin:0 0 16px;font-weight:300}
+.band p{color:rgba(255,255,255,.86);margin:0 0 28px}
+.band .eyeb{color:var(--sand)}
+.band-in{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;
+  align-items:center}
+.band-cta{display:flex;gap:13px;flex-wrap:wrap}
+.band-strip{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.band-strip img{border-radius:16px;aspect-ratio:1/1;object-fit:cover;
+  width:100%}
+.band-strip img:nth-child(1),.band-strip img:nth-child(4){aspect-ratio:4/5}
+
+/* ---- why us: photograph under a navy scrim, glass cards, two CTAs ---- */
+.why-sec{position:relative;overflow:hidden;color:var(--ink);padding:96px 0}
+.why-bg{position:absolute;inset:0;z-index:0}
+/* the photograph shows in its natural colour: no scrim, no tint */
+.why-bg img{width:100%;height:100%;object-fit:cover;object-position:center}
+.why-sec .wrap{position:relative;z-index:1}
+/* the heading sits on a light frosted panel so it reads on any photo */
+.why-sec .lead{background:rgba(248,246,242,.86);
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,.75);border-radius:var(--r);
+  padding:32px 38px 28px}
+.why-sec .eyeb{color:var(--navy)}
+.why-sec h2{color:var(--ink);margin-bottom:0}
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:44px}
+.why-c{position:relative;overflow:hidden;
+  background:rgba(248,246,242,.86);border:1px solid rgba(255,255,255,.75);
+  border-radius:var(--r);padding:36px 30px 32px;
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.js .why-c.rv{transition:opacity .7s ease,transform .7s ease,
+  background .3s ease,border-color .3s ease}
+.why-c:hover{background:rgba(248,246,242,.95);border-color:var(--sand)}
+/* sand rule across the top, drawn as the card arrives */
+.why-c::before{content:"";position:absolute;left:30px;right:30px;top:0;height:3px;
+  border-radius:0 0 3px 3px;
+  background:linear-gradient(var(--sand),var(--sand)) left top/100% 100% no-repeat}
+.js .why-c::before{background-size:0% 100%}
+.js .why-c.in::before{background-size:100% 100%;
+  transition:background-size .9s cubic-bezier(.22,1,.36,1) .35s}
+.why-c p{margin:0;font-size:1.02rem;line-height:1.7;color:var(--ink)}
+/* the three cards arrive one after another; hover stays instant */
+.js .why .why-c.in:nth-child(2){transition-delay:.14s,.14s,0s,0s}
+.js .why .why-c.in:nth-child(3){transition-delay:.28s,.28s,0s,0s}
+.js .why .why-c.in:nth-child(2)::before{transition-delay:.49s}
+.js .why .why-c.in:nth-child(3)::before{transition-delay:.63s}
+.why-cta{display:flex;gap:13px;flex-wrap:wrap;justify-content:center;margin-top:42px}
+@media (prefers-reduced-motion:reduce){
+  .js .why-c::before{background-size:100% 100%!important;transition:none!important}
+}
+
+/* ---- testimonial feature ---- */
+
+/* ---- areas ---- */
+.areas{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.areas a{background:#fff;border:1px solid var(--line);border-radius:999px;
+  padding:11px 24px;text-decoration:none;font-size:.93rem;font-weight:500;
+  color:var(--ink);transition:.25s}
+.areas a:hover{background:var(--navy);color:#fff;border-color:var(--navy);
+  transform:translateY(-2px)}
+
+/* ---- newsletter / form ---- */
+.form-card{background:#E9DDCB;border:1px solid rgba(199,178,154,.5);
+  border-radius:var(--r);padding:36px 40px 32px;text-align:center}
+.form-card .eyeb{color:var(--navy)}
+.form-card h2{font-size:clamp(1.5rem,2.8vw,2.2rem);margin:0 0 10px}
+.form-card p{margin:0 0 22px;color:var(--ink)}
+.frow{display:grid;grid-template-columns:repeat(4,1fr) auto;gap:12px;
+  max-width:900px;margin:0 auto;text-align:left}
+.frow input{font-family:var(--sans);font-size:.95rem;padding:14px 17px;
+  border:1px solid var(--line);border-radius:12px;background:#fff;
+  color:var(--ink);width:100%}
+.frow input:focus{outline:2px solid var(--taupe);outline-offset:1px;
+  background:#fff}
+.note{font-size:.8rem;color:var(--body);margin:14px 0 0}
+
+/* ---- footer ---- */
+/* ============================================================
+   FOOTER
+   Navy ground with a sand edge, cream type, the site's bubbles drifting
+   behind. Brand and rating on the left; the menu's own structure as
+   columns: Showers, Bathtubs (plus Bathroom Safety), Service areas,
+   Company and Follow.
+   ============================================================ */
+footer{position:relative;overflow:hidden;background:var(--navy);color:rgba(255,255,255,.82);padding:0}
+footer::before{content:"";display:block;height:5px;
+  background:linear-gradient(90deg,var(--sand),var(--sand-2),var(--sand))}
+footer .wrap{position:relative;z-index:2}
+.ft-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1fr;gap:36px;padding:64px 0 44px}
+.ft-brand p{font-size:.98rem;line-height:1.6;color:rgba(255,255,255,.82);margin:0 0 18px;max-width:34ch}
+footer img.flogo{height:48px;width:auto;background:#fff;border-radius:12px;
+  padding:8px 12px;margin-bottom:20px;display:block}
+.ft-rating{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin:0 0 22px}
+.ft-rating .tr-stars{font-size:1.05rem;color:var(--sand-2);letter-spacing:.06em}
+.ft-rating .tr-r1{font-family:var(--serif);font-size:1.02rem;color:#fff}
+.ft-rating .tr-badges{display:inline-flex;gap:6px}
+footer h4{color:var(--sand-2);font-family:var(--sans);font-size:.72rem;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;margin:0 0 16px}
+footer ul+h4{margin-top:26px}
+footer ul{list-style:none;margin:0;padding:0}
+footer li{margin:0 0 9px}
+footer a{color:rgba(255,255,255,.82);text-decoration:none;font-size:.93rem;transition:color .2s ease}
+footer a:hover,footer a:focus-visible{color:#fff;text-decoration:underline;
+  text-decoration-color:var(--sand);text-underline-offset:3px}
+.ft-social{display:flex;flex-wrap:wrap;gap:8px}
+.ft-social li{margin:0}
+.ft-social a{display:inline-block;border:1px solid rgba(255,255,255,.3);border-radius:999px;
+  padding:7px 12px;font-size:.8rem;font-weight:600;letter-spacing:.06em}
+.ft-social a:hover,.ft-social a:focus-visible{border-color:var(--sand);text-decoration:none;
+  background:rgba(255,255,255,.08)}
+.ft-bot{border-top:1px solid rgba(255,255,255,.16);padding:22px 0 26px;
+  display:flex;justify-content:space-between;gap:14px 18px;flex-wrap:wrap;
+  font-size:.85rem;color:rgba(255,255,255,.72)}
+.ft-bot a{font-size:.85rem}
+@media (max-width:1000px){
+  .ft-top{grid-template-columns:1fr 1fr 1fr;gap:30px}
+  .ft-brand{grid-column:1 / -1}
+}
+@media (max-width:640px){
+  .ft-top{grid-template-columns:1fr 1fr;padding:48px 0 36px;gap:26px 18px}
+  .ft-brand{grid-column:1 / -1}
+}
+.mock{background:var(--sand);color:var(--ink);text-align:center;
+  padding:9px 16px;font-size:.8rem;font-weight:600;letter-spacing:.04em}
+
+/* ---- reveal: content is visible by default and the animation only
+   enhances it, so a failed observer can never leave a blank screen.
+   This is deliberate: the audience for walk-in tubs and grab bars is
+   the last audience that should be shown an empty page. ---- */
+.rv{opacity:1;transform:none}
+.js .rv{opacity:0;transform:translateY(22px);
+  transition:opacity .7s ease,transform .7s ease}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js .rv{opacity:1!important;transform:none!important;transition:none}
+  .btn,.svc,.step,.areas a,.svc-img img{transition:none!important}
+  .topwrap.stuck{animation:none}
+}
+
+@media (max-width:1080px){
+  .svc-grid,.why,.revs{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .f-top{grid-template-columns:1fr 1fr}
+}
+@media (max-width:900px){
+  .nav,.tel{display:none}
+  .burger{display:block;margin-left:auto}
+  .top.open .nav{display:block;position:absolute;top:74px;left:0;right:0;
+    background:#fff;border:1px solid var(--line);border-radius:20px;
+    padding:12px;box-shadow:0 20px 50px rgba(20,20,20,.16);
+    max-height:74vh;overflow:auto}
+  .top.open .nav ul{position:static;opacity:1;visibility:visible;
+    transform:none;box-shadow:none;border:0;border-left:2px solid var(--line);
+    border-radius:0;margin:2px 0 8px 14px;max-height:none}
+  .split,.band-in{grid-template-columns:1fr;gap:34px}
+  .frow{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  section{padding:62px 0}
+  .wrap{padding:0 18px}
+  .svc-grid,.why,.revs,.steps,.frow{grid-template-columns:1fr}
+  .hero{min-height:560px;padding:150px 0 50px}
+  .feat{padding:36px 24px}
+  .form-card{padding:34px 22px}
+  .f-top{grid-template-columns:1fr;gap:30px}
+  .btn{width:100%;text-align:center}
+  .hero-cta{gap:10px}
+}
+
+/* ============================================================
+   INTRO SEQUENCE
+   Bathroom scene + rising bubbles, then the Big Easy logo flies
+   in from the lower left, settles centre and floats there.
+
+   Accessibility contract for this audience (older homeowners):
+     - The overlay is display:none by DEFAULT. Only the inline
+       arming script turns it on, so no-JS never sees a gate.
+     - Two independent dismissals. The JS timer is PRIMARY and fires
+       even in a background tab. The CSS animation is the backup for
+       a dead script. Note the backup only advances while the page is
+       VISIBLE: a hidden tab freezes the animation timeline, so it
+       clears on focus rather than on a wall clock.
+     - prefers-reduced-motion: never armed at all.
+     - Shown once per browser tab session, not on every reload.
+     - Skippable by button, click, key or scroll.
+     - The page underneath is fully rendered the whole time.
+   ============================================================ */
+.intro{display:none}
+.intro-armed .intro{
+  display:grid;place-items:center;position:fixed;inset:0;z-index:9999;
+  overflow:hidden;background:var(--navy);
+  animation:introOut .6s ease 3.6s forwards;
+}
+/* the scene: client's own bathroom photo, slow drift so it reads
+   as footage rather than a still. A video element can be swapped
+   in here later; see the note in the markup below. */
+.intro-scene{position:absolute;inset:0;overflow:hidden}
+.intro-scene img,.intro-scene video{
+  width:100%;height:100%;object-fit:cover;
+  animation:introDrift 6s ease-out forwards;
+}
+/* No colour cast. The photo shows through clear; only a soft neutral
+   vignette at the very edge, enough to seat the skip button. */
+.intro-scene::after{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 50%,
+    rgba(0,0,0,0) 44%,rgba(0,0,0,.10) 76%,rgba(0,0,0,.26) 100%);
+}
+/* bubbles. Positioned + randomised by the arming script. */
+.intro-bub{position:absolute;border-radius:50%;pointer-events:none;
+  left:var(--x);bottom:var(--y);width:var(--s);height:var(--s);
+  background:radial-gradient(circle at 32% 28%,
+    rgba(255,255,255,.92) 0%,rgba(255,255,255,.34) 38%,
+    rgba(255,255,255,.07) 62%,rgba(255,255,255,.16) 100%);
+  box-shadow:inset 0 0 7px rgba(255,255,255,.75),
+             0 0 0 1px rgba(116,168,204,.28),
+             0 2px 9px rgba(0,0,0,.12);
+  opacity:0;
+  animation:introRise var(--d) linear var(--delay) infinite;
+}
+@keyframes introRise{
+  0%{opacity:0;transform:translate3d(0,0,0) scale(.45)}
+  9%{opacity:var(--o)}
+  85%{opacity:var(--o)}
+  100%{opacity:0;transform:translate3d(var(--drift),calc(-100vh - 160px),0) scale(1)}
+}
+@keyframes introDrift{
+  0%{transform:scale(1.16) translate3d(0,1.5%,0)}
+  100%{transform:scale(1) translate3d(0,0,0)}
+}
+@keyframes introOut{to{opacity:0;visibility:hidden;pointer-events:none}}
+
+/* ---- the logo: flight, then float ---- */
+/* The logo rides inside one big bubble, which pops and releases it.
+   The scene is now clear rather than navy, so the navy logo has good
+   contrast on its own; a white halo lifts it off the busier areas. */
+.intro-logo{position:relative;z-index:2;
+  width:min(80vw,400px);aspect-ratio:1;display:grid;place-items:center;
+  will-change:transform;
+  animation:logoFly 1.5s cubic-bezier(.22,.78,.3,1) .18s both}
+
+/* the shell: glassy, refracts the bathroom behind it */
+.intro-bubble{position:absolute;inset:0;border-radius:50%;
+  /* A bubble reads from its RIM, not its fill. The first gradient is a
+     bright band held right at the edge; without it the shape looks like
+     a smudge on a light photo. The second is the body and refraction. */
+  background:
+    radial-gradient(circle at 50% 50%,
+      rgba(255,255,255,0) 60%,rgba(255,255,255,.26) 82%,
+      rgba(255,255,255,.88) 94%,rgba(255,255,255,.60) 98.5%,
+      rgba(255,255,255,0) 100%),
+    radial-gradient(circle at 34% 28%,
+      rgba(255,255,255,.58) 0%,rgba(255,255,255,.20) 34%,
+      rgba(163,209,238,.16) 64%,rgba(255,255,255,.10) 100%);
+  border:1px solid rgba(255,255,255,.6);
+  box-shadow:inset 0 0 30px rgba(255,255,255,.55),
+             inset 16px 18px 42px rgba(255,255,255,.45),
+             inset -18px -22px 52px rgba(96,150,190,.32),
+             0 20px 48px rgba(0,0,0,.17);
+  -webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);
+  animation:bubblePop .34s cubic-bezier(.3,0,.6,1) 1.72s forwards}
+/* bounce light, lower right */
+.intro-bubble::after{content:"";position:absolute;
+  right:16%;bottom:15%;width:17%;height:11%;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.7),rgba(255,255,255,0) 72%)}
+.intro-shine{position:absolute;left:19%;top:13%;width:25%;height:17%;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.98),rgba(255,255,255,0) 70%);
+  animation:bubblePop .34s cubic-bezier(.3,0,.6,1) 1.72s forwards}
+
+/* the mark, released by the pop */
+.intro-mark{position:relative;z-index:2;width:57%;
+  animation:markRelease .55s cubic-bezier(.2,.9,.3,1) 1.72s both}
+.intro-mark img{width:100%;height:auto;display:block;
+  filter:drop-shadow(0 0 10px rgba(255,255,255,.92))
+         drop-shadow(0 2px 8px rgba(0,0,0,.24));
+  animation:logoFloat 3.4s ease-in-out 2.25s infinite}
+
+/* droplets thrown out at the moment of the pop */
+.intro-drop{position:absolute;left:50%;top:50%;width:11px;height:11px;
+  border-radius:50%;opacity:0;pointer-events:none;
+  background:radial-gradient(circle at 34% 30%,
+    rgba(255,255,255,.98),rgba(255,255,255,.42));
+  box-shadow:0 0 0 1px rgba(116,168,204,.3);
+  animation:dropBurst .5s ease-out 1.72s forwards}
+
+@keyframes bubblePop{
+  0%{opacity:1;transform:scale(1)}
+  55%{opacity:.65;transform:scale(1.15)}
+  100%{opacity:0;transform:scale(1.32)}
+}
+@keyframes markRelease{
+  0%{transform:scale(.88)}
+  45%{transform:scale(1.07)}
+  100%{transform:scale(1)}
+}
+@keyframes dropBurst{
+  0%{opacity:0;transform:translate(-50%,-50%) scale(.4)}
+  18%{opacity:.95}
+  100%{opacity:0;
+    transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) scale(.25)}
+}
+@keyframes logoFly{
+  0%{opacity:0;transform:translate3d(-44vw,40vh,0) scale(.3) rotate(-13deg)}
+  14%{opacity:1}
+  62%{transform:translate3d(0,0,0) scale(1.07) rotate(2.5deg)}
+  80%{transform:translate3d(0,0,0) scale(.975) rotate(-1deg)}
+  100%{opacity:1;transform:translate3d(0,0,0) scale(1) rotate(0)}
+}
+@keyframes logoFloat{
+  0%,100%{transform:translate3d(0,0,0)}
+  50%{transform:translate3d(0,-13px,0)}
+}
+/* ---- skip ---- */
+.intro-skip{position:absolute;z-index:3;right:20px;bottom:20px;
+  font-family:var(--sans);font-size:13px;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;
+  color:#fff;background:rgba(4,34,61,.74);
+  border:1.5px solid rgba(255,255,255,.7);border-radius:999px;
+  padding:13px 26px;cursor:pointer;transition:.2s ease}
+.intro-skip:hover,.intro-skip:focus-visible{
+  background:#fff;color:var(--navy);border-color:#fff}
+/* ---- sound toggle, bottom left, opposite Skip ---- */
+.intro-sound{position:absolute;z-index:3;left:20px;bottom:20px;
+  font-family:var(--sans);font-size:13px;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;
+  color:#fff;background:rgba(4,34,61,.74);
+  border:1.5px solid rgba(255,255,255,.7);border-radius:999px;
+  padding:13px 22px;cursor:pointer;transition:.2s ease}
+.intro-sound:hover,.intro-sound:focus-visible{background:#fff;color:var(--navy);
+  border-color:#fff}
+.intro-sound[aria-pressed="true"]{background:#fff;color:var(--navy);border-color:#fff}
+/* instant kill when skipped */
+.intro-gone .intro{
+  animation:none!important;opacity:0!important;visibility:hidden!important;
+  pointer-events:none!important}
+/* never gate anyone who asked for less motion */
+@media (prefers-reduced-motion:reduce){
+  .intro-armed .intro{display:none!important}
+}
+
+/* ============================================================
+   KEYWORD HIGHLIGHTS
+   Two treatments only, chosen against measured contrast:
+
+     .kw   sand block BEHIND navy text  -> 7.89:1, passes AAA.
+           For cream grounds.
+     .kwg  light sand text WITH a glow  -> only where the ground is
+           dark (hero photo, navy band). Sand as lettering on cream
+           measures 1.90:1 and fails, so .kwg must never be used there.
+
+   Both follow the file's existing philosophy: the highlight is drawn
+   by default, and .js is what hides it so it can animate in. If the
+   script never runs, the highlight is simply already there.
+   ============================================================ */
+/* Both use an animated background-image rather than a positioned bar.
+   display:inline-block would make the span atomic and open a line-break
+   beside it, which orphaned the colon after the hero keyword. Inline plus
+   a background also means the bar follows the text across a wrap. */
+.kw{display:inline;color:var(--ink);padding:0 .14em;
+  border-radius:5px;
+  -webkit-box-decoration-break:clone;box-decoration-break:clone;
+  background-image:linear-gradient(var(--sand),var(--sand));
+  background-repeat:no-repeat;background-position:left center;
+  background-size:100% 78%}
+.js .kw{background-size:0% 78%}
+.js .kw.lit{background-size:100% 78%;
+  transition:background-size .8s cubic-bezier(.22,1,.36,1) .15s}
+
+/* On a photograph the letters stay white and only the bar is sand.
+   See the note in SESSION-NOTES.md for the measured numbers. */
+.kwg.on-photo{color:#fff}
+.kwg{display:inline;color:var(--sand-2);padding-bottom:.06em;
+  -webkit-box-decoration-break:clone;box-decoration-break:clone;
+  background-image:linear-gradient(var(--sand-2),var(--sand-2));
+  background-repeat:no-repeat;background-position:left 92%;
+  background-size:100% 4px}
+.js .kwg{background-size:0% 4px}
+.js .kwg.lit{background-size:100% 4px;
+  transition:background-size .95s cubic-bezier(.22,1,.36,1) .15s}
+.js .kwg.lit{animation:kwGlow 3.6s ease-in-out 1.2s infinite alternate}
+@keyframes kwGlow{
+  0%{text-shadow:0 1px 3px rgba(0,0,0,.45)}
+  100%{text-shadow:0 1px 3px rgba(0,0,0,.45),0 0 20px rgba(220,205,184,.7),
+       0 0 44px rgba(199,178,154,.42)}
+}
+@media (prefers-reduced-motion:reduce){
+  .js .kw{background-size:100% 78%!important;transition:none!important}
+  .js .kw.on-sand{background-size:100% 5px!important}
+  .js .kwg{background-size:100% 4px!important;transition:none!important}
+  .js .kwg.lit{animation:none!important}
+}
+
+/* ============================================================
+   TRUST STRIP
+   Five labels on the sand band under the hero. With JS, five bubbles
+   fly in from around the page, line up, the label appears inside,
+   the bubble pops and the label zooms in and settles.
+   The labels are drawn by default: no JS, or reduced motion, shows the
+   finished strip immediately.
+   Every label is a fact from the client's own site. The reference bar
+   carries "satisfaction guaranteed" and "5 star rating"; neither is
+   evidenced for Big Easy, so neither is here.
+   ============================================================ */
+.trust{background:var(--navy);position:relative;z-index:5;
+  padding:22px 0}   /* navy is only the fallback under the footage */
+/* the footage, in its natural colour: no scrim, no tint */
+.trust-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
+.trust-bg video,.trust-bg img{width:100%;height:100%;object-fit:cover;
+  object-position:center 45%;display:block}
+.trust .wrap{max-width:1400px;position:relative;z-index:2}
+/* ============================================================
+   AMBIENT BUBBLES, shared by both sand sections
+   Same glass as the intro's bubbles. A clipped layer under each
+   section's content; the script mounts one on .trust and one on
+   .proc and sets --travel to the section's height.
+   ============================================================ */
+.amb{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1;
+  --travel:400px}
+.amb i{position:absolute;left:var(--x);bottom:var(--y);width:var(--s);height:var(--s);
+  border-radius:50%;opacity:0;
+  background:radial-gradient(circle at 32% 28%,
+    rgba(255,255,255,.92) 0%,rgba(255,255,255,.34) 38%,
+    rgba(255,255,255,.07) 62%,rgba(255,255,255,.16) 100%);
+  box-shadow:inset 0 0 7px rgba(255,255,255,.75),
+             0 0 0 1px rgba(116,168,204,.28),
+             0 2px 9px rgba(0,0,0,.12);
+  animation:ambRise var(--fd) linear var(--fdelay) infinite}
+@keyframes ambRise{
+  0%{opacity:0;transform:translate3d(0,0,0) scale(.45)}
+  9%{opacity:var(--o)}
+  85%{opacity:var(--o)}
+  100%{opacity:0;transform:translate3d(var(--drift),calc(-1 * var(--travel)),0) scale(1)}
+}
+.proc{position:relative}
+.proc .wrap{position:relative;z-index:1}
+.trust-row{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;
+  justify-content:center}
+.tr-item{position:relative;flex:1 1 140px;min-height:224px;
+  display:flex;align-items:center;justify-content:center;
+  padding:20px 6px;text-align:center}
+.tr-txt{position:relative;z-index:2;font-family:var(--serif);
+  font-size:1.06rem;font-weight:400;letter-spacing:0;line-height:1.25;
+  text-transform:none;color:#fff;max-width:150px;
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  transform-origin:center}
+.tr-txt::before{content:"\2713";color:var(--sand-2);font-size:.95em}
+/* the review lockup: stars, the client's claim, platform badges */
+.tr-rating{flex:0 0 auto;min-width:200px}
+.tr-rating .tr-bub{width:162px;height:162px;margin:-81px 0 0 -81px}
+.tr-txt-rating{flex-direction:column;gap:5px;letter-spacing:0;
+  text-transform:none;max-width:150px}
+.tr-txt-rating::before{content:none}
+.tr-stars{color:var(--sand-2);font-size:1rem;letter-spacing:.14em;line-height:1;
+  margin-right:-.14em}
+.tr-r1{font-family:var(--serif);font-size:1rem;font-weight:400;
+  letter-spacing:0;text-transform:none;color:#fff}
+.tr-badges{display:inline-flex;align-items:center;gap:6px}
+.badge{display:inline-flex;align-items:center;background:#fff;border-radius:999px;
+  padding:3px 9px;font-weight:700;font-size:.76rem;line-height:1.2;
+  letter-spacing:0;text-transform:none}
+.badge i{font-style:normal}
+.badge.g i:nth-child(1){color:#4285F4}.badge.g i:nth-child(2){color:#EA4335}
+.badge.g i:nth-child(3){color:#FBBC05}.badge.g i:nth-child(4){color:#4285F4}
+.badge.g i:nth-child(5){color:#34A853}.badge.g i:nth-child(6){color:#EA4335}
+.badge.fb{color:#1877F2;text-transform:lowercase}
+.tr-badges small{font-size:.74rem;font-weight:600;color:var(--ink);
+  letter-spacing:.06em;text-transform:uppercase}   /* ink: body was 3.85:1 on sand */
+/* the bubble, same glass as the intro */
+/* The intro's glass: white rim and highlights, which is what reads on
+   a dark ground. */
+.tr-bub{position:absolute;left:50%;top:50%;width:148px;height:148px;
+  margin:-74px 0 0 -74px;border-radius:50%;pointer-events:none;z-index:1;
+  background:
+    radial-gradient(circle at 50% 50%,
+      rgba(255,255,255,0) 60%,rgba(255,255,255,.26) 82%,
+      rgba(255,255,255,.88) 94%,rgba(255,255,255,.6) 98.5%,
+      rgba(255,255,255,0) 100%),
+    radial-gradient(circle at 34% 28%,
+      rgba(255,255,255,.58) 0%,rgba(255,255,255,.2) 34%,
+      rgba(163,209,238,.16) 64%,rgba(255,255,255,.1) 100%),
+    radial-gradient(circle at 50% 55%,
+      rgba(4,34,61,.42) 0%,rgba(4,34,61,.26) 38%,rgba(4,34,61,0) 64%);
+  border:1px solid rgba(255,255,255,.6);
+  box-shadow:inset 0 0 30px rgba(255,255,255,.5),
+             inset 16px 18px 42px rgba(255,255,255,.4),
+             inset -18px -22px 52px rgba(96,150,190,.3),
+             0 18px 40px rgba(0,0,0,.35)}
+/* ground shadow, so it sits on the band rather than floating in it */
+.tr-bub::after{content:"";position:absolute;left:16%;right:16%;bottom:-11px;
+  height:14px;border-radius:50%;
+  background:radial-gradient(ellipse,rgba(0,0,0,.4),rgba(0,0,0,0) 70%)}
+.tr-drops{position:absolute;left:50%;top:50%;z-index:3;pointer-events:none}
+.tr-drops i{position:absolute;left:0;top:0;width:9px;height:9px;
+  border-radius:50%;opacity:0;
+  background:radial-gradient(circle at 34% 30%,
+    rgba(255,255,255,.98),rgba(255,255,255,.45));
+  box-shadow:0 0 0 1px rgba(255,255,255,.35)}
+.tr-bub i{position:absolute;left:19%;top:13%;width:25%;height:17%;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.98),rgba(255,255,255,0) 70%)}
+/* with JS, bubbles and labels wait for the reveal */
+.js .trust:not(.go) .tr-txt,.js .trust:not(.go) .tr-bub{opacity:0}
+.tr-item{--fx:-30vw;--fy:-40vh}   /* defaults; the script randomises them */
+.trust.go .tr-bub{
+  animation:trFly 1.15s cubic-bezier(.2,.8,.25,1) var(--d) both,
+            trPop .4s cubic-bezier(.3,0,.6,1) calc(2.15s + var(--d)) forwards}
+/* the original pop, minus the fade: it swells and STAYS at 1.24x */
+@keyframes trPop{
+  0%{opacity:1;transform:scale(1)}
+  55%{opacity:.72;transform:scale(1.14)}
+  100%{opacity:1;transform:scale(1.18)}
+}
+.trust.go .tr-drops i{animation:dropBurst .5s ease-out calc(2.15s + var(--d)) forwards}
+.trust.go .tr-txt{animation:trText 2.9s cubic-bezier(.2,.8,.25,1) var(--d) both}
+/* in from a random point on the page, as originally built */
+@keyframes trFly{
+  0%{opacity:0;transform:translate3d(var(--fx),var(--fy),0) scale(.35)}
+  18%{opacity:1}
+  100%{opacity:1;transform:translate3d(0,0,0) scale(1)}
+}
+/* the label: invisible while the bubble flies, small inside it, then
+   zooms IN on the pop and settles back OUT to its real size */
+/* as originally built: hidden while the bubble flies, small inside it,
+   zooms IN on the pop, settles OUT to full size */
+@keyframes trText{
+  0%,42%{opacity:0;transform:scale(.5)}
+  55%{opacity:1;transform:scale(.62)}
+  74%{opacity:1;transform:scale(.62)}
+  82%{opacity:1;transform:scale(1.55)}
+  100%{opacity:1;transform:scale(1)}
+}
+@media (max-width:700px){
+  .tr-item{flex:1 1 46%;min-height:184px;padding:12px 4px}
+  .tr-rating{flex:1 1 100%;min-height:196px}
+  .tr-txt{font-size:.92rem;max-width:118px;gap:6px}
+  .tr-bub{width:126px;height:126px;margin:-63px 0 0 -63px}
+  .tr-rating .tr-bub{width:140px;height:140px;margin:-70px 0 0 -70px}
+}
+
+/* ============================================================
+   HOW WE WORK
+   Left: the step numeral rises inside a bubble, the bubble pops and
+   releases it. Right: the step copy slides in from the right, the
+   outgoing pane slides off left. Auto-plays, pauses on hover or focus,
+   never auto-plays under reduced motion.
+   ============================================================ */
+.proc{background:var(--sand);color:var(--ink);padding:54px 0 40px}   /* was 88 / 96 */
+.proc .eyeb{color:var(--navy)}
+.proc h2{color:var(--ink)}
+/* on a sand ground a sand block vanishes and light-sand lettering
+   fails, so here the keyword takes a WHITE UNDERLINE that sweeps in.
+   Letters stay ink (7.59:1 on sand). */
+.kw.on-sand{color:var(--ink);padding:0 .04em;
+  background-image:linear-gradient(#fff,#fff);
+  background-position:left 94%;background-size:100% 5px}
+.js .kw.on-sand{background-size:0% 5px}
+.js .kw.on-sand.lit{background-size:100% 5px;
+  transition:background-size .9s cubic-bezier(.22,1,.36,1) .15s}
+.pp{display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;
+  align-items:center;margin-top:30px}
+.pp-left{text-align:center}
+.pp-stage{position:relative;display:inline-block;padding:26px 34px}
+.pp-num{display:block;position:relative;z-index:2;
+  font-family:var(--serif);font-weight:600;
+  font-size:clamp(7rem,15vw,12rem);line-height:.86;letter-spacing:-.02em;
+  color:transparent;
+  background:url(assets/hero-mag-3.jpg) center/cover;
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-stroke:1.5px rgba(4,34,61,.55)}
+.js .pp-stage:not(.play) .pp-num{opacity:0}
+.pp-bub{position:absolute;left:50%;top:50%;z-index:1;pointer-events:none;
+  width:min(300px,66vw);aspect-ratio:1;border-radius:50%;opacity:0;
+  transform:translate(-50%,-50%);
+  /* same glass as the trust strip: tinted core and a hard rim, so it
+     reads on a flat sand ground */
+  background:
+    radial-gradient(circle at 50% 50%,
+      rgba(255,255,255,0) 58%,rgba(255,255,255,.3) 80%,
+      rgba(255,255,255,.96) 93%,rgba(255,255,255,.5) 98%,
+      rgba(255,255,255,0) 100%),
+    radial-gradient(circle at 34% 28%,
+      rgba(255,255,255,.72) 0%,rgba(255,255,255,.24) 30%,
+      rgba(4,34,61,.05) 60%,rgba(4,34,61,.16) 100%);
+  border:1px solid rgba(255,255,255,.85);
+  box-shadow:inset 0 0 22px rgba(255,255,255,.5),
+             inset -16px -20px 44px rgba(4,34,61,.14),
+             0 18px 36px rgba(36,36,36,.18)}
+.pp-bub i{position:absolute;left:19%;top:13%;width:25%;height:17%;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.98),rgba(255,255,255,0) 70%)}
+.pp-drops{position:absolute;left:50%;top:50%;z-index:3;pointer-events:none}
+.pp-drops i{position:absolute;left:0;top:0;width:11px;height:11px;
+  border-radius:50%;opacity:0;
+  background:radial-gradient(circle at 34% 30%,
+    rgba(255,255,255,.98),rgba(255,255,255,.42));
+  box-shadow:0 0 0 1px rgba(4,34,61,.18)}
+.pp-stage.play .pp-bub{
+  animation:ppBubIn .8s cubic-bezier(.2,.8,.25,1) both,
+            ppBubPop .38s cubic-bezier(.3,0,.6,1) 1s forwards}
+.pp-stage.play .pp-num{animation:ppNumIn 1.55s cubic-bezier(.2,.8,.25,1) both}
+.pp-stage.play .pp-drops i{animation:dropBurst .5s ease-out 1s forwards}
+@keyframes ppBubIn{
+  0%{opacity:0;transform:translate(-50%,-50%) translateY(150px) scale(.35)}
+  25%{opacity:1}
+  100%{opacity:1;transform:translate(-50%,-50%) translateY(0) scale(1)}
+}
+@keyframes ppBubPop{
+  0%{opacity:1;transform:translate(-50%,-50%) scale(1)}
+  55%{opacity:.6;transform:translate(-50%,-50%) scale(1.16)}
+  100%{opacity:0;transform:translate(-50%,-50%) scale(1.34)}
+}
+/* rides up inside the bubble small, then springs to full size on the pop */
+@keyframes ppNumIn{
+  0%{opacity:0;transform:translateY(150px) scale(.3)}
+  22%{opacity:1;transform:translateY(64px) scale(.45)}
+  52%{opacity:1;transform:translateY(0) scale(.5)}
+  64%{transform:translateY(0) scale(.5)}
+  76%{transform:scale(1.14)}
+  100%{transform:scale(1)}
+}
+.pp-tag{font-family:var(--sans);font-size:.72rem;font-weight:600;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--navy);
+  margin:18px 0 22px}
+.pp-dots{display:flex;justify-content:center;gap:12px}
+.pp-dots button{position:relative;width:42px;height:42px;border-radius:50%;
+  border:1px solid rgba(4,34,61,.45);background:rgba(255,255,255,.4);
+  color:var(--navy);font-family:var(--sans);font-weight:600;
+  font-size:.74rem;cursor:pointer;
+  transition:background .3s,color .3s,border-color .3s,transform .3s}
+.pp-dots button:hover,.pp-dots button:focus-visible{border-color:var(--navy);
+  background:#fff}
+.pp-dots button.on{background:var(--navy);border-color:var(--navy);
+  color:#fff;transform:scale(1.12)}
+.pp-dots button.on::before,.pp-dots button.on::after{content:"";
+  position:absolute;inset:-1px;border-radius:50%;
+  border:1px solid rgba(4,34,61,.55);animation:ppRipple 2s ease-out infinite}
+.pp-dots button.on::after{animation-delay:1s}
+@keyframes ppRipple{0%{transform:scale(1);opacity:.8}100%{transform:scale(1.9);opacity:0}}
+.pp-hint{font-family:var(--sans);font-size:.7rem;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--ink);
+  opacity:.85;margin:18px 0 0}
+.pp-right{position:relative}
+.pp-pane{position:absolute;inset:0;opacity:0;transform:translateX(46px);
+  transition:opacity .55s,transform .65s cubic-bezier(.16,1,.3,1);
+  pointer-events:none}
+.pp-pane.on{position:relative;opacity:1;transform:none;pointer-events:auto;
+  transition-delay:.12s}
+.pp-pane.out{transform:translateX(-36px)}
+.pp-step{font-family:var(--sans);font-size:.7rem;font-weight:600;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--navy);
+  margin:0 0 12px}
+.pp-pane h3{font-family:var(--serif);font-weight:400;color:var(--ink);
+  font-size:clamp(1.55rem,2.7vw,2.2rem);line-height:1.15;margin:0 0 16px}
+/* ink, not the body grey: body grey is 3.85:1 on sand */
+.pp-pane p{color:var(--ink);font-size:1.08rem;line-height:1.7;
+  max-width:560px;margin:0}
+@media (max-width:900px){
+  .pp{grid-template-columns:1fr;gap:40px}
+  .pp-num{font-size:clamp(5.5rem,26vw,8rem)}
+  .pp-pane p{max-width:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .js .trust .tr-txt{opacity:1!important;animation:none!important;
+    transform:none!important}
+  .trust .tr-bub{opacity:1!important;animation:none!important;
+    transform:scale(1.18)!important;filter:none!important}
+  .trust .tr-drops,.amb{display:none!important}
+  .js .pp-stage .pp-num{opacity:1!important;animation:none!important;
+    transform:none!important}
+  .pp-bub,.pp-drops,.pp-dots button.on::before,.pp-dots button.on::after{
+    display:none!important}
+  .pp-pane{transition:none!important}
+}
+
+/* ============================================================
+   REVIEWS, the spotlight
+   One review at a time in large type; the reviewer's initials ride
+   in a glass bubble that pops on every change. Tiles below jump to a
+   reviewer; pills filter by the tag the client's site gives each one.
+   ============================================================ */
+.rv-head{display:flex;flex-wrap:wrap;gap:24px 40px;align-items:flex-end;
+  justify-content:space-between}
+.rv-head .lead{margin:0}
+.rv-rating{display:flex;flex-direction:column;align-items:flex-start;gap:8px;
+  padding:16px 20px;background:#fff;border:1px solid var(--line);
+  border-radius:var(--r)}
+.rv-rating .tr-stars{color:#8A5E10}
+.rv-rating .tr-r1{color:var(--ink)}
+.revs-tabs{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.rtab{font-family:var(--sans);font-size:.8rem;font-weight:600;
+  letter-spacing:.09em;text-transform:uppercase;color:var(--ink);
+  background:#fff;border:1.5px solid var(--line);border-radius:999px;
+  padding:12px 20px;cursor:pointer;transition:.22s ease}
+.rtab b{font-weight:600;color:var(--body);margin-left:7px}
+.rtab:hover,.rtab:focus-visible{border-color:var(--sand);background:var(--cream-2)}
+.rtab[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+.rtab[aria-pressed="true"] b{color:var(--sand-2)}
+
+/* ---- the spotlight ---- */
+.spot{display:grid;grid-template-columns:300px minmax(0,1fr);gap:48px;
+  align-items:center;margin-top:36px;background:#fff;border:1px solid var(--line);
+  border-radius:var(--r);padding:44px 48px}
+.spot-left{text-align:center}
+.spot-stage{position:relative;width:220px;height:220px;margin:0 auto 18px}
+.spot-bub{position:absolute;inset:0;border-radius:50%;opacity:0;pointer-events:none;
+  background:
+    radial-gradient(circle at 50% 50%,
+      rgba(255,255,255,0) 58%,rgba(255,255,255,.3) 80%,
+      rgba(255,255,255,.96) 93%,rgba(255,255,255,.5) 98%,
+      rgba(255,255,255,0) 100%),
+    radial-gradient(circle at 34% 28%,
+      rgba(255,255,255,.72) 0%,rgba(255,255,255,.24) 30%,
+      rgba(4,34,61,.05) 60%,rgba(4,34,61,.16) 100%);
+  border:1px solid rgba(255,255,255,.85);
+  box-shadow:inset 0 0 18px rgba(255,255,255,.5),
+             inset -12px -14px 30px rgba(4,34,61,.14),
+             0 16px 34px rgba(36,36,36,.16)}
+.spot-bub i{position:absolute;left:19%;top:13%;width:25%;height:17%;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.98),rgba(255,255,255,0) 70%)}
+.spot-drops{position:absolute;left:50%;top:50%;z-index:3;pointer-events:none}
+.spot-drops i{position:absolute;left:0;top:0;width:10px;height:10px;border-radius:50%;
+  opacity:0;background:radial-gradient(circle at 34% 30%,
+    rgba(255,255,255,.98),rgba(255,255,255,.42));
+  box-shadow:0 0 0 1px rgba(4,34,61,.18)}
+.spot-ini{position:absolute;inset:0;display:grid;place-items:center;z-index:2;
+  font-family:var(--serif);font-weight:600;font-size:3.2rem;letter-spacing:.02em;
+  color:var(--navy)}
+/* the reviewer's photograph sits in the bubble; the initials wait beneath it
+   and show only if the photograph fails to load */
+.spot-ini b,.spot-face{grid-area:1/1}
+.spot-face{position:relative;z-index:1;width:144px;height:144px;border-radius:50%;
+  object-fit:cover;display:block;background:var(--hero-bg);
+  border:3px solid #fff;box-shadow:0 8px 24px rgba(36,36,36,.22)}
+.spot-face.bad,.rv-tile .mono img.bad{display:none}
+.js .spot-stage:not(.play) .spot-ini{opacity:0}
+.spot-stage.play .spot-bub{
+  animation:ppBubIn .8s cubic-bezier(.2,.8,.25,1) both,
+            ppBubPop .38s cubic-bezier(.3,0,.6,1) 1s forwards}
+.spot-stage.play .spot-ini{animation:ppNumIn 1.55s cubic-bezier(.2,.8,.25,1) both}
+.spot-stage.play .spot-drops i{animation:dropBurst .5s ease-out 1s forwards}
+.spot-left .s{display:inline-flex;gap:6px;color:#8A5E10;font-size:1.2rem;line-height:1}
+.spot-left .s i{font-style:normal}
+.spot-right{position:relative;min-height:300px}
+.spot-pane{position:absolute;inset:0;opacity:0;transform:translateX(40px);
+  transition:opacity .5s,transform .6s cubic-bezier(.16,1,.3,1);pointer-events:none}
+.spot-pane.on{position:relative;opacity:1;transform:none;pointer-events:auto;
+  transition-delay:.12s}
+.spot-pane.out{transform:translateX(-32px)}
+.spot-pane .q{position:absolute;left:-14px;top:-42px;font-family:var(--serif);
+  font-weight:600;font-size:7rem;line-height:.6;color:var(--sand);opacity:.9;
+  pointer-events:none}
+.spot-pane p{position:relative;font-family:var(--serif);font-weight:300;
+  font-size:clamp(1.15rem,1.9vw,1.55rem);line-height:1.5;color:var(--ink);margin:0 0 22px}
+.spot-pane .who{display:flex;align-items:center;flex-wrap:wrap;gap:12px}
+.spot-pane .who b{font-family:var(--sans);font-size:1.02rem;font-weight:600;color:var(--ink)}
+.spot-pane .who small{font-family:var(--sans);font-size:.76rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--body)}
+.spot-pane .cat{font-family:var(--sans);font-size:.68rem;font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--navy);
+  background:var(--hero-bg);border:1px solid rgba(199,178,154,.6);
+  border-radius:999px;padding:6px 11px}
+.spot-ctl{display:flex;align-items:center;gap:10px;margin-top:18px}
+.spot-ctl .mag-btn{position:static;border-color:var(--line);background:#fff;color:var(--navy)}
+.spot-ctl .mag-btn:hover,.spot-ctl .mag-btn:focus-visible{background:var(--navy);color:#fff;
+  border-color:var(--navy)}
+.spot-hint{font-family:var(--sans);font-size:.7rem;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--body);margin:0 0 0 8px}
+
+/* ---- the tiles: one per reviewer, jump on click ---- */
+.rv-tiles{list-style:none;margin:22px 0 0;padding:0;display:grid;
+  grid-template-columns:repeat(7,1fr);gap:10px}
+.rv-tiles li[hidden]{display:none}
+.rv-tile{width:100%;display:flex;align-items:center;gap:10px;text-align:left;
+  background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:10px 12px;
+  cursor:pointer;font-family:var(--sans);transition:.22s ease}
+.rv-tile:hover,.rv-tile:focus-visible{border-color:var(--sand);background:var(--cream-2)}
+.rv-tile[aria-pressed="true"]{border-color:var(--navy);box-shadow:inset 0 0 0 1px var(--navy)}
+.rv-tile .mono{flex:0 0 auto;width:40px;height:40px;border-radius:50%;
+  background:var(--hero-bg);border:1px solid var(--sand);color:var(--navy);
+  font-weight:600;font-size:.74rem;letter-spacing:.04em;display:grid;place-items:center;
+  position:relative;overflow:hidden}
+.rv-tile .mono img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.rv-tile b{display:block;font-size:.84rem;font-weight:600;color:var(--ink);line-height:1.2}
+.rv-tile small{display:block;font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--body);margin-top:2px}
+@media (max-width:1100px){.rv-tiles{grid-template-columns:repeat(4,1fr)}}
+@media (max-width:900px){
+  .spot{grid-template-columns:1fr;gap:26px;padding:30px 24px}
+  .spot-right{min-height:0}
+  .spot-pane .q{left:-6px;top:-30px;font-size:5rem}
+}
+@media (max-width:700px){
+  .rv-tiles{grid-template-columns:1fr 1fr}
+  .rv-head{align-items:flex-start}
+}
+@media (prefers-reduced-motion:reduce){
+  .js .spot-stage .spot-ini{opacity:1!important;animation:none!important;transform:none!important}
+  .spot-bub,.spot-drops{display:none!important}
+  .spot-pane{transition:none!important}
+}
+
+/* ============================================================
+   BEFORE AND AFTER GALLERY
+   Sample photographs for layout review; see the markup note.
+   ============================================================ */
+.gal{background:#E9DDCB}   /* a shade of brown under the gallery, a step darker than the hero wash */
+.gal .eyeb{color:var(--navy)}
+.gal-note{font-size:.92rem;color:var(--body);margin:14px 0 0;
+  padding:10px 14px;border-left:3px solid var(--sand);background:var(--cream-2);
+  border-radius:0 10px 10px 0;display:inline-block}
+.ba-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.ba{margin:0;--pos:50%;--slant:9%}   /* divider is 18% of the width off-vertical */
+.ba-frame{position:relative;aspect-ratio:4/3;border-radius:var(--r);overflow:hidden;
+  background:var(--cream-2);border:1px solid var(--line);
+  box-shadow:0 18px 44px rgba(36,36,36,.10);cursor:ew-resize;
+  -webkit-user-select:none;user-select:none}
+.ba-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  display:block;pointer-events:none}
+.ba-before{clip-path:polygon(0 0,calc(var(--pos) + var(--slant)) 0,
+  calc(var(--pos) - var(--slant)) 100%,0 100%)}
+.ba-handle{position:absolute;top:0;bottom:0;left:var(--pos);width:0;
+  pointer-events:none;z-index:2}
+.ba-handle::before{content:"";position:absolute;top:-6%;bottom:-6%;left:-1.5px;width:3px;
+  background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.18);
+  transform:skewX(-13.5deg)}   /* matches the clip on a 4:3 frame */
+.ba-handle span{position:absolute;left:50%;top:50%;width:46px;height:46px;
+  margin:-23px 0 0 -23px;border-radius:50%;background:var(--navy);
+  border:2px solid #fff;box-shadow:0 8px 22px rgba(0,0,0,.3);
+  display:grid;place-items:center;color:#fff;font-size:18px;line-height:1}
+.ba-tag{position:absolute;top:14px;z-index:2;pointer-events:none;
+  font-family:var(--sans);font-size:.7rem;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:#fff;background:rgba(4,34,61,.82);
+  border-radius:999px;padding:7px 12px}
+.ba-tag-b{left:14px}
+.ba-tag-a{right:14px}
+.ba-range{position:absolute;inset:0;width:100%;height:100%;margin:0;
+  opacity:0;cursor:ew-resize;z-index:3;-webkit-appearance:none;appearance:none}
+.ba-frame:focus-within{outline:3px solid var(--sand);outline-offset:3px}
+.ba figcaption{font-family:var(--sans);font-size:.9rem;font-weight:600;
+  color:var(--ink);margin:14px 4px 0;display:flex;align-items:center;gap:10px}
+.ba figcaption::before{content:"";width:22px;height:3px;border-radius:3px;
+  background:var(--sand)}
+@media (max-width:1000px){.ba-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:700px){
+  .ba-grid{grid-template-columns:1fr}
+  .tr-rating{order:10}   /* phones: rating bubble last, no orphan label */
+}
+
+/* ============================================================
+   HOW WE WORK, the filling row
+   Card photographs slide in from the right one after another and the
+   descriptions follow beneath. Off-canvas starts are safe because
+   body has overflow-x:clip.
+   ============================================================ */
+.steps-fill{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:34px}
+.sf{background:rgba(255,255,255,.58);border:1px solid rgba(255,255,255,.75);
+  border-radius:var(--r);overflow:hidden;
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.sf-img{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--cream-2)}
+.sf-img img,.sf-img video{width:100%;height:100%;object-fit:cover;display:block}
+.sf-n{position:absolute;left:14px;bottom:10px;font-family:var(--serif);
+  font-weight:600;font-size:2.3rem;line-height:1;color:#fff;
+  text-shadow:0 2px 12px rgba(0,0,0,.5),0 0 2px rgba(0,0,0,.6)}
+.sf-body{padding:20px 22px 24px}
+.sf-body .pp-step{margin-bottom:8px}
+.sf h3{font-family:var(--serif);font-weight:400;font-size:1.2rem;line-height:1.25;
+  color:var(--ink);margin:0 0 10px}
+.sf p{color:var(--ink);font-size:.95rem;line-height:1.6;margin:0}
+/* fill from the right, in order */
+.js .sf{opacity:0;transform:translateX(110vw)}
+.js .steps-fill.go .sf{opacity:1;transform:none;
+  transition:transform 1s cubic-bezier(.2,.8,.25,1),opacity .45s ease}
+.js .steps-fill.go .sf:nth-child(2){transition-delay:1s}
+.js .steps-fill.go .sf:nth-child(3){transition-delay:2s}
+.js .steps-fill.go .sf:nth-child(4){transition-delay:3s}
+/* the description comes up at the bottom once its photograph has landed */
+.js .sf .sf-body{opacity:0;transform:translateY(14px)}
+.js .steps-fill.go .sf .sf-body{opacity:1;transform:none;
+  transition:opacity .5s ease,transform .5s ease}
+.js .steps-fill.go .sf:nth-child(1) .sf-body{transition-delay:.8s}
+.js .steps-fill.go .sf:nth-child(2) .sf-body{transition-delay:1.8s}
+.js .steps-fill.go .sf:nth-child(3) .sf-body{transition-delay:2.8s}
+.js .steps-fill.go .sf:nth-child(4) .sf-body{transition-delay:3.8s}
+@media (max-width:1000px){.steps-fill{grid-template-columns:1fr 1fr}}
+@media (max-width:700px){.steps-fill{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){
+  .js .sf,.js .sf .sf-body{opacity:1!important;transform:none!important;
+    transition:none!important}
+}
+/* two buttons under the row, up once the last description has landed */
+.sf-cta{display:flex;gap:13px;flex-wrap:wrap;justify-content:center;margin-top:36px}
+.js .sf-cta{opacity:0;transform:translateY(12px)}
+.js .steps-fill.go+.sf-cta{opacity:1;transform:none;
+  transition:opacity .5s ease 4.3s,transform .5s ease 4.3s}
+@media (prefers-reduced-motion:reduce){
+  .js .sf-cta{opacity:1!important;transform:none!important;transition:none!important}
+}
+
+/* ============================================================
+   SERVICES IN TWO CATEGORIES
+   A photograph band per category with compact cards beside it; the
+   second band mirrors the first. Bathroom Safety has a slim strip.
+   ============================================================ */
+.cat{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:24px;
+  align-items:stretch;margin-top:34px}
+.cat.flip .cat-hero{order:2}
+.cat-hero{position:relative;border-radius:var(--r);overflow:hidden;min-height:380px;
+  background:var(--cream-2)}
+.cat-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cat-cap{position:absolute;left:0;right:0;bottom:0;padding:120px 28px 28px;color:#fff;
+  background:linear-gradient(to top,rgba(4,34,61,.9) 0%,rgba(4,34,61,.72) 45%,rgba(4,34,61,0) 100%)}
+.cat-cap .eyeb{color:var(--sand-2);margin-bottom:8px}
+.cat-cap h3{font-family:var(--serif);font-weight:400;font-size:2.4rem;line-height:1;
+  margin:0 0 10px;color:#fff}
+.cat-cap p{margin:0;font-size:1rem;line-height:1.5;color:#fff;max-width:36ch}
+.cat-list{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-content:stretch}
+.cat.flip .cat-list{grid-template-columns:1fr}
+.mini{display:flex;gap:14px;align-items:center;background:#fff;border:1px solid var(--line);
+  border-radius:16px;padding:12px 16px 12px 12px;text-decoration:none;color:var(--ink);
+  transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
+.mini:hover,.mini:focus-visible{border-color:var(--sand);transform:translateY(-3px);
+  box-shadow:0 14px 30px rgba(20,20,20,.1)}
+.mini img{width:82px;height:66px;object-fit:cover;border-radius:10px;flex:0 0 auto;
+  background:var(--cream-2)}
+.mini-t{flex:1;min-width:0}
+.mini h4{font-family:var(--serif);font-weight:400;font-size:1.1rem;line-height:1.2;
+  margin:0 0 4px;color:var(--ink)}
+.mini p{font-size:.86rem;line-height:1.45;color:var(--body);margin:0}
+.mini-go{flex:0 0 auto;color:var(--navy);font-size:1.1rem;transition:transform .22s ease}
+.mini:hover .mini-go{transform:translateX(4px)}
+.safe{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;
+  margin-top:24px;background:#E9DDCB;border:1px solid rgba(199,178,154,.5);border-radius:var(--r);
+  padding:30px 26px 28px;text-decoration:none;color:var(--ink);
+  transition:transform .22s ease,box-shadow .22s ease}
+.safe .eyeb{color:var(--navy)}
+.safe:hover,.safe:focus-visible{transform:translateY(-3px);box-shadow:0 16px 36px rgba(20,20,20,.11)}
+.safe img{width:190px;height:120px;object-fit:cover;border-radius:12px;flex:0 0 auto}
+.safe-t{flex:none;max-width:62ch}
+.safe-t .eyeb{display:block;margin-bottom:6px}
+.safe h3{font-family:var(--serif);font-weight:400;font-size:2.3rem;line-height:1.05;margin:0 0 10px}
+.safe p{margin:0;font-size:1.05rem;line-height:1.55;color:var(--ink)}
+.safe .more{flex:none;margin-top:4px}
+@media (max-width:900px){
+  .cat{grid-template-columns:1fr;gap:16px}
+  .cat.flip .cat-hero{order:0}
+  .cat-hero{min-height:250px}
+  .cat-cap{padding:80px 22px 22px}
+  .cat-cap h3{font-size:2rem}
+  .cat-list{grid-template-columns:1fr}
+  .safe{padding:24px 18px 22px}
+}
+@media (prefers-reduced-motion:reduce){
+  .mini,.safe,.mini-go{transition:none!important}
+}
+
+/* ============================================================
+   SERVICE AREAS, where we work
+   Pattern from the TurnKey mockup; Big Easy's tokens and footage.
+   Footage sharpens and the list slides in once on scroll-in; a city
+   picks its photograph, label and page link.
+   ============================================================ */
+.wwl-sec{position:relative;overflow:hidden;background:var(--cream-2);padding-top:56px}
+.wwl-sec .wrap{position:relative;z-index:2}
+.wwl-sec .eyeb{color:var(--navy)}
+#newsletter{padding:56px 0 48px}   /* the gap into the footage band was the two paddings added up */
+.wwl-bg{position:absolute;inset:0;z-index:0}
+.wwl-bg video{width:100%;height:100%;object-fit:cover;transform:scale(1.3);filter:blur(6px);
+  transition:transform 1.7s cubic-bezier(.22,1,.36,1),filter 1.4s ease}
+.wwl-sec.surf .wwl-bg video{transform:scale(1);filter:blur(0)}
+.wwl-bg::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(248,246,242,.96) 0%,rgba(248,246,242,.8) 45%,rgba(248,246,242,.96) 100%)}
+.wwl{display:grid;grid-template-columns:.92fr 1.08fr;gap:44px;margin-top:40px;align-items:center}
+.wwl-list{list-style:none;margin:0;padding:0;columns:2;column-gap:12px}
+.wwl-list li{break-inside:avoid;margin-bottom:12px}
+.js .wwl-list li{opacity:0;transform:translateX(-22px);
+  transition:opacity .5s ease,transform .6s cubic-bezier(.16,1,.3,1)}
+.js .wwl-sec.surf .wwl-list li{opacity:1;transform:none}
+.js .wwl-sec.surf .wwl-list li:nth-child(2){transition-delay:.06s}
+.js .wwl-sec.surf .wwl-list li:nth-child(3){transition-delay:.12s}
+.js .wwl-sec.surf .wwl-list li:nth-child(4){transition-delay:.18s}
+.js .wwl-sec.surf .wwl-list li:nth-child(5){transition-delay:.24s}
+.js .wwl-sec.surf .wwl-list li:nth-child(6){transition-delay:.3s}
+.js .wwl-sec.surf .wwl-list li:nth-child(7){transition-delay:.36s}
+.wwl-item{display:flex;align-items:center;gap:12px;width:100%;background:rgba(255,255,255,.82);
+  border:1px solid var(--line);border-radius:14px;padding:14px 18px;cursor:pointer;
+  font-family:var(--sans);font-weight:600;font-size:.95rem;color:var(--ink);text-align:left;
+  transition:background .22s ease,border-color .22s ease,color .22s ease,box-shadow .22s ease}
+.wwl-item i{width:9px;height:9px;border-radius:50%;background:var(--sand-2);flex:none;transition:.25s ease}
+.wwl-item:hover,.wwl-item:focus-visible{border-color:var(--sand);background:#fff;color:var(--navy)}
+.wwl-item.on{background:var(--navy);border-color:var(--navy);color:#fff;box-shadow:0 10px 24px rgba(4,34,61,.22)}
+.wwl-item.on i{background:var(--sand);box-shadow:0 0 10px rgba(199,178,154,.9)}
+.wwl-media{position:relative;aspect-ratio:4/3;border-radius:var(--r);overflow:hidden;
+  background:var(--cream-2);box-shadow:0 24px 60px rgba(36,36,36,.18)}
+.js .wwl-media{opacity:0;transform:translateY(26px) scale(.97);
+  transition:opacity .7s ease .25s,transform .85s cubic-bezier(.16,1,.3,1) .25s}
+.js .wwl-sec.surf .wwl-media{opacity:1;transform:none}
+.wwl-imgs img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s ease}
+.wwl-imgs img.on{opacity:1}
+.wwl-media::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(180deg,rgba(4,34,61,0) 48%,rgba(4,34,61,.86) 100%)}
+.wwl-label{position:absolute;left:22px;bottom:18px;z-index:2;display:flex;align-items:baseline;gap:12px;color:#fff}
+.wwl-label .idx{font-family:var(--sans);font-weight:600;font-size:.8rem;letter-spacing:.16em;color:var(--sand-2)}
+.wwl-label .city{font-family:var(--serif);font-weight:400;font-size:2rem;line-height:1}
+.wwl-go{position:absolute;right:18px;bottom:18px;z-index:2;font-family:var(--sans);font-size:.76rem;
+  font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);background:#fff;
+  border-radius:999px;padding:10px 16px;text-decoration:none;transition:.2s ease}
+.wwl-go:hover,.wwl-go:focus-visible{background:var(--sand)}
+.wwl-cta{display:flex;gap:13px;flex-wrap:wrap;justify-content:center;margin-top:40px}
+@media (max-width:900px){
+  .wwl{grid-template-columns:1fr;gap:26px}
+  .wwl-list{columns:2;column-gap:10px}
+  .wwl-item{padding:12px 12px;font-size:.88rem}
+  .wwl-label .city{font-size:1.5rem}
+}
+@media (prefers-reduced-motion:reduce){
+  .wwl-bg video{transform:none!important;filter:none!important;transition:none!important}
+  .js .wwl-list li,.js .wwl-media{opacity:1!important;transform:none!important;transition:none!important}
+  .wwl-imgs img{transition:none!important}
+}
+
+/* ============================================================
+   FAQ, rail and reading panel
+   Every question stays visible in a grouped rail on the left; the
+   chosen answer reads large in a white panel on the right, with an
+   oversized sand numeral. A navy card with the two buttons sits under
+   the panel. Phones drop the panel and open the answer under its
+   question. Same brown ground as the gallery.
+   ============================================================ */
+.fq{background:#E9DDCB}
+.fq .eyeb{color:var(--navy)}
+.fq-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:34px;
+  align-items:start;margin-top:34px}
+.fq-h{font-family:var(--sans);font-size:.7rem;font-weight:600;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--navy);margin:20px 0 8px 6px}
+.fq-h:first-child{margin-top:0}
+.fq-item{background:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.9);border-radius:16px;
+  margin-bottom:8px;overflow:hidden;
+  transition:background .2s ease,box-shadow .2s ease,transform .2s ease}
+.fq-item:hover{background:#fff}
+.fq-item.on{background:#fff;box-shadow:0 14px 30px rgba(36,36,36,.12);transform:translateX(6px)}
+.fq-q{display:flex;align-items:center;gap:14px;width:100%;background:none;border:0;cursor:pointer;
+  text-align:left;padding:15px 18px;font-family:var(--serif);font-weight:400;font-size:1.08rem;
+  line-height:1.3;color:var(--ink)}
+.fq-q:focus-visible{outline:2px solid var(--navy);outline-offset:-2px;border-radius:16px}
+.fq-n{flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;
+  font-family:var(--sans);font-size:.74rem;font-weight:600;letter-spacing:.06em;color:var(--navy);
+  background:var(--hero-bg);border:1px solid var(--sand);transition:.2s ease}
+.fq-item.on .fq-n{background:var(--navy);color:#fff;border-color:var(--navy)}
+.fq-t{flex:1}
+.fq-x{flex:none;color:var(--navy);opacity:0;transform:translateX(-6px);transition:.25s ease}
+.fq-item.on .fq-x,.fq-item:hover .fq-x{opacity:1;transform:none}
+.fq-a{display:none}                       /* desktop: the panel shows the answer */
+.fq-side{position:sticky;top:110px}
+.fq-panel{position:relative;background:#fff;border-radius:var(--r);padding:40px 40px 36px;
+  box-shadow:0 24px 60px rgba(36,36,36,.14);min-height:340px;overflow:hidden}
+.fq-big{position:absolute;right:24px;top:10px;font-family:var(--serif);font-weight:600;
+  font-size:6.4rem;line-height:1;color:var(--sand);opacity:.5;pointer-events:none}
+.fq-topic{font-family:var(--sans);font-size:.7rem;font-weight:600;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--navy);margin:0 0 14px}
+.fq-panel h3{font-family:var(--serif);font-weight:400;font-size:clamp(1.4rem,2.2vw,1.85rem);
+  line-height:1.2;color:var(--ink);margin:0 0 18px;padding-right:90px}
+.fq-ans p{font-size:1.08rem;line-height:1.65;color:var(--ink);margin:0}
+.fq-ans a{color:var(--navy);font-weight:600}
+.fq-panel.swap .fq-topic,.fq-panel.swap h3,.fq-panel.swap .fq-ans{
+  animation:fqIn .5s cubic-bezier(.16,1,.3,1) both}
+.fq-panel.swap h3{animation-delay:.05s}
+.fq-panel.swap .fq-ans{animation-delay:.1s}
+.fq-panel.swap .fq-big{animation:fqNum .7s cubic-bezier(.2,.8,.25,1) both}
+@keyframes fqIn{from{opacity:0;transform:translateX(26px)}to{opacity:1;transform:none}}
+@keyframes fqNum{from{opacity:0;transform:translateY(18px) scale(.9)}to{opacity:.5;transform:none}}
+.fq-cta{margin-top:16px;background:var(--navy);color:#fff;border-radius:var(--r);padding:24px 28px;
+  display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.fq-cta .eyeb{color:var(--sand-2);margin-bottom:4px}
+.fq-cta p{margin:0;color:#fff}
+.fq-btns{display:flex;gap:10px;flex-wrap:wrap}
+/* reveal: rail items slide in one after another, the panel rises */
+.js .fq-item{opacity:0;transform:translateX(-22px)}
+.js .fq.in .fq-item{opacity:1;transform:none;
+  transition:opacity .5s ease,transform .6s cubic-bezier(.16,1,.3,1),background .2s ease,box-shadow .2s ease}
+.js .fq.in .fq-item.on{transform:translateX(6px)}
+.js .fq.in .fq-item:nth-of-type(2){transition-delay:.05s}
+.js .fq.in .fq-item:nth-of-type(3){transition-delay:.1s}
+.js .fq.in .fq-item:nth-of-type(4){transition-delay:.15s}
+.js .fq.in .fq-item:nth-of-type(5){transition-delay:.2s}
+.js .fq.in .fq-item:nth-of-type(6){transition-delay:.25s}
+.js .fq.in .fq-item:nth-of-type(7){transition-delay:.3s}
+.js .fq.in .fq-item:nth-of-type(8){transition-delay:.35s}
+.js .fq.in .fq-item:nth-of-type(9){transition-delay:.4s}
+.js .fq.in .fq-item:nth-of-type(10){transition-delay:.45s}
+.js .fq-side{opacity:0;transform:translateY(24px)}
+.js .fq.in .fq-side{opacity:1;transform:none;
+  transition:opacity .7s ease .3s,transform .8s cubic-bezier(.16,1,.3,1) .3s}
+@media (max-width:900px){
+  .fq-grid{grid-template-columns:1fr;gap:18px}
+  .fq-side{position:static}
+  .fq-panel{display:none}                 /* the answer opens under its question */
+  .fq-item.on,.js .fq.in .fq-item.on{transform:none}
+  .fq-item.on .fq-a{display:block;padding:0 18px 18px 66px;color:var(--ink);
+    font-size:.98rem;line-height:1.6}
+  .fq-a p{margin:0}
+  .fq-a a{color:var(--navy);font-weight:600}
+  .fq-x{display:none}
+  .fq-q{font-size:1rem;padding:14px 16px}
+  .fq-cta{padding:20px 18px}
+}
+@media (prefers-reduced-motion:reduce){
+  .js .fq-item,.js .fq-side{opacity:1!important;transform:none!important;transition:none!important}
+  .fq-panel.swap .fq-topic,.fq-panel.swap h3,.fq-panel.swap .fq-ans,.fq-panel.swap .fq-big{animation:none!important}
+}
+
+/* ============================================================
+   INNER PAGES (about.html, services.html), built from this file by
+   tools/build_pages.py. Hero: centred on the darker brown with the
+   ambient bubbles behind. Purpose and Mission: the mission copy beside
+   a white card carrying the three Big Easy Promise points as bubble
+   numerals. Unused on the homepage.
+   ============================================================ */
+.ah{position:relative;overflow:hidden;background:#E3D5C1;padding:150px 0 76px;text-align:center}
+.ah .wrap{position:relative;z-index:2}
+.ah .eyeb{color:var(--navy)}
+.ah h1{font-family:var(--serif);font-weight:300;font-size:clamp(2.4rem,5.4vw,4.4rem);
+  line-height:1.05;letter-spacing:-.01em;color:var(--ink);margin:0 auto 20px;max-width:16ch}
+.ah-sub{max-width:64ch;margin:0 auto 28px;font-size:1.1rem;line-height:1.65;color:var(--ink)}
+.ah-cta{display:flex;gap:13px;justify-content:center;flex-wrap:wrap}
+.pm{background:var(--cream)}
+.pm-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:start}
+.pm-lead{font-family:var(--serif);font-weight:400;font-size:clamp(1.25rem,2vw,1.6rem);
+  line-height:1.35;color:var(--ink);margin:0 0 18px}
+.pm-copy p{color:var(--ink)}
+.pm-promise{background:#fff;border:1px solid var(--line);border-radius:var(--r);
+  padding:32px 30px 30px;box-shadow:0 18px 44px rgba(36,36,36,.08)}
+.pm-promise h3{font-family:var(--serif);font-weight:400;font-size:1.5rem;line-height:1.2;margin:0 0 22px}
+.pm-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:16px}
+.pm-list li{display:flex;align-items:center;gap:16px;font-size:1.04rem;line-height:1.4;color:var(--ink)}
+.pm-b{position:relative;flex:none;width:58px;height:58px;border-radius:50%;display:grid;
+  place-items:center;font-family:var(--sans);font-weight:600;font-size:.82rem;letter-spacing:.08em;
+  color:var(--navy);border:1px solid rgba(255,255,255,.95);
+  background:radial-gradient(circle at 34% 28%,rgba(255,255,255,.95),rgba(255,255,255,.4) 40%,
+    rgba(199,178,154,.3) 72%,rgba(4,34,61,.12) 100%);
+  box-shadow:inset 0 0 12px rgba(255,255,255,.6),inset -8px -10px 18px rgba(4,34,61,.12),
+    0 10px 22px rgba(36,36,36,.12)}
+.pm-b i{position:absolute;left:19%;top:13%;width:26%;height:18%;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.98),rgba(255,255,255,0) 70%)}
+@media (max-width:900px){
+  .ah{padding:132px 0 56px}
+  .pm-grid{grid-template-columns:1fr;gap:26px}
+}
+/* contact.html: estimate form beside a navy details card; "what happens
+   next" as four steps on bubble numerals */
+.ct{background:var(--cream)}
+.ct-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:30px;align-items:start}
+.ct-form{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:34px 34px 30px;
+  box-shadow:0 18px 44px rgba(36,36,36,.08)}
+.ct-form h2{font-size:clamp(1.5rem,2.6vw,2.1rem);margin:0 0 6px}
+.ct-form>p{margin:0 0 22px;color:var(--ink)}
+.ct-f{display:grid;grid-template-columns:1fr 1fr;gap:14px 12px}
+.ct-f .full{grid-column:1 / -1}
+.ct-f label{display:block;font-family:var(--sans);font-size:.78rem;font-weight:600;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--navy);margin:0 0 6px}
+.ct-f input,.ct-f select,.ct-f textarea{font-family:var(--sans);font-size:.98rem;padding:14px 16px;
+  border:1px solid var(--line);border-radius:12px;background:var(--cream);color:var(--ink);width:100%}
+.ct-f textarea{min-height:140px;resize:vertical}
+.ct-f input:focus,.ct-f select:focus,.ct-f textarea:focus{outline:2px solid var(--navy);outline-offset:1px;background:#fff}
+.ct-side{position:sticky;top:110px}
+.ct-card{background:var(--navy);color:#fff;border-radius:var(--r);padding:30px 30px 24px}
+.ct-card h3{font-family:var(--serif);font-weight:400;font-size:1.6rem;color:#fff;margin:0 0 14px}
+.ct-row{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-top:1px solid rgba(255,255,255,.14)}
+.ct-row:first-of-type{border-top:0}
+.ct-k{flex:none;width:112px;font-family:var(--sans);font-size:.7rem;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--sand-2);padding-top:4px}
+.ct-v{color:#fff;font-size:1rem;line-height:1.5}
+.ct-v a{color:#fff;font-weight:600;text-decoration:underline;text-decoration-color:var(--sand);text-underline-offset:3px}
+.ct-v a.big{font-family:var(--serif);font-weight:400;font-size:1.55rem;line-height:1.1;display:inline-block;
+  text-decoration:none}
+.ct-card .ft-social{margin-top:2px}
+.ct-card .ft-social a{color:#fff;text-decoration:none}
+.ct-promise{margin-top:16px;background:#E9DDCB;color:var(--ink);border-radius:16px;padding:16px 18px;
+  font-size:.95rem;line-height:1.5}
+.ct-promise b{color:var(--navy)}
+.nx{background:#E9DDCB}
+.nx .eyeb{color:var(--navy)}
+.nx-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:30px}
+.nx-step{background:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.9);border-radius:16px;padding:22px 20px}
+.nx-step h3{font-family:var(--serif);font-weight:400;font-size:1.15rem;line-height:1.25;margin:14px 0 8px}
+.nx-step p{margin:0;font-size:.92rem;line-height:1.55;color:var(--ink)}
+@media (max-width:1000px){.nx-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:900px){
+  .ct-grid{grid-template-columns:1fr}
+  .ct-side{position:static}
+  .ct-form{padding:26px 20px}
+}
+@media (max-width:640px){
+  .ct-f{grid-template-columns:1fr}
+  .nx-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="head">
+<div class="topwrap" id="topwrap">
+  <div class="top" id="top">
+    <a class="logo" href="index.html" aria-label="Big Easy Bathrooms home">
+      <img src="assets/logo.png" alt="Big Easy Bathrooms">
+    </a>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">&#9776;</button>
+    <ul class="nav" id="nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li class="on"><a href="services.html">Services <span class="caret">&#9660;</span></a>
+        <ul class="has-sub">
+          <li class="sub"><span class="grp" tabindex="0">Showers <span class="caret">&#9656;</span></span>
+            <ul>
+              <li><a href="https://www.bigeasybathrooms.com/barrier-free-showers/" target="_blank" rel="noopener">Barrier-Free Showers</a></li>
+              <li><a href="https://www.bigeasybathrooms.com/replacement-showers/" target="_blank" rel="noopener">Replacement Showers</a></li>
+              <li><a href="https://www.bigeasybathrooms.com/shower-base/" target="_blank" rel="noopener">Shower Base</a></li>
+              <li><a href="https://www.bigeasybathrooms.com/shower-enclosure/" target="_blank" rel="noopener">Shower Enclosure</a></li>
+              <li><a href="https://www.bigeasybathrooms.com/shower-liners/" target="_blank" rel="noopener">Shower Liners</a></li>
+              <li><a href="https://www.bigeasybathrooms.com/shower-surrounds/" target="_blank" rel="noopener">Shower Surrounds</a></li>
+              <li><a href="https://www.bigeasybathrooms.com/tub-to-shower-conversions/" target="_blank" rel="noopener">Tub to Shower Conversions</a></li>
+              <li><a href="https://www.bigeasybathrooms.com/walk-in-showers/" target="_blank" rel="noopener">Walk-in Showers</a></li>
+            </ul>
+          </li>
+          <li class="sub"><span class="grp" tabindex="0">Bathtubs <span class="caret">&#9656;</span></span>
+            <ul>
+              <li><a href="https://www.bigeasybathrooms.com/bathtubs-replacement/" target="_blank" rel="noopener">Bathtubs Replacement</a></li>
+              <li><a href="https://www.bigeasybathrooms.com/tub-liners/" target="_blank" rel="noopener">Tub Liners</a></li>
+              <li><a href="https://www.bigeasybathrooms.com/walk-in-tubs/" target="_blank" rel="noopener">Walk-in Tubs</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="service-areas.html">Service Areas <span class="caret">&#9660;</span></a>
+        <ul>
+          <li><a href="https://www.bigeasybathrooms.com/service-areas/abita-springs/" target="_blank" rel="noopener">Abita Springs</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/service-areas/covington/" target="_blank" rel="noopener">Covington</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/service-areas/hammond/" target="_blank" rel="noopener">Hammond</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/service-areas/madisonville/" target="_blank" rel="noopener">Madisonville</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/service-areas/mandeville/" target="_blank" rel="noopener">Mandeville</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/service-areas/metairie/" target="_blank" rel="noopener">Metairie</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/service-areas/slidell/" target="_blank" rel="noopener">Slidell</a></li>
+        </ul>
+      </li>
+      <li><a href="reviews.html">Reviews</a></li>
+      <li><a href="faqs.html">FAQs</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a class="tel" href="tel:+15046887786">&#9742; 504-688-7786</a>
+  </div>
+</div>
+
+<!-- ============ HERO (homepage design, this service's pages) ============ -->
+<header class="hero" id="top-anchor">
+  <div class="wrap">
+    <div class="hero-grid">
+
+      <!-- Magazine. NOTE: these six photographs are Unsplash stock, NOT
+           Big Easy Bathrooms' own projects. They are placeholders for the
+           layout. Swap them for real job photography before this goes
+           anywhere public, or the page implies work the client did not do. -->
+      <div class="mag-wrap">
+        <div class="mag">
+          <div class="mag-stack" id="magStack">
+        <figure class="mag-pg"><img src="assets/barrier-free-shower.jpg" alt="Barrier-free shower with no threshold and grab rail" fetchpriority="high"><figcaption class="mag-cap">Barrier-free shower</figcaption></figure>
+        <figure class="mag-pg"><img src="assets/walk-in-showers.jpg" alt="Walk-in shower with glass enclosure and marble tile" loading="lazy"><figcaption class="mag-cap">Walk-in shower</figcaption></figure>
+        <figure class="mag-pg"><img src="assets/shower-enclosure.jpg" alt="Corner shower enclosure with clear glass doors" loading="lazy"><figcaption class="mag-cap">Shower enclosure</figcaption></figure>
+        <figure class="mag-pg"><img src="assets/tub-to-shower.jpg" alt="Glass shower after a tub-to-shower conversion" loading="lazy"><figcaption class="mag-cap">Tub-to-shower conversion</figcaption></figure>
+        <figure class="mag-pg"><img src="assets/shower-surround.jpg" alt="Tiled shower surround beside a bathroom window" loading="lazy"><figcaption class="mag-cap">Shower surround</figcaption></figure>
+        <figure class="mag-pg"><img src="assets/services-feature.jpg" alt="Remodelled bathroom with a tiled tub surround" loading="lazy"><figcaption class="mag-cap">Finished bathroom</figcaption></figure>
+          </div>
+          <div class="mag-shine" aria-hidden="true"></div>
+        </div>
+        <div class="mag-ctl">
+          <button class="mag-btn" id="magPrev" type="button" aria-label="Previous photograph">&#8249;</button>
+          <button class="mag-btn" id="magNext" type="button" aria-label="Next photograph">&#8250;</button>
+          <button class="mag-btn" id="magPause" type="button" aria-pressed="false" aria-label="Pause the slideshow">&#10073;&#10073;</button>
+          <div class="mag-dots" id="magDots"></div>
+        </div>
+      </div>
+
+      <div class="hero-copy">
+        <div class="stars"><b>&#9733;&#9733;&#9733;&#9733;&#9733;</b> Rated by Hundreds of Satisfied Customers.</div>
+        <h1><span class="kw">Barrier-Free Showers</span> in New Orleans: Safety and Convenience for Everyone in the Family</h1>
+        <p>The barrier-free showers at <a class="tlink" href="https://www.bigeasybathrooms.com/" target="_blank" rel="noopener">Big Easy Bathrooms</a> are ideal for those who require extra space to move around. Our shower stalls feature a walk-in design with no threshold, which makes it easier to get in and out of the shower. <a class="tlink" href="https://www.bigeasybathrooms.com/contact/" target="_blank" rel="noopener">Get in touch with us</a> for a free estimate.</p>
+        <div class="hero-cta">
+          <a class="btn btn-p" href="https://www.bigeasybathrooms.com/contact/" target="_blank" rel="noopener">Get a Free Quote</a>
+          <a class="btn btn-s" href="tel:+15046887786">Call 504-688-7786</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</header>
+</div><!-- /.head -->
+
+<!-- ============ BENEFITS STRIP (the homepage bubble strip, labels are this service's benefits) ============
+     Labels only state things the client's own site already says:
+     its CTA offers a free quote, the rest are its listed services and
+     service area. The reference bar's "satisfaction guaranteed" and
+     "5 star rating" were deliberately NOT carried over. -->
+<section class="trust" id="trust" aria-label="What Big Easy Bathrooms offers">
+  <!-- Stock footage (Mixkit licence, free for commercial use). The poster
+       still is the reduced-motion fallback. -->
+  <div class="trust-bg" aria-hidden="true">
+    <video id="trustVid" autoplay muted loop playsinline preload="metadata" poster="assets/trust-bg.jpg">
+      <source src="assets/trust-bg.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="wrap">
+    <ul class="trust-row">
+      <li class="tr-item" style="--d:0s"><span class="tr-bub" aria-hidden="true"><i></i></span><span class="tr-drops" aria-hidden="true"><i style="--dx:-74px;--dy:-58px"></i><i style="--dx:70px;--dy:-66px"></i><i style="--dx:88px;--dy:10px"></i><i style="--dx:-84px;--dy:22px"></i><i style="--dx:-40px;--dy:76px"></i><i style="--dx:52px;--dy:70px"></i></span><span class="tr-txt">No-Threshold Entry</span></li>
+      <li class="tr-item" style="--d:.16s"><span class="tr-bub" aria-hidden="true"><i></i></span><span class="tr-drops" aria-hidden="true"><i style="--dx:-74px;--dy:-58px"></i><i style="--dx:70px;--dy:-66px"></i><i style="--dx:88px;--dy:10px"></i><i style="--dx:-84px;--dy:22px"></i><i style="--dx:-40px;--dy:76px"></i><i style="--dx:52px;--dy:70px"></i></span><span class="tr-txt">Level Shower Floor</span></li>
+      <li class="tr-item" style="--d:.32s"><span class="tr-bub" aria-hidden="true"><i></i></span><span class="tr-drops" aria-hidden="true"><i style="--dx:-74px;--dy:-58px"></i><i style="--dx:70px;--dy:-66px"></i><i style="--dx:88px;--dy:10px"></i><i style="--dx:-84px;--dy:22px"></i><i style="--dx:-40px;--dy:76px"></i><i style="--dx:52px;--dy:70px"></i></span><span class="tr-txt">Efficient Drain</span></li>
+      <li class="tr-item" style="--d:.48s"><span class="tr-bub" aria-hidden="true"><i></i></span><span class="tr-drops" aria-hidden="true"><i style="--dx:-74px;--dy:-58px"></i><i style="--dx:70px;--dy:-66px"></i><i style="--dx:88px;--dy:10px"></i><i style="--dx:-84px;--dy:22px"></i><i style="--dx:-40px;--dy:76px"></i><i style="--dx:52px;--dy:70px"></i></span><span class="tr-txt">ADA-Standard Grab Bars</span></li>
+      <li class="tr-item" style="--d:.64s"><span class="tr-bub" aria-hidden="true"><i></i></span><span class="tr-drops" aria-hidden="true"><i style="--dx:-74px;--dy:-58px"></i><i style="--dx:70px;--dy:-66px"></i><i style="--dx:88px;--dy:10px"></i><i style="--dx:-84px;--dy:22px"></i><i style="--dx:-40px;--dy:76px"></i><i style="--dx:52px;--dy:70px"></i></span><span class="tr-txt">Accessible Controls</span></li>
+      <li class="tr-item" style="--d:.8s"><span class="tr-bub" aria-hidden="true"><i></i></span><span class="tr-drops" aria-hidden="true"><i style="--dx:-74px;--dy:-58px"></i><i style="--dx:70px;--dy:-66px"></i><i style="--dx:88px;--dy:10px"></i><i style="--dx:-84px;--dy:22px"></i><i style="--dx:-40px;--dy:76px"></i><i style="--dx:52px;--dy:70px"></i></span><span class="tr-txt">Built-In Shelving</span></li>
+      <li class="tr-item" style="--d:.96s"><span class="tr-bub" aria-hidden="true"><i></i></span><span class="tr-drops" aria-hidden="true"><i style="--dx:-74px;--dy:-58px"></i><i style="--dx:70px;--dy:-66px"></i><i style="--dx:88px;--dy:10px"></i><i style="--dx:-84px;--dy:22px"></i><i style="--dx:-40px;--dy:76px"></i><i style="--dx:52px;--dy:70px"></i></span><span class="tr-txt">Shower Seat</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section id="services">
+  <div class="wrap">
+    <div class="lead rv">
+      <p class="eyeb">Services</p>
+      <h2>Transform Your Home with Expert <span class="kw">Bathroom Renovation Services In New Orleans</span></h2>
+      <p>From walk-in tubs to full shower remodels, our New Orleans craftsmen deliver custom, code-compliant bathrooms built to last.</p>
+    </div>
+
+    <!-- Two categories. Category photographs are the client's own; card
+         copy is carried from the previous service cards. -->
+    <div class="cat rv" id="catShowers">
+      <div class="cat-hero">
+        <img src="assets/walk-in-showers.jpg" alt="Walk-in shower with glass enclosure and marble tile" loading="lazy">
+        <div class="cat-cap">
+          <p class="eyeb">Category &middot; 7 services</p>
+          <h3>Showers</h3>
+          <p>Barrier-free and walk-in designs, conversions and replacements, with the bases, liners, surrounds and enclosures that finish the job.</p>
+        </div>
+      </div>
+      <div class="cat-list">
+        <a class="mini rv" href="https://www.bigeasybathrooms.com/replacement-showers/" target="_blank" rel="noopener">
+          <img src="assets/shower-base.jpg" alt="Replacement shower with tiled base" loading="lazy">
+          <span class="mini-t"><h4>Replacement Showers</h4><p>A professional, efficient shower replacement at your New Orleans home.</p></span>
+          <span class="mini-go" aria-hidden="true">&rarr;</span>
+        </a>
+        <a class="mini rv" href="https://www.bigeasybathrooms.com/shower-base/" target="_blank" rel="noopener">
+          <img src="assets/modern-bathroom.jpg" alt="Modern bathroom interior with a tiled shower area" loading="lazy">
+          <span class="mini-t"><h4>Shower Base</h4><p>Remodel your shower by replacing the shower base underneath it.</p></span>
+          <span class="mini-go" aria-hidden="true">&rarr;</span>
+        </a>
+        <a class="mini rv" href="https://www.bigeasybathrooms.com/shower-enclosure/" target="_blank" rel="noopener">
+          <img src="assets/shower-enclosure.jpg" alt="Corner shower enclosure with clear glass doors" loading="lazy">
+          <span class="mini-t"><h4>Shower Enclosure</h4><p>Renovate your current shower, or move to a tub-to-shower conversion, with an enclosure built to fit.</p></span>
+          <span class="mini-go" aria-hidden="true">&rarr;</span>
+        </a>
+        <a class="mini rv" href="https://www.bigeasybathrooms.com/shower-liners/" target="_blank" rel="noopener">
+          <img src="assets/bathroom-curtain.jpg" alt="Bathroom with shower curtain over the tub" loading="lazy">
+          <span class="mini-t"><h4>Shower Liners</h4><p>Keep your floor dry and safe from mildew, with a number of great designs to choose from.</p></span>
+          <span class="mini-go" aria-hidden="true">&rarr;</span>
+        </a>
+        <a class="mini rv" href="https://www.bigeasybathrooms.com/shower-surrounds/" target="_blank" rel="noopener">
+          <img src="assets/shower-surround.jpg" alt="Tiled shower surround beside a bathroom window" loading="lazy">
+          <span class="mini-t"><h4>Shower Surrounds</h4><p>Customize a shower surround and we will be pleased to install it in your New Orleans home.</p></span>
+          <span class="mini-go" aria-hidden="true">&rarr;</span>
+        </a>
+        <a class="mini rv" href="https://www.bigeasybathrooms.com/tub-to-shower-conversions/" target="_blank" rel="noopener">
+          <img src="assets/tub-to-shower.jpg" alt="Bathroom after a tub to shower conversion" loading="lazy">
+          <span class="mini-t"><h4>Tub to Shower Conversions</h4><p>Your dream bath in just one day. We handle everything for you, from start to finish.</p></span>
+          <span class="mini-go" aria-hidden="true">&rarr;</span>
+        </a>
+        <a class="mini rv" href="https://www.bigeasybathrooms.com/walk-in-showers/" target="_blank" rel="noopener">
+          <img src="assets/walk-in-showers.jpg" alt="Walk-in shower with glass enclosure and marble tile" loading="lazy">
+          <span class="mini-t"><h4>Walk-in Showers</h4><p>A safe and convenient option for New Orleans homeowners looking for reliable bathing solutions.</p></span>
+          <span class="mini-go" aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="cat flip rv" id="catBathtubs">
+      <div class="cat-hero">
+        <img src="assets/acrylic-bathtub.jpg" alt="New acrylic bathtub fitted in a corner" loading="lazy">
+        <div class="cat-cap">
+          <p class="eyeb">Category &middot; 3 services</p>
+          <h3>Bathtubs</h3>
+          <p>Walk-in tubs, tub liners and full bathtub replacement.</p>
+        </div>
+      </div>
+      <div class="cat-list">
+        <a class="mini rv" href="https://www.bigeasybathrooms.com/bathtubs-replacement/" target="_blank" rel="noopener">
+          <img src="assets/acrylic-bathtub.jpg" alt="New acrylic bathtub fitted in a corner" loading="lazy">
+          <span class="mini-t"><h4>Bathtubs Replacement</h4><p>Top-quality replacement options that fit your style and budget, installed by our team of experts.</p></span>
+          <span class="mini-go" aria-hidden="true">&rarr;</span>
+        </a>
+        <a class="mini rv" href="https://www.bigeasybathrooms.com/tub-liners/" target="_blank" rel="noopener">
+          <img src="assets/bathtub-row.jpg" alt="Bathroom with a fitted bathtub and basin" loading="lazy">
+          <span class="mini-t"><h4>Tub Liners</h4><p>Top-quality tub liner products and services at competitive prices.</p></span>
+          <span class="mini-go" aria-hidden="true">&rarr;</span>
+        </a>
+        <a class="mini rv" href="https://www.bigeasybathrooms.com/walk-in-tubs/" target="_blank" rel="noopener">
+          <img src="assets/walk-in-tubs.jpg" alt="Walk-in tub installed in a New Orleans bathroom" loading="lazy">
+          <span class="mini-t"><h4>Walk-in Tubs</h4><p>The premier source for walk-in tubs in New Orleans, with a wide variety of tub styles and sizes to fit your needs.</p></span>
+          <span class="mini-go" aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Bathroom Safety sits outside both categories; kept as its own strip. -->
+    <a class="safe rv" href="https://www.bigeasybathrooms.com/bathroom-safety/" target="_blank" rel="noopener">
+      <span class="safe-t">
+        <span class="eyeb">For any shower or tub</span>
+        <h3>Bathroom Safety</h3>
+        <p>Safety modifications that enhance comfort and help prevent accidents in the bathroom.</p>
+      </span>
+      <span class="more">Learn more <span>&rarr;</span></span>
+    </a>
+
+    <div class="svc-all rv">
+      <a class="btn btn-p" href="services.html">Explore all services</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICE AREAS ============ -->
+<!-- Pattern from the TurnKey mockup's "where we work": pick a city and the
+     photograph and label follow. Footage is the strip clip; photographs are
+     the client's own; the seven areas are the ones the client listed. -->
+<section class="wwl-sec" id="areas">
+  <div class="wwl-bg" aria-hidden="true">
+    <video class="sf-vid" muted loop playsinline preload="none" poster="assets/trust-bg.jpg"><source src="assets/trust-bg.mp4" type="video/mp4"></video>
+  </div>
+  <div class="wrap">
+    <div class="lead rv">
+      <p class="eyeb">Service areas</p>
+      <h2>Serving <span class="kw">New Orleans</span> and the surrounding parishes</h2>
+    </div>
+    <div class="wwl" id="wwl">
+      <ul class="wwl-list" aria-label="Choose a service area">
+        <li><button class="wwl-item on" type="button" aria-pressed="true" data-href="https://www.bigeasybathrooms.com/service-areas/abita-springs/"><i></i>Abita Springs</button></li>
+        <li><button class="wwl-item" type="button" aria-pressed="false" data-href="https://www.bigeasybathrooms.com/service-areas/covington/"><i></i>Covington</button></li>
+        <li><button class="wwl-item" type="button" aria-pressed="false" data-href="https://www.bigeasybathrooms.com/service-areas/hammond/"><i></i>Hammond</button></li>
+        <li><button class="wwl-item" type="button" aria-pressed="false" data-href="https://www.bigeasybathrooms.com/service-areas/madisonville/"><i></i>Madisonville</button></li>
+        <li><button class="wwl-item" type="button" aria-pressed="false" data-href="https://www.bigeasybathrooms.com/service-areas/mandeville/"><i></i>Mandeville</button></li>
+        <li><button class="wwl-item" type="button" aria-pressed="false" data-href="https://www.bigeasybathrooms.com/service-areas/metairie/"><i></i>Metairie</button></li>
+        <li><button class="wwl-item" type="button" aria-pressed="false" data-href="https://www.bigeasybathrooms.com/service-areas/slidell/"><i></i>Slidell</button></li>
+      </ul>
+      <div class="wwl-media">
+        <div class="wwl-imgs">
+          <img class="on" src="assets/walk-in-showers.jpg" alt="" loading="lazy">
+          <img src="assets/barrier-free-shower.jpg" alt="" loading="lazy">
+          <img src="assets/shower-enclosure.jpg" alt="" loading="lazy">
+          <img src="assets/acrylic-bathtub.jpg" alt="" loading="lazy">
+          <img src="assets/modern-bathroom.jpg" alt="" loading="lazy">
+          <img src="assets/hero-1.jpg" alt="" loading="lazy">
+          <img src="assets/services-feature.jpg" alt="" loading="lazy">
+        </div>
+        <div class="wwl-label"><span class="idx">01</span><span class="city">Abita Springs</span></div>
+        <a class="wwl-go" href="https://www.bigeasybathrooms.com/service-areas/abita-springs/" target="_blank" rel="noopener">View page &rarr;</a>
+      </div>
+    </div>
+    <div class="wwl-cta">
+      <a class="btn btn-p" href="https://www.bigeasybathrooms.com/contact/" target="_blank" rel="noopener">Get a Free Quote</a>
+      <a class="btn btn-s" href="tel:+15046887786">Call 504-688-7786</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NEWSLETTER ============ -->
+<section id="newsletter">
+  <div class="wrap">
+    <div class="form-card rv">
+      <p class="eyeb">Newsletter</p>
+      <h2>Get Exclusive Offers</h2>
+      <p>Join our newsletter for design tips, offers and inspiration.</p>
+      <form class="frow" onsubmit="return false">
+        <input type="text" placeholder="First and last name" aria-label="Name">
+        <input type="tel" placeholder="Phone number" aria-label="Phone">
+        <input type="email" placeholder="Email address" aria-label="Email">
+        <input type="text" placeholder="ZIP code" aria-label="ZIP code">
+        <button class="btn btn-p" type="submit">Submit</button>
+      </form>
+      <p class="note">Mockup only. This form is not connected to anything.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQS ============ -->
+<!-- Answers 1 to 5 are drawn from the client's live Barrier-Free Showers page; 6 to 8 are the client's own FAQ answers (live homepage FAQ block). -->
+<section class="fq" id="faqs">
+  <div class="wrap">
+    <div class="lead rv">
+      <p class="eyeb">FAQs</p>
+      <h2><span class="kw">Barrier-Free Showers</span> in New Orleans, Your Questions Answered</h2>
+    </div>
+    <div class="fq-grid">
+      <div class="fq-rail" id="fqRail">
+        <p class="fq-h">About barrier-free showers</p>
+        <div class="fq-item on" data-topic="About barrier-free showers">
+          <button class="fq-q" type="button" aria-expanded="true" aria-controls="fqA1"><span class="fq-n">01</span><span class="fq-t">What is a barrier-free shower?</span><span class="fq-x" aria-hidden="true">&rarr;</span></button>
+          <div class="fq-a" id="fqA1"><p>A walk-in shower with no threshold. The level, roll-in floor makes it easier to get in and out, and the layout gives you extra space to move around.</p></div>
+        </div>
+        <div class="fq-item" data-topic="About barrier-free showers">
+          <button class="fq-q" type="button" aria-expanded="false" aria-controls="fqA2"><span class="fq-n">02</span><span class="fq-t">Who is a barrier-free shower for?</span><span class="fq-x" aria-hidden="true">&rarr;</span></button>
+          <div class="fq-a" id="fqA2"><p>Anyone living with mobility or accessibility challenges, and families who want a shower everyone can use safely, without giving up style or convenience.</p></div>
+        </div>
+        <div class="fq-item" data-topic="About barrier-free showers">
+          <button class="fq-q" type="button" aria-expanded="false" aria-controls="fqA3"><span class="fq-n">03</span><span class="fq-t">What features can be included?</span><span class="fq-x" aria-hidden="true">&rarr;</span></button>
+          <div class="fq-a" id="fqA3"><p>A level shower floor, an efficient drain, grab bars, an accessible control area, customized shelving and a shower seat. Roll-in shower pans, expandable walls and adjustable shower heads are available too.</p></div>
+        </div>
+        <p class="fq-h">Safety and style</p>
+        <div class="fq-item" data-topic="Safety and style">
+          <button class="fq-q" type="button" aria-expanded="false" aria-controls="fqA4"><span class="fq-n">04</span><span class="fq-t">Do the grab bars meet ADA standards?</span><span class="fq-x" aria-hidden="true">&rarr;</span></button>
+          <div class="fq-a" id="fqA4"><p>Yes. We offer custom grab bar installation that meets ADA standards.</p></div>
+        </div>
+        <div class="fq-item" data-topic="Safety and style">
+          <button class="fq-q" type="button" aria-expanded="false" aria-controls="fqA5"><span class="fq-n">05</span><span class="fq-t">Will it still look like a stylish bathroom?</span><span class="fq-x" aria-hidden="true">&rarr;</span></button>
+          <div class="fq-a" id="fqA5"><p>Yes. Customized shelving and the other features are designed to increase safety while keeping a stylish design, so nobody has to sacrifice style or convenience.</p></div>
+        </div>
+        <p class="fq-h">Getting started</p>
+        <div class="fq-item" data-topic="Getting started">
+          <button class="fq-q" type="button" aria-expanded="false" aria-controls="fqA6"><span class="fq-n">06</span><span class="fq-t">Do you offer free estimates for barrier-free showers in New Orleans?</span><span class="fq-x" aria-hidden="true">&rarr;</span></button>
+          <div class="fq-a" id="fqA6"><p>Yes, we offer free estimates for all bathroom renovation projects. Our team will visit your home, assess your needs, and provide a detailed quote at no cost to you.</p></div>
+        </div>
+        <div class="fq-item" data-topic="Getting started">
+          <button class="fq-q" type="button" aria-expanded="false" aria-controls="fqA7"><span class="fq-n">07</span><span class="fq-t">How long does a typical bathroom renovation take?</span><span class="fq-x" aria-hidden="true">&rarr;</span></button>
+          <div class="fq-a" id="fqA7"><p>The duration of a bathroom renovation varies based on the scope of the project. On average, a full renovation can take between 2 to 4 weeks. We provide a detailed timeline during the initial consultation.</p></div>
+        </div>
+        <div class="fq-item" data-topic="Getting started">
+          <button class="fq-q" type="button" aria-expanded="false" aria-controls="fqA8"><span class="fq-n">08</span><span class="fq-t">How do I schedule a consultation with your team?</span><span class="fq-x" aria-hidden="true">&rarr;</span></button>
+          <div class="fq-a" id="fqA8"><p>Scheduling a consultation is easy. You can contact us through our website, or call us directly at <a href="tel:+15046887786">504-688-7786</a>.</p></div>
+        </div>
+      </div>
+      <div class="fq-side">
+        <div class="fq-panel" id="fqPanel" aria-live="polite">
+          <span class="fq-big" id="fqBig" aria-hidden="true">01</span>
+          <p class="fq-topic" id="fqTopic">About barrier-free showers</p>
+          <h3 id="fqQ">What is a barrier-free shower?</h3>
+          <div class="fq-ans" id="fqAns"><p>A walk-in shower with no threshold. The level, roll-in floor makes it easier to get in and out, and the layout gives you extra space to move around.</p></div>
+        </div>
+        <div class="fq-cta">
+          <div>
+            <p class="eyeb">Still have a question?</p>
+            <p>Call us, or send a message from the contact page.</p>
+          </div>
+          <div class="fq-btns">
+            <a class="btn btn-l" href="tel:+15046887786">Call 504-688-7786</a>
+            <a class="btn btn-o" href="https://www.bigeasybathrooms.com/contact/" target="_blank" rel="noopener">Contact us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer id="foot">
+  <div class="wrap">
+    <div class="ft-top">
+      <div class="ft-brand rv">
+        <img class="flogo" src="assets/logo.png" alt="Big Easy Bathrooms">
+        <p>Bathroom remodeling across New Orleans and the surrounding parishes, from walk-in tubs and barrier-free showers to full renovations.</p>
+        <div class="ft-rating" aria-label="5-star client reviews on Google and Facebook">
+          <b class="tr-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</b>
+          <span class="tr-r1">5-Star Reviews</span>
+          <span class="tr-badges"><span class="badge g" aria-label="Google"><i>G</i><i>o</i><i>o</i><i>g</i><i>l</i><i>e</i></span><span class="badge fb">facebook</span></span>
+        </div>
+        <a class="btn btn-l" href="tel:+15046887786">Call 504-688-7786</a>
+      </div>
+      <div class="rv">
+        <h4>Showers</h4>
+        <ul>
+          <li><a href="https://www.bigeasybathrooms.com/barrier-free-showers/" target="_blank" rel="noopener">Barrier-Free Showers</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/replacement-showers/" target="_blank" rel="noopener">Replacement Showers</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/shower-base/" target="_blank" rel="noopener">Shower Base</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/shower-enclosure/" target="_blank" rel="noopener">Shower Enclosure</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/shower-liners/" target="_blank" rel="noopener">Shower Liners</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/shower-surrounds/" target="_blank" rel="noopener">Shower Surrounds</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/tub-to-shower-conversions/" target="_blank" rel="noopener">Tub to Shower Conversions</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/walk-in-showers/" target="_blank" rel="noopener">Walk-in Showers</a></li>
+        </ul>
+      </div>
+      <div class="rv">
+        <h4>Bathtubs</h4>
+        <ul>
+          <li><a href="https://www.bigeasybathrooms.com/bathtubs-replacement/" target="_blank" rel="noopener">Bathtubs Replacement</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/tub-liners/" target="_blank" rel="noopener">Tub Liners</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/walk-in-tubs/" target="_blank" rel="noopener">Walk-in Tubs</a></li>
+        </ul>
+        <h4>Also</h4>
+        <ul>
+          <li><a href="https://www.bigeasybathrooms.com/bathroom-safety/" target="_blank" rel="noopener">Bathroom Safety</a></li>
+        </ul>
+      </div>
+      <div class="rv">
+        <h4>Service areas</h4>
+        <ul>
+          <li><a href="https://www.bigeasybathrooms.com/service-areas/abita-springs/" target="_blank" rel="noopener">Abita Springs</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/service-areas/covington/" target="_blank" rel="noopener">Covington</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/service-areas/hammond/" target="_blank" rel="noopener">Hammond</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/service-areas/madisonville/" target="_blank" rel="noopener">Madisonville</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/service-areas/mandeville/" target="_blank" rel="noopener">Mandeville</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/service-areas/metairie/" target="_blank" rel="noopener">Metairie</a></li>
+          <li><a href="https://www.bigeasybathrooms.com/service-areas/slidell/" target="_blank" rel="noopener">Slidell</a></li>
+        </ul>
+      </div>
+      <div class="rv">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="reviews.html">Reviews</a></li>
+          <li><a href="faqs.html">FAQs</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <h4>Follow</h4>
+        <!-- The five profiles the client links from their own homepage. -->
+        <ul class="ft-social">
+          <li><a href="https://www.facebook.com/people/Big-Easy-Bathrooms/100088404444444/" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="https://www.instagram.com/bigeasybathrooms/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://twitter.com/BEasyBathrooms" target="_blank" rel="noopener">X</a></li>
+          <li><a href="https://www.linkedin.com/company/big-easy-bathrooms/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://www.google.com/maps?cid=16174386592259795580" target="_blank" rel="noopener">Google Maps</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft-bot">
+      <div>&copy; 2026 Big Easy Bathrooms. All rights reserved.</div>
+      <div>
+        <a href="https://www.bigeasybathrooms.com/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a>
+        &nbsp;&middot;&nbsp;
+        <a href="https://www.bigeasybathrooms.com/terms-conditions/" target="_blank" rel="noopener">Terms &amp; Conditions</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.documentElement.className += " js";
+
+/* sticky pill header */
+var tw = document.getElementById("topwrap");
+function onScroll(){
+  var y = window.pageYOffset || document.documentElement.scrollTop;
+  if (y > 120) { tw.classList.add("stuck"); } else { tw.classList.remove("stuck"); }
+}
+window.addEventListener("scroll", onScroll, {passive:true});
+onScroll();
+
+/* mobile menu */
+var burger = document.getElementById("burger");
+var topbar = document.getElementById("top");
+burger.addEventListener("click", function(){
+  var open = topbar.classList.toggle("open");
+  burger.setAttribute("aria-expanded", open ? "true" : "false");
+});
+
+/* scroll reveal.
+   Elements are visible in CSS by default; the .js class is what hides
+   them, and it is only added above once script is confirmed running.
+   If IntersectionObserver is missing, everything is revealed at once
+   rather than left invisible. */
+var items = document.querySelectorAll(".rv");
+if (!("IntersectionObserver" in window)) {
+  for (var i = 0; i < items.length; i++) { items[i].classList.add("in"); }
+} else {
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+    });
+  }, {rootMargin: "0px 0px -8% 0px", threshold: 0.05});
+  for (var j = 0; j < items.length; j++) { io.observe(items[j]); }
+  /* belt and braces: anything still hidden after 3s is shown anyway */
+  setTimeout(function(){
+    var still = document.querySelectorAll(".rv:not(.in)");
+    for (var k = 0; k < still.length; k++) {
+      var r = still[k].getBoundingClientRect();
+      if (r.top < window.innerHeight) { still[k].classList.add("in"); }
+    }
+  }, 3000);
+}
+/* keyword highlights: light them as their heading scrolls into view.
+   Same fail-safe shape as the reveal above - if IntersectionObserver is
+   missing everything lights at once, and anything still unlit after 3s
+   but already on screen is lit anyway. */
+function startKeywords(){
+  var kws = document.querySelectorAll(".kw,.kwg");
+  if (!("IntersectionObserver" in window)) {
+    for (var a = 0; a < kws.length; a++) { kws[a].classList.add("lit"); }
+    return;
+  }
+  var kio = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add("lit"); kio.unobserve(e.target); }
+    });
+  }, {rootMargin: "0px 0px -6% 0px", threshold: 0.25});
+  for (var b = 0; b < kws.length; b++) { kio.observe(kws[b]); }
+  setTimeout(function(){
+    var rest = document.querySelectorAll(".kw:not(.lit),.kwg:not(.lit)");
+    for (var c = 0; c < rest.length; c++) {
+      if (rest[c].getBoundingClientRect().top < window.innerHeight) {
+        rest[c].classList.add("lit");
+      }
+    }
+  }, 3000);
+}
+
+/* The hero keyword is in view the instant the page loads, so the observer
+   would fire while the intro overlay is still covering the screen. The
+   sweep would finish unseen. Hold the keywords until the intro has gone,
+   then give the eye a short beat before the highlight draws. */
+if (document.getElementById("intro")) {
+  var kwStarted = false;
+  var kwGo = function(){
+    if (kwStarted) return;
+    kwStarted = true;
+    setTimeout(startKeywords, 300);
+  };
+  document.addEventListener("beb:introdone", kwGo);
+  setTimeout(kwGo, 6000);          /* if the event never arrives, go anyway */
+} else {
+  startKeywords();
+}
+/* ---- magazine hero ----
+   Pages hinge on the spine at the left. Auto-advance exists because a
+   slideshow was asked for, but it is stoppable, it pauses whenever the
+   pointer or keyboard focus is inside, and it never runs at all under
+   prefers-reduced-motion. */
+(function(){
+  var stack = document.getElementById("magStack");
+  if (!stack) return;
+  var pages = [].slice.call(stack.querySelectorAll(".mag-pg"));
+  if (pages.length < 2) return;
+
+  var reduce = false;
+  try { reduce = window.matchMedia &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
+
+  var TURN = reduce ? 400 : 1150;
+  var GAP  = 5200;
+  var order = pages.map(function(_, i){ return i; });
+  var timer = null, paused = false, busy = false;
+
+  var dotsBox = document.getElementById("magDots");
+  var dots = pages.map(function(_, i){
+    var b = document.createElement("button");
+    b.type = "button";
+    b.className = "mag-dot";
+    b.setAttribute("aria-label", "Show photograph " + (i + 1));
+    b.addEventListener("click", function(){ jump(i); });
+    dotsBox.appendChild(b);
+    return b;
+  });
+
+  function paint(){
+    for (var k = 0; k < order.length; k++) {
+      pages[order[k]].style.zIndex = String(order.length - k);
+    }
+    for (var d = 0; d < dots.length; d++) {
+      dots[d].setAttribute("aria-current", d === order[0] ? "true" : "false");
+    }
+  }
+  function settle(){
+    for (var i = 0; i < pages.length; i++) {
+      pages[i].classList.add("noanim");
+      pages[i].classList.remove("turning");
+    }
+    paint();
+    void stack.offsetWidth;
+    for (var j = 0; j < pages.length; j++) { pages[j].classList.remove("noanim"); }
+  }
+  function advance(){
+    if (busy) return;
+    busy = true;
+    var top = pages[order[0]];
+    top.classList.add("turning");
+    setTimeout(function(){
+      order.push(order.shift());
+      settle();
+      busy = false;
+    }, TURN);
+  }
+  function back(){
+    if (busy) return;
+    order.unshift(order.pop());
+    settle();
+    restart();
+  }
+  function jump(i){
+    if (busy || i === order[0]) return;
+    var guard = 0;
+    while (order[0] !== i && guard++ < 40) { order.push(order.shift()); }
+    settle();
+    restart();
+  }
+  function stop(){ if (timer) { clearInterval(timer); timer = null; } }
+  function start(){ if (!reduce && !paused && !timer) { timer = setInterval(advance, GAP); } }
+  function restart(){ stop(); start(); }
+
+  document.getElementById("magNext").addEventListener("click", function(){ advance(); restart(); });
+  document.getElementById("magPrev").addEventListener("click", back);
+
+  var pb = document.getElementById("magPause");
+  if (reduce) {
+    pb.hidden = true;                 /* nothing is moving on its own */
+  } else {
+    pb.addEventListener("click", function(){
+      paused = !paused;
+      pb.setAttribute("aria-pressed", paused ? "true" : "false");
+      pb.setAttribute("aria-label", paused ? "Play the slideshow" : "Pause the slideshow");
+      pb.innerHTML = paused ? "&#9654;" : "&#10073;&#10073;";
+      if (paused) { stop(); } else { start(); }
+    });
+  }
+
+  var wrap = stack.parentNode.parentNode;   /* .mag-wrap */
+  wrap.addEventListener("mouseenter", stop);
+  wrap.addEventListener("mouseleave", start);
+  wrap.addEventListener("focusin", stop);
+  wrap.addEventListener("focusout", start);
+
+  paint();
+  start();
+})();
+/* ---- trust strip: bubbles from around the page, line up, pop ---- */
+(function(){
+  var strip = document.getElementById("trust");
+  if (!strip) return;
+  var reduce = false;
+  try { reduce = window.matchMedia &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
+  if (!reduce) {
+    /* each label bubble starts somewhere else on the page: alternate
+       sides, random height, some from above the hero and some from below */
+    var items = strip.querySelectorAll(".tr-item");
+    for (var i = 0; i < items.length; i++) {
+      var st = items[i].style;
+      var sx = (i % 2 === 0 ? -1 : 1) * (12 + Math.random() * 30);
+      var sy = (Math.random() < .55 ? -1 : 1) * (28 + Math.random() * 48);
+      st.setProperty("--fx", sx.toFixed(1) + "vw");
+      st.setProperty("--fy", sy.toFixed(1) + "vh");
+      st.setProperty("--d",  (i * .15 + Math.random() * .08).toFixed(2) + "s");
+    }
+  }
+  /* one pop per bubble, timed to its burst (2.15s + its delay), only when
+     the visitor turned sound on in the intro; browsers block it otherwise */
+  function pops(){
+    if (reduce || !items) return;
+    var on = false;
+    try { on = localStorage.getItem("beb_sound") === "1"; } catch (e) {}
+    if (!on) return;
+    for (var k = 0; k < items.length; k++) {
+      (function(n){
+        var d = parseFloat(items[n].style.getPropertyValue("--d")) || 0;
+        setTimeout(function(){
+          try {
+            var a = new Audio("assets/intro-pop.mp3");
+            a.volume = .45;
+            a.preservesPitch = false; a.playbackRate = .88 + n * .06;   /* rising pitch along the row */
+            var p = a.play(); if (p && p.catch) { p.catch(function(){}); }
+          } catch (e) {}
+        }, 2150 + d * 1000);
+      })(k);
+    }
+  }
+  var armed = false;
+  function go(){ if (armed) return; armed = true; strip.classList.add("go"); pops(); }
+  function watch(){
+    if (!("IntersectionObserver" in window)) { go(); return; }
+    var io = new IntersectionObserver(function(en){
+      en.forEach(function(e){ if (e.isIntersecting) { go(); io.disconnect(); } });
+    }, {threshold: .5});
+    io.observe(strip);
+  }
+  /* same trap as the hero keyword: never play behind the intro */
+  if (document.getElementById("intro")) {
+    var kicked = false;
+    var kick = function(){ if (kicked) return; kicked = true; setTimeout(watch, 350); };
+    document.addEventListener("beb:introdone", kick);
+    setTimeout(kick, 6000);
+  } else { watch(); }
+})();
+
+/* ---- ambient bubbles on both sand sections, like the intro's ----
+   Count follows the section's area; travel follows its height. */
+(function(){
+  var reduce = false;
+  try { reduce = window.matchMedia &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
+  if (reduce) return;
+  function rnd(a, b){ return a + Math.random() * (b - a); }
+  function mount(host){
+    if (!host) return;
+    var layer = document.createElement("div");
+    layer.className = "amb";
+    layer.setAttribute("aria-hidden", "true");
+    var area = host.offsetWidth * host.offsetHeight;
+    var count = Math.max(16, Math.min(40, Math.round(area / 22000)));
+    for (var k = 0; k < count; k++) {
+      var b = document.createElement("i");
+      b.style.setProperty("--x",      rnd(1, 99).toFixed(1) + "%");
+      b.style.setProperty("--y",      rnd(-8, 60).toFixed(1) + "%");
+      b.style.setProperty("--s",      rnd(6, 30).toFixed(1) + "px");
+      b.style.setProperty("--fd",     rnd(4.5, 10).toFixed(2) + "s");
+      b.style.setProperty("--fdelay", rnd(-10, 0).toFixed(2) + "s");
+      b.style.setProperty("--drift",  rnd(-70, 70).toFixed(0) + "px");
+      b.style.setProperty("--o",      rnd(.32, .85).toFixed(2));
+      layer.appendChild(b);
+    }
+    function size(){ layer.style.setProperty("--travel", (host.offsetHeight + 80) + "px"); }
+    size();
+    window.addEventListener("resize", size);
+    host.insertBefore(layer, host.firstChild);
+  }
+  mount(document.getElementById("trust"));
+  mount(document.getElementById("process"));
+  mount(document.getElementById("foot"));
+  /* inner-page heroes (about.html, services.html), absent here */
+  mount(document.getElementById("ahero"));
+  mount(document.getElementById("shero"));
+})();
+
+/* ---- strip footage: still under reduced motion, paused off screen ---- */
+(function(){
+  var v = document.getElementById("trustVid");
+  if (!v) return;
+  var reduce = false;
+  try { reduce = window.matchMedia &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
+  if (reduce) { v.removeAttribute("autoplay"); try { v.pause(); } catch (e) {} return; }
+  if (!("IntersectionObserver" in window)) return;
+  var io = new IntersectionObserver(function(en){
+    en.forEach(function(e){
+      if (e.isIntersecting) { try { v.play(); } catch (x) {} }
+      else { try { v.pause(); } catch (x) {} }
+    });
+  }, {threshold: .1});
+  io.observe(v);
+})();
+
+/* ---- service areas: a city picks its photograph, label and link; the
+   section surfaces (footage sharpens, list slides in) once on scroll-in ---- */
+(function(){
+  var sec = document.getElementById("areas");
+  if (!sec) return;
+  var items = [].slice.call(sec.querySelectorAll(".wwl-item"));
+  var imgs  = [].slice.call(sec.querySelectorAll(".wwl-imgs img"));
+  var idx = sec.querySelector(".wwl-label .idx"), city = sec.querySelector(".wwl-label .city");
+  var go  = sec.querySelector(".wwl-go");
+  function pick(k){
+    for (var i = 0; i < items.length; i++) {
+      items[i].classList.toggle("on", i === k);
+      items[i].setAttribute("aria-pressed", i === k ? "true" : "false");
+      if (imgs[i]) { imgs[i].classList.toggle("on", i === k); }
+    }
+    idx.textContent = (k < 9 ? "0" : "") + (k + 1);
+    city.textContent = items[k].textContent;
+    go.href = items[k].getAttribute("data-href");
+  }
+  items.forEach(function(b, i){
+    b.addEventListener("click", function(){ pick(i); });
+    b.addEventListener("mouseenter", function(){ pick(i); });
+  });
+  var done = false;
+  function surface(){ if (done) return; done = true; sec.classList.add("surf"); }
+  if (!("IntersectionObserver" in window)) { surface(); return; }
+  var io = new IntersectionObserver(function(en){
+    en.forEach(function(e){ if (e.isIntersecting) { surface(); io.disconnect(); } });
+  }, {threshold: .2});
+  io.observe(sec);
+  setTimeout(function(){ if (sec.getBoundingClientRect().top < window.innerHeight) { surface(); } }, 3000);
+})();
+
+/* ---- FAQ: every question in the rail; the chosen one reads large in the
+   panel (on phones, under its question). One open at a time. ---- */
+(function(){
+  var sec = document.getElementById("faqs");
+  if (!sec) return;
+  var items = [].slice.call(sec.querySelectorAll(".fq-item"));
+  var panel = document.getElementById("fqPanel");
+  var big = document.getElementById("fqBig"), topic = document.getElementById("fqTopic"),
+      q = document.getElementById("fqQ"), ans = document.getElementById("fqAns");
+  function phone(){
+    try { return window.matchMedia && window.matchMedia("(max-width:900px)").matches; } catch (e) { return false; }
+  }
+  function show(k, animate){
+    for (var i = 0; i < items.length; i++) {
+      var on = i === k;
+      items[i].classList.toggle("on", on);
+      items[i].querySelector(".fq-q").setAttribute("aria-expanded", on ? "true" : "false");
+    }
+    var it = items[k];
+    big.textContent = it.querySelector(".fq-n").textContent;
+    topic.textContent = it.getAttribute("data-topic");
+    q.textContent = it.querySelector(".fq-t").textContent;
+    ans.innerHTML = it.querySelector(".fq-a").innerHTML;
+    if (animate) { panel.classList.remove("swap"); void panel.offsetWidth; panel.classList.add("swap"); }
+  }
+  items.forEach(function(it, i){
+    it.querySelector(".fq-q").addEventListener("click", function(){
+      if (phone() && it.classList.contains("on")) {          /* a second tap closes it on a phone */
+        it.classList.remove("on");
+        it.querySelector(".fq-q").setAttribute("aria-expanded", "false");
+        return;
+      }
+      show(i, true);
+    });
+  });
+  show(0, false);
+  var done = false;
+  function reveal(){ if (done) return; done = true; sec.classList.add("in"); }
+  if (!("IntersectionObserver" in window)) { reveal(); return; }
+  var io = new IntersectionObserver(function(en){
+    en.forEach(function(e){ if (e.isIntersecting) { reveal(); io.disconnect(); } });
+  }, {threshold: .1});
+  io.observe(sec);
+  setTimeout(function(){ if (sec.getBoundingClientRect().top < window.innerHeight) { reveal(); } }, 3000);
+})();
+
+/* ---- step clips: start when the row is on screen, pause off it ---- */
+(function(){
+  var vids = [].slice.call(document.querySelectorAll(".sf-vid"));
+  if (!vids.length) return;
+  var reduce = false;
+  try { reduce = window.matchMedia &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
+  if (reduce) return;                       /* posters only */
+  if (!("IntersectionObserver" in window)) { vids.forEach(function(v){ try { v.play(); } catch (e) {} }); return; }
+  var io = new IntersectionObserver(function(en){
+    en.forEach(function(e){
+      var v = e.target;
+      if (e.isIntersecting) { try { var p = v.play(); if (p && p.catch) { p.catch(function(){}); } } catch (x) {} }
+      else { try { v.pause(); } catch (x) {} }
+    });
+  }, {threshold: .15});
+  vids.forEach(function(v){ io.observe(v); });
+})();
+
+/* ---- how we work: the row fills from the right, once, on scroll-in ---- */
+(function(){
+  var row = document.getElementById("stepsFill");
+  if (!row) return;
+  function watch(){
+    if (!("IntersectionObserver" in window)) { row.classList.add("go"); return; }
+    var io = new IntersectionObserver(function(en){
+      en.forEach(function(e){ if (e.isIntersecting) { row.classList.add("go"); io.disconnect(); } });
+    }, {threshold: .2});
+    io.observe(row);
+  }
+  /* now directly under the strip: on a tall screen it can be in view at
+     load, so never let it fill behind the intro overlay */
+  if (document.getElementById("intro")) {
+    var kicked = false;
+    var kick = function(){ if (kicked) return; kicked = true; setTimeout(watch, 350); };
+    document.addEventListener("beb:introdone", kick);
+    setTimeout(kick, 6000);
+  } else { watch(); }
+})();
+
+/* ---- how we work (previous player): kept, inert; its markup is gone ---- */
+(function(){
+  var root = document.getElementById("pp");
+  if (!root) return;
+  var reduce = false;
+  try { reduce = window.matchMedia &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
+  var stage = document.getElementById("ppStage");
+  var num   = document.getElementById("ppNum");
+  var dots  = [].slice.call(document.getElementById("ppDots").children);
+  var panes = [].slice.call(document.getElementById("ppPanes").children);
+  var hint  = document.getElementById("ppHint");
+  var STEP_MS = 6500;          /* long enough to read a 35-word step */
+  var cur = 0, timer = null, paused = false, inView = false, first = true;
+
+  function show(i, force){
+    if (i === cur && !force) return;
+    var prev = cur; cur = i;
+    for (var k = 0; k < dots.length; k++) {
+      dots[k].classList.toggle("on", k === i);
+      dots[k].setAttribute("aria-current", k === i ? "true" : "false");
+    }
+    if (prev !== i) {
+      panes[prev].classList.remove("on");
+      panes[prev].classList.add("out");
+      (function(p){ setTimeout(function(){ p.classList.remove("out"); }, 700); })(panes[prev]);
+    }
+    panes[i].classList.add("on");
+    num.textContent = "0" + (i + 1);
+    if (reduce) { stage.classList.add("play"); return; }
+    stage.classList.remove("play");
+    void stage.offsetWidth;
+    stage.classList.add("play");
+  }
+  function next(){ show((cur + 1) % panes.length, false); }
+  function stop(){ if (timer) { clearInterval(timer); timer = null; } }
+  function start(){ if (!reduce && !paused && inView && !timer) { timer = setInterval(next, STEP_MS); } }
+
+  for (var d = 0; d < dots.length; d++) {
+    (function(k){ dots[k].addEventListener("click", function(){ show(k, true); stop(); start(); }); })(d);
+  }
+  root.addEventListener("mouseenter", function(){ paused = true;  stop();  });
+  root.addEventListener("mouseleave", function(){ paused = false; start(); });
+  root.addEventListener("focusin",    function(){ paused = true;  stop();  });
+  root.addEventListener("focusout",   function(){ paused = false; start(); });
+  if (reduce && hint) { hint.hidden = true; }
+
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function(en){
+      en.forEach(function(e){
+        inView = e.isIntersecting;
+        if (inView) { if (first) { first = false; show(0, true); } start(); }
+        else { stop(); }
+      });
+    }, {threshold: .3});
+    io.observe(root);
+  } else { inView = true; show(0, true); start(); }
+})();
+/* ---- reviews spotlight: one at a time, the reviewer's photograph in a bubble that pops ---- */
+(function(){
+  var root = document.getElementById("spot");
+  if (!root) return;
+  var reduce = false;
+  try { reduce = window.matchMedia &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
+  var stage = document.getElementById("spotStage");
+  var ini   = document.getElementById("spotIni");
+  var panes = [].slice.call(document.getElementById("spotPanes").children);
+  var tiles = [].slice.call(document.querySelectorAll("#rvTiles li"));
+  var tabs  = [].slice.call(document.querySelectorAll(".rtab"));
+  var hint  = document.getElementById("spotHint");
+  var STEP_MS = 9000;
+  var cur = 0, timer = null, paused = false, inView = false, first = true, cat = "all";
+  var face  = document.getElementById("spotFace");
+  /* a photograph that fails to load hides itself and the initials show through */
+  function guard(img){
+    if (!img) return;
+    img.addEventListener("error", function(){ img.classList.add("bad"); });
+    img.addEventListener("load",  function(){ img.classList.remove("bad"); });
+    if (img.complete && img.naturalWidth === 0 && img.getAttribute("src")) { img.classList.add("bad"); }
+  }
+  guard(face);
+  [].slice.call(document.querySelectorAll("#rvTiles .mono img")).forEach(guard);
+  /* seven small files: fetch them once so a change of reviewer is instant */
+  for (var pi = 0; pi < panes.length; pi++) {
+    if (panes[pi].getAttribute("data-img")) { (new Image()).src = panes[pi].getAttribute("data-img"); }
+  }
+
+  function visible(){
+    var v = [];
+    for (var i = 0; i < panes.length; i++) {
+      if (cat === "all" || panes[i].getAttribute("data-cat") === cat) v.push(i);
+    }
+    return v;
+  }
+  function show(i, force){
+    if (i === cur && !force) return;
+    var prev = cur; cur = i;
+    for (var t = 0; t < tiles.length; t++) {
+      tiles[t].querySelector(".rv-tile").setAttribute("aria-pressed", t === i ? "true" : "false");
+    }
+    if (prev !== i) {
+      panes[prev].classList.remove("on");
+      panes[prev].classList.add("out");
+      (function(p){ setTimeout(function(){ p.classList.remove("out"); }, 700); })(panes[prev]);
+    }
+    panes[i].classList.add("on");
+    var b = ini.querySelector("b");
+    if (b) { b.textContent = panes[i].getAttribute("data-ini"); }
+    if (face) { face.src = panes[i].getAttribute("data-img") || ""; }
+    if (reduce) { stage.classList.add("play"); return; }
+    stage.classList.remove("play");
+    void stage.offsetWidth;
+    stage.classList.add("play");
+  }
+  function next(){
+    var v = visible(); if (!v.length) return;
+    var k = v.indexOf(cur); show(v[(k + 1) % v.length], false);
+  }
+  function back(){
+    var v = visible(); if (!v.length) return;
+    var k = v.indexOf(cur); show(v[(k - 1 + v.length) % v.length], false);
+  }
+  function stop(){ if (timer) { clearInterval(timer); timer = null; } }
+  function start(){ if (!reduce && !paused && inView && !timer) { timer = setInterval(next, STEP_MS); } }
+  function restart(){ stop(); start(); }
+
+  /* filters narrow the tiles and the rotation */
+  function apply(c){
+    cat = c;
+    for (var t = 0; t < tabs.length; t++) {
+      tabs[t].setAttribute("aria-pressed", tabs[t].getAttribute("data-cat") === c ? "true" : "false");
+    }
+    for (var k = 0; k < tiles.length; k++) {
+      tiles[k].hidden = !(c === "all" || tiles[k].getAttribute("data-cat") === c);
+    }
+    var v = visible();
+    if (v.length && v.indexOf(cur) < 0) { show(v[0], true); }
+    restart();
+  }
+  for (var a = 0; a < tabs.length; a++) {
+    (function(b){ b.addEventListener("click", function(){ apply(b.getAttribute("data-cat")); }); })(tabs[a]);
+  }
+  for (var d = 0; d < tiles.length; d++) {
+    (function(li, k){
+      li.querySelector(".rv-tile").addEventListener("click", function(){ show(k, true); restart(); });
+    })(tiles[d], d);
+  }
+  document.getElementById("spotNext").addEventListener("click", function(){ next(); restart(); });
+  document.getElementById("spotPrev").addEventListener("click", function(){ back(); restart(); });
+  var pb = document.getElementById("spotPause");
+  if (reduce) {
+    pb.hidden = true; if (hint) { hint.hidden = true; }
+  } else {
+    pb.addEventListener("click", function(){
+      paused = !paused;
+      pb.setAttribute("aria-pressed", paused ? "true" : "false");
+      pb.setAttribute("aria-label", paused ? "Play the reviews" : "Pause the reviews");
+      pb.innerHTML = paused ? "&#9654;" : "&#10073;&#10073;";
+      if (paused) { stop(); } else { start(); }
+    });
+  }
+  root.addEventListener("mouseenter", function(){ stop(); });
+  root.addEventListener("mouseleave", function(){ start(); });
+  root.addEventListener("focusin",    function(){ stop(); });
+  root.addEventListener("focusout",   function(){ start(); });
+
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function(en){
+      en.forEach(function(e){
+        inView = e.isIntersecting;
+        if (inView) { if (first) { first = false; show(0, true); } start(); }
+        else { stop(); }
+      });
+    }, {threshold: .3});
+    io.observe(root);
+  } else { inView = true; show(0, true); start(); }
+})();
+/* ---- before / after sliders ----
+   A native range input covers each frame: drag, touch and keyboard all
+   work without custom pointer code. First scroll-in sweeps from
+   all-before to half, once. */
+(function(){
+  var figs = [].slice.call(document.querySelectorAll(".ba"));
+  if (!figs.length) return;
+  var reduce = false;
+  try { reduce = window.matchMedia &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
+  figs.forEach(function(f){
+    var r = f.querySelector(".ba-range");
+    function set(v){
+      f.style.setProperty("--pos", v + "%");
+      r.setAttribute("aria-valuetext", Math.round(v) + " percent after");
+    }
+    set(50);
+    r.addEventListener("input", function(){ set(+r.value); });
+    if (reduce || !("IntersectionObserver" in window)) return;
+    var done = false;
+    var io = new IntersectionObserver(function(en){
+      en.forEach(function(e){
+        if (!e.isIntersecting || done) return;
+        done = true; io.disconnect();
+        var t0 = null;
+        function tick(ts){
+          if (!t0) t0 = ts;
+          var p = Math.min((ts - t0) / 1400, 1);
+          var eased = 1 - Math.pow(1 - p, 3);
+          var v = 100 - 50 * eased;
+          set(v); r.value = v;
+          if (p < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      });
+    }, {threshold: .45});
+    io.observe(f);
+  });
+})();
+</script>
+</body>
+</html>
