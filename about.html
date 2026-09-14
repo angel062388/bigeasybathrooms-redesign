@@ -1248,90 +1248,109 @@ footer a:hover,footer a:focus-visible{color:#fff;text-decoration:underline;
 }
 
 /* ============================================================
-   SERVICE AREAS, where we work
-   Pattern from the TurnKey mockup; Big Easy's tokens and footage.
-   Footage sharpens and the list slides in once on scroll-in; a city
-   picks its photograph, label and page link.
+   SERVICE AREAS, the water map
+   The idea is a coverage map (pins on a stylised regional map, a
+   vehicle on the routes, seen in another mockup); the theme is the
+   bathroom: tiled land, water for the lake and river, a navy pipe
+   carrying flowing water to the seven areas, a drop travelling the
+   route, markers that ripple. Map markers and the list light each
+   other up. The list is the keyboard and screen-reader route.
    ============================================================ */
-.wwl-sec{position:relative;overflow:hidden;background:var(--cream-2);padding-top:56px;padding-bottom:56px}
-.wwl-sec .wrap{position:relative;z-index:2}
-.wwl-sec .eyeb{color:var(--navy)}
-#newsletter{padding:56px 0 48px}   /* the gap into the footage band was the two paddings added up */
-.wwl-bg{position:absolute;inset:0;z-index:0}
-.wwl-bg video{width:100%;height:100%;object-fit:cover;transform:scale(1.3);filter:blur(6px);
-  transition:transform 1.7s cubic-bezier(.22,1,.36,1),filter 1.4s ease}
-.wwl-sec.surf .wwl-bg video{transform:scale(1);filter:blur(0)}
-.wwl-bg::after{content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(248,246,242,.96) 0%,rgba(248,246,242,.8) 45%,rgba(248,246,242,.96) 100%)}
-.wwl{display:grid;grid-template-columns:.92fr 1.08fr;gap:44px;margin-top:40px;align-items:center}
-/* seven floating bubbles fill the column beside the photograph: three
-   staggered rows, each bubble a share of the column width */
-.wwl-list{list-style:none;margin:0;padding:0;position:relative;align-self:stretch;min-height:360px}
-.wwl-list li{position:absolute;left:var(--x);top:var(--y);width:var(--s);aspect-ratio:1;margin:0}
-.js .wwl-list li{opacity:0;transform:translateX(-22px);
-  transition:opacity .5s ease,transform .6s cubic-bezier(.16,1,.3,1)}
-.js .wwl-sec.surf .wwl-list li{opacity:1;transform:none}
-.js .wwl-sec.surf .wwl-list li:nth-child(2){transition-delay:.06s}
-.js .wwl-sec.surf .wwl-list li:nth-child(3){transition-delay:.12s}
-.js .wwl-sec.surf .wwl-list li:nth-child(4){transition-delay:.18s}
-.js .wwl-sec.surf .wwl-list li:nth-child(5){transition-delay:.24s}
-.js .wwl-sec.surf .wwl-list li:nth-child(6){transition-delay:.3s}
-.js .wwl-sec.surf .wwl-list li:nth-child(7){transition-delay:.36s}
-.wwl-item{width:100%;height:100%;border-radius:50%;display:grid;place-items:center;text-align:center;
-  padding:8px 10px;cursor:pointer;font-family:var(--serif);font-weight:500;font-size:1rem;
-  line-height:1.15;color:var(--ink);
-  /* light brown glass: a white highlight into the gallery brown and a shade deeper at the rim */
-  background:radial-gradient(circle at 34% 28%,rgba(255,255,255,.85),rgba(233,221,203,.96) 42%,rgba(213,196,170,.98) 100%);
-  border:1px solid rgba(255,255,255,.85);
-  box-shadow:inset 0 0 18px rgba(255,255,255,.55),inset -10px -12px 24px rgba(4,34,61,.14),0 14px 30px rgba(4,34,61,.16);
-  animation:wwlBob var(--fd,6s) ease-in-out var(--fdelay,0s) infinite;
-  transition:background .25s ease,color .25s ease,box-shadow .25s ease}
-.wwl-item i{position:absolute;left:19%;top:13%;width:26%;height:18%;border-radius:50%;pointer-events:none;
-  background:radial-gradient(circle,rgba(255,255,255,.98),rgba(255,255,255,0) 70%)}
-.wwl-item{position:relative}
-.wwl-item:hover,.wwl-item:focus-visible{color:var(--navy);box-shadow:inset 0 0 18px rgba(255,255,255,.8),
-  inset -10px -12px 24px rgba(4,34,61,.12),0 18px 36px rgba(4,34,61,.24)}
-.wwl-item.on{color:#fff;
-  background:radial-gradient(circle at 34% 28%,rgba(255,255,255,.55),rgba(4,34,61,.92) 52%,rgba(4,34,61,1) 100%);
-  border-color:rgba(255,255,255,.85);
-  box-shadow:inset 0 0 14px rgba(255,255,255,.35),0 18px 36px rgba(4,34,61,.3)}
-@keyframes wwlBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
-.wwl-media{position:relative;aspect-ratio:4/3;border-radius:var(--r);overflow:hidden;
-  background:var(--cream-2);box-shadow:0 24px 60px rgba(36,36,36,.18)}
-.js .wwl-media{opacity:0;transform:translateY(26px) scale(.97);
-  transition:opacity .7s ease .25s,transform .85s cubic-bezier(.16,1,.3,1) .25s}
-.js .wwl-sec.surf .wwl-media{opacity:1;transform:none}
-.wwl-imgs img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s ease}
-.wwl-imgs img.on{opacity:1}
-.wwl-media::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
-  background:linear-gradient(180deg,rgba(4,34,61,0) 48%,rgba(4,34,61,.86) 100%)}
-.wwl-label{position:absolute;left:22px;bottom:18px;z-index:2;display:flex;align-items:baseline;gap:12px;color:#fff}
-.wwl-label .idx{font-family:var(--sans);font-weight:600;font-size:.8rem;letter-spacing:.16em;color:var(--sand-2)}
-.wwl-label .city{font-family:var(--serif);font-weight:400;font-size:2rem;line-height:1}
-.wwl-go{position:absolute;right:18px;bottom:18px;z-index:2;font-family:var(--sans);font-size:.76rem;
-  font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);background:#fff;
-  border-radius:999px;padding:10px 16px;text-decoration:none;transition:.2s ease}
-.wwl-go:hover,.wwl-go:focus-visible{background:var(--sand)}
-.wwl-cta{display:flex;gap:13px;flex-wrap:wrap;justify-content:center;margin-top:28px}
+.am-sec{background:var(--cream-2);padding-top:56px;padding-bottom:56px}
+.am-sec .eyeb{color:var(--navy)}
+#newsletter{padding:56px 0 48px}   /* the gap into the areas band was the two paddings added up */
+.am-grid{display:grid;grid-template-columns:minmax(0,1.14fr) minmax(0,.86fr);grid-template-areas:"map head" "map side";
+  gap:26px 48px;align-items:center}
+.am-head{grid-area:head;align-self:end;margin:0}
+.am-card{grid-area:map}
+.am-side{grid-area:side;align-self:start}
+.am-lede{margin:14px 0 0;max-width:46ch;font-size:1.02rem}
+/* the card: a pale tile, the map inset */
+.am-card{position:relative;background:#FBF8F3;border:1px solid rgba(199,178,154,.55);border-radius:var(--r);
+  padding:18px 18px 14px;box-shadow:0 24px 60px rgba(36,36,36,.16)}
+.am-prompt{display:flex;align-items:baseline;justify-content:space-between;gap:8px 18px;flex-wrap:wrap;margin:0 2px 12px}
+.am-prompt .eyeb{margin:0}
+.am-prompt strong{font-family:var(--serif);font-weight:500;font-size:1.05rem;color:var(--ink);letter-spacing:-.01em}
+.am-stage{position:relative}
+.am-map{display:block;width:100%;height:auto;aspect-ratio:1000/640;border-radius:14px;overflow:hidden}
+.am-zoom .am-map{aspect-ratio:770/470}   /* the script's phone viewBox */
+.am-water{fill:#CFE0EA}
+.am-waves path{fill:none;stroke:rgba(4,34,61,.16);stroke-width:2;stroke-linecap:round;animation:amWave 5s linear infinite}
+.am-waves path:nth-child(2){animation-duration:6.5s;animation-direction:reverse;stroke:rgba(4,34,61,.12)}
+.am-waves path:nth-child(3){animation-duration:7.5s}
+@keyframes amWave{to{transform:translateX(-60px)}}
+.am-river{fill:none;stroke:#CFE0EA;stroke-width:16;stroke-linecap:round}
+.am-wlabel{font-family:var(--serif);font-style:italic;font-size:19px;fill:rgba(4,34,61,.62);text-anchor:middle}
+.am-wlabel.am-small{font-size:16px}
+.am-wlabel.am-home{font-family:var(--sans);font-style:normal;font-weight:600;font-size:17px;fill:var(--navy);text-anchor:start}
+.am-pipe{fill:none;stroke:var(--navy);stroke-width:8;stroke-linecap:round;stroke-linejoin:round}
+.am-flow{fill:none;stroke:#BFDDF0;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;
+  stroke-dasharray:10 14;animation:amFlow 1.5s linear infinite}
+@keyframes amFlow{to{stroke-dashoffset:-24}}
+.am-ring{fill:none;stroke:var(--navy);stroke-width:2}
+.am-core{fill:var(--navy);stroke:#fff;stroke-width:3;transform-box:fill-box;transform-origin:center;transition:transform .25s ease}
+.am-dot.hot .am-core{transform:scale(1.4)}
+.am-drop{filter:drop-shadow(0 3px 4px rgba(4,34,61,.35))}
+/* labels over the map, real links; the pointer is a rotated square */
+.am-pin{position:absolute;left:var(--px);top:var(--py);z-index:2;transform:translate(-50%,calc(-100% - 15px));
+  display:inline-flex;align-items:center;gap:8px;padding:5px 12px 5px 6px;border-radius:999px;
+  background:#fff;color:var(--navy);text-decoration:none;font-family:var(--sans);font-size:.9rem;font-weight:600;
+  line-height:1;white-space:nowrap;border:1px solid rgba(4,34,61,.2);box-shadow:0 8px 20px rgba(4,34,61,.14);
+  transition:background .2s ease,color .2s ease,box-shadow .2s ease}
+.am-pin b{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;
+  font-size:.64rem;font-weight:700;letter-spacing:.04em;transition:background .2s ease,color .2s ease}
+.am-pin::after{content:"";position:absolute;left:50%;bottom:-6px;width:10px;height:10px;background:#fff;
+  border-right:1px solid rgba(4,34,61,.2);border-bottom:1px solid rgba(4,34,61,.2);transform:translateX(-50%) rotate(45deg);
+  transition:background .2s ease}
+.am-pin.am-r{transform:translate(16px,-50%)}
+.am-pin.am-r::after{left:-6px;bottom:auto;top:50%;transform:translateY(-50%) rotate(135deg)}
+.am-pin.am-l{transform:translate(calc(-100% - 16px),-50%)}
+.am-pin.am-l::after{left:auto;right:-6px;bottom:auto;top:50%;transform:translateY(-50%) rotate(-45deg)}
+.am-pin:hover,.am-pin.hot{background:var(--navy);color:#fff;border-color:var(--navy);box-shadow:0 12px 26px rgba(4,34,61,.3)}
+.am-pin:hover b,.am-pin.hot b{background:#fff;color:var(--navy)}
+.am-pin:hover::after,.am-pin.hot::after{background:var(--navy);border-color:var(--navy)}
+.am-note{display:flex;align-items:center;gap:8px;margin:12px 2px 0;font-size:.88rem;color:var(--body)}
+.am-note svg{flex:0 0 auto}
+/* the list: numeral, city, parish, arrow */
+.am-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.am-row{display:flex;align-items:center;gap:14px;padding:9px 16px 9px 10px;border-radius:16px;background:#fff;
+  border:1px solid rgba(199,178,154,.5);text-decoration:none;color:var(--ink);transition:.2s ease}
+.am-row b{flex:0 0 auto;display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--navy);
+  color:#fff;font-family:var(--sans);font-size:.72rem;font-weight:700;letter-spacing:.06em;transition:.2s ease}
+.am-txt{display:flex;flex-direction:column;gap:2px;min-width:0}
+.am-city{font-family:var(--serif);font-size:1.16rem;font-weight:500;line-height:1.1;letter-spacing:-.01em}
+.am-row small{font-family:var(--sans);font-size:.66rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--taupe);transition:.2s ease}
+.am-row i{margin-left:auto;font-style:normal;font-size:1.1rem;color:var(--navy);transition:.2s ease}
+.am-row:hover,.am-row:focus-visible,.am-row.hot{background:var(--navy);border-color:var(--navy);color:#fff;transform:translateX(4px)}
+.am-row:hover b,.am-row:focus-visible b,.am-row.hot b{background:#fff;color:var(--navy)}
+.am-row:hover small,.am-row:focus-visible small,.am-row.hot small{color:var(--sand-2)}
+.am-row:hover i,.am-row:focus-visible i,.am-row.hot i{color:#fff;transform:translateX(3px)}
+.am-cta{display:flex;gap:13px;flex-wrap:wrap;margin-top:22px}
 @media (max-width:900px){
-  .wwl{grid-template-columns:1fr;gap:26px}
-  .wwl-list{min-height:330px;height:330px}
-  .wwl-item{padding:8px;font-size:.88rem}
-  /* phones: three staggered rows, so no bubble drops under 95px */
-  .wwl-list li:nth-child(1){--x:2% !important;--y:2% !important;--s:30% !important}
-  .wwl-list li:nth-child(2){--x:37% !important;--y:7% !important;--s:28% !important}
-  .wwl-list li:nth-child(3){--x:70% !important;--y:2% !important;--s:30% !important}
-  .wwl-list li:nth-child(4){--x:18% !important;--y:34% !important;--s:28% !important}
-  .wwl-list li:nth-child(5){--x:52% !important;--y:35% !important;--s:30% !important}
-  .wwl-list li:nth-child(6){--x:4% !important;--y:64% !important;--s:30% !important}
-  .wwl-list li:nth-child(7){--x:68% !important;--y:64% !important;--s:29% !important}
-  .wwl-label .city{font-size:1.5rem}
+  .am-grid{grid-template-columns:1fr;grid-template-areas:"head" "map" "side";gap:24px}
+  .am-head{align-self:auto}
+}
+@media (max-width:700px){
+  /* phones: the labels become numbered dots on the markers; the list
+     carries the names */
+  .am-pin,.am-pin.am-r,.am-pin.am-l{padding:2px;gap:0;transform:translate(-50%,-50%)}
+  .am-pin span{display:none}
+  .am-pin::after{display:none}
+  .am-pin b{width:24px;height:24px;font-size:.66rem}
+  .am-wlabel{font-size:26px}
+  .am-wlabel.am-small{font-size:22px}
+  .am-wlabel.am-home{font-size:24px}
+  .am-pipe{stroke-width:9}
+  .am-flow{stroke-width:3.5}
+  .am-card{padding:14px 14px 12px}
+  .am-prompt strong{font-size:1rem}
+  .am-city{font-size:1.06rem}
 }
 @media (prefers-reduced-motion:reduce){
-  .wwl-bg video{transform:none!important;filter:none!important;transition:none!important}
-  .js .wwl-list li,.js .wwl-media{opacity:1!important;transform:none!important;transition:none!important}
-  .wwl-imgs img{transition:none!important}
-  .wwl-item{animation:none!important}
+  .am-waves path,.am-flow{animation:none!important}
+  .am-drop{display:none}
+  .am-core,.am-pin,.am-row,.am-row b,.am-row i{transition:none!important}
+  .am-row:hover,.am-row.hot{transform:none}
 }
 
 /* ============================================================
@@ -2076,37 +2095,49 @@ if (document.getElementById("intro")) {
   io.observe(v);
 })();
 
-/* ---- service areas: a city picks its photograph, label and link; the
-   section surfaces (footage sharpens, list slides in) once on scroll-in ---- */
+/* ---- service areas: a map marker and its list row light each other up;
+   phones zoom the map in on the seven markers (the labels are placed from
+   the markers' map coordinates, so they follow); the ripples and the
+   travelling drop (SMIL) pause under reduced motion ---- */
 (function(){
   var sec = document.getElementById("areas");
   if (!sec) return;
-  var items = [].slice.call(sec.querySelectorAll(".wwl-item"));
-  var imgs  = [].slice.call(sec.querySelectorAll(".wwl-imgs img"));
-  var idx = sec.querySelector(".wwl-label .idx"), city = sec.querySelector(".wwl-label .city");
-  var go  = sec.querySelector(".wwl-go");
-  function pick(k){
-    for (var i = 0; i < items.length; i++) {
-      items[i].classList.toggle("on", i === k);
-      items[i].setAttribute("aria-pressed", i === k ? "true" : "false");
-      if (imgs[i]) { imgs[i].classList.toggle("on", i === k); }
+  var els = [].slice.call(sec.querySelectorAll("[data-k]"));
+  function set(k, on){
+    for (var i = 0; i < els.length; i++) {
+      if (els[i].getAttribute("data-k") === k) { els[i].classList.toggle("hot", on); }
     }
-    idx.textContent = (k < 9 ? "0" : "") + (k + 1);
-    city.textContent = items[k].textContent;
-    go.href = items[k].getAttribute("data-href");
   }
-  items.forEach(function(b, i){
-    b.addEventListener("click", function(){ pick(i); });
-    b.addEventListener("mouseenter", function(){ pick(i); });
+  els.forEach(function(e){
+    var k = e.getAttribute("data-k");
+    e.addEventListener("mouseenter", function(){ set(k, true); });
+    e.addEventListener("mouseleave", function(){ set(k, false); });
+    e.addEventListener("focus", function(){ set(k, true); });
+    e.addEventListener("blur", function(){ set(k, false); });
   });
-  var done = false;
-  function surface(){ if (done) return; done = true; sec.classList.add("surf"); }
-  if (!("IntersectionObserver" in window)) { surface(); return; }
-  var io = new IntersectionObserver(function(en){
-    en.forEach(function(e){ if (e.isIntersecting) { surface(); io.disconnect(); } });
-  }, {threshold: .2});
-  io.observe(sec);
-  setTimeout(function(){ if (sec.getBoundingClientRect().top < window.innerHeight) { surface(); } }, 3000);
+  var svg = document.getElementById("amMap"), card = document.getElementById("amCard");
+  var pins = [].slice.call(sec.querySelectorAll(".am-pin"));
+  var FULL = [0, 0, 1000, 640], ZOOM = [140, 55, 770, 470];
+  function phone(){
+    try { return window.matchMedia && window.matchMedia("(max-width:700px)").matches; } catch (e) { return false; }
+  }
+  function place(){
+    if (!svg) return;
+    var vb = phone() ? ZOOM : FULL;
+    svg.setAttribute("viewBox", vb.join(" "));
+    card.classList.toggle("am-zoom", vb === ZOOM);
+    for (var i = 0; i < pins.length; i++) {
+      var x = parseFloat(pins[i].getAttribute("data-x")), y = parseFloat(pins[i].getAttribute("data-y"));
+      pins[i].style.setProperty("--px", ((x - vb[0]) / vb[2] * 100).toFixed(2) + "%");
+      pins[i].style.setProperty("--py", ((y - vb[1]) / vb[3] * 100).toFixed(2) + "%");
+    }
+  }
+  place();
+  var t;
+  window.addEventListener("resize", function(){ clearTimeout(t); t = setTimeout(place, 120); });
+  var reduce = false;
+  try { reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion:reduce)").matches; } catch (e) {}
+  if (svg && reduce && svg.pauseAnimations) { try { svg.pauseAnimations(); } catch (e) {} }
 })();
 
 /* ---- FAQ: every question in the rail; the chosen one reads large in the

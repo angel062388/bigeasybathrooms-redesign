@@ -1248,90 +1248,109 @@ footer a:hover,footer a:focus-visible{color:#fff;text-decoration:underline;
 }
 
 /* ============================================================
-   SERVICE AREAS, where we work
-   Pattern from the TurnKey mockup; Big Easy's tokens and footage.
-   Footage sharpens and the list slides in once on scroll-in; a city
-   picks its photograph, label and page link.
+   SERVICE AREAS, the water map
+   The idea is a coverage map (pins on a stylised regional map, a
+   vehicle on the routes, seen in another mockup); the theme is the
+   bathroom: tiled land, water for the lake and river, a navy pipe
+   carrying flowing water to the seven areas, a drop travelling the
+   route, markers that ripple. Map markers and the list light each
+   other up. The list is the keyboard and screen-reader route.
    ============================================================ */
-.wwl-sec{position:relative;overflow:hidden;background:var(--cream-2);padding-top:56px;padding-bottom:56px}
-.wwl-sec .wrap{position:relative;z-index:2}
-.wwl-sec .eyeb{color:var(--navy)}
-#newsletter{padding:56px 0 48px}   /* the gap into the footage band was the two paddings added up */
-.wwl-bg{position:absolute;inset:0;z-index:0}
-.wwl-bg video{width:100%;height:100%;object-fit:cover;transform:scale(1.3);filter:blur(6px);
-  transition:transform 1.7s cubic-bezier(.22,1,.36,1),filter 1.4s ease}
-.wwl-sec.surf .wwl-bg video{transform:scale(1);filter:blur(0)}
-.wwl-bg::after{content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(248,246,242,.96) 0%,rgba(248,246,242,.8) 45%,rgba(248,246,242,.96) 100%)}
-.wwl{display:grid;grid-template-columns:.92fr 1.08fr;gap:44px;margin-top:40px;align-items:center}
-/* seven floating bubbles fill the column beside the photograph: three
-   staggered rows, each bubble a share of the column width */
-.wwl-list{list-style:none;margin:0;padding:0;position:relative;align-self:stretch;min-height:360px}
-.wwl-list li{position:absolute;left:var(--x);top:var(--y);width:var(--s);aspect-ratio:1;margin:0}
-.js .wwl-list li{opacity:0;transform:translateX(-22px);
-  transition:opacity .5s ease,transform .6s cubic-bezier(.16,1,.3,1)}
-.js .wwl-sec.surf .wwl-list li{opacity:1;transform:none}
-.js .wwl-sec.surf .wwl-list li:nth-child(2){transition-delay:.06s}
-.js .wwl-sec.surf .wwl-list li:nth-child(3){transition-delay:.12s}
-.js .wwl-sec.surf .wwl-list li:nth-child(4){transition-delay:.18s}
-.js .wwl-sec.surf .wwl-list li:nth-child(5){transition-delay:.24s}
-.js .wwl-sec.surf .wwl-list li:nth-child(6){transition-delay:.3s}
-.js .wwl-sec.surf .wwl-list li:nth-child(7){transition-delay:.36s}
-.wwl-item{width:100%;height:100%;border-radius:50%;display:grid;place-items:center;text-align:center;
-  padding:8px 10px;cursor:pointer;font-family:var(--serif);font-weight:500;font-size:1rem;
-  line-height:1.15;color:var(--ink);
-  /* light brown glass: a white highlight into the gallery brown and a shade deeper at the rim */
-  background:radial-gradient(circle at 34% 28%,rgba(255,255,255,.85),rgba(233,221,203,.96) 42%,rgba(213,196,170,.98) 100%);
-  border:1px solid rgba(255,255,255,.85);
-  box-shadow:inset 0 0 18px rgba(255,255,255,.55),inset -10px -12px 24px rgba(4,34,61,.14),0 14px 30px rgba(4,34,61,.16);
-  animation:wwlBob var(--fd,6s) ease-in-out var(--fdelay,0s) infinite;
-  transition:background .25s ease,color .25s ease,box-shadow .25s ease}
-.wwl-item i{position:absolute;left:19%;top:13%;width:26%;height:18%;border-radius:50%;pointer-events:none;
-  background:radial-gradient(circle,rgba(255,255,255,.98),rgba(255,255,255,0) 70%)}
-.wwl-item{position:relative}
-.wwl-item:hover,.wwl-item:focus-visible{color:var(--navy);box-shadow:inset 0 0 18px rgba(255,255,255,.8),
-  inset -10px -12px 24px rgba(4,34,61,.12),0 18px 36px rgba(4,34,61,.24)}
-.wwl-item.on{color:#fff;
-  background:radial-gradient(circle at 34% 28%,rgba(255,255,255,.55),rgba(4,34,61,.92) 52%,rgba(4,34,61,1) 100%);
-  border-color:rgba(255,255,255,.85);
-  box-shadow:inset 0 0 14px rgba(255,255,255,.35),0 18px 36px rgba(4,34,61,.3)}
-@keyframes wwlBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
-.wwl-media{position:relative;aspect-ratio:4/3;border-radius:var(--r);overflow:hidden;
-  background:var(--cream-2);box-shadow:0 24px 60px rgba(36,36,36,.18)}
-.js .wwl-media{opacity:0;transform:translateY(26px) scale(.97);
-  transition:opacity .7s ease .25s,transform .85s cubic-bezier(.16,1,.3,1) .25s}
-.js .wwl-sec.surf .wwl-media{opacity:1;transform:none}
-.wwl-imgs img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s ease}
-.wwl-imgs img.on{opacity:1}
-.wwl-media::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
-  background:linear-gradient(180deg,rgba(4,34,61,0) 48%,rgba(4,34,61,.86) 100%)}
-.wwl-label{position:absolute;left:22px;bottom:18px;z-index:2;display:flex;align-items:baseline;gap:12px;color:#fff}
-.wwl-label .idx{font-family:var(--sans);font-weight:600;font-size:.8rem;letter-spacing:.16em;color:var(--sand-2)}
-.wwl-label .city{font-family:var(--serif);font-weight:400;font-size:2rem;line-height:1}
-.wwl-go{position:absolute;right:18px;bottom:18px;z-index:2;font-family:var(--sans);font-size:.76rem;
-  font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);background:#fff;
-  border-radius:999px;padding:10px 16px;text-decoration:none;transition:.2s ease}
-.wwl-go:hover,.wwl-go:focus-visible{background:var(--sand)}
-.wwl-cta{display:flex;gap:13px;flex-wrap:wrap;justify-content:center;margin-top:28px}
+.am-sec{background:var(--cream-2);padding-top:56px;padding-bottom:56px}
+.am-sec .eyeb{color:var(--navy)}
+#newsletter{padding:56px 0 48px}   /* the gap into the areas band was the two paddings added up */
+.am-grid{display:grid;grid-template-columns:minmax(0,1.14fr) minmax(0,.86fr);grid-template-areas:"map head" "map side";
+  gap:26px 48px;align-items:center}
+.am-head{grid-area:head;align-self:end;margin:0}
+.am-card{grid-area:map}
+.am-side{grid-area:side;align-self:start}
+.am-lede{margin:14px 0 0;max-width:46ch;font-size:1.02rem}
+/* the card: a pale tile, the map inset */
+.am-card{position:relative;background:#FBF8F3;border:1px solid rgba(199,178,154,.55);border-radius:var(--r);
+  padding:18px 18px 14px;box-shadow:0 24px 60px rgba(36,36,36,.16)}
+.am-prompt{display:flex;align-items:baseline;justify-content:space-between;gap:8px 18px;flex-wrap:wrap;margin:0 2px 12px}
+.am-prompt .eyeb{margin:0}
+.am-prompt strong{font-family:var(--serif);font-weight:500;font-size:1.05rem;color:var(--ink);letter-spacing:-.01em}
+.am-stage{position:relative}
+.am-map{display:block;width:100%;height:auto;aspect-ratio:1000/640;border-radius:14px;overflow:hidden}
+.am-zoom .am-map{aspect-ratio:770/470}   /* the script's phone viewBox */
+.am-water{fill:#CFE0EA}
+.am-waves path{fill:none;stroke:rgba(4,34,61,.16);stroke-width:2;stroke-linecap:round;animation:amWave 5s linear infinite}
+.am-waves path:nth-child(2){animation-duration:6.5s;animation-direction:reverse;stroke:rgba(4,34,61,.12)}
+.am-waves path:nth-child(3){animation-duration:7.5s}
+@keyframes amWave{to{transform:translateX(-60px)}}
+.am-river{fill:none;stroke:#CFE0EA;stroke-width:16;stroke-linecap:round}
+.am-wlabel{font-family:var(--serif);font-style:italic;font-size:19px;fill:rgba(4,34,61,.62);text-anchor:middle}
+.am-wlabel.am-small{font-size:16px}
+.am-wlabel.am-home{font-family:var(--sans);font-style:normal;font-weight:600;font-size:17px;fill:var(--navy);text-anchor:start}
+.am-pipe{fill:none;stroke:var(--navy);stroke-width:8;stroke-linecap:round;stroke-linejoin:round}
+.am-flow{fill:none;stroke:#BFDDF0;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;
+  stroke-dasharray:10 14;animation:amFlow 1.5s linear infinite}
+@keyframes amFlow{to{stroke-dashoffset:-24}}
+.am-ring{fill:none;stroke:var(--navy);stroke-width:2}
+.am-core{fill:var(--navy);stroke:#fff;stroke-width:3;transform-box:fill-box;transform-origin:center;transition:transform .25s ease}
+.am-dot.hot .am-core{transform:scale(1.4)}
+.am-drop{filter:drop-shadow(0 3px 4px rgba(4,34,61,.35))}
+/* labels over the map, real links; the pointer is a rotated square */
+.am-pin{position:absolute;left:var(--px);top:var(--py);z-index:2;transform:translate(-50%,calc(-100% - 15px));
+  display:inline-flex;align-items:center;gap:8px;padding:5px 12px 5px 6px;border-radius:999px;
+  background:#fff;color:var(--navy);text-decoration:none;font-family:var(--sans);font-size:.9rem;font-weight:600;
+  line-height:1;white-space:nowrap;border:1px solid rgba(4,34,61,.2);box-shadow:0 8px 20px rgba(4,34,61,.14);
+  transition:background .2s ease,color .2s ease,box-shadow .2s ease}
+.am-pin b{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;
+  font-size:.64rem;font-weight:700;letter-spacing:.04em;transition:background .2s ease,color .2s ease}
+.am-pin::after{content:"";position:absolute;left:50%;bottom:-6px;width:10px;height:10px;background:#fff;
+  border-right:1px solid rgba(4,34,61,.2);border-bottom:1px solid rgba(4,34,61,.2);transform:translateX(-50%) rotate(45deg);
+  transition:background .2s ease}
+.am-pin.am-r{transform:translate(16px,-50%)}
+.am-pin.am-r::after{left:-6px;bottom:auto;top:50%;transform:translateY(-50%) rotate(135deg)}
+.am-pin.am-l{transform:translate(calc(-100% - 16px),-50%)}
+.am-pin.am-l::after{left:auto;right:-6px;bottom:auto;top:50%;transform:translateY(-50%) rotate(-45deg)}
+.am-pin:hover,.am-pin.hot{background:var(--navy);color:#fff;border-color:var(--navy);box-shadow:0 12px 26px rgba(4,34,61,.3)}
+.am-pin:hover b,.am-pin.hot b{background:#fff;color:var(--navy)}
+.am-pin:hover::after,.am-pin.hot::after{background:var(--navy);border-color:var(--navy)}
+.am-note{display:flex;align-items:center;gap:8px;margin:12px 2px 0;font-size:.88rem;color:var(--body)}
+.am-note svg{flex:0 0 auto}
+/* the list: numeral, city, parish, arrow */
+.am-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.am-row{display:flex;align-items:center;gap:14px;padding:9px 16px 9px 10px;border-radius:16px;background:#fff;
+  border:1px solid rgba(199,178,154,.5);text-decoration:none;color:var(--ink);transition:.2s ease}
+.am-row b{flex:0 0 auto;display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--navy);
+  color:#fff;font-family:var(--sans);font-size:.72rem;font-weight:700;letter-spacing:.06em;transition:.2s ease}
+.am-txt{display:flex;flex-direction:column;gap:2px;min-width:0}
+.am-city{font-family:var(--serif);font-size:1.16rem;font-weight:500;line-height:1.1;letter-spacing:-.01em}
+.am-row small{font-family:var(--sans);font-size:.66rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--taupe);transition:.2s ease}
+.am-row i{margin-left:auto;font-style:normal;font-size:1.1rem;color:var(--navy);transition:.2s ease}
+.am-row:hover,.am-row:focus-visible,.am-row.hot{background:var(--navy);border-color:var(--navy);color:#fff;transform:translateX(4px)}
+.am-row:hover b,.am-row:focus-visible b,.am-row.hot b{background:#fff;color:var(--navy)}
+.am-row:hover small,.am-row:focus-visible small,.am-row.hot small{color:var(--sand-2)}
+.am-row:hover i,.am-row:focus-visible i,.am-row.hot i{color:#fff;transform:translateX(3px)}
+.am-cta{display:flex;gap:13px;flex-wrap:wrap;margin-top:22px}
 @media (max-width:900px){
-  .wwl{grid-template-columns:1fr;gap:26px}
-  .wwl-list{min-height:330px;height:330px}
-  .wwl-item{padding:8px;font-size:.88rem}
-  /* phones: three staggered rows, so no bubble drops under 95px */
-  .wwl-list li:nth-child(1){--x:2% !important;--y:2% !important;--s:30% !important}
-  .wwl-list li:nth-child(2){--x:37% !important;--y:7% !important;--s:28% !important}
-  .wwl-list li:nth-child(3){--x:70% !important;--y:2% !important;--s:30% !important}
-  .wwl-list li:nth-child(4){--x:18% !important;--y:34% !important;--s:28% !important}
-  .wwl-list li:nth-child(5){--x:52% !important;--y:35% !important;--s:30% !important}
-  .wwl-list li:nth-child(6){--x:4% !important;--y:64% !important;--s:30% !important}
-  .wwl-list li:nth-child(7){--x:68% !important;--y:64% !important;--s:29% !important}
-  .wwl-label .city{font-size:1.5rem}
+  .am-grid{grid-template-columns:1fr;grid-template-areas:"head" "map" "side";gap:24px}
+  .am-head{align-self:auto}
+}
+@media (max-width:700px){
+  /* phones: the labels become numbered dots on the markers; the list
+     carries the names */
+  .am-pin,.am-pin.am-r,.am-pin.am-l{padding:2px;gap:0;transform:translate(-50%,-50%)}
+  .am-pin span{display:none}
+  .am-pin::after{display:none}
+  .am-pin b{width:24px;height:24px;font-size:.66rem}
+  .am-wlabel{font-size:26px}
+  .am-wlabel.am-small{font-size:22px}
+  .am-wlabel.am-home{font-size:24px}
+  .am-pipe{stroke-width:9}
+  .am-flow{stroke-width:3.5}
+  .am-card{padding:14px 14px 12px}
+  .am-prompt strong{font-size:1rem}
+  .am-city{font-size:1.06rem}
 }
 @media (prefers-reduced-motion:reduce){
-  .wwl-bg video{transform:none!important;filter:none!important;transition:none!important}
-  .js .wwl-list li,.js .wwl-media{opacity:1!important;transform:none!important;transition:none!important}
-  .wwl-imgs img{transition:none!important}
-  .wwl-item{animation:none!important}
+  .am-waves path,.am-flow{animation:none!important}
+  .am-drop{display:none}
+  .am-core,.am-pin,.am-row,.am-row b,.am-row i{transition:none!important}
+  .am-row:hover,.am-row.hot{transform:none}
 }
 
 /* ============================================================
@@ -1630,45 +1649,101 @@ footer a:hover,footer a:focus-visible{color:#fff;text-decoration:underline;
 </section>
 
 <!-- ============ SERVICE AREAS ============ -->
-<!-- Pattern from the TurnKey mockup's "where we work": pick a city and the
-     photograph and label follow. Footage is the strip clip; photographs are
-     the client's own; the seven areas are the ones the client listed. -->
-<section class="wwl-sec" id="areas">
-  <div class="wwl-bg" aria-hidden="true">
-    <video class="sf-vid" muted loop playsinline preload="none" poster="assets/trust-bg.jpg"><source src="assets/trust-bg.mp4" type="video/mp4"></video>
-  </div>
-  <div class="wrap">
-    <div class="lead rv">
+<!-- The idea came from another mockup's coverage map (pins on a stylised
+     regional map, a vehicle running the routes). Here it is a bathroom:
+     the land is tiled, the lake and river are water, a navy pipe links the
+     seven areas with water flowing through it and a drop travelling the
+     route, and every marker ripples like a drop landing. Markers and the
+     list both open the live area pages; the list carries keyboard and
+     screen-reader access, the markers are for mouse and touch. On phones
+     the script zooms the map in on the seven markers and the labels become
+     numbered dots. Positions are not to scale. -->
+<section class="am-sec" id="areas">
+  <div class="wrap am-grid">
+    <div class="lead am-head rv">
       <p class="eyeb">Service areas</p>
       <h2>Serving <span class="kw">New Orleans</span> and the surrounding parishes</h2>
+      <p class="am-lede">Seven service areas on both sides of the lake, all reached from New Orleans. Pick your city on the map or in the list to open its page.</p>
     </div>
-    <div class="wwl" id="wwl">
-      <ul class="wwl-list" aria-label="Choose a service area">
-        <li style="--x:0.5%;--y:9%;--s:24%;--fd:6.2s;--fdelay:-1.1s"><button class="wwl-item on" type="button" aria-pressed="true" data-href="https://www.bigeasybathrooms.com/service-areas/abita-springs/"><i></i>Abita Springs</button></li>
-        <li style="--x:25.5%;--y:9%;--s:24%;--fd:7.1s;--fdelay:-3.4s"><button class="wwl-item" type="button" aria-pressed="false" data-href="https://www.bigeasybathrooms.com/service-areas/covington/"><i></i>Covington</button></li>
-        <li style="--x:50.5%;--y:9%;--s:24%;--fd:6.6s;--fdelay:-2.2s"><button class="wwl-item" type="button" aria-pressed="false" data-href="https://www.bigeasybathrooms.com/service-areas/hammond/"><i></i>Hammond</button></li>
-        <li style="--x:75.5%;--y:9%;--s:24%;--fd:7.4s;--fdelay:-0.6s"><button class="wwl-item" type="button" aria-pressed="false" data-href="https://www.bigeasybathrooms.com/service-areas/madisonville/"><i></i>Madisonville</button></li>
-        <li style="--x:3%;--y:49%;--s:31%;--fd:6.9s;--fdelay:-4.1s"><button class="wwl-item" type="button" aria-pressed="false" data-href="https://www.bigeasybathrooms.com/service-areas/mandeville/"><i></i>Mandeville</button></li>
-        <li style="--x:34.5%;--y:49%;--s:31%;--fd:7.8s;--fdelay:-2.9s"><button class="wwl-item" type="button" aria-pressed="false" data-href="https://www.bigeasybathrooms.com/service-areas/metairie/"><i></i>Metairie</button></li>
-        <li style="--x:66%;--y:49%;--s:31%;--fd:6.4s;--fdelay:-1.7s"><button class="wwl-item" type="button" aria-pressed="false" data-href="https://www.bigeasybathrooms.com/service-areas/slidell/"><i></i>Slidell</button></li>
-      </ul>
-      <div class="wwl-media">
-        <div class="wwl-imgs">
-          <img class="on" src="assets/walk-in-showers.jpg" alt="" loading="lazy">
-          <img src="assets/barrier-free-shower.jpg" alt="" loading="lazy">
-          <img src="assets/shower-enclosure.jpg" alt="" loading="lazy">
-          <img src="assets/acrylic-bathtub.jpg" alt="" loading="lazy">
-          <img src="assets/modern-bathroom.jpg" alt="" loading="lazy">
-          <img src="assets/hero-1.jpg" alt="" loading="lazy">
-          <img src="assets/services-feature.jpg" alt="" loading="lazy">
-        </div>
-        <div class="wwl-label"><span class="idx">01</span><span class="city">Abita Springs</span></div>
-        <a class="wwl-go" href="https://www.bigeasybathrooms.com/service-areas/abita-springs/" target="_blank" rel="noopener">View page &rarr;</a>
+    <div class="am-card rv" id="amCard">
+      <div class="am-prompt"><span class="eyeb">Coverage map</span><strong>Tap a city to open its page</strong></div>
+      <div class="am-stage">
+        <svg class="am-map" id="amMap" viewBox="0 0 1000 640" aria-hidden="true" focusable="false">
+          <defs>
+            <pattern id="amTile" width="28" height="28" patternUnits="userSpaceOnUse">
+              <rect width="28" height="28" fill="#E8DCCB"></rect>
+              <path d="M0 28V0H28" fill="none" stroke="#F5EEE3" stroke-width="2.5"></path>
+            </pattern>
+            <clipPath id="amClip"><rect x="-200" y="-200" width="1400" height="1040"></rect></clipPath>
+            <clipPath id="amLake"><ellipse cx="560" cy="330" rx="290" ry="88"></ellipse></clipPath>
+            <linearGradient id="amDropFill" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#6E9CC2"></stop><stop offset="1" stop-color="#04223D"></stop>
+            </linearGradient>
+          </defs>
+          <g clip-path="url(#amClip)">
+            <rect class="am-land" x="-200" y="-200" width="1400" height="1040" fill="url(#amTile)"></rect>
+            <!-- Lake Pontchartrain, with three wave lines drifting across it -->
+            <ellipse class="am-water" cx="560" cy="330" rx="290" ry="88"></ellipse>
+            <g class="am-waves" clip-path="url(#amLake)">
+              <path d="M 240 306 q 15 -6 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0"></path>
+              <path d="M 240 331 q 15 -7 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0"></path>
+              <path d="M 240 356 q 15 -6 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0 t 30 0"></path>
+            </g>
+            <text class="am-wlabel" x="660" y="336">Lake Pontchartrain</text>
+            <!-- the river, south of the city -->
+            <path class="am-river" d="M -10 505 C 150 480 300 565 460 548 C 560 537 600 512 660 528 C 740 550 830 605 1010 565"></path>
+            <text class="am-wlabel am-small" x="300" y="590">Mississippi River</text>
+            <!-- the gulf -->
+            <path class="am-water" d="M 0 640 L 0 606 Q 500 646 1000 606 L 1000 640 Z" opacity=".75"></path>
+            <!-- the pipe: New Orleans out to Metairie, across the lake to
+                 Mandeville, then along the Northshore; a branch to Abita
+                 Springs and Slidell. Water flows outward from the city. -->
+            <path id="amRoute" class="am-pipe" d="M 640 485 L 500 470 L 542 222 L 425 232 L 455 110 L 215 150"></path>
+            <path class="am-pipe" d="M 542 222 L 600 120 L 860 266"></path>
+            <path class="am-flow" d="M 640 485 L 500 470 L 542 222 L 425 232 L 455 110 L 215 150"></path>
+            <path class="am-flow" d="M 542 222 L 600 120 L 860 266" style="animation-delay:-.7s"></path>
+            <!-- markers: a ripple, then the fitting -->
+            <g class="am-dot" data-k="abita-springs" transform="translate(600 120)"><circle class="am-ring" r="9"><animate attributeName="r" values="9;32" dur="2.8s" begin="0s" repeatCount="indefinite"></animate><animate attributeName="opacity" values=".6;0" dur="2.8s" begin="0s" repeatCount="indefinite"></animate></circle><circle class="am-core" r="9"></circle></g>
+            <g class="am-dot" data-k="covington" transform="translate(455 110)"><circle class="am-ring" r="9"><animate attributeName="r" values="9;32" dur="2.8s" begin=".4s" repeatCount="indefinite"></animate><animate attributeName="opacity" values=".6;0" dur="2.8s" begin=".4s" repeatCount="indefinite"></animate></circle><circle class="am-core" r="9"></circle></g>
+            <g class="am-dot" data-k="hammond" transform="translate(215 150)"><circle class="am-ring" r="9"><animate attributeName="r" values="9;32" dur="2.8s" begin=".8s" repeatCount="indefinite"></animate><animate attributeName="opacity" values=".6;0" dur="2.8s" begin=".8s" repeatCount="indefinite"></animate></circle><circle class="am-core" r="9"></circle></g>
+            <g class="am-dot" data-k="madisonville" transform="translate(425 232)"><circle class="am-ring" r="9"><animate attributeName="r" values="9;32" dur="2.8s" begin="1.2s" repeatCount="indefinite"></animate><animate attributeName="opacity" values=".6;0" dur="2.8s" begin="1.2s" repeatCount="indefinite"></animate></circle><circle class="am-core" r="9"></circle></g>
+            <g class="am-dot" data-k="mandeville" transform="translate(542 222)"><circle class="am-ring" r="9"><animate attributeName="r" values="9;32" dur="2.8s" begin="1.6s" repeatCount="indefinite"></animate><animate attributeName="opacity" values=".6;0" dur="2.8s" begin="1.6s" repeatCount="indefinite"></animate></circle><circle class="am-core" r="9"></circle></g>
+            <g class="am-dot" data-k="metairie" transform="translate(500 470)"><circle class="am-ring" r="9"><animate attributeName="r" values="9;32" dur="2.8s" begin="2s" repeatCount="indefinite"></animate><animate attributeName="opacity" values=".6;0" dur="2.8s" begin="2s" repeatCount="indefinite"></animate></circle><circle class="am-core" r="9"></circle></g>
+            <g class="am-dot" data-k="slidell" transform="translate(860 266)"><circle class="am-ring" r="9"><animate attributeName="r" values="9;32" dur="2.8s" begin="2.4s" repeatCount="indefinite"></animate><animate attributeName="opacity" values=".6;0" dur="2.8s" begin="2.4s" repeatCount="indefinite"></animate></circle><circle class="am-core" r="9"></circle></g>
+            <!-- New Orleans, where the water starts -->
+            <g transform="translate(640 485)"><circle r="7" fill="#04223D" stroke="#fff" stroke-width="3"></circle><text class="am-wlabel am-home" x="16" y="6">New Orleans</text></g>
+            <!-- a drop travels the route out and back -->
+            <g class="am-drop">
+              <path d="M0 -14 C 6.5 -4.5 9.5 0.5 9.5 5 A 9.5 9.5 0 1 1 -9.5 5 C -9.5 0.5 -6.5 -4.5 0 -14 Z" fill="url(#amDropFill)" stroke="#fff" stroke-width="1.5"></path>
+              <circle cx="-3.4" cy="2.4" r="2.2" fill="#fff" opacity=".85"></circle>
+              <animateMotion dur="18s" repeatCount="indefinite" keyPoints="0;1;0" keyTimes="0;.5;1" calcMode="linear"><mpath href="#amRoute"></mpath></animateMotion>
+            </g>
+          </g>
+        </svg>
+        <a class="am-pin am-r" style="--px:60%;--py:18.75%" data-k="abita-springs" data-x="600" data-y="120" href="https://www.bigeasybathrooms.com/service-areas/abita-springs/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><b>01</b><span>Abita Springs</span></a>
+        <a class="am-pin" style="--px:45.5%;--py:17.19%" data-k="covington" data-x="455" data-y="110" href="https://www.bigeasybathrooms.com/service-areas/covington/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><b>02</b><span>Covington</span></a>
+        <a class="am-pin" style="--px:21.5%;--py:23.44%" data-k="hammond" data-x="215" data-y="150" href="https://www.bigeasybathrooms.com/service-areas/hammond/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><b>03</b><span>Hammond</span></a>
+        <a class="am-pin am-l" style="--px:42.5%;--py:36.25%" data-k="madisonville" data-x="425" data-y="232" href="https://www.bigeasybathrooms.com/service-areas/madisonville/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><b>04</b><span>Madisonville</span></a>
+        <a class="am-pin am-r" style="--px:54.2%;--py:34.69%" data-k="mandeville" data-x="542" data-y="222" href="https://www.bigeasybathrooms.com/service-areas/mandeville/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><b>05</b><span>Mandeville</span></a>
+        <a class="am-pin am-l" style="--px:50%;--py:73.44%" data-k="metairie" data-x="500" data-y="470" href="https://www.bigeasybathrooms.com/service-areas/metairie/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><b>06</b><span>Metairie</span></a>
+        <a class="am-pin" style="--px:86%;--py:41.56%" data-k="slidell" data-x="860" data-y="266" href="https://www.bigeasybathrooms.com/service-areas/slidell/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><b>07</b><span>Slidell</span></a>
       </div>
+      <p class="am-note"><svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true" focusable="false"><path d="M10 1.5 C 13 6 16 9 16 12.5 A 6 6 0 0 1 4 12.5 C 4 9 7 6 10 1.5 Z" fill="#04223D"></path></svg>Free estimates in all seven areas.</p>
     </div>
-    <div class="wwl-cta">
-      <a class="btn btn-p" href="https://www.bigeasybathrooms.com/contact/" target="_blank" rel="noopener">Get a Free Quote</a>
-      <a class="btn btn-s" href="tel:+15046887786">Call 504-688-7786</a>
+    <div class="am-side rv">
+      <ol class="am-list" aria-label="Service areas">
+        <li><a class="am-row" data-k="abita-springs" href="https://www.bigeasybathrooms.com/service-areas/abita-springs/" target="_blank" rel="noopener"><b>01</b><span class="am-txt"><span class="am-city">Abita Springs</span><small>St. Tammany Parish</small></span><i aria-hidden="true">&rarr;</i></a></li>
+        <li><a class="am-row" data-k="covington" href="https://www.bigeasybathrooms.com/service-areas/covington/" target="_blank" rel="noopener"><b>02</b><span class="am-txt"><span class="am-city">Covington</span><small>St. Tammany Parish</small></span><i aria-hidden="true">&rarr;</i></a></li>
+        <li><a class="am-row" data-k="hammond" href="https://www.bigeasybathrooms.com/service-areas/hammond/" target="_blank" rel="noopener"><b>03</b><span class="am-txt"><span class="am-city">Hammond</span><small>Tangipahoa Parish</small></span><i aria-hidden="true">&rarr;</i></a></li>
+        <li><a class="am-row" data-k="madisonville" href="https://www.bigeasybathrooms.com/service-areas/madisonville/" target="_blank" rel="noopener"><b>04</b><span class="am-txt"><span class="am-city">Madisonville</span><small>St. Tammany Parish</small></span><i aria-hidden="true">&rarr;</i></a></li>
+        <li><a class="am-row" data-k="mandeville" href="https://www.bigeasybathrooms.com/service-areas/mandeville/" target="_blank" rel="noopener"><b>05</b><span class="am-txt"><span class="am-city">Mandeville</span><small>St. Tammany Parish</small></span><i aria-hidden="true">&rarr;</i></a></li>
+        <li><a class="am-row" data-k="metairie" href="https://www.bigeasybathrooms.com/service-areas/metairie/" target="_blank" rel="noopener"><b>06</b><span class="am-txt"><span class="am-city">Metairie</span><small>Jefferson Parish</small></span><i aria-hidden="true">&rarr;</i></a></li>
+        <li><a class="am-row" data-k="slidell" href="https://www.bigeasybathrooms.com/service-areas/slidell/" target="_blank" rel="noopener"><b>07</b><span class="am-txt"><span class="am-city">Slidell</span><small>St. Tammany Parish</small></span><i aria-hidden="true">&rarr;</i></a></li>
+      </ol>
+      <div class="am-cta">
+        <a class="btn btn-p" href="https://www.bigeasybathrooms.com/contact/" target="_blank" rel="noopener">Get a Free Quote</a>
+        <a class="btn btn-s" href="tel:+15046887786">Call 504-688-7786</a>
+      </div>
     </div>
   </div>
 </section>
@@ -2232,37 +2307,49 @@ if (document.getElementById("intro")) {
   io.observe(v);
 })();
 
-/* ---- service areas: a city picks its photograph, label and link; the
-   section surfaces (footage sharpens, list slides in) once on scroll-in ---- */
+/* ---- service areas: a map marker and its list row light each other up;
+   phones zoom the map in on the seven markers (the labels are placed from
+   the markers' map coordinates, so they follow); the ripples and the
+   travelling drop (SMIL) pause under reduced motion ---- */
 (function(){
   var sec = document.getElementById("areas");
   if (!sec) return;
-  var items = [].slice.call(sec.querySelectorAll(".wwl-item"));
-  var imgs  = [].slice.call(sec.querySelectorAll(".wwl-imgs img"));
-  var idx = sec.querySelector(".wwl-label .idx"), city = sec.querySelector(".wwl-label .city");
-  var go  = sec.querySelector(".wwl-go");
-  function pick(k){
-    for (var i = 0; i < items.length; i++) {
-      items[i].classList.toggle("on", i === k);
-      items[i].setAttribute("aria-pressed", i === k ? "true" : "false");
-      if (imgs[i]) { imgs[i].classList.toggle("on", i === k); }
+  var els = [].slice.call(sec.querySelectorAll("[data-k]"));
+  function set(k, on){
+    for (var i = 0; i < els.length; i++) {
+      if (els[i].getAttribute("data-k") === k) { els[i].classList.toggle("hot", on); }
     }
-    idx.textContent = (k < 9 ? "0" : "") + (k + 1);
-    city.textContent = items[k].textContent;
-    go.href = items[k].getAttribute("data-href");
   }
-  items.forEach(function(b, i){
-    b.addEventListener("click", function(){ pick(i); });
-    b.addEventListener("mouseenter", function(){ pick(i); });
+  els.forEach(function(e){
+    var k = e.getAttribute("data-k");
+    e.addEventListener("mouseenter", function(){ set(k, true); });
+    e.addEventListener("mouseleave", function(){ set(k, false); });
+    e.addEventListener("focus", function(){ set(k, true); });
+    e.addEventListener("blur", function(){ set(k, false); });
   });
-  var done = false;
-  function surface(){ if (done) return; done = true; sec.classList.add("surf"); }
-  if (!("IntersectionObserver" in window)) { surface(); return; }
-  var io = new IntersectionObserver(function(en){
-    en.forEach(function(e){ if (e.isIntersecting) { surface(); io.disconnect(); } });
-  }, {threshold: .2});
-  io.observe(sec);
-  setTimeout(function(){ if (sec.getBoundingClientRect().top < window.innerHeight) { surface(); } }, 3000);
+  var svg = document.getElementById("amMap"), card = document.getElementById("amCard");
+  var pins = [].slice.call(sec.querySelectorAll(".am-pin"));
+  var FULL = [0, 0, 1000, 640], ZOOM = [140, 55, 770, 470];
+  function phone(){
+    try { return window.matchMedia && window.matchMedia("(max-width:700px)").matches; } catch (e) { return false; }
+  }
+  function place(){
+    if (!svg) return;
+    var vb = phone() ? ZOOM : FULL;
+    svg.setAttribute("viewBox", vb.join(" "));
+    card.classList.toggle("am-zoom", vb === ZOOM);
+    for (var i = 0; i < pins.length; i++) {
+      var x = parseFloat(pins[i].getAttribute("data-x")), y = parseFloat(pins[i].getAttribute("data-y"));
+      pins[i].style.setProperty("--px", ((x - vb[0]) / vb[2] * 100).toFixed(2) + "%");
+      pins[i].style.setProperty("--py", ((y - vb[1]) / vb[3] * 100).toFixed(2) + "%");
+    }
+  }
+  place();
+  var t;
+  window.addEventListener("resize", function(){ clearTimeout(t); t = setTimeout(place, 120); });
+  var reduce = false;
+  try { reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion:reduce)").matches; } catch (e) {}
+  if (svg && reduce && svg.pauseAnimations) { try { svg.pauseAnimations(); } catch (e) {} }
 })();
 
 /* ---- FAQ: every question in the rail; the chosen one reads large in the
